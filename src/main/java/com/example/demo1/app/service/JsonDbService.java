@@ -57,6 +57,21 @@ public class JsonDbService {
         return true;
     }
 
+    public boolean updateUser(User updatedUser) throws IOException {
+        List<User> users = loadUsers();
+        for (int i = 0; i < users.size(); i++) {
+            User existing = users.get(i);
+            if (existing.getUsername() != null
+                    && updatedUser.getUsername() != null
+                    && existing.getUsername().equalsIgnoreCase(updatedUser.getUsername())) {
+                users.set(i, updatedUser);
+                saveUsers(users);
+                return true;
+            }
+        }
+        return false;
+    }
+
     public User loginUser(String input, String rawPassword) throws IOException {
         List<User> users = loadUsers();
         String hashedPassword = hashPassword(rawPassword);
