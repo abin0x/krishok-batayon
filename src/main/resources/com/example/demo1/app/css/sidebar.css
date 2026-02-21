@@ -1,0 +1,41 @@
+.sidebar-scroll {
+    -fx-background-color: white;
+    -fx-border-color: #e5e7eb;
+    -fx-border-width: 0 1 0 0;
+    -fx-min-width: 230px;
+    -fx-max-width: 230px;
+}
+
+.sidebar-scroll > .viewport {
+    -fx-background-color: white;
+}
+
+.sidebar-root {
+    -fx-background-color: white;
+    -fx-padding: 20 10;
+}
+
+.sidebar-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #374151;
+    -fx-font-size: 13px;
+    -fx-font-weight: 500;
+    -fx-font-family: "Noto Sans Bengali", "Nirmala UI", "SolaimanLipi", "Kalpurush", "Segoe UI", "Arial";
+    -fx-padding: 11 12;
+    -fx-alignment: CENTER_LEFT;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-min-width: 208px;
+    -fx-max-width: Infinity;
+    -fx-wrap-text: true;
+}
+
+.sidebar-button:hover {
+    -fx-background-color: #f3f4f6;
+}
+
+.sidebar-button.active {
+    -fx-background-color: #e8f5e9;
+    -fx-text-fill: #16a34a;
+    -fx-font-weight: bold;
+}

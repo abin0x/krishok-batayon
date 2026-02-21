@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.demo1.app.ui.ProfileController"
+      spacing="16"
+      styleClass="content-page">
+
+    <padding><Insets top="30" right="30" bottom="30" left="30"/></padding>
+
+    <Label styleClass="content-title" text="👤 প্রোফাইল / User Profile"/>
+    <Label styleClass="content-subtitle" text="ব্যক্তিগত তথ্য এবং অ্যাকাউন্ট স্ট্যাটাস / Personal account details"/>
+
+    <VBox styleClass="content-card" spacing="10">
+        <Label styleClass="content-card-title" text="প্রোফাইল হেডার / Profile Header"/>
+        <Label fx:id="lblUsernameInitial" styleClass="content-card-text" text="A"/>
+        <Button text="ছবি আপলোড / Upload Picture" onAction="#handleUploadPicture" styleClass="create-btn"/>
+    </VBox>
+
+    <VBox styleClass="content-card" spacing="10">
+        <Label styleClass="content-card-title" text="ব্যক্তিগত তথ্য / Personal Information"/>
+        <GridPane hgap="10" vgap="10">
+            <columnConstraints>
+                <ColumnConstraints percentWidth="30"/>
+                <ColumnConstraints percentWidth="70"/>
+            </columnConstraints>
+
+            <Label text="নাম / Name" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <TextField fx:id="txtName" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+            <Label text="মোবাইল / Mobile" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <TextField fx:id="txtMobile" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+            <Label text="ইমেইল / Email" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+            <TextField fx:id="txtEmail" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+            <Label text="ইউজারনেম / Username" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+            <TextField fx:id="txtUsername" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+        </GridPane>
+    </VBox>
+
+    <Button text="লগআউট / Logout" onAction="#handleLogout" styleClass="warning-btn" maxWidth="220"/>
+</VBox>

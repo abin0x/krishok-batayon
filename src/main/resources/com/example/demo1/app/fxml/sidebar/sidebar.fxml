@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane fitToWidth="true"
+            hbarPolicy="NEVER"
+            vbarPolicy="AS_NEEDED"
+            styleClass="sidebar-scroll"
+            stylesheets="@../../css/sidebar.css"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.demo1.app.ui.sidebar.SidebarController">
+
+    <content>
+        <VBox styleClass="sidebar-root" spacing="5">
+            <padding>
+                <Insets top="20" right="10" bottom="20" left="10"/>
+            </padding>
+
+            <Button fx:id="btnHome" text="Home" styleClass="sidebar-button" onAction="#handleNavigation"/>
+            <Button fx:id="btnAdvisory" text="Advisory" styleClass="sidebar-button" onAction="#handleNavigation"/>
+            <Button fx:id="btnStorage" text="Storage" styleClass="sidebar-button" onAction="#handleNavigation"/>
+            <Button fx:id="btnLocalManagement" text="Local Management" styleClass="sidebar-button" onAction="#handleNavigation"/>
+            <Button fx:id="btnMachinery" text="Machinery" styleClass="sidebar-button" onAction="#handleNavigation"/>
+            <Button fx:id="btnFarmManagement" text="Farm Management" styleClass="sidebar-button" onAction="#handleNavigation"/>
+            <Button fx:id="btnSmartDiagnostic" text="Smart Diagnostic" styleClass="sidebar-button" onAction="#handleNavigation"/>
+            <Button fx:id="btnDigitalHat" text="Digital Hat" styleClass="sidebar-button" onAction="#handleNavigation"/>
+            <Button fx:id="btnCropInsurance" text="Crop Insurance" styleClass="sidebar-button" onAction="#handleNavigation"/>
+            <Button fx:id="btnMarketFinance" text="Market &amp; Finance" styleClass="sidebar-button" onAction="#handleNavigation"/>
+            <Button fx:id="btnGovtSchemes" text="Govt Schemes" styleClass="sidebar-button" onAction="#handleNavigation"/>
+            <Button fx:id="btnExpertChat" text="Expert Chat" styleClass="sidebar-button" onAction="#handleNavigation"/>
+            <Button fx:id="btnLearningHub" text="Learning Hub" styleClass="sidebar-button" onAction="#handleNavigation"/>
+            <Button fx:id="btnEmergencyHelp" text="Emergency Help" styleClass="sidebar-button" onAction="#handleNavigation"/>
+            <Button fx:id="btnProfile" text="Profile" styleClass="sidebar-button" onAction="#handleNavigation"/>
+        </VBox>
+    </content>
+</ScrollPane>

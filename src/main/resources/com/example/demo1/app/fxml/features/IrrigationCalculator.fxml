@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="900" prefWidth="1400" styleClass="root" stylesheets="@../../css/IrrigationCalculator.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.app.ui.IrrigationCalculatorController">
+    <!-- Top Navigation Bar -->    <top>
+        <fx:include source="../layout/topbar.fxml"/>
+    </top>
+
+    <!-- Left Sidebar -->    <left>
+        <fx:include source="../sidebar/sidebar.fxml"/>
+    </left>
+
+    <!-- Main Content Area -->
+    <center>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" pannable="true" styleClass="content-scroll" vbarPolicy="ALWAYS">
+            <VBox spacing="25" styleClass="main-content">
+                <padding>
+                    <Insets bottom="30" left="30" right="30" top="30" />
+                </padding>
+                <VBox spacing="10" styleClass="page-header" stylesheets="@../../css/CropAdvisory.css">
+                    <HBox alignment="CENTER_LEFT" spacing="10" stylesheets="@../../css/CropAdvisory.css">
+                        <Label styleClass="page-title" text="Ã Â¦Â«Ã Â¦Â¸Ã Â¦Â² Ã Â¦ÂªÃ Â¦Â°Ã Â¦Â¿Ã Â¦â€¢Ã Â¦Â²Ã Â§ÂÃ Â¦ÂªÃ Â¦Â¨Ã Â¦Â¾ Ã Â¦â€œ Ã Â¦ÂªÃ Â¦Â°Ã Â¦Â¾Ã Â¦Â®Ã Â¦Â°Ã Â§ÂÃ Â¦Â¶ Ã°Å¸â€œÅ " />
+                    </HBox>
+                    <Label styleClass="page-subtitle" text="Ã Â¦Â¬Ã Â§Ë†Ã Â¦Å“Ã Â§ÂÃ Â¦Å¾Ã Â¦Â¾Ã Â¦Â¨Ã Â¦Â¿Ã Â¦â€¢ Ã Â¦ÂªÃ Â¦Â¦Ã Â§ÂÃ Â¦Â§Ã Â¦Â¾Ã Â¦Â¤Ã Â¦Â¿Ã Â¦Â¤Ã Â§â€¡ Ã Â¦â€ Ã Â¦ÂªÃ Â¦Â¨Ã Â¦Â¾Ã Â¦Â° Ã Â¦Â«Ã Â¦Â¸Ã Â¦Â²Ã Â§â€¡Ã Â¦Â° Ã Â¦ÂªÃ Â¦Â°Ã Â¦Â¿Ã Â¦Å¡Ã Â¦Â°Ã Â§ÂÃ Â¦Â¯Ã Â¦Â¾ Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨" />
+                </VBox>
+
+                <!-- Filter Buttons -->
+                <HBox alignment="CENTER" prefHeight="46.0" prefWidth="970.0" spacing="180.0" stylesheets="@../../css/CropAdvisory.css">
+                    <Button fx:id="btnGuide" styleClass="filter-btn" text="Ã°Å¸â€œâ€¦ Ã Â¦Â¶Ã Â¦Â¸Ã Â§ÂÃ Â¦Â¯ Ã Â¦â€¢Ã Â§ÂÃ Â¦Â¯Ã Â¦Â¾Ã Â¦Â²Ã Â§â€¡Ã Â¦Â¨Ã Â§ÂÃ Â¦Â¡Ã Â¦Â¾Ã Â¦Â°" />
+                    <Button fx:id="btnFertilizer" styleClass="filter-btn" text="Ã°Å¸Å’Â¾ Ã Â¦Â¸Ã Â¦Â¾Ã Â¦Â°" />
+                    <Button fx:id="btnIrrigation" text="Ã°Å¸â€Â¬ Ã Â¦Â¸Ã Â§â€¡Ã Â¦Å¡">
+                        <styleClass>
+                            <String fx:value="filter-btn-active" />
+                            <String fx:value="filter-btn" />
+                        </styleClass>
+                    </Button>
+                    <Button fx:id="btnCropRotation" styleClass="filter-btn" text="Ã¢â„¢Â» Ã Â¦Â«Ã Â¦Â¸Ã Â¦Â² Ã Â¦Å¡Ã Â¦â€¢Ã Â§ÂÃ Â¦Â°" />
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </HBox>
+
+                <!-- Page Header -->
+                <VBox spacing="10" styleClass="page-header-irrigation">
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Label styleClass="page-title" text="Ã Â¦Â¸Ã Â§â€¡Ã Â¦Å¡ Ã Â¦â€¢Ã Â§ÂÃ Â¦Â¯Ã Â¦Â¾Ã Â¦Â²Ã Â¦â€¢Ã Â§ÂÃ Â¦Â²Ã Â§â€¡Ã Â¦Å¸Ã Â¦Â° Ã°Å¸â€™Â§" />
+                    </HBox>
+                    <Label styleClass="page-subtitle" text="Ã Â¦â€ Ã Â¦ÂªÃ Â¦Â¨Ã Â¦Â¾Ã Â¦Â° Ã Â¦Â«Ã Â¦Â¸Ã Â¦Â²Ã Â§â€¡Ã Â¦Â° Ã Â¦Å“Ã Â¦Â¨Ã Â§ÂÃ Â¦Â¯ Ã Â¦Â¸Ã Â¦Â Ã Â¦Â¿Ã Â¦â€¢ Ã Â¦Â¸Ã Â§â€¡Ã Â¦Å¡ Ã Â¦ÂªÃ Â¦Â°Ã Â¦Â¿Ã Â¦Â®Ã Â¦Â¾Ã Â¦Â£ Ã Â¦ÂÃ Â¦Â¬Ã Â¦â€š Ã Â¦Â¸Ã Â¦Â®Ã Â¦Â¯Ã Â¦Â¼Ã Â¦Â¸Ã Â§â€šÃ Â¦Å¡Ã Â¦Â¿ Ã Â¦Â¨Ã Â¦Â¿Ã Â¦Â°Ã Â§ÂÃ Â¦Â§Ã Â¦Â¾Ã Â¦Â°Ã Â¦Â£ Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨" />
+                </VBox>
+
+                <!-- Main Calculator Container -->
+                <HBox alignment="TOP_LEFT" spacing="20">
+                    <!-- Left Side: Input Form -->
+                    <VBox prefWidth="550" spacing="20" styleClass="irrigation-input-section" stylesheets="@../../css/FertilizerCalculator.css" HBox.hgrow="ALWAYS">
+                        <padding>
+                            <Insets bottom="30" left="30" right="30" top="30" />
+                        </padding>
+
+                        <Label styleClass="section-heading-numbered-blue" text="Ã Â§Â§. Ã Â¦Â«Ã Â¦Â¸Ã Â¦Â² Ã Â¦â€œ Ã Â¦Å“Ã Â¦Â®Ã Â¦Â¿Ã Â¦Â° Ã Â¦Â¤Ã Â¦Â¥Ã Â§ÂÃ Â¦Â¯" />
+                        <VBox spacing="8">
+                            <Label styleClass="input-label-required" text="Ã Â¦Â«Ã Â¦Â¸Ã Â¦Â² Ã Â¦Â¨Ã Â¦Â¿Ã Â¦Â°Ã Â§ÂÃ Â¦Â¬Ã Â¦Â¾Ã Â¦Å¡Ã Â¦Â¨ Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨ *" />
+                            <ComboBox fx:id="cropComboBox" maxWidth="Infinity" promptText="Ã Â¦Â«Ã Â¦Â¸Ã Â¦Â² Ã Â¦Â¬Ã Â§â€¡Ã Â¦â€ºÃ Â§â€¡ Ã Â¦Â¨Ã Â¦Â¿Ã Â¦Â¨" styleClass="input-field" stylesheets="@../../css/FertilizerCalculator.css" />
+                        </VBox>
+                        <VBox spacing="8">
+                            <Label styleClass="input-label" text="Ã Â¦Å“Ã Â¦Â¾Ã Â¦Â¤ (Variety)" />
+                            <ComboBox fx:id="varietyComboBox" maxWidth="Infinity" promptText="Ã Â¦Å“Ã Â¦Â¾Ã Â¦Â¤ Ã Â¦Â¨Ã Â¦Â¿Ã Â¦Â°Ã Â§ÂÃ Â¦Â¬Ã Â¦Â¾Ã Â¦Å¡Ã Â¦Â¨ Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨" styleClass="input-field" />
+                        </VBox>
+                        <VBox spacing="8">
+                            <Label styleClass="input-label" text="Ã Â¦Â«Ã Â¦Â¸Ã Â¦Â²Ã Â§â€¡Ã Â¦Â° Ã Â¦Â¬Ã Â¦Â¯Ã Â¦Â¼Ã Â¦Â¸ (Ã Â¦Â¦Ã Â¦Â¿Ã Â¦Â¨)" />
+                            <TextField fx:id="cropAgeField" promptText="Ã Â¦â€°Ã Â¦Â¦Ã Â¦Â¾Ã Â¦Â¹Ã Â¦Â°Ã Â¦Â£: 45" styleClass="input-field" />
+                        </VBox>
+                        <VBox spacing="8">
+                            <Label styleClass="input-label" text="Ã Â¦Â¬Ã Â§Æ’Ã Â¦Â¦Ã Â§ÂÃ Â¦Â§Ã Â¦Â¿Ã Â¦Â° Ã Â¦ÂªÃ Â¦Â°Ã Â§ÂÃ Â¦Â¯Ã Â¦Â¾Ã Â¦Â¯Ã Â¦Â¼" />
+                            <ComboBox fx:id="growthStageComboBox" maxWidth="Infinity" promptText="Ã Â¦ÂªÃ Â¦Â°Ã Â§ÂÃ Â¦Â¯Ã Â¦Â¾Ã Â¦Â¯Ã Â¦Â¼ Ã Â¦Â¨Ã Â¦Â¿Ã Â¦Â°Ã Â§ÂÃ Â¦Â¬Ã Â¦Â¾Ã Â¦Å¡Ã Â¦Â¨ Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨" styleClass="input-field" />
+                        </VBox>
+                        <VBox spacing="8">
+                            <Label styleClass="input-label" text="Ã Â¦Å¡Ã Â¦Â¾Ã Â¦Â· Ã Â¦ÂªÃ Â¦Â¦Ã Â§ÂÃ Â¦Â§Ã Â¦Â¤Ã Â¦Â¿" />
+                            <ComboBox fx:id="farmingMethodComboBox" maxWidth="Infinity" promptText="Ã Â¦ÂªÃ Â¦Â¦Ã Â§ÂÃ Â¦Â§Ã Â¦Â¤Ã Â¦Â¿ Ã Â¦Â¨Ã Â¦Â¿Ã Â¦Â°Ã Â§ÂÃ Â¦Â¬Ã Â¦Â¾Ã Â¦Å¡Ã Â¦Â¨ Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨" styleClass="input-field" />
+                        </VBox>
+                        <VBox spacing="8">
+                            <Label styleClass="input-label-required" text="Ã Â¦Å“Ã Â¦Â®Ã Â¦Â¿Ã Â¦Â° Ã Â¦ÂªÃ Â¦Â°Ã Â¦Â¿Ã Â¦Â®Ã Â¦Â¾Ã Â¦Â£ *" />
+                            <HBox spacing="10">
+                                <TextField fx:id="landAreaField" promptText="Ã Â¦â€°Ã Â¦Â¦Ã Â¦Â¾Ã Â¦Â¹Ã Â¦Â°Ã Â¦Â£: 3" styleClass="input-field" HBox.hgrow="ALWAYS" />
+                                <ComboBox fx:id="unitComboBox" prefWidth="120" styleClass="input-field-small" />
+                            </HBox>
+                        </VBox>
+
+                        <Separator styleClass="section-separator" />
+                        <Label styleClass="section-heading-numbered-blue" text="Ã Â§Â¨. Ã Â¦Â®Ã Â¦Â¾Ã Â¦Å¸Ã Â¦Â¿ Ã Â¦â€œ Ã Â¦â€ Ã Â¦Â¬Ã Â¦Â¹Ã Â¦Â¾Ã Â¦â€œÃ Â¦Â¯Ã Â¦Â¼Ã Â¦Â¾" />
+
+                        <VBox spacing="8">
+                            <Label styleClass="input-label-required" text="Ã Â¦Â®Ã Â¦Â¾Ã Â¦Å¸Ã Â¦Â¿Ã Â¦Â° Ã Â¦Â§Ã Â¦Â°Ã Â¦Â¨ *" />
+                            <ComboBox fx:id="soilTypeComboBox" maxWidth="Infinity" promptText="Ã Â¦Â®Ã Â¦Â¾Ã Â¦Å¸Ã Â¦Â¿Ã Â¦Â° Ã Â¦Â§Ã Â¦Â°Ã Â¦Â¨ Ã Â¦Â¨Ã Â¦Â¿Ã Â¦Â°Ã Â§ÂÃ Â¦Â¬Ã Â¦Â¾Ã Â¦Å¡Ã Â¦Â¨ Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨" styleClass="input-field" />
+                        </VBox>
+                        <VBox spacing="8">
+                            <Label styleClass="input-label" text="Ã Â¦Å“Ã Â¦Â®Ã Â¦Â¿Ã Â¦Â° Ã Â¦Â§Ã Â¦Â°Ã Â¦Â¨" />
+                            <ComboBox fx:id="landTypeComboBox" maxWidth="Infinity" promptText="Ã Â¦Å“Ã Â¦Â®Ã Â¦Â¿Ã Â¦Â° Ã Â¦Â§Ã Â¦Â°Ã Â¦Â¨ Ã Â¦Â¨Ã Â¦Â¿Ã Â¦Â°Ã Â§ÂÃ Â¦Â¬Ã Â¦Â¾Ã Â¦Å¡Ã Â¦Â¨ Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨" styleClass="input-field" />
+                        </VBox>
+                        <VBox spacing="8">
+                            <Label styleClass="input-label-required" text="Ã Â¦Â®Ã Â§Å’Ã Â¦Â¸Ã Â§ÂÃ Â¦Â®/Ã Â¦â€¹Ã Â¦Â¤Ã Â§Â *" />
+                            <ComboBox fx:id="seasonComboBox" maxWidth="Infinity" promptText="Ã Â¦Â®Ã Â§Å’Ã Â¦Â¸Ã Â§ÂÃ Â¦Â® Ã Â¦Â¨Ã Â¦Â¿Ã Â¦Â°Ã Â§ÂÃ Â¦Â¬Ã Â¦Â¾Ã Â¦Å¡Ã Â¦Â¨ Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨" styleClass="input-field" />
+                        </VBox>
+                        <VBox spacing="8">
+                            <Label styleClass="input-label" text="Ã Â¦Â¬Ã Â¦Â°Ã Â§ÂÃ Â¦Â¤Ã Â¦Â®Ã Â¦Â¾Ã Â¦Â¨ Ã Â¦â€ Ã Â¦Â¬Ã Â¦Â¹Ã Â¦Â¾Ã Â¦â€œÃ Â¦Â¯Ã Â¦Â¼Ã Â¦Â¾" />
+                            <HBox spacing="10">
+                                <CheckBox fx:id="strongSunCheck" styleClass="checkbox-custom" text="Ã Â¦â€¢Ã Â¦Â¡Ã Â¦Â¼Ã Â¦Â¾ Ã Â¦Â°Ã Â§â€¹Ã Â¦Â¦" />
+                                <CheckBox fx:id="windyCheck" styleClass="checkbox-custom" text="Ã Â¦Â¬Ã Â¦Â¾Ã Â¦Â¤Ã Â¦Â¾Ã Â¦Â¸ Ã Â¦â€ Ã Â¦â€ºÃ Â§â€¡" />
+                                <CheckBox fx:id="cloudyCheck" styleClass="checkbox-custom" text="Ã Â¦Â®Ã Â§â€¡Ã Â¦ËœÃ Â¦Â¾Ã Â¦Å¡Ã Â§ÂÃ Â¦â€ºÃ Â¦Â¨Ã Â§ÂÃ Â¦Â¨" />
+                            </HBox>
+                        </VBox>
+                        <VBox spacing="8">
+                            <Label styleClass="input-label" text="Ã Â¦â€”Ã Â¦Â¡Ã Â¦Â¼ Ã Â¦Â¤Ã Â¦Â¾Ã Â¦ÂªÃ Â¦Â®Ã Â¦Â¾Ã Â¦Â¤Ã Â§ÂÃ Â¦Â°Ã Â¦Â¾ (Ã‚Â°C)" />
+                            <HBox alignment="CENTER_LEFT" spacing="15">
+                                <RadioButton fx:id="tempCold" styleClass="weather-radio" text="Ã Â¦Â Ã Â¦Â¾Ã Â¦Â¨Ã Â§ÂÃ Â¦Â¡Ã Â¦Â¾ (15-25Ã‚Â°)">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="temperatureGroup" />
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton fx:id="tempModerate" selected="true" styleClass="weather-radio" text="Ã Â¦Â®Ã Â¦Â¾Ã Â¦ÂÃ Â¦Â¾Ã Â¦Â°Ã Â¦Â¿ (25-32Ã‚Â°)" toggleGroup="$temperatureGroup" />
+                                <RadioButton fx:id="tempHot" styleClass="weather-radio" text="Ã Â¦â€”Ã Â¦Â°Ã Â¦Â® (32Ã‚Â°+)" toggleGroup="$temperatureGroup" />
+                            </HBox>
+                        </VBox>
+                        <VBox spacing="8">
+                            <Label styleClass="input-label" text="Ã Â¦Â¸Ã Â¦Â¾Ã Â¦Â®Ã Â§ÂÃ Â¦ÂªÃ Â§ÂÃ Â¦Â°Ã Â¦Â¤Ã Â¦Â¿Ã Â¦â€¢ Ã Â¦Â¬Ã Â§Æ’Ã Â¦Â·Ã Â§ÂÃ Â¦Å¸Ã Â¦Â¿Ã Â¦ÂªÃ Â¦Â¾Ã Â¦Â¤" />
+                            <HBox alignment="CENTER_LEFT" spacing="15">
+                                <CheckBox fx:id="recentRainCheck" styleClass="checkbox-custom" text="Ã Â¦â€”Ã Â¦Â¤ Ã Â§Â­ Ã Â¦Â¦Ã Â¦Â¿Ã Â¦Â¨Ã Â§â€¡ Ã Â¦Â¬Ã Â§Æ’Ã Â¦Â·Ã Â§ÂÃ Â¦Å¸Ã Â¦Â¿ Ã Â¦Â¹Ã Â¦Â¯Ã Â¦Â¼Ã Â§â€¡Ã Â¦â€ºÃ Â§â€¡" />
+                                <TextField fx:id="rainfallAmount" disable="true" prefWidth="100" promptText="Ã Â¦Â®Ã Â¦Â¿Ã Â¦Â®Ã Â¦Â¿" styleClass="input-field-small" />
+                            </HBox>
+                        </VBox>
+                        <VBox spacing="8">
+                            <Label styleClass="input-label" text="Ã Â¦Â¬Ã Â§Æ’Ã Â¦Â·Ã Â§ÂÃ Â¦Å¸Ã Â¦Â¿Ã Â¦Â° Ã Â¦ÂªÃ Â§â€šÃ Â¦Â°Ã Â§ÂÃ Â¦Â¬Ã Â¦Â¾Ã Â¦Â­Ã Â¦Â¾Ã Â¦Â¸ (Ã Â¦â€ Ã Â¦â€”Ã Â¦Â¾Ã Â¦Â®Ã Â§â‚¬ Ã Â§Â©-Ã Â§Â« Ã Â¦Â¦Ã Â¦Â¿Ã Â¦Â¨)" />
+                            <HBox alignment="CENTER_LEFT" spacing="15">
+                                <RadioButton fx:id="rainForecastYes" styleClass="weather-radio" text="Ã Â¦Â¬Ã Â§Æ’Ã Â¦Â·Ã Â§ÂÃ Â¦Å¸Ã Â¦Â¿ Ã Â¦Â¹Ã Â¦Â¬Ã Â§â€¡">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="rainForecastGroup" />
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton fx:id="rainForecastNo" selected="true" styleClass="weather-radio" text="Ã Â¦Â¬Ã Â§Æ’Ã Â¦Â·Ã Â§ÂÃ Â¦Å¸Ã Â¦Â¿ Ã Â¦Â¨Ã Â§â€¡Ã Â¦â€¡" toggleGroup="$rainForecastGroup" />
+                                <RadioButton fx:id="rainForecastUnsure" styleClass="weather-radio" text="Ã Â¦â€¦Ã Â¦Â¨Ã Â¦Â¿Ã Â¦Â¶Ã Â§ÂÃ Â¦Å¡Ã Â¦Â¿Ã Â¦Â¤" toggleGroup="$rainForecastGroup" />
+                            </HBox>
+                        </VBox>
+                        <VBox spacing="8">
+                            <Label styleClass="input-label" text="Ã Â¦Â¶Ã Â§â€¡Ã Â¦Â· Ã Â¦Â¸Ã Â§â€¡Ã Â¦Å¡ Ã Â¦â€¢Ã Â¦Â¬Ã Â§â€¡ Ã Â¦Â¦Ã Â¦Â¿Ã Â¦Â¯Ã Â¦Â¼Ã Â§â€¡Ã Â¦â€ºÃ Â§â€¡Ã Â¦Â¨?" />
+                            <HBox spacing="10">
+                                <TextField fx:id="lastIrrigationField" promptText="Ã Â¦Â¦Ã Â¦Â¿Ã Â¦Â¨ Ã Â¦â€ Ã Â¦â€”Ã Â§â€¡ (Ã Â¦â€°Ã Â¦Â¦Ã Â¦Â¾Ã Â¦Â¹Ã Â¦Â°Ã Â¦Â£: 10)" styleClass="input-field" HBox.hgrow="ALWAYS" />
+                                <Label styleClass="unit-label" text="Ã Â¦Â¦Ã Â¦Â¿Ã Â¦Â¨ Ã Â¦â€ Ã Â¦â€”Ã Â§â€¡" />
+                            </HBox>
+                        </VBox>
+
+                        <Separator styleClass="section-separator" />
+                        <Label styleClass="section-heading-numbered-blue" text="Ã Â§Â©. Ã Â¦Â¸Ã Â§â€¡Ã Â¦Å¡ Ã Â¦ÂªÃ Â¦Â¦Ã Â§ÂÃ Â¦Â§Ã Â¦Â¤Ã Â¦Â¿" />
+
+                        <VBox spacing="12">
+                            <Label styleClass="input-label-required" text="Ã Â¦Â¸Ã Â§â€¡Ã Â¦Å¡ Ã Â¦ÂªÃ Â¦Â¦Ã Â§ÂÃ Â¦Â§Ã Â¦Â¤Ã Â¦Â¿ Ã Â¦Â¨Ã Â¦Â¿Ã Â¦Â°Ã Â§ÂÃ Â¦Â¬Ã Â¦Â¾Ã Â¦Å¡Ã Â¦Â¨ Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨ *" />
+                            <VBox spacing="10">
+                                <RadioButton fx:id="methodSprinkler" styleClass="method-radio" text="Ã°Å¸Å¡Â¿ Ã Â¦Â«Ã Â§â€¹Ã Â¦Â¯Ã Â¦Â¼Ã Â¦Â¾Ã Â¦Â°Ã Â¦Â¾ Ã Â¦Â¸Ã Â§â€¡Ã Â¦Å¡ (Sprinkler)">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="irrigationMethodGroup" />
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton fx:id="methodDrip" styleClass="method-radio" text="Ã°Å¸â€™Â§ Ã Â¦Â¡Ã Â§ÂÃ Â¦Â°Ã Â¦Â¿Ã Â¦Âª Ã Â¦Â¸Ã Â§â€¡Ã Â¦Å¡ (Drip Irrigation)" toggleGroup="$irrigationMethodGroup" />
+                                <RadioButton fx:id="methodFlood" selected="true" styleClass="method-radio" text="Ã°Å¸Å’Å  Ã Â¦Â¬Ã Â¦Â¨Ã Â§ÂÃ Â¦Â¯Ã Â¦Â¾ Ã Â¦Â¸Ã Â§â€¡Ã Â¦Å¡ (Flood Irrigation)" toggleGroup="$irrigationMethodGroup" />
+                                <RadioButton fx:id="methodFurrow" styleClass="method-radio" text="Ã°Å¸Å¡Â° Ã Â¦Â¨Ã Â¦Â¾Ã Â¦Â²Ã Â¦Â¾ Ã Â¦Â¸Ã Â§â€¡Ã Â¦Å¡ (Furrow Irrigation)" toggleGroup="$irrigationMethodGroup" />
+                            </VBox>
+                        </VBox>
+
+                        <Separator styleClass="section-separator" />
+                        <Label styleClass="section-heading-numbered-blue" text="Ã Â§Âª. Ã Â¦ÂªÃ Â¦Â¾Ã Â¦Â¨Ã Â¦Â¿Ã Â¦Â° Ã Â¦â€°Ã Â§Å½Ã Â¦Â¸" />
+
+                        <VBox spacing="8">
+                            <Label styleClass="input-label" text="Ã Â¦ÂªÃ Â¦Â¾Ã Â¦Â¨Ã Â¦Â¿Ã Â¦Â° Ã Â¦â€°Ã Â§Å½Ã Â¦Â¸" />
+                            <ComboBox fx:id="waterSourceComboBox" maxWidth="Infinity" promptText="Ã Â¦â€°Ã Â§Å½Ã Â¦Â¸ Ã Â¦Â¨Ã Â¦Â¿Ã Â¦Â°Ã Â§ÂÃ Â¦Â¬Ã Â¦Â¾Ã Â¦Å¡Ã Â¦Â¨ Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨" styleClass="input-field" />
+                        </VBox>
+                        <VBox spacing="8">
+                            <Label styleClass="input-label" text="Ã Â¦Â®Ã Â§â€¹Ã Â¦Å¸Ã Â¦Â°Ã Â§â€¡Ã Â¦Â° Ã Â¦â€¢Ã Â§ÂÃ Â¦Â·Ã Â¦Â®Ã Â¦Â¤Ã Â¦Â¾ (Ã Â¦Â¯Ã Â¦Â¦Ã Â¦Â¿ Ã Â¦Â¥Ã Â¦Â¾Ã Â¦â€¢Ã Â§â€¡)" />
+                            <ComboBox fx:id="pumpPowerComboBox" maxWidth="Infinity" promptText="Ã Â¦ÂÃ Â¦â€¡Ã Â¦Å¡Ã Â¦ÂªÃ Â¦Â¿/Ã Â¦ËœÃ Â§â€¹Ã Â¦Â¡Ã Â¦Â¼Ã Â¦Â¾ Ã Â¦Â¨Ã Â¦Â¿Ã Â¦Â°Ã Â§ÂÃ Â¦Â¬Ã Â¦Â¾Ã Â¦Å¡Ã Â¦Â¨ Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨" styleClass="input-field" />
+                        </VBox>
+                        <VBox spacing="8">
+                            <Label styleClass="input-label" text="Ã Â¦ÂªÃ Â¦Â¾Ã Â¦â€¡Ã Â¦Âª/Ã Â¦Â¡Ã Â§ÂÃ Â¦Â°Ã Â§â€¡Ã Â¦Â¨Ã Â§â€¡Ã Â¦Â° Ã Â¦Â§Ã Â¦Â°Ã Â¦Â¨" />
+                            <ComboBox fx:id="pipeTypeComboBox" maxWidth="Infinity" promptText="Ã Â¦ÂªÃ Â¦Â¾Ã Â¦â€¡Ã Â¦ÂªÃ Â§â€¡Ã Â¦Â° Ã Â¦Â§Ã Â¦Â°Ã Â¦Â¨ Ã Â¦Â¨Ã Â¦Â¿Ã Â¦Â°Ã Â§ÂÃ Â¦Â¬Ã Â¦Â¾Ã Â¦Å¡Ã Â¦Â¨ Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨" styleClass="input-field" />
+                        </VBox>
+                        <VBox spacing="8">
+                            <Label styleClass="input-label" text="Ã Â¦ÂªÃ Â¦Â¾Ã Â¦â€¡Ã Â¦ÂªÃ Â§â€¡Ã Â¦Â° Ã Â¦Â¦Ã Â§Ë†Ã Â¦Â°Ã Â§ÂÃ Â¦ËœÃ Â§ÂÃ Â¦Â¯ (Ã Â¦Â¯Ã Â¦Â¦Ã Â¦Â¿ Ã Â¦Å“Ã Â¦Â¾Ã Â¦Â¨Ã Â¦Â¾ Ã Â¦Â¥Ã Â¦Â¾Ã Â¦â€¢Ã Â§â€¡)" />
+                            <HBox spacing="10">
+                                <TextField fx:id="pipeLengthField" promptText="Ã Â¦â€°Ã Â¦Â¦Ã Â¦Â¾Ã Â¦Â¹Ã Â¦Â°Ã Â¦Â£: 500" styleClass="input-field" HBox.hgrow="ALWAYS" />
+                                <ComboBox fx:id="pipeLengthUnitComboBox" prefWidth="100" styleClass="input-field-small" />
+                            </HBox>
+                        </VBox>
+
+                        <Separator styleClass="section-separator" />
+                        <Button fx:id="calculateBtn" maxWidth="Infinity" styleClass="calculate-btn-irrigation" text="Ã Â¦Â¸Ã Â§â€¡Ã Â¦Å¡ Ã Â¦ÂªÃ Â¦Â°Ã Â¦Â¿Ã Â¦â€¢Ã Â¦Â²Ã Â§ÂÃ Â¦ÂªÃ Â¦Â¨Ã Â¦Â¾ Ã Â¦Â¤Ã Â§Ë†Ã Â¦Â°Ã Â¦Â¿ Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨ Ã°Å¸â€™Â§" />
+                        <Label styleClass="required-note" text="* Ã Â¦Å¡Ã Â¦Â¿Ã Â¦Â¹Ã Â§ÂÃ Â¦Â¨Ã Â¦Â¿Ã Â¦Â¤ Ã Â¦ËœÃ Â¦Â° Ã Â¦â€¦Ã Â¦Â¬Ã Â¦Â¶Ã Â§ÂÃ Â¦Â¯Ã Â¦â€¡ Ã Â¦ÂªÃ Â§â€šÃ Â¦Â°Ã Â¦Â£ Ã Â¦â€¢Ã Â¦Â°Ã Â¦Â¤Ã Â§â€¡ Ã Â¦Â¹Ã Â¦Â¬Ã Â§â€¡" />
+                    </VBox>
+
+                    <!-- Right Side: Results -->
+                    <VBox prefWidth="550" spacing="20" styleClass="irrigation-result-section" HBox.hgrow="ALWAYS">
+                        <padding>
+                            <Insets bottom="30" left="30" right="30" top="30" />
+                        </padding>
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label styleClass="section-heading" text="Ã Â¦Â¸Ã Â§â€¡Ã Â¦Å¡ Ã Â¦ÂªÃ Â¦Â°Ã Â¦Â¿Ã Â¦â€¢Ã Â¦Â²Ã Â§ÂÃ Â¦ÂªÃ Â¦Â¨Ã Â¦Â¾" />
+                            <Region HBox.hgrow="ALWAYS" />
+                            <Button fx:id="resetBtn" styleClass="reset-btn" text="Ã Â¦Â°Ã Â¦Â¿Ã Â¦Â¸Ã Â§â€¡Ã Â¦Å¸" />
+                        </HBox>
+
+                        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" prefHeight="700" styleClass="result-scroll" vbarPolicy="AS_NEEDED">
+                            <VBox fx:id="resultsMainContainer" spacing="20">
+                                <!-- Default Empty State -->
+                                <VBox fx:id="emptyResultState" alignment="CENTER" minHeight="600" spacing="20" styleClass="empty-result-state">
+                                    <Label styleClass="empty-result-icon" text="Ã°Å¸â€™Â§" />
+                                    <Label styleClass="empty-result-text" text="Ã Â¦Â¸Ã Â§â€¡Ã Â¦Å¡ Ã Â¦ÂªÃ Â¦Â°Ã Â¦Â¿Ã Â¦â€¢Ã Â¦Â²Ã Â§ÂÃ Â¦ÂªÃ Â¦Â¨Ã Â¦Â¾ Ã Â¦Â¦Ã Â§â€¡Ã Â¦â€“Ã Â¦Â¤Ã Â§â€¡" />
+                                    <Label styleClass="empty-result-text" text="Ã Â¦â€°Ã Â¦ÂªÃ Â¦Â°Ã Â§â€¡Ã Â¦Â° Ã Â¦Â«Ã Â¦Â°Ã Â§ÂÃ Â¦Â® Ã Â¦ÂªÃ Â§â€šÃ Â¦Â°Ã Â¦Â£ Ã Â¦â€¢Ã Â¦Â°Ã Â§â€¡" />
+                                    <Label styleClass="empty-result-text" text="'Ã Â¦Â¸Ã Â§â€¡Ã Â¦Å¡ Ã Â¦ÂªÃ Â¦Â°Ã Â¦Â¿Ã Â¦â€¢Ã Â¦Â²Ã Â§ÂÃ Â¦ÂªÃ Â¦Â¨Ã Â¦Â¾ Ã Â¦Â¤Ã Â§Ë†Ã Â¦Â°Ã Â¦Â¿ Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨' Ã Â¦Â¬Ã Â¦Â¾Ã Â¦Å¸Ã Â¦Â¨Ã Â§â€¡ Ã Â¦â€¢Ã Â§ÂÃ Â¦Â²Ã Â¦Â¿Ã Â¦â€¢ Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨" />
+                                    <VBox spacing="8" styleClass="info-tip-box-blue">
+                                        <Label styleClass="tip-title-blue" text="Ã°Å¸â€™Â¡ Ã Â¦â€”Ã Â§ÂÃ Â¦Â°Ã Â§ÂÃ Â¦Â¤Ã Â§ÂÃ Â¦Â¬Ã Â¦ÂªÃ Â§â€šÃ Â¦Â°Ã Â§ÂÃ Â¦Â£ Ã Â¦Â¤Ã Â¦Â¥Ã Â§ÂÃ Â¦Â¯:" />
+                                        <Label styleClass="tip-text-blue" text="Ã¢â‚¬Â¢ Ã Â¦â€¦Ã Â¦Â¤Ã Â¦Â¿Ã Â¦Â°Ã Â¦Â¿Ã Â¦â€¢Ã Â§ÂÃ Â¦Â¤ Ã Â¦Â¸Ã Â§â€¡Ã Â¦Å¡ Ã Â¦Â«Ã Â¦Â¸Ã Â¦Â²Ã Â§â€¡Ã Â¦Â° Ã Â¦â€¢Ã Â§ÂÃ Â¦Â·Ã Â¦Â¤Ã Â¦Â¿ Ã Â¦â€¢Ã Â¦Â°Ã Â¦Â¤Ã Â§â€¡ Ã Â¦ÂªÃ Â¦Â¾Ã Â¦Â°Ã Â§â€¡" />
+                                        <Label styleClass="tip-text-blue" text="Ã¢â‚¬Â¢ Ã Â¦Â®Ã Â¦Â¾Ã Â¦Å¸Ã Â¦Â¿Ã Â¦Â¤Ã Â§â€¡ Ã Â¦Â°Ã Â¦Â¸ Ã Â¦Â¦Ã Â§â€¡Ã Â¦â€“Ã Â§â€¡ Ã Â¦Â¸Ã Â§â€¡Ã Â¦Å¡ Ã Â¦Â¦Ã Â¦Â¿Ã Â¦Â¨" />
+                                        <Label styleClass="tip-text-blue" text="Ã¢â‚¬Â¢ Ã Â¦Â¸Ã Â¦â€¢Ã Â¦Â¾Ã Â¦Â²/Ã Â¦Â¸Ã Â¦Â¨Ã Â§ÂÃ Â¦Â§Ã Â§ÂÃ Â¦Â¯Ã Â¦Â¾Ã Â¦Â¯Ã Â¦Â¼ Ã Â¦Â¸Ã Â§â€¡Ã Â¦Å¡ Ã Â¦Â¦Ã Â¦Â¿Ã Â¦Â²Ã Â§â€¡ Ã Â¦ÂªÃ Â¦Â¾Ã Â¦Â¨Ã Â¦Â¿ Ã Â¦â€¢Ã Â¦Â® Ã Â¦Â²Ã Â¦Â¾Ã Â¦â€”Ã Â§â€¡" />
+                                    </VBox>
+                                </VBox>
+
+                                <!-- Results Container -->
+                                <VBox fx:id="resultContentContainer" managed="false" spacing="20" visible="false">
+
+                                    <!-- Updated Water & Time Requirement Card -->
+                                    <VBox spacing="15" styleClass="water-requirement-card">
+                                        <Label styleClass="water-req-title" text="Ã°Å¸â€™Â§ Ã Â¦Â¸Ã Â§â€¡Ã Â¦Å¡ Ã Â¦â€œ Ã Â¦Â¸Ã Â¦Â®Ã Â¦Â¯Ã Â¦Â¼Ã Â§â€¡Ã Â¦Â° Ã Â¦Â¹Ã Â¦Â¿Ã Â¦Â¸Ã Â¦Â¾Ã Â¦Â¬" />
+
+                                        <HBox alignment="CENTER" spacing="20">
+                                            <!-- Per Irrigation -->
+                                            <VBox alignment="CENTER" spacing="5" HBox.hgrow="ALWAYS">
+                                                <Label styleClass="water-label" text="Ã Â¦ÂªÃ Â§ÂÃ Â¦Â°Ã Â¦Â¤Ã Â¦Â¿ Ã Â¦Â¸Ã Â§â€¡Ã Â¦Å¡Ã Â§â€¡" />
+                                                <Label fx:id="waterPerIrrigationLabel" styleClass="water-value-large" text="0 Ã Â¦Â²Ã Â¦Â¿Ã Â¦Å¸Ã Â¦Â¾Ã Â¦Â°" />
+
+                                                <!-- Added Time Label -->
+                                                <Label fx:id="timePerIrrigationLabel" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #c2410c;" text="0 Ã Â¦ËœÃ Â¦Â£Ã Â§ÂÃ Â¦Å¸Ã Â¦Â¾ 0 Ã Â¦Â®Ã Â¦Â¿Ã Â¦Â¨Ã Â¦Â¿Ã Â¦Å¸" />
+                                                <Label styleClass="water-sublabel" text="Ã Â¦Â¸Ã Â¦Â®Ã Â§Å¸ Ã Â¦ÂªÃ Â§ÂÃ Â¦Â°Ã Â§Å¸Ã Â§â€¹Ã Â¦Å“Ã Â¦Â¨" />
+                                            </VBox>
+
+                                            <!-- Removed Vertical Separator and Total Season VBox here -->
+                                        </HBox>
+
+                                        <HBox alignment="CENTER" spacing="10" styleClass="efficiency-box">
+                                            <Label styleClass="efficiency-label" text="Ã Â¦Â¦Ã Â¦â€¢Ã Â§ÂÃ Â¦Â·Ã Â¦Â¤Ã Â¦Â¾:" />
+                                            <Label fx:id="efficiencyLabel" styleClass="efficiency-value" text="70%" />
+                                        </HBox>
+                                    </VBox>
+
+                                    <!-- Irrigation Schedule (Commented out in provided code) -->
+                                    <!--                                    <VBox spacing="15" styleClass="schedule-card">-->
+                                    <!--                                        <Label styleClass="schedule-title" text="Ã°Å¸â€œâ€¦ Ã Â¦Â¸Ã Â§â€¡Ã Â¦Å¡ Ã Â¦Â¸Ã Â¦Â®Ã Â¦Â¯Ã Â¦Â¼Ã Â¦Â¸Ã Â§â€šÃ Â¦Å¡Ã Â¦Â¿" />-->
+                                    <!--                                        <VBox fx:id="scheduleContainer" spacing="10">-->
+                                    <!--                                        </VBox>-->
+                                    <!--                                    </VBox>-->
+
+                                    <!-- Cost Estimation (Commented out in provided code) -->
+                                    <!--                                    <VBox spacing="15" styleClass="irrigation-cost-card">-->
+                                    <!--                                        <Label styleClass="cost-title" text="Ã°Å¸â€™Â° Ã Â¦â€“Ã Â¦Â°Ã Â¦Å¡ Ã Â¦Â¹Ã Â¦Â¿Ã Â¦Â¸Ã Â¦Â¾Ã Â¦Â¬" />-->
+                                    <!--                                        <VBox spacing="12">-->
+                                    <!--                                            <HBox alignment="CENTER_LEFT" spacing="10">-->
+                                    <!--                                                <Label styleClass="cost-item-label" text="Ã Â¦Â¬Ã Â¦Â¿Ã Â¦Â¦Ã Â§ÂÃ Â¦Â¯Ã Â§ÂÃ Â§Å½/Ã Â¦Â¡Ã Â¦Â¿Ã Â¦Å“Ã Â§â€¡Ã Â¦Â² Ã Â¦â€“Ã Â¦Â°Ã Â¦Å¡:" />-->
+                                    <!--                                                <Region HBox.hgrow="ALWAYS" />-->
+                                    <!--                                                <Label fx:id="fuelCostLabel" styleClass="cost-item-value" text="Ã Â§Â³ 0.00" />-->
+                                    <!--                                            </HBox>-->
+                                    <!--                                            <HBox alignment="CENTER_LEFT" spacing="10">-->
+                                    <!--                                                <Label styleClass="cost-item-label" text="Ã Â¦Â¶Ã Â§ÂÃ Â¦Â°Ã Â¦Â®Ã Â¦Â¿Ã Â¦â€¢ Ã Â¦â€“Ã Â¦Â°Ã Â¦Å¡:" />-->
+                                    <!--                                                <Region HBox.hgrow="ALWAYS" />-->
+                                    <!--                                                <Label fx:id="laborCostLabel" styleClass="cost-item-value" text="Ã Â§Â³ 0.00" />-->
+                                    <!--                                            </HBox>-->
+                                    <!--                                            <HBox alignment="CENTER_LEFT" spacing="10">-->
+                                    <!--                                                <Label styleClass="cost-item-label" text="Ã Â¦Â°Ã Â¦â€¢Ã Â§ÂÃ Â¦Â·Ã Â¦Â£Ã Â¦Â¾Ã Â¦Â¬Ã Â§â€¡Ã Â¦â€¢Ã Â§ÂÃ Â¦Â·Ã Â¦Â£:" />-->
+                                    <!--                                                <Region HBox.hgrow="ALWAYS" />-->
+                                    <!--                                                <Label fx:id="maintenanceCostLabel" styleClass="cost-item-value" text="Ã Â§Â³ 0.00" />-->
+                                    <!--                                            </HBox>-->
+                                    <!--                                            <Separator />-->
+                                    <!--                                            <HBox alignment="CENTER_LEFT" spacing="10">-->
+                                    <!--                                                <Label styleClass="total-irrigation-cost-label" text="Ã Â¦Â®Ã Â§â€¹Ã Â¦Å¸ Ã Â¦â€“Ã Â¦Â°Ã Â¦Å¡:" />-->
+                                    <!--                                                <Region HBox.hgrow="ALWAYS" />-->
+                                    <!--                                                <Label fx:id="totalCostLabel" styleClass="total-irrigation-cost-value" text="Ã Â§Â³ 0.00" />-->
+                                    <!--                                            </HBox>-->
+                                    <!--                                        </VBox>-->
+                                    <!--                                        <Label styleClass="cost-note" text="Ã Â¦ÂªÃ Â§ÂÃ Â¦Â°Ã Â¦Â¤Ã Â¦Â¿ Ã Â¦ÂÃ Â¦â€¢Ã Â¦Â° Ã Â¦Â¹Ã Â¦Â¿Ã Â¦Â¸Ã Â¦Â¾Ã Â¦Â¬Ã Â§â€¡" />-->
+                                    <!--                                    </VBox>-->
+
+                                    <!-- Water Saving Tips -->
+                                    <VBox spacing="12" styleClass="tips-card-blue">
+                                        <Label styleClass="tips-title-blue" text="Ã°Å¸â€™Â¡ Ã Â¦ÂªÃ Â¦Â¾Ã Â¦Â¨Ã Â¦Â¿ Ã Â¦Â¸Ã Â¦Â¾Ã Â¦Â¶Ã Â§ÂÃ Â¦Â°Ã Â¦Â¯Ã Â¦Â¼Ã Â§â€¡Ã Â¦Â° Ã Â¦Å¸Ã Â¦Â¿Ã Â¦ÂªÃ Â¦Â¸" />
+                                        <VBox spacing="8">
+                                            <Label styleClass="tip-item-blue" text="Ã¢â‚¬Â¢ Ã Â¦Â¸Ã Â¦â€¢Ã Â¦Â¾Ã Â¦Â² Ã Â§Â¬-Ã Â§Â®Ã Â¦Å¸Ã Â¦Â¾ Ã Â¦â€¦Ã Â¦Â¥Ã Â¦Â¬Ã Â¦Â¾ Ã Â¦Â¬Ã Â¦Â¿Ã Â¦â€¢Ã Â¦Â¾Ã Â¦Â² Ã Â§Âª-Ã Â§Â¬Ã Â¦Å¸Ã Â¦Â¾Ã Â¦Â¯Ã Â¦Â¼ Ã Â¦Â¸Ã Â§â€¡Ã Â¦Å¡ Ã Â¦Â¦Ã Â¦Â¿Ã Â¦Â¨" />
+                                            <Label styleClass="tip-item-blue" text="Ã¢â‚¬Â¢ Ã Â¦Â¡Ã Â§ÂÃ Â¦Â°Ã Â¦Â¿Ã Â¦Âª Ã Â¦Â¬Ã Â¦Â¾ Ã Â¦Â«Ã Â§â€¹Ã Â¦Â¯Ã Â¦Â¼Ã Â¦Â¾Ã Â¦Â°Ã Â¦Â¾ Ã Â¦Â¸Ã Â§â€¡Ã Â¦Å¡ Ã Â¦Â¬Ã Â§ÂÃ Â¦Â¯Ã Â¦Â¬Ã Â¦Â¹Ã Â¦Â¾Ã Â¦Â° Ã Â¦â€¢Ã Â¦Â°Ã Â¦Â²Ã Â§â€¡ Ã Â§Â©Ã Â§Â¦-Ã Â§Â«Ã Â§Â¦% Ã Â¦ÂªÃ Â¦Â¾Ã Â¦Â¨Ã Â¦Â¿ Ã Â¦Â¸Ã Â¦Â¾Ã Â¦Â¶Ã Â§ÂÃ Â¦Â°Ã Â¦Â¯Ã Â¦Â¼" />
+                                            <Label styleClass="tip-item-blue" text="Ã¢â‚¬Â¢ Ã Â¦Â®Ã Â¦Â¾Ã Â¦Â²Ã Â¦Å¡Ã Â¦Â¿Ã Â¦â€š Ã Â¦â€¢Ã Â¦Â°Ã Â¦Â²Ã Â§â€¡ Ã Â¦Â®Ã Â¦Â¾Ã Â¦Å¸Ã Â¦Â¿Ã Â¦Â¤Ã Â§â€¡ Ã Â¦Â°Ã Â¦Â¸ Ã Â¦Â¥Ã Â¦Â¾Ã Â¦â€¢Ã Â§â€¡ Ã Â¦Â¬Ã Â§â€¡Ã Â¦Â¶Ã Â¦Â¿Ã Â¦Â¦Ã Â¦Â¿Ã Â¦Â¨" />
+                                            <Label styleClass="tip-item-blue" text="Ã¢â‚¬Â¢ Ã Â¦Â¬Ã Â§Æ’Ã Â¦Â·Ã Â§ÂÃ Â¦Å¸Ã Â¦Â¿Ã Â¦Â° Ã Â¦ÂªÃ Â¦Â° Ã Â§Â¨-Ã Â§Â© Ã Â¦Â¦Ã Â¦Â¿Ã Â¦Â¨ Ã Â¦Â¸Ã Â§â€¡Ã Â¦Å¡ Ã Â¦Â¦Ã Â§â€¡Ã Â¦Â¬Ã Â§â€¡Ã Â¦Â¨ Ã Â¦Â¨Ã Â¦Â¾" />
+                                            <Label styleClass="tip-item-blue" text="Ã¢â‚¬Â¢ Ã Â¦Â®Ã Â¦Â¾Ã Â¦Å¸Ã Â¦Â¿Ã Â¦Â¤Ã Â§â€¡ Ã Â¦Å“Ã Â§Ë†Ã Â¦Â¬ Ã Â¦ÂªÃ Â¦Â¦Ã Â¦Â¾Ã Â¦Â°Ã Â§ÂÃ Â¦Â¥ Ã Â¦Â¬Ã Â¦Â¾Ã Â¦Â¡Ã Â¦Â¼Ã Â¦Â¾Ã Â¦Â²Ã Â§â€¡ Ã Â¦ÂªÃ Â¦Â¾Ã Â¦Â¨Ã Â¦Â¿ Ã Â¦Â§Ã Â¦Â¾Ã Â¦Â°Ã Â¦Â£ Ã Â¦â€¢Ã Â§ÂÃ Â¦Â·Ã Â¦Â®Ã Â¦Â¤Ã Â¦Â¾ Ã Â¦Â¬Ã Â¦Â¾Ã Â¦Â¡Ã Â¦Â¼Ã Â§â€¡" />
+                                        </VBox>
+                                    </VBox>
+
+                                    <VBox spacing="10" styleClass="weather-alert-card">
+                                        <HBox alignment="CENTER_LEFT" spacing="10">
+                                            <Label styleClass="weather-icon" text="Ã°Å¸Å’Â¤Ã¯Â¸Â" />
+                                            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                                <Label styleClass="weather-alert-title" text="Ã Â¦â€ Ã Â¦Â¬Ã Â¦Â¹Ã Â¦Â¾Ã Â¦â€œÃ Â¦Â¯Ã Â¦Â¼Ã Â¦Â¾ Ã Â¦Â¸Ã Â¦Â¤Ã Â¦Â°Ã Â§ÂÃ Â¦â€¢Ã Â¦Â¤Ã Â¦Â¾" />
+                                                <Label styleClass="weather-alert-text" text="Ã Â¦â€ Ã Â¦â€”Ã Â¦Â¾Ã Â¦Â®Ã Â§â‚¬ Ã Â§Â©-Ã Â§Â« Ã Â¦Â¦Ã Â¦Â¿Ã Â¦Â¨Ã Â§â€¡Ã Â¦Â° Ã Â¦â€ Ã Â¦Â¬Ã Â¦Â¹Ã Â¦Â¾Ã Â¦â€œÃ Â¦Â¯Ã Â¦Â¼Ã Â¦Â¾Ã Â¦Â° Ã Â¦ÂªÃ Â§â€šÃ Â¦Â°Ã Â§ÂÃ Â¦Â¬Ã Â¦Â¾Ã Â¦Â­Ã Â¦Â¾Ã Â¦Â¸ Ã Â¦Â¦Ã Â§â€¡Ã Â¦â€“Ã Â§â€¡ Ã Â¦Â¸Ã Â§â€¡Ã Â¦Å¡ Ã Â¦ÂªÃ Â¦Â°Ã Â¦Â¿Ã Â¦â€¢Ã Â¦Â²Ã Â§ÂÃ Â¦ÂªÃ Â¦Â¨Ã Â¦Â¾ Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨" />
+                                            </VBox>
+                                        </HBox>
+                                    </VBox>
+                                </VBox>
+                            </VBox>
+                        </ScrollPane>
+                    </VBox>
+                </HBox>
+
+                <!-- Quick Guide Section -->
+                <VBox spacing="20" styleClass="guide-section">
+                    <padding>
+                        <Insets bottom="25" left="30" right="30" top="25" />
+                    </padding>
+                    <Label styleClass="guide-title" text="Ã°Å¸â€œËœ Ã Â¦Â¸Ã Â§â€¡Ã Â¦Å¡ Ã Â¦ÂªÃ Â¦Â¦Ã Â§ÂÃ Â¦Â§Ã Â¦Â¤Ã Â¦Â¿Ã Â¦Â° Ã Â¦Â¤Ã Â§ÂÃ Â¦Â²Ã Â¦Â¨Ã Â¦Â¾" />
+                    <GridPane hgap="15" vgap="15">
+                        <VBox spacing="12" styleClass="method-card" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                            <padding>
+                                <Insets bottom="20" left="20" right="20" top="20" />
+                            </padding>
+                            <Label styleClass="method-card-name" text="Ã°Å¸â€™Â§ Ã Â¦Â¡Ã Â§ÂÃ Â¦Â°Ã Â¦Â¿Ã Â¦Âª Ã Â¦Â¸Ã Â§â€¡Ã Â¦Å¡" />
+                            <Label styleClass="method-feature-label" text="Ã Â¦ÂªÃ Â¦Â¾Ã Â¦Â¨Ã Â¦Â¿ Ã Â¦Â¸Ã Â¦Â¾Ã Â¦Â¶Ã Â§ÂÃ Â¦Â°Ã Â¦Â¯Ã Â¦Â¼:" />
+                            <Label styleClass="method-feature-value-high" text="Ã Â§ÂªÃ Â§Â¦-Ã Â§Â«Ã Â§Â¦%" />
+                            <Label styleClass="method-info" text="Ã Â¦â€“Ã Â¦Â°Ã Â¦Å¡: Ã Â¦Â¬Ã Â§â€¡Ã Â¦Â¶Ã Â¦Â¿ (Ã Â¦ÂªÃ Â§ÂÃ Â¦Â°Ã Â¦Â¾Ã Â¦Â¥Ã Â¦Â®Ã Â¦Â¿Ã Â¦â€¢)" />
+                            <Label styleClass="method-info" text="Ã Â¦â€°Ã Â¦ÂªÃ Â¦Â¯Ã Â§ÂÃ Â¦â€¢Ã Â§ÂÃ Â¦Â¤: Ã Â¦Â¸Ã Â¦Â¬Ã Â¦Å“Ã Â¦Â¿, Ã Â¦Â«Ã Â¦Â²" />
+                        </VBox>
+                        <VBox spacing="12" styleClass="method-card" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                            <padding>
+                                <Insets bottom="20" left="20" right="20" top="20" />
+                            </padding>
+                            <Label styleClass="method-card-name" text="Ã°Å¸Å¡Â¿ Ã Â¦Â«Ã Â§â€¹Ã Â¦Â¯Ã Â¦Â¼Ã Â¦Â¾Ã Â¦Â°Ã Â¦Â¾ Ã Â¦Â¸Ã Â§â€¡Ã Â¦Å¡" />
+                            <Label styleClass="method-feature-label" text="Ã Â¦ÂªÃ Â¦Â¾Ã Â¦Â¨Ã Â¦Â¿ Ã Â¦Â¸Ã Â¦Â¾Ã Â¦Â¶Ã Â§ÂÃ Â¦Â°Ã Â¦Â¯Ã Â¦Â¼:" />
+                            <Label styleClass="method-feature-value-medium" text="Ã Â§Â©Ã Â§Â¦-Ã Â§ÂªÃ Â§Â¦%" />
+                            <Label styleClass="method-info" text="Ã Â¦â€“Ã Â¦Â°Ã Â¦Å¡: Ã Â¦Â®Ã Â¦Â¾Ã Â¦ÂÃ Â¦Â¾Ã Â¦Â°Ã Â¦Â¿" />
+                            <Label styleClass="method-info" text="Ã Â¦â€°Ã Â¦ÂªÃ Â¦Â¯Ã Â§ÂÃ Â¦â€¢Ã Â§ÂÃ Â¦Â¤: Ã Â¦â€”Ã Â¦Â®, Ã Â¦Â­Ã Â§ÂÃ Â¦Å¸Ã Â§ÂÃ Â¦Å¸Ã Â¦Â¾" />
+                        </VBox>
+                        <VBox spacing="12" styleClass="method-card" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                            <padding>
+                                <Insets bottom="20" left="20" right="20" top="20" />
+                            </padding>
+                            <Label styleClass="method-card-name" text="Ã°Å¸Å’Å  Ã Â¦Â¬Ã Â¦Â¨Ã Â§ÂÃ Â¦Â¯Ã Â¦Â¾ Ã Â¦Â¸Ã Â§â€¡Ã Â¦Å¡" />
+                            <Label styleClass="method-feature-label" text="Ã Â¦ÂªÃ Â¦Â¾Ã Â¦Â¨Ã Â¦Â¿ Ã Â¦Â¸Ã Â¦Â¾Ã Â¦Â¶Ã Â§ÂÃ Â¦Â°Ã Â¦Â¯Ã Â¦Â¼:" />
+                            <Label styleClass="method-feature-value-low" text="Ã Â§Â¦-Ã Â§Â§Ã Â§Â¦%" />
+                            <Label styleClass="method-info" text="Ã Â¦â€“Ã Â¦Â°Ã Â¦Å¡: Ã Â¦â€¢Ã Â¦Â®" />
+                            <Label styleClass="method-info" text="Ã Â¦â€°Ã Â¦ÂªÃ Â¦Â¯Ã Â§ÂÃ Â¦â€¢Ã Â§ÂÃ Â¦Â¤: Ã Â¦Â§Ã Â¦Â¾Ã Â¦Â¨" />
+                        </VBox>
+                        <VBox spacing="12" styleClass="method-card" GridPane.columnIndex="3" GridPane.rowIndex="0">
+                            <padding>
+                                <Insets bottom="20" left="20" right="20" top="20" />
+                            </padding>
+                            <Label styleClass="method-card-name" text="Ã°Å¸Å¡Â° Ã Â¦Â¨Ã Â¦Â¾Ã Â¦Â²Ã Â¦Â¾ Ã Â¦Â¸Ã Â§â€¡Ã Â¦Å¡" />
+                            <Label styleClass="method-feature-label" text="Ã Â¦ÂªÃ Â¦Â¾Ã Â¦Â¨Ã Â¦Â¿ Ã Â¦Â¸Ã Â¦Â¾Ã Â¦Â¶Ã Â§ÂÃ Â¦Â°Ã Â¦Â¯Ã Â¦Â¼:" />
+                            <Label styleClass="method-feature-value-medium" text="Ã Â§Â¨Ã Â§Â¦-Ã Â§Â©Ã Â§Â¦%" />
+                            <Label styleClass="method-info" text="Ã Â¦â€“Ã Â¦Â°Ã Â¦Å¡: Ã Â¦â€¢Ã Â¦Â®" />
+                            <Label styleClass="method-info" text="Ã Â¦â€°Ã Â¦ÂªÃ Â¦Â¯Ã Â§ÂÃ Â¦â€¢Ã Â§ÂÃ Â¦Â¤: Ã Â¦â€ Ã Â¦Â²Ã Â§Â, Ã Â¦Â¸Ã Â¦Â¬Ã Â¦Å“Ã Â¦Â¿" />
+                        </VBox>
+                        <columnConstraints>
+                            <ColumnConstraints />
+                            <ColumnConstraints />
+                            <ColumnConstraints />
+                            <ColumnConstraints />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints />
+                        </rowConstraints>
+                    </GridPane>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>
+

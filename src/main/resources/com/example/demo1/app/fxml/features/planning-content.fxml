@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane fitToWidth="true"
+            hbarPolicy="NEVER"
+            pannable="true"
+            styleClass="planning-scroll"
+            vbarPolicy="ALWAYS"
+            stylesheets="@../../css/planning-content.css"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.demo1.app.ui.PlanningContentController">
+
+    <VBox spacing="24" styleClass="planning-root">
+        <padding>
+            <Insets bottom="28" left="28" right="28" top="24" />
+        </padding>
+
+        <VBox spacing="8" styleClass="planning-header">
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Label styleClass="planning-title" text="ফসল পরিকল্পনা ও হিসাব" />
+                <Label styleClass="badge" text="SMART" />
+            </HBox>
+            <Label styleClass="planning-subtitle" text="প্রতিটি ফসলের মৌসুম, মাটি, সেচ, মেয়াদ ও ফলন তথ্য" />
+        </VBox>
+
+        <HBox alignment="CENTER_LEFT" spacing="12" styleClass="filter-row">
+            <Button styleClass="filter-btn active" text="📅 শস্য ক্যালেন্ডার" />
+            <Button styleClass="filter-btn" text="🌱 সার পরিকল্পনা" />
+            <Button styleClass="filter-btn" text="💧 সেচ পরিকল্পনা" />
+            <Button styleClass="filter-btn" text="♻ ফসল চক্র" />
+        </HBox>
+
+        <GridPane fx:id="cropsGrid" hgap="18" vgap="18">
+            <columnConstraints>
+                <ColumnConstraints percentWidth="50" />
+                <ColumnConstraints percentWidth="50" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+            </rowConstraints>
+
+            <VBox spacing="12" styleClass="modern-crop-card crop-item" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                <padding><Insets top="16" right="16" bottom="16" left="16" /></padding>
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <ImageView fitHeight="72" fitWidth="72" preserveRatio="true"><image><Image url="@../../images/crops/rice.png"/></image></ImageView>
+                    <VBox spacing="2"><Label styleClass="crop-title" text="ধান" /><Label styleClass="crop-en" text="Rice" /></VBox>
+                    <Region HBox.hgrow="ALWAYS"/><Label styleClass="chip" text="খরিফ/রবি" />
+                </HBox>
+                <VBox spacing="6" styleClass="info-wrap">
+                    <Label styleClass="meta" text="রোপণ: এপ্রিল-জুন / নভেম্বর-ডিসেম্বর" />
+                    <Label styleClass="meta" text="মাটি: দোআঁশ/কাদামাটি" />
+                    <Label styleClass="meta" text="সেচ: ৭-১০ দিন অন্তর" />
+                    <Label styleClass="meta" text="ফলন: ৪০-৫০ মন/একর" />
+                </VBox>
+                <Button styleClass="action-btn" text="বিস্তারিত গাইড" />
+            </VBox>
+
+            <VBox spacing="12" styleClass="modern-crop-card crop-item" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                <padding><Insets top="16" right="16" bottom="16" left="16" /></padding>
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <ImageView fitHeight="72" fitWidth="72" preserveRatio="true"><image><Image url="@../../images/crops/wheat.png"/></image></ImageView>
+                    <VBox spacing="2"><Label styleClass="crop-title" text="গম" /><Label styleClass="crop-en" text="Wheat" /></VBox>
+                    <Region HBox.hgrow="ALWAYS"/><Label styleClass="chip" text="রবি" />
+                </HBox>
+                <VBox spacing="6" styleClass="info-wrap">
+                    <Label styleClass="meta" text="রোপণ: নভেম্বর-ডিসেম্বর" />
+                    <Label styleClass="meta" text="মাটি: বেলে-দোআঁশ" />
+                    <Label styleClass="meta" text="সেচ: ২০-২৫ দিন অন্তর" />
+                    <Label styleClass="meta" text="ফলন: ৩০-৩৫ মন/একর" />
+                </VBox>
+                <Button styleClass="action-btn" text="বিস্তারিত গাইড" />
+            </VBox>
+
+            <VBox spacing="12" styleClass="modern-crop-card crop-item" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                <padding><Insets top="16" right="16" bottom="16" left="16" /></padding>
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <ImageView fitHeight="72" fitWidth="72" preserveRatio="true"><image><Image url="@../../images/crops/potato.png"/></image></ImageView>
+                    <VBox spacing="2"><Label styleClass="crop-title" text="আলু" /><Label styleClass="crop-en" text="Potato" /></VBox>
+                    <Region HBox.hgrow="ALWAYS"/><Label styleClass="chip" text="শীতকাল" />
+                </HBox>
+                <VBox spacing="6" styleClass="info-wrap">
+                    <Label styleClass="meta" text="রোপণ: অক্টোবর-নভেম্বর" />
+                    <Label styleClass="meta" text="মাটি: ঝুরঝুরে দোআঁশ" />
+                    <Label styleClass="meta" text="সেচ: ৮-১২ দিন অন্তর" />
+                    <Label styleClass="meta" text="ফলন: ১৫০-২০০ মন/একর" />
+                </VBox>
+                <Button styleClass="action-btn" text="বিস্তারিত গাইড" />
+            </VBox>
+
+            <VBox spacing="12" styleClass="modern-crop-card crop-item" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <padding><Insets top="16" right="16" bottom="16" left="16" /></padding>
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <ImageView fitHeight="72" fitWidth="72" preserveRatio="true"><image><Image url="@../../images/crops/jute.png"/></image></ImageView>
+                    <VBox spacing="2"><Label styleClass="crop-title" text="পাট" /><Label styleClass="crop-en" text="Jute" /></VBox>
+                    <Region HBox.hgrow="ALWAYS"/><Label styleClass="chip" text="গ্রীষ্ম" />
+                </HBox>
+                <VBox spacing="6" styleClass="info-wrap">
+                    <Label styleClass="meta" text="রোপণ: মার্চ-এপ্রিল" />
+                    <Label styleClass="meta" text="মাটি: পলিমাটি/দোআঁশ" />
+                    <Label styleClass="meta" text="সেচ: প্রয়োজনমতো" />
+                    <Label styleClass="meta" text="ফলন: ২৫-৩০ মন/একর" />
+                </VBox>
+                <Button styleClass="action-btn" text="বিস্তারিত গাইড" />
+            </VBox>
+
+            <VBox spacing="12" styleClass="modern-crop-card crop-item" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                <padding><Insets top="16" right="16" bottom="16" left="16" /></padding>
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <ImageView fitHeight="72" fitWidth="72" preserveRatio="true"><image><Image url="@../../images/crops/rice.png"/></image></ImageView>
+                    <VBox spacing="2"><Label styleClass="crop-title" text="ভুট্টা" /><Label styleClass="crop-en" text="Maize" /></VBox>
+                    <Region HBox.hgrow="ALWAYS"/><Label styleClass="chip" text="সারা বছর" />
+                </HBox>
+                <VBox spacing="6" styleClass="info-wrap">
+                    <Label styleClass="meta" text="রোপণ: অক্টোবর-ফেব্রুয়ারি" />
+                    <Label styleClass="meta" text="মাটি: উর্বর দোআঁশ" />
+                    <Label styleClass="meta" text="সেচ: ১২-১৫ দিন অন্তর" />
+                    <Label styleClass="meta" text="ফলন: ৩৫-৪৫ মন/একর" />
+                </VBox>
+                <Button styleClass="action-btn" text="বিস্তারিত গাইড" />
+            </VBox>
+
+            <VBox spacing="12" styleClass="modern-crop-card crop-item" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                <padding><Insets top="16" right="16" bottom="16" left="16" /></padding>
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <ImageView fitHeight="72" fitWidth="72" preserveRatio="true"><image><Image url="@../../images/crops/potato.png"/></image></ImageView>
+                    <VBox spacing="2"><Label styleClass="crop-title" text="টমেটো" /><Label styleClass="crop-en" text="Tomato" /></VBox>
+                    <Region HBox.hgrow="ALWAYS"/><Label styleClass="chip" text="সবজি" />
+                </HBox>
+                <VBox spacing="6" styleClass="info-wrap">
+                    <Label styleClass="meta" text="রোপণ: অক্টোবর-ডিসেম্বর" />
+                    <Label styleClass="meta" text="মাটি: জৈবসমৃদ্ধ দোআঁশ" />
+                    <Label styleClass="meta" text="সেচ: ৫-৭ দিন অন্তর" />
+                    <Label styleClass="meta" text="ফলন: ৮০-১২০ মন/একর" />
+                </VBox>
+                <Button styleClass="action-btn" text="বিস্তারিত গাইড" />
+            </VBox>
+
+            <VBox spacing="12" styleClass="modern-crop-card crop-item" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                <padding><Insets top="16" right="16" bottom="16" left="16" /></padding>
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <ImageView fitHeight="72" fitWidth="72" preserveRatio="true"><image><Image url="@../../images/crops/jute.png"/></image></ImageView>
+                    <VBox spacing="2"><Label styleClass="crop-title" text="সরিষা" /><Label styleClass="crop-en" text="Mustard" /></VBox>
+                    <Region HBox.hgrow="ALWAYS"/><Label styleClass="chip" text="তেল ফসল" />
+                </HBox>
+                <VBox spacing="6" styleClass="info-wrap">
+                    <Label styleClass="meta" text="রোপণ: অক্টোবর-নভেম্বর" />
+                    <Label styleClass="meta" text="মাটি: হালকা দোআঁশ" />
+                    <Label styleClass="meta" text="সেচ: ২-৩ বার" />
+                    <Label styleClass="meta" text="ফলন: ১২-১৮ মন/একর" />
+                </VBox>
+                <Button styleClass="action-btn" text="বিস্তারিত গাইড" />
+            </VBox>
+
+            <VBox spacing="12" styleClass="modern-crop-card crop-item" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                <padding><Insets top="16" right="16" bottom="16" left="16" /></padding>
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <ImageView fitHeight="72" fitWidth="72" preserveRatio="true"><image><Image url="@../../images/crops/wheat.png"/></image></ImageView>
+                    <VBox spacing="2"><Label styleClass="crop-title" text="ডাল" /><Label styleClass="crop-en" text="Lentil" /></VBox>
+                    <Region HBox.hgrow="ALWAYS"/><Label styleClass="chip" text="ডাল ফসল" />
+                </HBox>
+                <VBox spacing="6" styleClass="info-wrap">
+                    <Label styleClass="meta" text="রোপণ: নভেম্বর-ডিসেম্বর" />
+                    <Label styleClass="meta" text="মাটি: মাঝারি উর্বর দোআঁশ" />
+                    <Label styleClass="meta" text="সেচ: ১-২ বার" />
+                    <Label styleClass="meta" text="ফলন: ১০-১৪ মন/একর" />
+                </VBox>
+                <Button styleClass="action-btn" text="বিস্তারিত গাইড" />
+            </VBox>
+
+            <VBox spacing="12" styleClass="modern-crop-card crop-item" GridPane.columnIndex="0" GridPane.rowIndex="4">
+                <padding><Insets top="16" right="16" bottom="16" left="16" /></padding>
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <ImageView fitHeight="72" fitWidth="72" preserveRatio="true"><image><Image url="@../../images/crops/potato.png"/></image></ImageView>
+                    <VBox spacing="2"><Label styleClass="crop-title" text="পেঁয়াজ" /><Label styleClass="crop-en" text="Onion" /></VBox>
+                    <Region HBox.hgrow="ALWAYS"/><Label styleClass="chip" text="মসলা" />
+                </HBox>
+                <VBox spacing="6" styleClass="info-wrap">
+                    <Label styleClass="meta" text="রোপণ: অক্টোবর-ডিসেম্বর" />
+                    <Label styleClass="meta" text="মাটি: জৈবসমৃদ্ধ দোআঁশ" />
+                    <Label styleClass="meta" text="সেচ: ৭-৯ দিন অন্তর" />
+                    <Label styleClass="meta" text="ফলন: ৬০-৯০ মন/একর" />
+                </VBox>
+                <Button styleClass="action-btn" text="বিস্তারিত গাইড" />
+            </VBox>
+
+            <VBox spacing="12" styleClass="modern-crop-card crop-item" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                <padding><Insets top="16" right="16" bottom="16" left="16" /></padding>
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <ImageView fitHeight="72" fitWidth="72" preserveRatio="true"><image><Image url="@../../images/crops/jute.png"/></image></ImageView>
+                    <VBox spacing="2"><Label styleClass="crop-title" text="মরিচ" /><Label styleClass="crop-en" text="Chili" /></VBox>
+                    <Region HBox.hgrow="ALWAYS"/><Label styleClass="chip" text="মসলা" />
+                </HBox>
+                <VBox spacing="6" styleClass="info-wrap">
+                    <Label styleClass="meta" text="রোপণ: সেপ্টেম্বর-নভেম্বর" />
+                    <Label styleClass="meta" text="মাটি: পানি নিষ্কাশনযুক্ত দোআঁশ" />
+                    <Label styleClass="meta" text="সেচ: ৪-৬ দিন অন্তর" />
+                    <Label styleClass="meta" text="ফলন: ৪০-৬০ মন/একর" />
+                </VBox>
+                <Button styleClass="action-btn" text="বিস্তারিত গাইড" />
+            </VBox>
+        </GridPane>
+
+        <HBox alignment="CENTER">
+            <Button fx:id="seeMoreButton" onAction="#toggleSeeMore" styleClass="see-more-btn" text="Show More" />
+        </HBox>
+    </VBox>
+</ScrollPane>

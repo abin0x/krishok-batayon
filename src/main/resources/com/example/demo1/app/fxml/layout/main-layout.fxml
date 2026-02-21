@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.demo1.app.controller.MainLayoutController"
+            styleClass="root"
+            prefHeight="900"
+            prefWidth="1400">
+
+    <top>
+        <fx:include fx:id="topbarInclude" source="topbar.fxml"/>
+    </top>
+
+    <left>
+        <VBox fx:id="sidebarContainer"/>
+    </left>
+
+    <center>
+        <StackPane fx:id="contentArea" styleClass="main-content-area-wrapper"/>
+    </center>
+
+</BorderPane>
+
+

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<!-- Ã Â§Â§. Ã Â¦ÂÃ Â¦â€“Ã Â¦Â¾Ã Â¦Â¨Ã Â§â€¡ Controller Ã Â¦Â²Ã Â¦Â¿Ã Â¦â„¢Ã Â§ÂÃ Â¦â€¢ Ã Â¦â€¢Ã Â¦Â°Ã Â¦Â¾ Ã Â¦Â¹Ã Â§Å¸Ã Â§â€¡Ã Â¦â€ºÃ Â§â€¡ -->
+<BorderPane prefHeight="900" prefWidth="1400" styleClass="root" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.app.ui.CropAdvisoryController">
+
+    <!-- Top Navigation Bar -->    <top>
+        <fx:include source="../layout/topbar.fxml"/>
+    </top>
+
+    <!-- Left Sidebar -->    <left>
+        <fx:include source="../sidebar/sidebar.fxml"/>
+    </left>
+
+    <!-- Main Content Area -->
+    <center>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" pannable="true" prefViewportHeight="800" styleClass="content-scroll" vbarPolicy="ALWAYS">
+            <VBox spacing="25" styleClass="main-content" stylesheets="@../../css/CropAdvisory.css">
+                <padding>
+                    <Insets bottom="30" left="30" right="30" top="30" />
+                </padding>
+
+                <!-- Page Header -->
+                <VBox spacing="10" styleClass="page-header">
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Label styleClass="page-title" text="Ã Â¦Â«Ã Â¦Â¸Ã Â¦Â² Ã Â¦ÂªÃ Â¦Â°Ã Â¦Â¿Ã Â¦â€¢Ã Â¦Â²Ã Â§ÂÃ Â¦ÂªÃ Â¦Â¨Ã Â¦Â¾ Ã Â¦â€œ Ã Â¦ÂªÃ Â¦Â°Ã Â¦Â¾Ã Â¦Â®Ã Â¦Â°Ã Â§ÂÃ Â¦Â¶ Ã°Å¸â€œÅ " />
+                    </HBox>
+                    <Label styleClass="page-subtitle" text="Ã Â¦Â¬Ã Â§Ë†Ã Â¦Å“Ã Â§ÂÃ Â¦Å¾Ã Â¦Â¾Ã Â¦Â¨Ã Â¦Â¿Ã Â¦â€¢ Ã Â¦ÂªÃ Â¦Â¦Ã Â§ÂÃ Â¦Â§Ã Â¦Â¾Ã Â¦Â¤Ã Â¦Â¿Ã Â¦Â¤Ã Â§â€¡ Ã Â¦â€ Ã Â¦ÂªÃ Â¦Â¨Ã Â¦Â¾Ã Â¦Â° Ã Â¦Â«Ã Â¦Â¸Ã Â¦Â²Ã Â§â€¡Ã Â¦Â° Ã Â¦ÂªÃ Â¦Â°Ã Â¦Â¿Ã Â¦Å¡Ã Â¦Â°Ã Â§ÂÃ Â¦Â¯Ã Â¦Â¾ Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨" />
+                </VBox>
+
+                <!-- Filter Buttons -->
+                <!-- Filter Buttons -->
+                <HBox alignment="CENTER" prefHeight="46.0" prefWidth="970.0" spacing="180.0">
+                    <!-- Added fx:id="btnGuide" -->
+                    <Button fx:id="btnGuide" styleClass="filter-btn, filter-btn-active" text="Ã°Å¸â€œâ€¦ Ã Â¦Â¶Ã Â¦Â¸Ã Â§ÂÃ Â¦Â¯ Ã Â¦â€¢Ã Â§ÂÃ Â¦Â¯Ã Â¦Â¾Ã Â¦Â²Ã Â§â€¡Ã Â¦Â¨Ã Â§ÂÃ Â¦Â¡Ã Â¦Â¾Ã Â¦Â°" />
+
+                    <!-- Fertilizer Button (Already had ID) -->
+                    <Button fx:id="btnFertilizer" styleClass="filter-btn" text="Ã°Å¸Å’Â¾ Ã Â¦Â¸Ã Â¦Â¾Ã Â¦Â°" />
+
+                    <!-- Irrigation Button (Already had ID) -->
+                    <Button fx:id="btnIrrigation" styleClass="filter-btn" text="Ã°Å¸â€Â¬ Ã Â¦Â¸Ã Â§â€¡Ã Â¦Å¡" />
+
+                    <!-- Added fx:id="btnCropRotation" -->
+                    <Button fx:id="btnCropRotation" styleClass="filter-btn" text="Ã¢â„¢Â» Ã Â¦Â«Ã Â¦Â¸Ã Â¦Â² Ã Â¦Å¡Ã Â¦â€¢Ã Â§ÂÃ Â¦Â°" />
+
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </HBox>
+
+                <!-- Crop Cards Grid -->
+                <GridPane alignment="CENTER" hgap="60.0" vgap="20.0">
+
+                    <!-- Rice Card -->
+                    <VBox spacing="15" styleClass="crop-card" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <padding>
+                            <Insets bottom="25" left="25" right="25" top="25" />
+                        </padding>
+
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label styleClass="crop-icon" text="Ã°Å¸Å’Â¾" />
+                            <Label styleClass="crop-name" text="Ã Â¦Â§Ã Â¦Â¾Ã Â¦Â¨ (Rice)" />
+                        </HBox>
+
+                        <VBox spacing="12">
+                            <VBox spacing="5">
+                                <Label styleClass="crop-info-label" text="Ã Â¦Â°Ã Â§â€¹Ã Â¦ÂªÃ Â¦Â£Ã Â§â€¡Ã Â¦Â° Ã Â¦Â¸Ã Â¦Â®Ã Â¦Â¯Ã Â¦Â¼" />
+                                <Label styleClass="crop-info-value" text="Ã Â¦â€“Ã Â¦Â°Ã Â¦Â¿Ã Â¦Â«: Ã Â¦ÂÃ Â¦ÂªÃ Â§ÂÃ Â¦Â°Ã Â¦Â¿Ã Â¦Â²-Ã Â¦Å“Ã Â§ÂÃ Â¦Â¨, Ã Â¦Â°Ã Â¦Â¬Ã Â¦Â¿: Ã Â¦Â¨Ã Â¦Â­Ã Â§â€¡Ã Â¦Â®Ã Â§ÂÃ Â¦Â¬Ã Â¦Â°-Ã Â¦Â¡Ã Â¦Â¿Ã Â¦Â¸Ã Â§â€¡Ã Â¦Â®Ã Â§ÂÃ Â¦Â¬Ã Â¦Â°" />
+                            </VBox>
+
+                            <VBox spacing="5">
+                                <Label styleClass="crop-info-label" text="Ã Â¦Â¬Ã Â§â‚¬Ã Â¦Å“Ã Â§â€¡Ã Â¦Â° Ã Â¦Â¹Ã Â¦Â¾Ã Â¦Â°" />
+                                <Label styleClass="crop-info-value" text="Ã Â§Â®-Ã Â§Â§Ã Â§Â¦ Ã Â¦â€¢Ã Â§â€¡Ã Â¦Å“Ã Â¦Â¿/Ã Â¦ÂÃ Â¦â€¢Ã Â¦Â°" />
+                            </VBox>
+
+                            <VBox spacing="5">
+                                <Label styleClass="crop-info-label" text="Ã Â¦ÂªÃ Â§ÂÃ Â¦Â°Ã Â¦Â¤Ã Â§ÂÃ Â¦Â¯Ã Â¦Â¾Ã Â¦Â¶Ã Â¦Â¿Ã Â¦Â¤ Ã Â¦Â«Ã Â¦Â²Ã Â¦Â¨" />
+                                <Label styleClass="crop-info-value" text="Ã Â§ÂªÃ Â§Â¦-Ã Â§Â«Ã Â§Â¦ Ã Â¦Â®Ã Â¦Â¨/Ã Â¦ÂÃ Â¦â€¢Ã Â¦Â°" />
+                            </VBox>
+                        </VBox>
+
+                        <Button styleClass="view-guide-btn" text="Ã Â¦Â¬Ã Â¦Â¿Ã Â¦Â¸Ã Â§ÂÃ Â¦Â¤Ã Â¦Â¾Ã Â¦Â°Ã Â¦Â¿Ã Â¦Â¤ Ã Â¦â€”Ã Â¦Â¾Ã Â¦â€¡Ã Â¦Â¡ Ã Â¦Â¦Ã Â§â€¡Ã Â¦â€“Ã Â§ÂÃ Â¦Â¨" />
+                    </VBox>
+
+                    <!-- Wheat Card -->
+                    <VBox spacing="15.0" styleClass="crop-card" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                        <padding>
+                            <Insets bottom="25" left="25" right="25" top="25" />
+                        </padding>
+
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label styleClass="crop-icon" text="Ã°Å¸Å’Â¾" />
+                            <Label styleClass="crop-name" text="Ã Â¦â€”Ã Â¦Â® (Wheat)" />
+                        </HBox>
+
+                        <VBox spacing="12">
+                            <VBox spacing="5">
+                                <Label styleClass="crop-info-label" text="Ã Â¦Â°Ã Â§â€¹Ã Â¦ÂªÃ Â¦Â£Ã Â§â€¡Ã Â¦Â° Ã Â¦Â¸Ã Â¦Â®Ã Â¦Â¯Ã Â¦Â¼" />
+                                <Label styleClass="crop-info-value" text="Ã Â¦Â¨Ã Â¦Â­Ã Â§â€¡Ã Â¦Â®Ã Â§ÂÃ Â¦Â¬Ã Â¦Â°-Ã Â¦Â¡Ã Â¦Â¿Ã Â¦Â¸Ã Â§â€¡Ã Â¦Â®Ã Â§ÂÃ Â¦Â¬Ã Â¦Â°" />
+                            </VBox>
+
+                            <VBox spacing="5">
+                                <Label styleClass="crop-info-label" text="Ã Â¦Â¬Ã Â§â‚¬Ã Â¦Å“Ã Â§â€¡Ã Â¦Â° Ã Â¦Â¹Ã Â¦Â¾Ã Â¦Â°" />
+                                <Label styleClass="crop-info-value" text="Ã Â§ÂªÃ Â§Â¦-Ã Â§Â«Ã Â§Â¦ Ã Â¦â€¢Ã Â§â€¡Ã Â¦Å“Ã Â¦Â¿/Ã Â¦ÂÃ Â¦â€¢Ã Â¦Â°" />
+                            </VBox>
+
+                            <VBox spacing="5">
+                                <Label styleClass="crop-info-label" text="Ã Â¦ÂªÃ Â§ÂÃ Â¦Â°Ã Â¦Â¤Ã Â§ÂÃ Â¦Â¯Ã Â¦Â¾Ã Â¦Â¶Ã Â¦Â¿Ã Â¦Â¤ Ã Â¦Â«Ã Â¦Â²Ã Â¦Â¨" />
+                                <Label styleClass="crop-info-value" text="Ã Â§Â©Ã Â§Â¦-Ã Â§Â©Ã Â§Â« Ã Â¦Â®Ã Â¦Â¨/Ã Â¦ÂÃ Â¦â€¢Ã Â¦Â°" />
+                            </VBox>
+                        </VBox>
+
+                        <Button styleClass="view-guide-btn" text="Ã Â¦Â¬Ã Â¦Â¿Ã Â¦Â¸Ã Â§ÂÃ Â¦Â¤Ã Â¦Â¾Ã Â¦Â°Ã Â¦Â¿Ã Â¦Â¤ Ã Â¦â€”Ã Â¦Â¾Ã Â¦â€¡Ã Â¦Â¡ Ã Â¦Â¦Ã Â§â€¡Ã Â¦â€“Ã Â§ÂÃ Â¦Â¨" />
+                    </VBox>
+
+                    <!-- Potato Card -->
+                    <VBox spacing="15" styleClass="crop-card" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                        <padding>
+                            <Insets bottom="25" left="25" right="25" top="25" />
+                        </padding>
+
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label styleClass="crop-icon" text="Ã°Å¸Â¥â€" />
+                            <Label styleClass="crop-name" text="Ã Â¦â€ Ã Â¦Â²Ã Â§Â (Potato)" />
+                        </HBox>
+
+                        <VBox spacing="12">
+                            <VBox spacing="5">
+                                <Label styleClass="crop-info-label" text="Ã Â¦Â°Ã Â§â€¹Ã Â¦ÂªÃ Â¦Â£Ã Â§â€¡Ã Â¦Â° Ã Â¦Â¸Ã Â¦Â®Ã Â¦Â¯Ã Â¦Â¼" />
+                                <Label styleClass="crop-info-value" text="Ã Â¦â€¦Ã Â¦â€¢Ã Â§ÂÃ Â¦Å¸Ã Â§â€¹Ã Â¦Â¬Ã Â¦Â°-Ã Â¦Â¨Ã Â¦Â­Ã Â§â€¡Ã Â¦Â®Ã Â§ÂÃ Â¦Â¬Ã Â¦Â°" />
+                            </VBox>
+
+                            <VBox spacing="5">
+                                <Label styleClass="crop-info-label" text="Ã Â¦Â¬Ã Â§â‚¬Ã Â¦Å“Ã Â§â€¡Ã Â¦Â° Ã Â¦Â¹Ã Â¦Â¾Ã Â¦Â°" />
+                                <Label styleClass="crop-info-value" text="Ã Â§Â¬Ã Â§Â¦Ã Â§Â¦-Ã Â§Â®Ã Â§Â¦Ã Â§Â¦ Ã Â¦â€¢Ã Â§â€¡Ã Â¦Å“Ã Â¦Â¿/Ã Â¦ÂÃ Â¦â€¢Ã Â¦Â°" />
+                            </VBox>
+
+                            <VBox spacing="5">
+                                <Label styleClass="crop-info-label" text="Ã Â¦ÂªÃ Â§ÂÃ Â¦Â°Ã Â¦Â¤Ã Â§ÂÃ Â¦Â¯Ã Â¦Â¾Ã Â¦Â¶Ã Â¦Â¿Ã Â¦Â¤ Ã Â¦Â«Ã Â¦Â²Ã Â¦Â¨" />
+                                <Label styleClass="crop-info-value" text="Ã Â§Â§Ã Â§Â«Ã Â§Â¦-Ã Â§Â¨Ã Â§Â¦Ã Â§Â¦ Ã Â¦Â®Ã Â¦Â¨/Ã Â¦ÂÃ Â¦â€¢Ã Â¦Â°" />
+                            </VBox>
+                        </VBox>
+
+                        <Button styleClass="view-guide-btn" text="Ã Â¦Â¬Ã Â¦Â¿Ã Â¦Â¸Ã Â§ÂÃ Â¦Â¤Ã Â¦Â¾Ã Â¦Â°Ã Â¦Â¿Ã Â¦Â¤ Ã Â¦â€”Ã Â¦Â¾Ã Â¦â€¡Ã Â¦Â¡ Ã Â¦Â¦Ã Â§â€¡Ã Â¦â€“Ã Â§ÂÃ Â¦Â¨" />
+                    </VBox>
+
+                    <!-- Jute Card -->
+                    <VBox spacing="15" styleClass="crop-card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <padding>
+                            <Insets bottom="25" left="25" right="25" top="25" />
+                        </padding>
+
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label styleClass="crop-icon" text="Ã°Å¸Å’Â¿" />
+                            <Label styleClass="crop-name" text="Ã Â¦ÂªÃ Â¦Â¾Ã Â¦Å¸ (Jute)" />
+                        </HBox>
+
+                        <VBox spacing="12">
+                            <VBox spacing="5">
+                                <Label styleClass="crop-info-label" text="Ã Â¦Â°Ã Â§â€¹Ã Â¦ÂªÃ Â¦Â£Ã Â§â€¡Ã Â¦Â° Ã Â¦Â¸Ã Â¦Â®Ã Â¦Â¯Ã Â¦Â¼" />
+                                <Label styleClass="crop-info-value" text="Ã Â¦Â®Ã Â¦Â¾Ã Â¦Â°Ã Â§ÂÃ Â¦Å¡-Ã Â¦ÂÃ Â¦ÂªÃ Â§ÂÃ Â¦Â°Ã Â¦Â¿Ã Â¦Â²" />
+                            </VBox>
+
+                            <VBox spacing="5">
+                                <Label styleClass="crop-info-label" text="Ã Â¦Â¬Ã Â§â‚¬Ã Â¦Å“Ã Â§â€¡Ã Â¦Â° Ã Â¦Â¹Ã Â¦Â¾Ã Â¦Â°" />
+                                <Label styleClass="crop-info-value" text="Ã Â§Â¨-Ã Â§Â© Ã Â¦â€¢Ã Â§â€¡Ã Â¦Å“Ã Â¦Â¿/Ã Â¦ÂÃ Â¦â€¢Ã Â¦Â°" />
+                            </VBox>
+
+                            <VBox spacing="5">
+                                <Label styleClass="crop-info-label" text="Ã Â¦ÂªÃ Â§ÂÃ Â¦Â°Ã Â¦Â¤Ã Â§ÂÃ Â¦Â¯Ã Â¦Â¾Ã Â¦Â¶Ã Â¦Â¿Ã Â¦Â¤ Ã Â¦Â«Ã Â¦Â²Ã Â¦Â¨" />
+                                <Label styleClass="crop-info-value" text="Ã Â§Â¨Ã Â§Â«-Ã Â§Â©Ã Â§Â¦ Ã Â¦Â®Ã Â¦Â¨/Ã Â¦ÂÃ Â¦â€¢Ã Â¦Â°" />
+                            </VBox>
+                        </VBox>
+
+                        <Button styleClass="view-guide-btn" text="Ã Â¦Â¬Ã Â¦Â¿Ã Â¦Â¸Ã Â§ÂÃ Â¦Â¤Ã Â¦Â¾Ã Â¦Â°Ã Â¦Â¿Ã Â¦Â¤ Ã Â¦â€”Ã Â¦Â¾Ã Â¦â€¡Ã Â¦Â¡ Ã Â¦Â¦Ã Â§â€¡Ã Â¦â€“Ã Â§ÂÃ Â¦Â¨" />
+                    </VBox>
+                    <columnConstraints>
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                    </rowConstraints>
+
+                </GridPane>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

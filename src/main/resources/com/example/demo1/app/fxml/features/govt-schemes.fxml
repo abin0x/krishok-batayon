@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane fitToWidth="true"
+            hbarPolicy="NEVER"
+            vbarPolicy="AS_NEEDED"
+            styleClass="content-scroll"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.demo1.app.ui.GovtSchemesController">
+
+    <content>
+        <VBox spacing="16" styleClass="content-page">
+            <padding><Insets top="30" right="30" bottom="30" left="30"/></padding>
+
+            <Label styleClass="content-title" text="🏛️ সরকারি সুবিধা ও ভর্তুকি / Govt Schemes"/>
+            <Label styleClass="content-subtitle" wrapText="true" text="সরকারি কৃষি সহায়তা, ব্যাংক ঋণ সুবিধা এবং আবেদন-সংক্রান্ত তথ্য দেখুন। Explore verified subsidy and loan support options."/>
+
+            <HBox spacing="12">
+                <Button text="AB Bank তথ্য" onAction="#handleABBankInfo" styleClass="create-btn"/>
+                <Button text="Bank Asia তথ্য" onAction="#handleBankAsiaInfo" styleClass="create-btn"/>
+            </HBox>
+            <HBox spacing="12">
+                <Button text="Dhaka Bank তথ্য" onAction="#handleDhakaBankInfo" styleClass="create-btn"/>
+                <Button text="City Bank তথ্য" onAction="#handleCityBankInfo" styleClass="create-btn"/>
+            </HBox>
+
+            <VBox styleClass="content-card">
+                <Label styleClass="content-card-title" text="সতর্কতা / Note"/>
+                <Label styleClass="content-card-text" wrapText="true" text="আবেদনের আগে স্থানীয় কৃষি অফিস ও সংশ্লিষ্ট ব্যাংকের সর্বশেষ শর্ত যাচাই করুন। Confirm latest eligibility and documentation before applying."/>
+            </VBox>
+        </VBox>
+    </content>
+</ScrollPane>

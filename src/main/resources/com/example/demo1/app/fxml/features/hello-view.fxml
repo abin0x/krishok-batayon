@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<StackPane xmlns="http://javafx.com/javafx/21"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.example.demo1.app.ui.LoginController"
+           stylesheets="@../../css/style.css"
+           styleClass="auth-root">
+
+    <Region styleClass="auth-glow auth-glow-left"/>
+    <Region styleClass="auth-glow auth-glow-right"/>
+
+    <HBox maxWidth="820" prefHeight="470" styleClass="auth-shell">
+        <VBox spacing="14" styleClass="auth-brand-pane" HBox.hgrow="ALWAYS">
+            <padding>
+                <Insets top="28" right="26" bottom="28" left="26"/>
+            </padding>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Label text="AGRI ASSIST PLATFORM" styleClass="brand-kicker"/>
+            <Label text="Krishi Sakhi" styleClass="brand-title"/>
+            <Label text="Smart Agriculture Companion" styleClass="brand-subtitle"/>
+            <Label wrapText="true"
+                   text="আধুনিক কৃষি পরিকল্পনা, বাজার বিশ্লেষণ, স্মার্ট ডায়াগনস্টিক এবং কাজের ট্র্যাকিং এক প্ল্যাটফর্মে।"
+                   styleClass="brand-copy"/>
+
+            <VBox spacing="8" styleClass="brand-chip-group">
+                <Label text="• ফসল পরিকল্পনা ও ক্যালেন্ডার" styleClass="brand-chip"/>
+                <Label text="• বাজার দর ও লাভ বিশ্লেষণ" styleClass="brand-chip"/>
+                <Label text="• বিশেষজ্ঞ সহায়তা ও জরুরি সাপোর্ট" styleClass="brand-chip"/>
+            </VBox>
+
+            <Region VBox.vgrow="ALWAYS"/>
+            <Label text="Season Ready • Farmer First" styleClass="brand-foot"/>
+        </VBox>
+
+        <VBox alignment="CENTER_LEFT" spacing="10" styleClass="auth-form-pane" HBox.hgrow="ALWAYS">
+            <padding>
+                <Insets top="28" right="26" bottom="28" left="26"/>
+            </padding>
+
+            <Label text="লগইন করুন" styleClass="auth-heading"/>
+            <Label text="আপনার অ্যাকাউন্টে প্রবেশ করুন" styleClass="auth-subheading"/>
+
+            <VBox spacing="7">
+                <Label text="মোবাইল নাম্বার / ইউজারনেম" styleClass="field-label"/>
+                <HBox alignment="CENTER_LEFT" styleClass="field-wrap">
+                    <TextField fx:id="usernameField"
+                               promptText="মোবাইল নাম্বার বা ইউজারনেম দিন"
+                               styleClass="field-input"
+                               HBox.hgrow="ALWAYS"/>
+                </HBox>
+            </VBox>
+
+            <VBox spacing="7">
+                <Label text="পাসওয়ার্ড" styleClass="field-label"/>
+                <HBox alignment="CENTER_LEFT" styleClass="field-wrap">
+                    <PasswordField fx:id="passwordField"
+                                   promptText="আপনার পাসওয়ার্ড লিখুন"
+                                   styleClass="field-input"
+                                   HBox.hgrow="ALWAYS"/>
+                </HBox>
+            </VBox>
+
+            <Button text="লগইন" maxWidth="Infinity" onAction="#onLoginButtonClick" styleClass="primary-btn"/>
+
+            <HBox alignment="CENTER_LEFT" spacing="6">
+                <Text text="নতুন ব্যবহারকারী?" styleClass="helper-text"/>
+                <Hyperlink text="রেজিস্ট্রেশন করুন" onAction="#onOpenRegisterClick" styleClass="clean-link"/>
+            </HBox>
+        </VBox>
+    </HBox>
+</StackPane>

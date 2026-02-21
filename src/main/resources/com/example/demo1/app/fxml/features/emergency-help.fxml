@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane fitToWidth="true"
+            hbarPolicy="NEVER"
+            vbarPolicy="AS_NEEDED"
+            styleClass="content-scroll"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml">
+    <content>
+        <VBox spacing="16" styleClass="content-page">
+            <padding><Insets top="30" right="30" bottom="30" left="30"/></padding>
+
+            <Label styleClass="content-title" text="📞 সরকারি সেবা ও সাহায্য / Emergency Help"/>
+            <Label styleClass="content-subtitle" wrapText="true" text="জরুরি কৃষি সহায়তা এবং অফিসিয়াল হেল্পলাইন নম্বর। Find trusted helplines for immediate support."/>
+
+            <VBox styleClass="content-card">
+                <Label styleClass="content-card-title" text="কৃষি কল সেন্টার / Agriculture Helpdesk"/>
+                <Label styleClass="content-card-text" text="☎ 16123 (সকাল ৮টা - রাত ৮টা)"/>
+                <Label styleClass="content-card-text" text="☎ 3331 (Farmer Friend Service)"/>
+            </VBox>
+
+            <VBox styleClass="content-card">
+                <Label styleClass="content-card-title" text="BRRI সহায়তা / BRRI Support"/>
+                <Label styleClass="content-card-text" text="☎ 09644300300"/>
+                <Label styleClass="content-card-text" wrapText="true" text="সার, বালাই, সেচ এবং রোগ ব্যবস্থাপনা বিষয়ে পরামর্শ। Guidance on fertilizer, pest, irrigation, and disease."/>
+            </VBox>
+        </VBox>
+    </content>
+</ScrollPane>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      spacing="14"
+      styleClass="content-page">
+    <padding><Insets top="30" right="30" bottom="30" left="30"/></padding>
+
+    <Label styleClass="content-title" text="🩺 স্মার্ট ডায়াগনস্টিক / Smart Diagnostic"/>
+    <Label styleClass="content-subtitle" wrapText="true" text="পাতা/ফসলের সমস্যা শনাক্ত করে তাৎক্ষণিক পরামর্শ পান। Detect crop issues and get quick recommended actions."/>
+
+    <VBox styleClass="content-card">
+        <Label styleClass="content-card-title" text="ডিটেকশন স্টেপ / Detection Step"/>
+        <Label styleClass="content-card-text" wrapText="true" text="ছবি আপলোড করে রোগ/পোকার সম্ভাব্য কারণ দেখুন। Upload photo to identify likely disease or pest."/>
+    </VBox>
+</VBox>

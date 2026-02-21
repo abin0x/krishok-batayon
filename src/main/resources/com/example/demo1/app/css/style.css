@@ -1,0 +1,205 @@
+.auth-root {
+    -fx-background-color: linear-gradient(to bottom right, #ecfdf3, #e6f4ea, #f6fff8);
+    -fx-font-family: "Noto Sans Bengali", "Nirmala UI", "Segoe UI", Arial, sans-serif;
+}
+
+.auth-glow {
+    -fx-pref-width: 340;
+    -fx-pref-height: 340;
+    -fx-background-radius: 170;
+}
+
+.auth-glow-left {
+    -fx-background-color: rgba(22, 163, 74, 0.12);
+    -fx-translate-x: -420;
+    -fx-translate-y: -220;
+}
+
+.auth-glow-right {
+    -fx-background-color: rgba(14, 116, 144, 0.1);
+    -fx-translate-x: 430;
+    -fx-translate-y: 210;
+}
+
+.auth-shell {
+    -fx-background-color: white;
+    -fx-background-radius: 16;
+    -fx-border-color: #dcefe1;
+    -fx-border-radius: 16;
+    -fx-effect: dropshadow(gaussian, rgba(15, 81, 50, 0.14), 20, 0.2, 0, 8);
+}
+
+.auth-brand-pane {
+    -fx-background-color: linear-gradient(to bottom right, #0f5132, #1f7a4d, #4ca66a);
+    -fx-background-radius: 16 0 0 16;
+    -fx-pref-width: 410;
+    -fx-max-width: Infinity;
+}
+
+.brand-logo-wrap {
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+    -fx-background-radius: 52;
+    -fx-padding: 8;
+    -fx-max-width: 96;
+    -fx-max-height: 96;
+    -fx-border-color: rgba(255, 255, 255, 0.35);
+    -fx-border-radius: 52;
+}
+
+.brand-logo-image {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 8, 0, 0, 2);
+}
+
+.register-image-wrap {
+    -fx-max-width: 130;
+    -fx-max-height: 130;
+    -fx-padding: 8;
+}
+
+.register-agri-image {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.24), 10, 0, 0, 2);
+}
+
+.brand-kicker {
+    -fx-text-fill: #dcfce7;
+    -fx-font-size: 11px;
+    -fx-font-weight: 800;
+    -fx-letter-spacing: 1.2px;
+}
+
+.brand-title {
+    -fx-text-fill: #fff7d6;
+    -fx-font-size: 30px;
+    -fx-font-weight: 900;
+    -fx-letter-spacing: 0.8px;
+}
+
+.brand-subtitle {
+    -fx-text-fill: #eafff1;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+}
+
+.brand-copy {
+    -fx-text-fill: rgba(255, 255, 255, 0.96);
+    -fx-font-size: 12px;
+    -fx-line-spacing: 1.5px;
+}
+
+.brand-chip-group {
+    -fx-padding: 8 0 0 0;
+}
+
+.brand-chip {
+    -fx-background-color: rgba(255, 255, 255, 0.18);
+    -fx-text-fill: #f3fff7;
+    -fx-padding: 6 9;
+    -fx-background-radius: 12;
+    -fx-font-size: 11px;
+    -fx-font-weight: 600;
+}
+
+.brand-foot {
+    -fx-text-fill: rgba(220, 252, 231, 0.98);
+    -fx-font-size: 12px;
+    -fx-font-weight: 800;
+}
+
+.auth-form-pane {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 0 16 16 0;
+    -fx-pref-width: 410;
+    -fx-max-width: Infinity;
+}
+
+.auth-form-scroll {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}
+
+.auth-form-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+.auth-heading {
+    -fx-font-size: 21px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #14532d;
+}
+
+.auth-subheading {
+    -fx-font-size: 13px;
+    -fx-text-fill: #475569;
+    -fx-padding: 0 0 6 0;
+}
+
+.field-label {
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #1e293b;
+}
+
+.field-wrap {
+    -fx-background-color: #f8fafc;
+    -fx-border-color: #dbe6de;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 7 9;
+}
+
+.field-wrap:focused-within {
+    -fx-border-color: #16a34a;
+    -fx-background-color: #ffffff;
+    -fx-effect: dropshadow(gaussian, rgba(22, 163, 74, 0.12), 10, 0.1, 0, 0);
+}
+
+.field-input {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+    -fx-font-size: 14px;
+    -fx-text-fill: #0f172a;
+    -fx-prompt-text-fill: #94a3b8;
+}
+
+.primary-btn {
+    -fx-background-color: linear-gradient(to right, #15803d, #16a34a);
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-font-weight: 800;
+    -fx-padding: 10 14;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+}
+
+.primary-btn:hover {
+    -fx-background-color: linear-gradient(to right, #166534, #15803d);
+}
+
+.helper-text {
+    -fx-fill: #64748b;
+}
+
+.clean-link {
+    -fx-text-fill: #15803d;
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-padding: 0;
+    -fx-underline: false;
+}
+
+.clean-link:hover {
+    -fx-underline: true;
+}
+
+.clean-link-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #15803d;
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+}
+
+.clean-link-btn:hover {
+    -fx-underline: true;
+}
