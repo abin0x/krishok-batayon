@@ -5,11 +5,11 @@ import com.example.demo1.app.util.SessionManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.fxml.FXMLLoader; // ðŸ›‘ à¦¨à¦¤à§à¦¨ à¦†à¦®à¦¦à¦¾à¦¨à¦¿ ðŸ›‘
+import javafx.fxml.FXMLLoader; // Ã°Å¸â€ºâ€˜ Ã Â¦Â¨Ã Â¦Â¤Ã Â§ÂÃ Â¦Â¨ Ã Â¦â€ Ã Â¦Â®Ã Â¦Â¦Ã Â¦Â¾Ã Â¦Â¨Ã Â¦Â¿ Ã°Å¸â€ºâ€˜
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane; // ðŸ›‘ à¦¨à¦¤à§à¦¨ à¦†à¦®à¦¦à¦¾à¦¨à¦¿ ðŸ›‘
-import javafx.scene.Parent; // ðŸ›‘ à¦¨à¦¤à§à¦¨ à¦†à¦®à¦¦à¦¾à¦¨à¦¿ ðŸ›‘
+import javafx.scene.layout.StackPane; // Ã°Å¸â€ºâ€˜ Ã Â¦Â¨Ã Â¦Â¤Ã Â§ÂÃ Â¦Â¨ Ã Â¦â€ Ã Â¦Â®Ã Â¦Â¦Ã Â¦Â¾Ã Â¦Â¨Ã Â¦Â¿ Ã°Å¸â€ºâ€˜
+import javafx.scene.Parent; // Ã°Å¸â€ºâ€˜ Ã Â¦Â¨Ã Â¦Â¤Ã Â§ÂÃ Â¦Â¨ Ã Â¦â€ Ã Â¦Â®Ã Â¦Â¦Ã Â¦Â¾Ã Â¦Â¨Ã Â¦Â¿ Ã°Å¸â€ºâ€˜
 
 import java.net.URL;
 import java.util.Objects;
@@ -26,24 +26,24 @@ public class DashboardController implements Initializable {
     @FXML private Button btnAiHelper, btnVideoEducation, btnFarmWeather, btnAgriAnalysis;
     @FXML private Button btnAgriNews, btnCropPlanning, btnProfitLoss, btnWeather, btnMarket, btnFarmerMarket, btnSoilHealth, btnPestDetection, btnComments, btnWamService, btnNewsTraffic, btnEmergencyHelp, btnCommunity, btnStudy;
 
-    // ðŸ›‘ à¦«à¦¿à¦•à§à¦¸: FXML à¦¥à§‡à¦•à§‡ à¦²à§‹à¦¡ à¦¹à¦“à¦¯à¦¼à¦¾ à¦•à¦¨à§à¦Ÿà§‡à¦¨à§à¦Ÿ à¦à¦°à¦¿à¦¯à¦¼à¦¾ ðŸ›‘
+    // Ã°Å¸â€ºâ€˜ Ã Â¦Â«Ã Â¦Â¿Ã Â¦â€¢Ã Â§ÂÃ Â¦Â¸: FXML Ã Â¦Â¥Ã Â§â€¡Ã Â¦â€¢Ã Â§â€¡ Ã Â¦Â²Ã Â§â€¹Ã Â¦Â¡ Ã Â¦Â¹Ã Â¦â€œÃ Â¦Â¯Ã Â¦Â¼Ã Â¦Â¾ Ã Â¦â€¢Ã Â¦Â¨Ã Â§ÂÃ Â¦Å¸Ã Â§â€¡Ã Â¦Â¨Ã Â§ÂÃ Â¦Å¸ Ã Â¦ÂÃ Â¦Â°Ã Â¦Â¿Ã Â¦Â¯Ã Â¦Â¼Ã Â¦Â¾ Ã°Å¸â€ºâ€˜
     @FXML private StackPane contentArea;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        System.out.println("âœ… Dashboard Initialized");
+        System.out.println("Ã¢Å“â€¦ Dashboard Initialized");
 
         // 1. Setup Main Sidebar Navigation
-        // à¦†à¦ªà¦¨à¦¿ à¦šà¦¾à¦‡à¦²à§‡ à¦à¦‡ à¦¸à§‡à¦Ÿà¦†à¦ªà§‡à¦° à¦­à§‡à¦¤à¦°à§‡à¦‡ loadContent à¦•à¦² à¦•à¦°à¦¤à§‡ à¦ªà¦¾à¦°à§‡à¦¨à¥¤
+        // Ã Â¦â€ Ã Â¦ÂªÃ Â¦Â¨Ã Â¦Â¿ Ã Â¦Å¡Ã Â¦Â¾Ã Â¦â€¡Ã Â¦Â²Ã Â§â€¡ Ã Â¦ÂÃ Â¦â€¡ Ã Â¦Â¸Ã Â§â€¡Ã Â¦Å¸Ã Â¦â€ Ã Â¦ÂªÃ Â§â€¡Ã Â¦Â° Ã Â¦Â­Ã Â§â€¡Ã Â¦Â¤Ã Â¦Â°Ã Â§â€¡Ã Â¦â€¡ loadContent Ã Â¦â€¢Ã Â¦Â² Ã Â¦â€¢Ã Â¦Â°Ã Â¦Â¤Ã Â§â€¡ Ã Â¦ÂªÃ Â¦Â¾Ã Â¦Â°Ã Â§â€¡Ã Â¦Â¨Ã Â¥Â¤
         NavigationHelper.setupSidebar(btnHome, btnAdvisory, btnStorage, btnLocalManagement, btnMachinery);
 
-        // ðŸ›‘ à¦«à¦¿à¦•à§à¦¸ à§§: initialize-à¦ à¦ªà§à¦°à¦¥à¦® à¦•à¦¨à§à¦Ÿà§‡à¦¨à§à¦Ÿ (à¦¹à§‹à¦®) à¦²à§‹à¦¡ à¦•à¦°à§à¦¨ ðŸ›‘
-        // à¦à¦‡ à¦¹à§‹à¦® FXML à¦Ÿà¦¿à¦‡ à¦†à¦ªà¦¨à¦¾à¦° à¦ªà§à¦°à¦¨à§‹ à¦¡à§à¦¯à¦¾à¦¶à¦¬à§‹à¦°à§à¦¡ à¦•à¦¨à§à¦Ÿà§‡à¦¨à§à¦Ÿ à¦§à¦¾à¦°à¦£ à¦•à¦°à¦¬à§‡à¥¤
+        // Ã°Å¸â€ºâ€˜ Ã Â¦Â«Ã Â¦Â¿Ã Â¦â€¢Ã Â§ÂÃ Â¦Â¸ Ã Â§Â§: initialize-Ã Â¦Â Ã Â¦ÂªÃ Â§ÂÃ Â¦Â°Ã Â¦Â¥Ã Â¦Â® Ã Â¦â€¢Ã Â¦Â¨Ã Â§ÂÃ Â¦Å¸Ã Â§â€¡Ã Â¦Â¨Ã Â§ÂÃ Â¦Å¸ (Ã Â¦Â¹Ã Â§â€¹Ã Â¦Â®) Ã Â¦Â²Ã Â§â€¹Ã Â¦Â¡ Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨ Ã°Å¸â€ºâ€˜
+        // Ã Â¦ÂÃ Â¦â€¡ Ã Â¦Â¹Ã Â§â€¹Ã Â¦Â® FXML Ã Â¦Å¸Ã Â¦Â¿Ã Â¦â€¡ Ã Â¦â€ Ã Â¦ÂªÃ Â¦Â¨Ã Â¦Â¾Ã Â¦Â° Ã Â¦ÂªÃ Â§ÂÃ Â¦Â°Ã Â¦Â¨Ã Â§â€¹ Ã Â¦Â¡Ã Â§ÂÃ Â¦Â¯Ã Â¦Â¾Ã Â¦Â¶Ã Â¦Â¬Ã Â§â€¹Ã Â¦Â°Ã Â§ÂÃ Â¦Â¡ Ã Â¦â€¢Ã Â¦Â¨Ã Â§ÂÃ Â¦Å¸Ã Â§â€¡Ã Â¦Â¨Ã Â§ÂÃ Â¦Å¸ Ã Â¦Â§Ã Â¦Â¾Ã Â¦Â°Ã Â¦Â£ Ã Â¦â€¢Ã Â¦Â°Ã Â¦Â¬Ã Â§â€¡Ã Â¥Â¤
         loadContent("/com/example/demo1/app/fxml/dashboard/dashboard.fxml");
 
         // 2. Setup Profile Navigation
-        // à¦¯à§‡à¦¹à§‡à¦¤à§ à¦†à¦ªà¦¨à¦¿ FXML-à¦ onAction="#handleProfileClick" à¦¸à§‡à¦Ÿ à¦•à¦°à§‡à¦›à§‡à¦¨, à¦¤à¦¾à¦‡ à¦à¦‡ à¦²à¦œà¦¿à¦•à¦Ÿà¦¿ (setOnAction) à¦…à¦ªà§à¦°à¦¯à¦¼à§‹à¦œà¦¨à§€à¦¯à¦¼, à¦¤à¦¬à§‡ à¦à¦Ÿà¦¿ à¦¥à¦¾à¦•à¦²à§‡à¦“ à¦¸à¦¾à¦§à¦¾à¦°à¦£à¦¤ à¦¸à¦®à¦¸à§à¦¯à¦¾ à¦¹à¦¯à¦¼ à¦¨à¦¾à¥¤
+        // Ã Â¦Â¯Ã Â§â€¡Ã Â¦Â¹Ã Â§â€¡Ã Â¦Â¤Ã Â§Â Ã Â¦â€ Ã Â¦ÂªÃ Â¦Â¨Ã Â¦Â¿ FXML-Ã Â¦Â onAction="#handleProfileClick" Ã Â¦Â¸Ã Â§â€¡Ã Â¦Å¸ Ã Â¦â€¢Ã Â¦Â°Ã Â§â€¡Ã Â¦â€ºÃ Â§â€¡Ã Â¦Â¨, Ã Â¦Â¤Ã Â¦Â¾Ã Â¦â€¡ Ã Â¦ÂÃ Â¦â€¡ Ã Â¦Â²Ã Â¦Å“Ã Â¦Â¿Ã Â¦â€¢Ã Â¦Å¸Ã Â¦Â¿ (setOnAction) Ã Â¦â€¦Ã Â¦ÂªÃ Â§ÂÃ Â¦Â°Ã Â¦Â¯Ã Â¦Â¼Ã Â§â€¹Ã Â¦Å“Ã Â¦Â¨Ã Â§â‚¬Ã Â¦Â¯Ã Â¦Â¼, Ã Â¦Â¤Ã Â¦Â¬Ã Â§â€¡ Ã Â¦ÂÃ Â¦Å¸Ã Â¦Â¿ Ã Â¦Â¥Ã Â¦Â¾Ã Â¦â€¢Ã Â¦Â²Ã Â§â€¡Ã Â¦â€œ Ã Â¦Â¸Ã Â¦Â¾Ã Â¦Â§Ã Â¦Â¾Ã Â¦Â°Ã Â¦Â£Ã Â¦Â¤ Ã Â¦Â¸Ã Â¦Â®Ã Â¦Â¸Ã Â§ÂÃ Â¦Â¯Ã Â¦Â¾ Ã Â¦Â¹Ã Â¦Â¯Ã Â¦Â¼ Ã Â¦Â¨Ã Â¦Â¾Ã Â¥Â¤
         if (btnProfile != null) {
             btnProfile.setOnAction(this::handleProfileClick);
         }
@@ -54,62 +54,62 @@ public class DashboardController implements Initializable {
             });
         }
 
-        // 3. Setup Placeholder Features (à¦¬à¦¾à¦•à¦¿ à¦¬à¦¾à¦Ÿà¦¨à¦—à§à¦²à§‹à¦“ loadContent à¦¬à§à¦¯à¦¬à¦¹à¦¾à¦° à¦•à¦°à¦¤à§‡ à¦ªà¦¾à¦°à§‡)
-        setupPlaceholder(btnAiHelper, "AI à¦¸à¦¹à¦¾à¦¯à¦¼à¦•");
-        setupPlaceholder(btnVideoEducation, "à¦­à¦¿à¦¡à¦¿à¦“ à¦¶à¦¿à¦•à§à¦·à¦¾");
-        // ... à¦…à¦¨à§à¦¯à¦¾à¦¨à§à¦¯ à¦¬à¦¾à¦Ÿà¦¨ ...
+        // 3. Setup Placeholder Features (Ã Â¦Â¬Ã Â¦Â¾Ã Â¦â€¢Ã Â¦Â¿ Ã Â¦Â¬Ã Â¦Â¾Ã Â¦Å¸Ã Â¦Â¨Ã Â¦â€”Ã Â§ÂÃ Â¦Â²Ã Â§â€¹Ã Â¦â€œ loadContent Ã Â¦Â¬Ã Â§ÂÃ Â¦Â¯Ã Â¦Â¬Ã Â¦Â¹Ã Â¦Â¾Ã Â¦Â° Ã Â¦â€¢Ã Â¦Â°Ã Â¦Â¤Ã Â§â€¡ Ã Â¦ÂªÃ Â¦Â¾Ã Â¦Â°Ã Â§â€¡)
+        setupPlaceholder(btnAiHelper, "AI Ã Â¦Â¸Ã Â¦Â¹Ã Â¦Â¾Ã Â¦Â¯Ã Â¦Â¼Ã Â¦â€¢");
+        setupPlaceholder(btnVideoEducation, "Ã Â¦Â­Ã Â¦Â¿Ã Â¦Â¡Ã Â¦Â¿Ã Â¦â€œ Ã Â¦Â¶Ã Â¦Â¿Ã Â¦â€¢Ã Â§ÂÃ Â¦Â·Ã Â¦Â¾");
+        // ... Ã Â¦â€¦Ã Â¦Â¨Ã Â§ÂÃ Â¦Â¯Ã Â¦Â¾Ã Â¦Â¨Ã Â§ÂÃ Â¦Â¯ Ã Â¦Â¬Ã Â¦Â¾Ã Â¦Å¸Ã Â¦Â¨ ...
         btnGovtSchemes.setOnAction(event -> {
-            setPage("govt-schemes.fxml"); // à¦†à¦ªà¦¨à¦¾à¦° FXML à¦«à¦¾à¦‡à¦²à§‡à¦° à¦¨à¦¾à¦®
+            setPage("govt-schemes.fxml"); // Ã Â¦â€ Ã Â¦ÂªÃ Â¦Â¨Ã Â¦Â¾Ã Â¦Â° FXML Ã Â¦Â«Ã Â¦Â¾Ã Â¦â€¡Ã Â¦Â²Ã Â§â€¡Ã Â¦Â° Ã Â¦Â¨Ã Â¦Â¾Ã Â¦Â®
         });
 
 
     }
 
-    // ðŸ›‘ à¦¨à¦¤à§à¦¨ à¦®à§‡à¦¥à¦¡: StackPane à¦ FXML à¦²à§‹à¦¡ à¦•à¦°à¦¾à¦° à¦œà¦¨à§à¦¯ ðŸ›‘
+    // Ã°Å¸â€ºâ€˜ Ã Â¦Â¨Ã Â¦Â¤Ã Â§ÂÃ Â¦Â¨ Ã Â¦Â®Ã Â§â€¡Ã Â¦Â¥Ã Â¦Â¡: StackPane Ã Â¦Â FXML Ã Â¦Â²Ã Â§â€¹Ã Â¦Â¡ Ã Â¦â€¢Ã Â¦Â°Ã Â¦Â¾Ã Â¦Â° Ã Â¦Å“Ã Â¦Â¨Ã Â§ÂÃ Â¦Â¯ Ã°Å¸â€ºâ€˜
     private void loadContent(String fxmlPath) {
         if (contentArea == null) {
-            System.err.println("âŒ ERROR: contentArea StackPane is NULL. FXML might not be correctly linked.");
+            System.err.println("Ã¢ÂÅ’ ERROR: contentArea StackPane is NULL. FXML might not be correctly linked.");
             return;
         }
         try {
-            // FXML à¦²à§‹à¦¡ à¦•à¦°à§à¦¨
+            // FXML Ã Â¦Â²Ã Â§â€¹Ã Â¦Â¡ Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨
             Parent content = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(fxmlPath)));
 
-            // contentArea à¦à¦° à¦­à§‡à¦¤à¦°à§‡à¦° à¦ªà§à¦°à¦¾à¦¤à¦¨ à¦•à¦¨à§à¦Ÿà§‡à¦¨à§à¦Ÿ à¦¸à¦°à¦¿à¦¯à¦¼à§‡ à¦¨à¦¤à§à¦¨ FXML à¦¯à§à¦•à§à¦¤ à¦•à¦°à§à¦¨
+            // contentArea Ã Â¦ÂÃ Â¦Â° Ã Â¦Â­Ã Â§â€¡Ã Â¦Â¤Ã Â¦Â°Ã Â§â€¡Ã Â¦Â° Ã Â¦ÂªÃ Â§ÂÃ Â¦Â°Ã Â¦Â¾Ã Â¦Â¤Ã Â¦Â¨ Ã Â¦â€¢Ã Â¦Â¨Ã Â§ÂÃ Â¦Å¸Ã Â§â€¡Ã Â¦Â¨Ã Â§ÂÃ Â¦Å¸ Ã Â¦Â¸Ã Â¦Â°Ã Â¦Â¿Ã Â¦Â¯Ã Â¦Â¼Ã Â§â€¡ Ã Â¦Â¨Ã Â¦Â¤Ã Â§ÂÃ Â¦Â¨ FXML Ã Â¦Â¯Ã Â§ÂÃ Â¦â€¢Ã Â§ÂÃ Â¦Â¤ Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨
             contentArea.getChildren().setAll(content);
 
             System.out.println("Page loaded successfully into contentArea: " + fxmlPath);
 
         } catch (IOException e) {
             System.err.println("Failed to load FXML content: " + fxmlPath + e.getMessage());
-            showErrorAlert("à¦ªà§‡à¦œ à¦²à§‹à¦¡ à¦•à¦°à¦¾ à¦¯à¦¾à¦¯à¦¼à¦¨à¦¿: " + fxmlPath);
+            showErrorAlert("Ã Â¦ÂªÃ Â§â€¡Ã Â¦Å“ Ã Â¦Â²Ã Â§â€¹Ã Â¦Â¡ Ã Â¦â€¢Ã Â¦Â°Ã Â¦Â¾ Ã Â¦Â¯Ã Â¦Â¾Ã Â¦Â¯Ã Â¦Â¼Ã Â¦Â¨Ã Â¦Â¿: " + fxmlPath);
         } catch (Exception e) {
             System.err.println("General error loading content: " + e.getMessage());
         }
     }
     private void setPage(String fxmlFile) {
         try {
-            // à¦†à¦ªà¦¨à¦¾à¦° FXML à¦«à¦¾à¦‡à¦²à§‡à¦° à¦ªà¦¾à¦¥ à¦…à¦¨à§à¦¯à¦¾à§Ÿà§€ à¦¨à¦¿à¦šà§‡à¦° à¦²à¦¾à¦‡à¦¨à¦Ÿà¦¿ à¦ªà¦°à¦¿à¦¬à¦°à§à¦¤à¦¨ à¦•à¦°à§à¦¨
-            Parent fxml = FXMLLoader.load(getClass().getResource("/com/example/demo1/app/fxml/" + fxmlFile));
-            contentArea.getChildren().clear(); // à¦†à¦—à§‡à¦° à¦•à¦¨à§à¦Ÿà§‡à¦¨à§à¦Ÿ à¦®à§à¦›à§‡ à¦«à§‡à¦²à¦¾
-            contentArea.getChildren().add(fxml); // à¦¨à¦¤à§à¦¨ à¦•à¦¨à§à¦Ÿà§‡à¦¨à§à¦Ÿ à¦¯à§‹à¦— à¦•à¦°à¦¾
+            // Ã Â¦â€ Ã Â¦ÂªÃ Â¦Â¨Ã Â¦Â¾Ã Â¦Â° FXML Ã Â¦Â«Ã Â¦Â¾Ã Â¦â€¡Ã Â¦Â²Ã Â§â€¡Ã Â¦Â° Ã Â¦ÂªÃ Â¦Â¾Ã Â¦Â¥ Ã Â¦â€¦Ã Â¦Â¨Ã Â§ÂÃ Â¦Â¯Ã Â¦Â¾Ã Â§Å¸Ã Â§â‚¬ Ã Â¦Â¨Ã Â¦Â¿Ã Â¦Å¡Ã Â§â€¡Ã Â¦Â° Ã Â¦Â²Ã Â¦Â¾Ã Â¦â€¡Ã Â¦Â¨Ã Â¦Å¸Ã Â¦Â¿ Ã Â¦ÂªÃ Â¦Â°Ã Â¦Â¿Ã Â¦Â¬Ã Â¦Â°Ã Â§ÂÃ Â¦Â¤Ã Â¦Â¨ Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨
+            Parent fxml = FXMLLoader.load(getClass().getResource("/com/example/demo1/app/fxml/features/" + fxmlFile));
+            contentArea.getChildren().clear(); // Ã Â¦â€ Ã Â¦â€”Ã Â§â€¡Ã Â¦Â° Ã Â¦â€¢Ã Â¦Â¨Ã Â§ÂÃ Â¦Å¸Ã Â§â€¡Ã Â¦Â¨Ã Â§ÂÃ Â¦Å¸ Ã Â¦Â®Ã Â§ÂÃ Â¦â€ºÃ Â§â€¡ Ã Â¦Â«Ã Â§â€¡Ã Â¦Â²Ã Â¦Â¾
+            contentArea.getChildren().add(fxml); // Ã Â¦Â¨Ã Â¦Â¤Ã Â§ÂÃ Â¦Â¨ Ã Â¦â€¢Ã Â¦Â¨Ã Â§ÂÃ Â¦Å¸Ã Â§â€¡Ã Â¦Â¨Ã Â§ÂÃ Â¦Å¸ Ã Â¦Â¯Ã Â§â€¹Ã Â¦â€” Ã Â¦â€¢Ã Â¦Â°Ã Â¦Â¾
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Error loading page: " + fxmlFile);
         }
     }
 
-    // ðŸ›‘ à¦«à¦¿à¦•à§à¦¸ à§¨: Profile à¦•à§à¦²à¦¿à¦• à¦¹à§à¦¯à¦¾à¦¨à§à¦¡à¦²à¦¾à¦° à¦ªà¦°à¦¿à¦¬à¦°à§à¦¤à¦¨ à¦•à¦°à§à¦¨ ðŸ›‘
+    // Ã°Å¸â€ºâ€˜ Ã Â¦Â«Ã Â¦Â¿Ã Â¦â€¢Ã Â§ÂÃ Â¦Â¸ Ã Â§Â¨: Profile Ã Â¦â€¢Ã Â§ÂÃ Â¦Â²Ã Â¦Â¿Ã Â¦â€¢ Ã Â¦Â¹Ã Â§ÂÃ Â¦Â¯Ã Â¦Â¾Ã Â¦Â¨Ã Â§ÂÃ Â¦Â¡Ã Â¦Â²Ã Â¦Â¾Ã Â¦Â° Ã Â¦ÂªÃ Â¦Â°Ã Â¦Â¿Ã Â¦Â¬Ã Â¦Â°Ã Â§ÂÃ Â¦Â¤Ã Â¦Â¨ Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨ Ã°Å¸â€ºâ€˜
     @FXML
     private void handleProfileClick(ActionEvent event) {
         System.out.println("DEBUG: Attempting to load Profile into contentArea. Session status: " + (SessionManager.getLoggedInUser() != null ? "Active" : "NULL"));
 
-        // âŒ NavigationHelper.navigateTo à¦•à¦² à¦•à¦°à¦¬à§‡à¦¨ à¦¨à¦¾, à¦•à¦¾à¦°à¦£ à¦à¦Ÿà¦¿ à¦ªà§à¦°à§‹ Scene à¦ªà¦°à¦¿à¦¬à¦°à§à¦¤à¦¨ à¦•à¦°à§‡!
-        // âŒ à¦à¦° à¦ªà¦°à¦¿à¦¬à¦°à§à¦¤à§‡ loadContent à¦®à§‡à¦¥à¦¡ à¦•à¦² à¦•à¦°à§à¦¨à¥¤
+        // Ã¢ÂÅ’ NavigationHelper.navigateTo Ã Â¦â€¢Ã Â¦Â² Ã Â¦â€¢Ã Â¦Â°Ã Â¦Â¬Ã Â§â€¡Ã Â¦Â¨ Ã Â¦Â¨Ã Â¦Â¾, Ã Â¦â€¢Ã Â¦Â¾Ã Â¦Â°Ã Â¦Â£ Ã Â¦ÂÃ Â¦Å¸Ã Â¦Â¿ Ã Â¦ÂªÃ Â§ÂÃ Â¦Â°Ã Â§â€¹ Scene Ã Â¦ÂªÃ Â¦Â°Ã Â¦Â¿Ã Â¦Â¬Ã Â¦Â°Ã Â§ÂÃ Â¦Â¤Ã Â¦Â¨ Ã Â¦â€¢Ã Â¦Â°Ã Â§â€¡!
+        // Ã¢ÂÅ’ Ã Â¦ÂÃ Â¦Â° Ã Â¦ÂªÃ Â¦Â°Ã Â¦Â¿Ã Â¦Â¬Ã Â¦Â°Ã Â§ÂÃ Â¦Â¤Ã Â§â€¡ loadContent Ã Â¦Â®Ã Â§â€¡Ã Â¦Â¥Ã Â¦Â¡ Ã Â¦â€¢Ã Â¦Â² Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨Ã Â¥Â¤
 
         loadContent("/com/example/demo1/app/fxml/features/profile-view.fxml");
 
-        // à¦¹à§‹à¦® à¦¬à¦¾à¦Ÿà¦¨à§‡ à¦•à§à¦²à¦¿à¦• à¦¹à¦²à§‡, à¦†à¦ªà¦¨à¦¿ à¦šà¦¾à¦‡à¦²à§‡ à¦à¦Ÿà¦¿à¦“ à¦¯à§‹à¦— à¦•à¦°à¦¤à§‡ à¦ªà¦¾à¦°à§‡à¦¨:
+        // Ã Â¦Â¹Ã Â§â€¹Ã Â¦Â® Ã Â¦Â¬Ã Â¦Â¾Ã Â¦Å¸Ã Â¦Â¨Ã Â§â€¡ Ã Â¦â€¢Ã Â§ÂÃ Â¦Â²Ã Â¦Â¿Ã Â¦â€¢ Ã Â¦Â¹Ã Â¦Â²Ã Â§â€¡, Ã Â¦â€ Ã Â¦ÂªÃ Â¦Â¨Ã Â¦Â¿ Ã Â¦Å¡Ã Â¦Â¾Ã Â¦â€¡Ã Â¦Â²Ã Â§â€¡ Ã Â¦ÂÃ Â¦Å¸Ã Â¦Â¿Ã Â¦â€œ Ã Â¦Â¯Ã Â§â€¹Ã Â¦â€” Ã Â¦â€¢Ã Â¦Â°Ã Â¦Â¤Ã Â§â€¡ Ã Â¦ÂªÃ Â¦Â¾Ã Â¦Â°Ã Â§â€¡Ã Â¦Â¨:
         // if (event.getSource() == btnHome) {
         //    loadContent("/com/example/demo1/app/fxml/dashboard/dashboard.fxml");
         // }
@@ -134,12 +134,13 @@ public class DashboardController implements Initializable {
 
     private void showErrorAlert(String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("à¦²à§‹à¦¡à¦¿à¦‚ à¦¤à§à¦°à§à¦Ÿà¦¿");
+        alert.setTitle("Ã Â¦Â²Ã Â§â€¹Ã Â¦Â¡Ã Â¦Â¿Ã Â¦â€š Ã Â¦Â¤Ã Â§ÂÃ Â¦Â°Ã Â§ÂÃ Â¦Å¸Ã Â¦Â¿");
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
     }
 }
+
 
 
 
