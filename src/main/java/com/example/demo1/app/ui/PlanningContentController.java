@@ -1,11 +1,15 @@
 package com.example.demo1.app.ui;
 
+import com.example.demo1.app.util.NavigationHelper;
+import com.example.demo1.app.util.UiAlerts;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 
+import java.io.IOException;
 import java.util.Map;
 
 public class PlanningContentController {
@@ -22,16 +26,16 @@ public class PlanningContentController {
     private boolean expanded;
 
     private static final Map<String, String> CROP_DETAILS = Map.of(
-            "rice", "ফসল: ধান (Rice)\n• রোপণ: এপ্রিল-জুন, নভেম্বর-ডিসেম্বর\n• সেচ: ৫-৭ দিন অন্তর\n• ফলন: ৪০-৫০ মন/একর",
-            "wheat", "ফসল: গম (Wheat)\n• রোপণ: নভেম্বর-ডিসেম্বর\n• সেচ: ১২-১৫ দিন অন্তর\n• ফলন: ৩০-৩৫ মন/একর",
-            "potato", "ফসল: আলু (Potato)\n• রোপণ: অক্টোবর-নভেম্বর\n• কন্দ হার: ৬০০-৮০০ কেজি/একর\n• ফলন: ১৫০-২০০ মন/একর",
-            "jute", "ফসল: পাট (Jute)\n• রোপণ: মার্চ-এপ্রিল\n• বীজ: ২-৩ কেজি/একর\n• ফলন: ২৫-৩০ মন/একর",
-            "maize", "ফসল: ভুট্টা (Maize)\n• রোপণ: ফেব্রুয়ারি-মার্চ\n• বীজ: ৮-১০ কেজি/একর\n• ফলন: ৬০-৭০ মন/একর",
-            "mustard", "ফসল: সরিষা (Mustard)\n• রোপণ: অক্টোবর-নভেম্বর\n• বীজ: ২-৩ কেজি/একর\n• ফলন: ১২-১৫ মন/একর",
-            "lentil", "ফসল: মসুর (Lentil)\n• রোপণ: নভেম্বর\n• বীজ: ১২-১৫ কেজি/একর\n• ফলন: ৮-১০ মন/একর",
-            "chili", "ফসল: মরিচ (Chili)\n• রোপণ: বছরজুড়ে\n• দূরত্ব: ১৮-২৪ ইঞ্চি\n• ফলন: ৪০-৬০ মন/একর",
-            "onion", "ফসল: পেঁয়াজ (Onion)\n• রোপণ: নভেম্বর-ডিসেম্বর\n• চারা: ৪-৬ সপ্তাহ পরে রোপণ\n• ফলন: ৮০-১০০ মন/একর",
-            "tomato", "ফসল: টমেটো (Tomato)\n• রোপণ: অক্টোবর-ডিসেম্বর\n• সেচ: ৬-৮ দিন অন্তর\n• ফলন: ১২০-১৬০ মন/একর"
+            "rice", "ফসল: ধান (Rice)\n- রোপণ: এপ্রিল-জুন, নভেম্বর-ডিসেম্বর\n- সেচ: ৫-৭ দিন অন্তর\n- ফলন: ৪০-৫০ মন/একর",
+            "wheat", "ফসল: গম (Wheat)\n- রোপণ: নভেম্বর-ডিসেম্বর\n- সেচ: ১২-১৫ দিন অন্তর\n- ফলন: ৩০-৩৫ মন/একর",
+            "potato", "ফসল: আলু (Potato)\n- রোপণ: অক্টোবর-নভেম্বর\n- কন্দ হার: ৬০০-৮০০ কেজি/একর\n- ফলন: ১৫০-২০০ মন/একর",
+            "jute", "ফসল: পাট (Jute)\n- রোপণ: মার্চ-এপ্রিল\n- বীজ: ২-৩ কেজি/একর\n- ফলন: ২৫-৩০ মন/একর",
+            "maize", "ফসল: ভুট্টা (Maize)\n- রোপণ: ফেব্রুয়ারি-মার্চ\n- বীজ: ৮-১০ কেজি/একর\n- ফলন: ৬০-৭০ মন/একর",
+            "mustard", "ফসল: সরিষা (Mustard)\n- রোপণ: অক্টোবর-নভেম্বর\n- বীজ: ২-৩ কেজি/একর\n- ফলন: ১২-১৫ মন/একর",
+            "lentil", "ফসল: মসুর (Lentil)\n- রোপণ: নভেম্বর\n- বীজ: ১২-১৫ কেজি/একর\n- ফলন: ৮-১০ মন/একর",
+            "chili", "ফসল: মরিচ (Chili)\n- রোপণ: বছরজুড়ে\n- দূরত্ব: ১৮-২৪ ইঞ্চি\n- ফলন: ৪০-৬০ মন/একর",
+            "onion", "ফসল: পেঁয়াজ (Onion)\n- রোপণ: নভেম্বর-ডিসেম্বর\n- চারা: ৪-৬ সপ্তাহ পরে রোপণ\n- ফলন: ৮০-১০০ মন/একর",
+            "tomato", "ফসল: টমেটো (Tomato)\n- রোপণ: অক্টোবর-ডিসেম্বর\n- সেচ: ৬-৮ দিন অন্তর\n- ফলন: ১২০-১৬০ মন/একর"
     );
 
     @FXML
@@ -70,5 +74,25 @@ public class PlanningContentController {
         alert.setResizable(true);
         alert.getDialogPane().setPrefWidth(560);
         alert.showAndWait();
+    }
+
+    @FXML
+    private void openFertilizerPage(ActionEvent event) {
+        try {
+            Node source = (Node) event.getSource();
+            NavigationHelper.navigateWithinApp(source.getScene(), "/com/example/demo1/app/fxml/features/FertilizerCalculator.fxml");
+        } catch (IOException e) {
+            UiAlerts.errorWithCause("Navigation Error", "সার ক্যালকুলেটর পেজ লোড করা যায়নি।", e);
+        }
+    }
+
+    @FXML
+    private void openIrrigationPage(ActionEvent event) {
+        try {
+            Node source = (Node) event.getSource();
+            NavigationHelper.navigateWithinApp(source.getScene(), "/com/example/demo1/app/fxml/features/IrrigationCalculator.fxml");
+        } catch (IOException e) {
+            UiAlerts.errorWithCause("Navigation Error", "সেচ ক্যালকুলেটর পেজ লোড করা যায়নি।", e);
+        }
     }
 }

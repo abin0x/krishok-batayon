@@ -1,65 +1,66 @@
 package com.example.demo1.app.ui;
 
-import com.example.demo1.app.util.NavigationHelper; // Helper Import
+import com.example.demo1.app.util.NavigationHelper;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.control.*;
-import javafx.scene.layout.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
+import javafx.scene.layout.VBox;
+
 import java.net.URL;
 import java.text.DecimalFormat;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.ResourceBundle;
 
 public class FertilizerCalculatorController implements Initializable {
 
-    // --- Navigation Buttons ---
-    @FXML private Button btnHome, btnAdvisory, btnLocalManagement, btnStorage,btnMachinery;
+    @FXML private Button btnHome, btnAdvisory, btnLocalManagement, btnStorage, btnMachinery;
     @FXML private Button btnGuide, btnFertilizer, btnIrrigation, btnCropRotation;
 
-    // --- Inputs ---
     @FXML private ComboBox<String> cropComboBox, varietyComboBox, seasonComboBox, unitComboBox, soilTypeComboBox, previousCropComboBox;
     @FXML private TextField landAreaField, organicManureAmount;
     @FXML private RadioButton nLow, nMedium, nHigh, pLow, pMedium, pHigh, kLow, kMedium, kHigh;
     @FXML private CheckBox organicManureCheck;
     @FXML private Button calculateBtn, resetBtn;
 
-    // --- Results ---
     @FXML private VBox emptyResultState, resultContentContainer;
     @FXML private VBox fertilizerResultsContainer, costBreakdownContainer, timelineContainer;
     @FXML private Label totalCostLabel, summaryCrop, summaryLand, summarySoil;
 
-    // --- Data ---
     private final Map<String, CropData> cropDatabase = new HashMap<>();
     private final Map<String, Double> prices = new HashMap<>();
     private final DecimalFormat df = new DecimalFormat("#,##0.00");
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        System.out.println("âœ… Fertilizer Calculator Initialized");
-
-        // 1. Setup Navigation (1 Line for Sidebar, 1 Line for Top Nav)
-        NavigationHelper.setupSidebar(btnHome, btnAdvisory, btnStorage, btnLocalManagement,btnMachinery);
+        NavigationHelper.setupSidebar(btnHome, btnAdvisory, btnStorage, btnLocalManagement, btnMachinery);
         NavigationHelper.setupAdvisoryNav(btnGuide, btnFertilizer, btnIrrigation, btnCropRotation);
-
-        // 2. Setup Logic
         initData();
         setupInputs();
         setupActions();
     }
 
-    // ===========================
-    // 1. DATA INITIALIZATION
-    // ===========================
     private void initData() {
-        // Crop Data: Name -> {Varieties}, {Seasons}, {N, P, K requirements}
-        addCrop("à¦¸à¦°à¦¿à¦·à¦¾ (Mustard)", new String[]{"à¦°à¦¬à¦¿"}, new double[]{90, 30, 40}, "bari-14", "local");
-        addCrop("à¦§à¦¾à¦¨ (Boro)", new String[]{"à¦°à¦¬à¦¿"}, new double[]{140, 50, 60}, "bri-28", "hybrid");
-        addCrop("à¦—à¦® (Wheat)", new String[]{"à¦°à¦¬à¦¿"}, new double[]{110, 40, 50}, "bari-30", "prodip");
-        addCrop("à¦†à¦²à§ (Potato)", new String[]{"à¦°à¦¬à¦¿"}, new double[]{150, 60, 120}, "diamond", "cardinal");
+        addCrop("সরিষা (Mustard)", new String[]{"রবি"}, new double[]{90, 30, 40}, "BARI-14", "লোকাল");
+        addCrop("ধান (Boro)", new String[]{"রবি"}, new double[]{140, 50, 60}, "BRRI-28", "হাইব্রিড");
+        addCrop("গম (Wheat)", new String[]{"রবি"}, new double[]{110, 40, 50}, "BARI-30", "প্রদীপ");
+        addCrop("আলু (Potato)", new String[]{"রবি"}, new double[]{150, 60, 120}, "ডায়মন্ড", "কার্ডিনাল");
 
-        // Prices per KG
-        prices.put("Urea", 27.0); prices.put("TSP", 24.0); prices.put("MOP", 18.0);
-        prices.put("Gypsum", 12.0); prices.put("Zinc", 180.0);
+        prices.put("Urea", 27.0);
+        prices.put("TSP", 24.0);
+        prices.put("MOP", 18.0);
+        prices.put("Gypsum", 12.0);
+        prices.put("Zinc", 180.0);
     }
 
     private void addCrop(String name, String[] seasons, double[] npk, String... vars) {
@@ -68,15 +69,18 @@ public class FertilizerCalculatorController implements Initializable {
 
     private void setupInputs() {
         cropComboBox.getItems().addAll(cropDatabase.keySet());
-        unitComboBox.getItems().addAll("à¦à¦•à¦°", "à¦¹à§‡à¦•à§à¦Ÿà¦°", "à¦¶à¦¤à¦¾à¦‚à¦¶", "à¦¬à¦¿à¦˜à¦¾"); unitComboBox.setValue("à¦à¦•à¦°");
-        soilTypeComboBox.getItems().addAll("à¦¦à§‹à¦†à¦à¦¶", "à¦¬à§‡à¦²à§‡ à¦¦à§‹à¦†à¦à¦¶", "à¦à¦à¦Ÿà§‡à¦²", "à¦ªà¦²à¦¿ à¦®à¦¾à¦Ÿà¦¿");
-        previousCropComboBox.getItems().addAll("à¦•à¦¿à¦›à§ à¦¨à¦¯à¦¼", "à¦§à¦¾à¦¨", "à¦—à¦®", "à¦¡à¦¾à¦² à¦œà¦¾à¦¤à§€à§Ÿ", "à¦¸à¦¬à¦œà¦¿");
+        unitComboBox.getItems().addAll("একর", "হেক্টর", "শতাংশ", "বিঘা");
+        unitComboBox.setValue("একর");
+        soilTypeComboBox.getItems().addAll("দো-আঁশ", "বেলে দো-আঁশ", "এঁটেল", "পলি মাটি");
+        previousCropComboBox.getItems().addAll("কিছু না", "ধান", "গম", "ডাল জাতীয়", "সবজি");
 
         cropComboBox.setOnAction(e -> {
             CropData d = cropDatabase.get(cropComboBox.getValue());
             if (d != null) {
-                varietyComboBox.getItems().setAll(d.varieties); varietyComboBox.getSelectionModel().selectFirst();
-                seasonComboBox.getItems().setAll(d.seasons); seasonComboBox.getSelectionModel().selectFirst();
+                varietyComboBox.getItems().setAll(d.varieties);
+                varietyComboBox.getSelectionModel().selectFirst();
+                seasonComboBox.getItems().setAll(d.seasons);
+                seasonComboBox.getSelectionModel().selectFirst();
             }
         });
     }
@@ -85,15 +89,11 @@ public class FertilizerCalculatorController implements Initializable {
         calculateBtn.setOnAction(e -> calculate());
         resetBtn.setOnAction(e -> reset());
         organicManureCheck.setOnAction(e -> organicManureAmount.setDisable(!organicManureCheck.isSelected()));
-        // Set Defaults
-        if(nMedium != null) nMedium.setSelected(true);
-        if(pMedium != null) pMedium.setSelected(true);
-        if(kMedium != null) kMedium.setSelected(true);
+        nMedium.setSelected(true);
+        pMedium.setSelected(true);
+        kMedium.setSelected(true);
     }
 
-    // ===========================
-    // 2. CALCULATION LOGIC
-    // ===========================
     private void calculate() {
         if (!validate()) return;
 
@@ -103,22 +103,23 @@ public class FertilizerCalculatorController implements Initializable {
             CropData data = cropDatabase.get(cropComboBox.getValue());
             double[] npk = data.npk.clone();
 
-            // Adjustments
-            if (varietyComboBox.getValue().contains("hybrid")) { npk[0]*=1.2; npk[1]*=1.2; npk[2]*=1.2; }
+            if (varietyComboBox.getValue() != null && varietyComboBox.getValue().contains("হাইব্রিড")) {
+                npk[0] *= 1.2;
+                npk[1] *= 1.2;
+                npk[2] *= 1.2;
+            }
             adjustForSoil(npk);
             adjustForManure(npk);
 
-            // Calculate Final Weights (KG)
             double urea = Math.max(0, npk[0] * 2.17 * ha);
-            double tsp  = Math.max(0, npk[1] * 2.17 * ha);
-            double mop  = Math.max(0, npk[2] * 1.67 * ha);
-            double gyp  = 60 * ha;
+            double tsp = Math.max(0, npk[1] * 2.17 * ha);
+            double mop = Math.max(0, npk[2] * 1.67 * ha);
+            double gyp = 60 * ha;
             double zinc = 8 * ha;
 
             displayResults(area, urea, tsp, mop, gyp, zinc);
-
         } catch (NumberFormatException e) {
-            new Alert(Alert.AlertType.ERROR, "Please enter a valid number for land area.").show();
+            new Alert(Alert.AlertType.ERROR, "জমির পরিমাণ সঠিকভাবে লিখুন।").show();
         }
     }
 
@@ -129,17 +130,17 @@ public class FertilizerCalculatorController implements Initializable {
     }
 
     private void adjustForManure(double[] npk) {
-        if (organicManureCheck.isSelected() && !organicManureAmount.getText().isEmpty()) {
+        if (organicManureCheck.isSelected() && !organicManureAmount.getText().isBlank()) {
             try {
                 double ton = Double.parseDouble(organicManureAmount.getText());
-                npk[0] -= ton * 4; npk[1] -= ton * 1.5; npk[2] -= ton * 4;
-            } catch (Exception ignored) {}
+                npk[0] -= ton * 4;
+                npk[1] -= ton * 1.5;
+                npk[2] -= ton * 4;
+            } catch (Exception ignored) {
+            }
         }
     }
 
-    // ===========================
-    // 3. UI RENDERING
-    // ===========================
     private void displayResults(double area, double u, double t, double m, double g, double z) {
         summaryCrop.setText(cropComboBox.getValue());
         summaryLand.setText(area + " " + unitComboBox.getValue());
@@ -150,85 +151,91 @@ public class FertilizerCalculatorController implements Initializable {
         timelineContainer.getChildren().clear();
 
         double total = 0;
-        total += addCard("à¦‡à¦‰à¦°à¦¿à¦¯à¦¼à¦¾ (Urea)", u, prices.get("Urea"), "à¦¨à¦¾à¦‡à¦Ÿà§à¦°à§‹à¦œà§‡à¦¨ (N)");
-        total += addCard("à¦Ÿà¦¿à¦à¦¸à¦ªà¦¿ (TSP)", t, prices.get("TSP"), "à¦«à¦¸à¦«à¦°à¦¾à¦¸ (P)");
-        total += addCard("à¦à¦®à¦“à¦ªà¦¿ (MoP)", m, prices.get("MOP"), "à¦ªà¦Ÿà¦¾à¦¶ (K)");
-        total += addCard("à¦œà¦¿à¦ªà¦¸à¦¾à¦®", g, prices.get("Gypsum"), "à¦¸à¦¾à¦²à¦«à¦¾à¦° (S)");
-        total += addCard("à¦œà¦¿à¦‚à¦•", z, prices.get("Zinc"), "à¦œà¦¿à¦‚à¦• (Zn)");
+        total += addCard("ইউরিয়া (Urea)", u, prices.get("Urea"), "নাইট্রোজেন");
+        total += addCard("টিএসপি (TSP)", t, prices.get("TSP"), "ফসফরাস");
+        total += addCard("এমওপি (MoP)", m, prices.get("MOP"), "পটাশ");
+        total += addCard("জিপসাম", g, prices.get("Gypsum"), "সালফার");
+        total += addCard("জিংক", z, prices.get("Zinc"), "মাইক্রোনিউট্রিয়েন্ট");
 
-        totalCostLabel.setText("à§³ " + df.format(total));
+        totalCostLabel.setText("৳ " + df.format(total));
 
-        addTimeline("1", "à¦œà¦®à¦¿ à¦¤à§ˆà¦°à¦¿à¦° à¦¶à§‡à¦· à¦šà¦¾à¦·à§‡: à¦¸à¦®à§à¦ªà§‚à¦°à§à¦£ à¦Ÿà¦¿à¦à¦¸à¦ªà¦¿, à¦à¦®à¦“à¦ªà¦¿, à¦œà¦¿à¦ªà¦¸à¦¾à¦® à¦“ à¦œà¦¿à¦‚à¦• à¦ªà§à¦°à§Ÿà§‹à¦— à¦•à¦°à§à¦¨à¥¤");
-        addTimeline("2", "à¦šà¦¾à¦°à¦¾ à¦°à§‹à¦ªà¦£à§‡à¦° à§­-à§§à§¦ à¦¦à¦¿à¦¨ à¦ªà¦°: à¦‡à¦‰à¦°à¦¿à§Ÿà¦¾ à¦¸à¦¾à¦°à§‡à¦° à§§à¦® à¦•à¦¿à¦¸à§à¦¤à¦¿ à¦¦à¦¿à¦¨à¥¤");
-        addTimeline("3", "à§©à§¦ à¦¦à¦¿à¦¨ à¦ªà¦°: à¦‡à¦‰à¦°à¦¿à§Ÿà¦¾ à¦¸à¦¾à¦°à§‡à¦° à§¨à§Ÿ à¦•à¦¿à¦¸à§à¦¤à¦¿ à¦¦à¦¿à¦¨à¥¤");
+        addTimeline("1", "জমি তৈরির শেষ চাষে TSP, MOP, জিপসাম ও জিংক প্রয়োগ করুন।");
+        addTimeline("2", "চারা রোপণের ৭-১০ দিন পর ইউরিয়ার ১ম কিস্তি দিন।");
+        addTimeline("3", "৩০ দিন পর ইউরিয়ার ২য় কিস্তি দিন।");
 
-        emptyResultState.setVisible(false); emptyResultState.setManaged(false);
-        resultContentContainer.setVisible(true); resultContentContainer.setManaged(true);
+        emptyResultState.setVisible(false);
+        emptyResultState.setManaged(false);
+        resultContentContainer.setVisible(true);
+        resultContentContainer.setManaged(true);
     }
 
     private double addCard(String name, double kg, double price, String sub) {
         if (kg <= 0.1) return 0;
 
-        // Main Result Card
         HBox card = new HBox(15);
-        card.getStyleClass().add("result-card"); // Use CSS
+        card.getStyleClass().add("result-card");
         card.setAlignment(Pos.CENTER_LEFT);
 
-        VBox left = new VBox(3, new Label(name), new Label(sub));
-        ((Label)left.getChildren().get(0)).setStyle("-fx-font-weight: bold; -fx-text-fill: #2e7d32;");
+        Label title = new Label(name);
+        title.setStyle("-fx-font-weight: bold; -fx-text-fill: #2e7d32;");
+        VBox left = new VBox(3, title, new Label(sub));
 
-        Label weight = new Label(df.format(kg) + " à¦•à§‡à¦œà¦¿");
+        Label weight = new Label(df.format(kg) + " কেজি");
         weight.setStyle("-fx-font-weight: bold; -fx-font-size: 16px;");
 
-        HBox.setHgrow(left, Priority.ALWAYS);
-        card.getChildren().addAll(left, new Region(), weight); // Spacer logic handled by HBox grow
-        ((Region) card.getChildren().get(1)).setMinWidth(20);
-        HBox.setHgrow(card.getChildren().get(1), Priority.ALWAYS);
-
+        Region spacer = new Region();
+        HBox.setHgrow(spacer, Priority.ALWAYS);
+        card.getChildren().addAll(left, spacer, weight);
         fertilizerResultsContainer.getChildren().add(card);
 
-        // Cost Item
         double cost = kg * price;
-        HBox row = new HBox(10, new Label("â€¢ " + name), new Region(), new Label("à§³ " + df.format(cost)));
+        HBox row = new HBox(10, new Label("• " + name), new Region(), new Label("৳ " + df.format(cost)));
         HBox.setHgrow(row.getChildren().get(1), Priority.ALWAYS);
         costBreakdownContainer.getChildren().add(row);
-
         return cost;
     }
 
     private void addTimeline(String num, String txt) {
         Label badge = new Label(num);
         badge.setStyle("-fx-background-color: #2e7d32; -fx-text-fill: white; -fx-padding: 2 8; -fx-background-radius: 10;");
-        Label text = new Label(txt); text.setWrapText(true);
+        Label text = new Label(txt);
+        text.setWrapText(true);
         timelineContainer.getChildren().add(new HBox(10, badge, text));
     }
 
     private boolean validate() {
-        if (cropComboBox.getValue() == null || landAreaField.getText().isEmpty()) {
-            new Alert(Alert.AlertType.WARNING, "Please fill in all required fields.").show();
+        if (cropComboBox.getValue() == null || landAreaField.getText().isBlank()) {
+            new Alert(Alert.AlertType.WARNING, "প্রয়োজনীয় তথ্য পূরণ করুন।").show();
             return false;
         }
         return true;
     }
 
     private void reset() {
-        landAreaField.clear(); cropComboBox.setValue(null);
-        resultContentContainer.setVisible(false); emptyResultState.setVisible(true);
+        landAreaField.clear();
+        cropComboBox.setValue(null);
+        resultContentContainer.setVisible(false);
+        resultContentContainer.setManaged(false);
+        emptyResultState.setVisible(true);
+        emptyResultState.setManaged(true);
     }
 
-    // --- Helpers ---
     private double convertToHa(double val, String unit) {
-        if ("à¦¹à§‡à¦•à§à¦Ÿà¦°".equals(unit)) return val;
-        if ("à¦¶à¦¤à¦¾à¦‚à¦¶".equals(unit)) return val * 0.004046;
-        if ("à¦¬à¦¿à¦˜à¦¾".equals(unit)) return val * 0.1338;
-        return val * 0.4046; // Acre
+        if ("হেক্টর".equals(unit)) return val;
+        if ("শতাংশ".equals(unit)) return val * 0.004046;
+        if ("বিঘা".equals(unit)) return val * 0.1338;
+        return val * 0.4046;
     }
 
     private static class CropData {
-        String[] varieties, seasons;
+        String[] varieties;
+        String[] seasons;
         double[] npk;
-        CropData(String[] v, String[] s, double[] n) { varieties = v; seasons = s; npk = n; }
+
+        CropData(String[] v, String[] s, double[] n) {
+            varieties = v;
+            seasons = s;
+            npk = n;
+        }
     }
 }
-
-

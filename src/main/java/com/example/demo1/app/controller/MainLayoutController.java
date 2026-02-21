@@ -34,14 +34,20 @@ public class MainLayoutController implements Initializable {
     private SidebarController sidebarController;
     private String activeViewPath;
     private boolean loadingView;
+    private static MainLayoutController instance;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        instance = this;
         if (topbarIncludeController != null) {
             topbarIncludeController.setMainLayoutController(this);
         }
         loadSidebarComponent();
         loadView(DEFAULT_VIEW);
+    }
+
+    public static MainLayoutController getInstance() {
+        return instance;
     }
 
     public void handleLogout() {
@@ -100,6 +106,13 @@ public class MainLayoutController implements Initializable {
         if (loadedRoot instanceof BorderPane borderPane && borderPane.getCenter() != null) {
             Node centerNode = borderPane.getCenter();
             borderPane.setCenter(null);
+            if (centerNode instanceof Parent centerParent) {
+                centerParent.getStylesheets().addAll(loadedRoot.getStylesheets());
+                centerParent.getStyleClass().addAll(loadedRoot.getStyleClass());
+                if (loadedRoot.getStyle() != null && !loadedRoot.getStyle().isBlank()) {
+                    centerParent.setStyle(loadedRoot.getStyle());
+                }
+            }
             return centerNode;
         }
         return loadedRoot;

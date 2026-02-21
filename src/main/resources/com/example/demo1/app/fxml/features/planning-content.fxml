@@ -36,14 +36,13 @@
             <Label styleClass="page-subtitle-modern" text="বৈজ্ঞানিকভাবে ফসল নির্বাচন, পরিকল্পনা ও উৎপাদন ব্যবস্থাপনা করুন" />
         </VBox>
 
-        <HBox alignment="CENTER" spacing="16">
-            <Button fx:id="btnGuide" styleClass="filter-btn, filter-btn-active" text="📅 শস্য ক্যালেন্ডার" />
-            <Button fx:id="btnFertilizer" styleClass="filter-btn" text="🌾 সার" />
-            <Button fx:id="btnIrrigation" styleClass="filter-btn" text="🔬 সেচ" />
-            <Button fx:id="btnCropRotation" styleClass="filter-btn" text="♻ ফসল চক্র" />
+        <HBox alignment="CENTER_LEFT" spacing="12" styleClass="pill-nav">
+            <Button fx:id="btnGuide" styleClass="nav-pill, nav-pill-active" text="📅 শস্য ক্যালেন্ডার" />
+            <Button fx:id="btnFertilizer" styleClass="nav-pill" text="🌾 সার" onAction="#openFertilizerPage" />
+            <Button fx:id="btnIrrigation" styleClass="nav-pill" text="🔬 সেচ" onAction="#openIrrigationPage" />
+            <Button fx:id="btnCropRotation" styleClass="nav-pill" text="♻ ফসল চক্র" />
         </HBox>
 
-        <!-- প্রথমে ৮টি কার্ড দেখাবে -->
         <GridPane alignment="CENTER" hgap="22" vgap="22">
             <columnConstraints>
                 <ColumnConstraints percentWidth="50" />

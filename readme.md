@@ -1,29 +1,51 @@
-### Project Title: Smart Krishi Management System 
-A desktop application built with JavaFX for managing agricultural data, user authentication, and system access control.
+# Smart Krishi Management System
 
-🌟 Features Implemented
-User Authentication (Login/Registration): Secure user sign-up and sign-in functionality.
+A JavaFX desktop application for agricultural planning, advisory workflows, and farm operation support.
 
-Persistent Data Storage: Uses a local JSON file as a simulated database for storing user accounts.
+## Features
+- User authentication (login/register)
+- Local JSON-based user storage
+- Reusable global layout (topbar + sidebar)
+- Dynamic center-content navigation (without reloading sidebar)
+- Advisory modules:
+  - শস্য ক্যালেন্ডার (Planning)
+  - সার ক্যালকুলেটর (Fertilizer)
+  - সেচ ক্যালকুলেটর (Irrigation)
+  - ফসল চক্র (Crop Rotation)
+- Bangla-first UI text support
 
-Security: Passwords are saved using SHA-1 hashing.
+## Tech Stack
+- Java 24
+- JavaFX
+- Maven
+- Jackson (JSON read/write)
 
-Role-Based Access: (If implemented) Differentiation between user types (e.g., Admin vs. General User).
+## Run Locally
+1. Set `JAVA_HOME` to your JDK path.
+2. Run:
 
-Dashboard Module: (Work in progress by collaborator).
+```powershell
+./mvnw.cmd -q javafx:run
+```
 
-🛠️ Technology Stack
-Component,Technology,Purpose
-GUI Framework,JavaFX,Desktop user interface and application structure.
-Build Tool,Maven,Dependency management and project build automation.
-Database (Mock),JSON (user_data.json),"Local, file-based persistence for user data."
-JSON Handling,Jackson Library,Reading and writing Java objects to/from JSON.
-Version Control,Git / GitHub,Collaboration and source code management.
+## Build
 
-🧑‍💻 Maintainers
+```powershell
+./mvnw.cmd -q -DskipTests compile
+```
 
-RoleGitHub Username
+## Project Structure (important paths)
+- `src/main/java/com/example/demo1/app/controller` - main layout controller
+- `src/main/java/com/example/demo1/app/ui` - feature controllers
+- `src/main/java/com/example/demo1/app/util` - navigation and utility helpers
+- `src/main/resources/com/example/demo1/app/fxml` - all FXML views
+- `src/main/resources/com/example/demo1/app/css` - stylesheets
 
-Developer abin0x
+## Notes
+- Navigation is managed through `NavigationHelper` and `MainLayoutController`.
+- Main layout keeps sidebar persistent and swaps only center content.
+- If you see JavaFX API version warnings, align FXML/runtime JavaFX versions.
 
-Developer showmik121
+## Maintainers
+- abin0x
+- showmik121

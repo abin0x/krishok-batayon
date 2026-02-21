@@ -1,5 +1,6 @@
 package com.example.demo1.app.util;
 
+import com.example.demo1.app.controller.MainLayoutController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -16,7 +17,7 @@ public final class NavigationHelper {
     }
 
     private static final String HOME_FXML = "/com/example/demo1/app/fxml/layout/main-layout.fxml";
-    private static final String ADVISORY_FXML = "/com/example/demo1/app/fxml/features/CropAdvisory.fxml";
+    private static final String ADVISORY_FXML = "/com/example/demo1/app/fxml/features/planning-content.fxml";
     private static final String MACHINERY_FXML = "/com/example/demo1/app/fxml/features/MachineryView.fxml";
     private static final String FERTILIZER_FXML = "/com/example/demo1/app/fxml/features/FertilizerCalculator.fxml";
     private static final String IRRIGATION_FXML = "/com/example/demo1/app/fxml/features/IrrigationCalculator.fxml";
@@ -41,8 +42,23 @@ public final class NavigationHelper {
 
     private static void assignAction(Button btn, String fxmlPath) {
         if (btn != null) {
-            btn.setOnAction(event -> switchScene(event, fxmlPath));
+            btn.setOnAction(event -> {
+                try {
+                    Node source = (Node) event.getSource();
+                    navigateWithinApp(source.getScene(), fxmlPath);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
         }
+    }
+
+    public static void navigateWithinApp(Scene currentScene, String fxmlPath) throws IOException {
+        MainLayoutController mainLayoutController = MainLayoutController.getInstance();
+        if (mainLayoutController != null && mainLayoutController.loadView(fxmlPath)) {
+            return;
+        }
+        navigateTo(currentScene, fxmlPath);
     }
 
     public static void switchScene(ActionEvent event, String fxmlPath) {
