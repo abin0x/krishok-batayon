@@ -24,11 +24,11 @@
             </padding>
 
             <VBox styleClass="sidebar-brand-card" spacing="5">
-                <Label text="KRISHI BATAYON" styleClass="sidebar-brand-title"/>
+                <Label text="KRISHI SATHI" styleClass="sidebar-brand-title"/>
                 <HBox spacing="8" alignment="CENTER_LEFT">
-                    <Label text="Smart Assist" styleClass="sidebar-brand-subtitle"/>
+                    <Label text="Smart Agriculture" styleClass="sidebar-brand-subtitle"/>
                     <Region HBox.hgrow="ALWAYS"/>
-                    <Label text="LIVE" styleClass="sidebar-live-chip"/>
+                    <Label text="BD" styleClass="sidebar-live-chip"/>
                 </HBox>
             </VBox>
 
@@ -42,7 +42,6 @@
             <Button fx:id="btnFarmManagement" text="Farm Management" styleClass="sidebar-button" onAction="#handleNavigation"/>
             <Button fx:id="btnSmartDiagnostic" text="Smart Diagnostic" styleClass="sidebar-button" onAction="#handleNavigation"/>
             <Button fx:id="btnDigitalHat" text="Digital Hat" styleClass="sidebar-button" onAction="#handleNavigation"/>
-            <Button fx:id="btnCropInsurance" text="Crop Insurance" styleClass="sidebar-button" onAction="#handleNavigation"/>
             <Button fx:id="btnMarketFinance" text="Market &amp; Finance" styleClass="sidebar-button" onAction="#handleNavigation"/>
             <Button fx:id="btnGovtSchemes" text="Govt Schemes" styleClass="sidebar-button" onAction="#handleNavigation"/>
             <Button fx:id="btnExpertChat" text="Expert Chat" styleClass="sidebar-button" onAction="#handleNavigation"/>

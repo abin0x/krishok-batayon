@@ -1,4 +1,4 @@
-package com.example.demo1.app.ui;
+﻿package com.example.demo1.app.ui;
 
 import com.example.demo1.app.util.NavigationHelper;
 import javafx.fxml.FXML;
@@ -48,14 +48,14 @@ public class WarehouseController implements Initializable {
     private void loadData() {
         allFacilities.clear();
         allFacilities.addAll(Arrays.asList(
-                new StorageFacility("à¦•à§ƒà¦·à¦¿ à¦­à¦¾à¦¨à§à¦¡à¦¾à¦° à¦“ à¦—à§à¦¦à¦¾à¦®", "à¦—à§à¦¦à¦¾à¦®", "à¦¨à¦°à¦¸à¦¿à¦‚à¦¦à§€, à¦¶à¦¿à¦¬à¦ªà§à¦°", "à¦®à§‹à¦ƒ à¦¸à¦¾à¦²à¦¾à¦® à¦‰à¦¦à§à¦¦à¦¿à¦¨", "à§«à§¦à§¦", "à§©à§¨à§¦", "à§®à§«à§¦", 64, new String[]{"à¦§à¦¾à¦¨", "à¦—à¦®", "+à§§"}, new String[]{"à¦“à¦œà¦¨ à¦®à¦¾à¦ªà¦¾"}),
-                new StorageFacility("à¦†à¦§à§à¦¨à¦¿à¦• à¦¶à§€à¦¤à¦¾à¦¤à¦ª à¦¹à¦¿à¦®à¦¾à¦—à¦¾à¦°", "à¦¹à¦¿à¦®à¦¾à¦—à¦¾à¦°", "à¦¬à¦—à§à¦¡à¦¼à¦¾, à¦¶à§‡à¦°à¦ªà§à¦°", "à¦†à¦¬à§ à¦¤à¦¾à¦¹à§‡à¦°", "à§§à§¦à§¦à§¦", "à§¬à§«à§¦", "à§®à§¦à§¦", 65, new String[]{"à¦†à¦²à§", "à¦ªà§‡à¦à¦¯à¦¼à¦¾à¦œ", "+à§¨"}, new String[]{"à¦¤à¦¾à¦ªà¦®à¦¾à¦¤à§à¦°à¦¾ à¦¨à¦¿à¦¯à¦¼à¦¨à§à¦¤à§à¦°à¦£"}),
-                new StorageFacility("à¦°à¦¹à¦®à¦¾à¦¨ à¦•à§ƒà¦·à¦¿ à¦—à§à¦¦à¦¾à¦®", "à¦—à§à¦¦à¦¾à¦®", "à¦•à§à¦®à¦¿à¦²à§à¦²à¦¾, à¦šà§Œà¦¦à§à¦¦à¦—à§à¦°à¦¾à¦®", "à¦®à§‹à¦ƒ à¦°à¦¹à¦®à¦¾à¦¨", "à§«à§¦à§¦", "à§¨à§¦à§¦", "à§§à§«à§¦", 40, new String[]{"à¦§à¦¾à¦¨", "à¦­à§à¦Ÿà§à¦Ÿà¦¾", "+à§§"}, new String[]{"à¦²à§‹à¦¡à¦¿à¦‚-à¦†à¦¨à¦²à§‹à¦¡à¦¿à¦‚"}),
-                new StorageFacility("à¦¸à¦¬à§à¦œ à¦•à§ƒà¦·à¦¿ à¦¹à¦¿à¦®à¦¾à¦—à¦¾à¦°", "à¦¹à¦¿à¦®à¦¾à¦—à¦¾à¦°", "à¦¦à¦¿à¦¨à¦¾à¦œà¦ªà§à¦°, à¦¬à¦¿à¦°à¦¾à¦®à¦ªà§à¦°", "à¦®à§‹. à¦œà¦¾à¦¹à¦¾à¦™à§à¦—à§€à¦°", "à§®à§¦à§¦", "à§ªà§®à§¦", "à§©à§«à§¦", 72, new String[]{"à¦†à¦²à§", "à¦Ÿà¦®à§‡à¦Ÿà§‹", "+à§¨"}, new String[]{"à¦•à§‹à¦²à§à¦¡ à¦šà§‡à¦‡à¦¨"}),
-                new StorageFacility("à¦®à¦¡à¦¾à¦°à§à¦¨ à¦à¦—à§à¦°à§‹ à¦¸à§à¦Ÿà§‹à¦°à§‡à¦œ", "à¦—à§à¦¦à¦¾à¦®", "à¦°à¦¾à¦œà¦¶à¦¾à¦¹à§€, à¦—à§‹à¦¦à¦¾à¦—à¦¾à¦¡à¦¼à§€", "à¦†à¦¬à§à¦¦à§à¦² à¦•à¦°à¦¿à¦®", "à§¬à§¦à§¦", "à§ªà§¨à§¦", "à§¨à§¨à§¦", 58, new String[]{"à¦§à¦¾à¦¨", "à¦¸à¦°à¦¿à¦·à¦¾", "+à§§"}, new String[]{"à¦¶à§à¦·à§à¦•à§€à¦•à¦°à¦£ à¦¯à¦¨à§à¦¤à§à¦°"}),
-                new StorageFacility("à¦šà¦Ÿà§à¦Ÿà¦—à§à¦°à¦¾à¦® à¦¸à§‡à¦¨à§à¦Ÿà§à¦°à¦¾à¦² à¦¸à§à¦Ÿà§‹à¦°à§‡à¦œ", "à¦¹à¦¿à¦®à¦¾à¦—à¦¾à¦°", "à¦šà¦Ÿà§à¦Ÿà¦—à§à¦°à¦¾à¦®, à¦¹à¦¾à¦Ÿà¦¹à¦¾à¦œà¦¾à¦°à§€", "à¦®à§‹. à¦¶à¦«à¦¿à¦•à§à¦²", "à§§à§¨à§¦à§¦", "à§®à§«à§¦", "à§ªà§«à§¦", 68, new String[]{"à¦†à¦²à§", "à¦°à¦¸à§à¦¨", "+à§©"}, new String[]{"à¦…à¦Ÿà§‹ à¦¤à¦¾à¦ªà¦®à¦¾à¦¤à§à¦°à¦¾"}),
-                new StorageFacility("à¦†à¦§à§à¦¨à¦¿à¦• à¦¹à¦¿à¦®à¦¾à¦—à¦¾à¦°", "à¦¹à¦¿à¦®à¦¾à¦—à¦¾à¦°", "à¦¨à¦°à¦¸à¦¿à¦‚à¦¦à§€ à¦¸à¦¦à¦°", "à¦‡à¦žà§à¦œà¦¿. à¦¸à¦¾à¦²à¦®à¦¾à¦¨ à¦šà§Œà¦§à§à¦°à§€", "à§¨à§¦à§¦", "à§®à§¦", "à§©à§¦à§¦", 40, new String[]{"à¦†à¦²à§", "à¦Ÿà¦®à§‡à¦Ÿà§‹", "+à§§"}, new String[]{"à¦¤à¦¾à¦ªà¦®à¦¾à¦¤à§à¦°à¦¾ à¦¨à¦¿à¦¯à¦¼à¦¨à§à¦¤à§à¦°à¦£"}),
-                new StorageFacility("à¦•à§ƒà¦·à¦• à¦¸à¦®à¦¬à¦¾à§Ÿ à¦—à§à¦¦à¦¾à¦®", "à¦—à§à¦¦à¦¾à¦®", "à¦®à§à¦¨à§à¦¸à¦¿à¦—à¦žà§à¦œ, à¦—à¦œà¦¾à¦°à¦¿à¦¯à¦¼à¦¾", "à¦®à§‹. à¦¨à¦œà¦°à§à¦² à¦‡à¦¸à¦²à¦¾à¦®", "à§©à§¦à§¦", "à§¦", "à§§à§¨à§¦", 0, new String[]{"à¦§à¦¾à¦¨", "à¦†à¦²à§"}, new String[]{"à¦•à§€à¦Ÿà¦¨à¦¾à¦¶à¦• à¦¸à§à¦ªà§à¦°à§‡"})
+                new StorageFacility("কৃষি ভান্ডার ও গুদাম", "গুদাম", "নরসিংদী, শিবপুর", "মোঃ সালাম উদ্দিন", "৫০০", "৩২০", "৮৫০", 64, new String[]{"ধান", "গম", "+১"}, new String[]{"ওজন মাপা"}),
+                new StorageFacility("আধুনিক শীতাতপ হিমাগার", "হিমাগার", "বগুড়া, শেরপুর", "আবু তাহের", "১০০০", "৬৫০", "৮০০", 65, new String[]{"আলু", "পেঁয়াজ", "+২"}, new String[]{"তাপমাত্রা নিয়ন্ত্রণ"}),
+                new StorageFacility("রহমান কৃষি গুদাম", "গুদাম", "কুমিল্লা, চৌদ্দগ্রাম", "মোঃ রহমান", "৫০০", "২০০", "১৫০", 40, new String[]{"ধান", "ভুট্টা", "+১"}, new String[]{"লোডিং-আনলোডিং"}),
+                new StorageFacility("সবুজ কৃষি হিমাগার", "হিমাগার", "দিনাজপুর, বিরামপুর", "মো. জাহাঙ্গীর", "৮০০", "৪৮০", "৩৫০", 72, new String[]{"আলু", "টমেটো", "+২"}, new String[]{"কোল্ড চেইন"}),
+                new StorageFacility("মডার্ন এগ্রো স্টোরেজ", "গুদাম", "রাজশাহী, গোদাগাড়ী", "আব্দুল করিম", "৬০০", "৪২০", "২২০", 58, new String[]{"ধান", "সরিষা", "+১"}, new String[]{"শুষ্কীকরণ যন্ত্র"}),
+                new StorageFacility("চট্টগ্রাম সেন্ট্রাল স্টোরেজ", "হিমাগার", "চট্টগ্রাম, হাটহাজারী", "মো. শফিকুল", "১২০০", "৮৫০", "৪৫০", 68, new String[]{"আলু", "রসুন", "+৩"}, new String[]{"অটো তাপমাত্রা"}),
+                new StorageFacility("আধুনিক হিমাগার", "হিমাগার", "নরসিংদী সদর", "ইঞ্জি. সালমান চৌধুরী", "২০০", "৮০", "৩০০", 40, new String[]{"আলু", "টমেটো", "+১"}, new String[]{"তাপমাত্রা নিয়ন্ত্রণ"}),
+                new StorageFacility("কৃষক সমবায় গুদাম", "গুদাম", "মুন্সিগঞ্জ, গজারিয়া", "মো. নজরুল ইসলাম", "৩০০", "০", "১২০", 0, new String[]{"ধান", "আলু"}, new String[]{"কীটনাশক স্প্রে"})
         ));
         filteredFacilities.addAll(allFacilities);
     }
@@ -126,14 +126,10 @@ public class WarehouseController implements Initializable {
         title.setMaxWidth(180);
 
         // Badge Logic
-        Label badge;
-        if (f.vacancyRate == 0) {
-            badge = new Label("ðŸ•’ à¦ªà§‚à¦°à§à¦£");
-            badge.setStyle("-fx-background-color: #ef4444;"); // Red for full
-        } else {
-            badge = new Label("âœ” " + f.vacancyRate + "% à¦«à¦¾à¦à¦•à¦¾");
-        }
+        String statusText = getStatusText(f.vacancyRate);
+        Label badge = new Label(statusText + " • " + f.vacancyRate + "% ফাঁকা");
         badge.getStyleClass().add("badge-black");
+        badge.getStyleClass().add(getStatusClass(f.vacancyRate));
 
         HBox header = new HBox(10, title, new Region(), badge);
         HBox.setHgrow(header.getChildren().get(1), Priority.ALWAYS);
@@ -145,12 +141,19 @@ public class WarehouseController implements Initializable {
 
         // Details
         VBox details = new VBox(10,
-                createRow("ðŸ“", f.location),
-                createRow("ðŸ‘¤", f.owner),
-                createRow("ðŸ“¦", f.available + "/" + f.capacity + " à¦Ÿà¦¨"),
-                createRow("ðŸ’°", "à§³ " + f.price + "/à¦Ÿà¦¨")
+                createRow("📍", f.location),
+                createRow("👤", f.owner),
+                createRow("📦", f.available + "/" + f.capacity + " টন"),
+                createRow("💰", "৳ " + f.price + "/টন", "detail-price")
         );
         details.getStyleClass().add("details-box");
+
+        Label capacityLabel = new Label("খালি সক্ষমতা");
+        capacityLabel.getStyleClass().add("section-header");
+
+        ProgressBar capacityBar = new ProgressBar(Math.max(0, Math.min(1, f.vacancyRate / 100.0)));
+        capacityBar.getStyleClass().add("capacity-bar");
+        capacityBar.setMaxWidth(Double.MAX_VALUE);
 
         // Crops Tags
         HBox crops = new HBox(5);
@@ -161,25 +164,58 @@ public class WarehouseController implements Initializable {
         if(f.facilities != null) Arrays.stream(f.facilities).forEach(fac -> facilities.getChildren().add(createTag(fac, "tag-facility")));
 
         // Contact Button
-        Button contactBtn = new Button("ðŸ“ž à¦¯à§‹à¦—à¦¾à¦¯à§‹à¦— à¦•à¦°à§à¦¨");
+        Button contactBtn = new Button("📞 যোগাযোগ করুন");
         contactBtn.getStyleClass().add("btn-contact");
         contactBtn.setMaxWidth(Double.MAX_VALUE);
 
         if (f.vacancyRate == 0) {
+            contactBtn.setText("পূর্ণ - অপেক্ষমাণ তালিকা");
             contactBtn.setDisable(true);
-            contactBtn.setStyle("-fx-background-color: #9ca3af; -fx-cursor: default;");
+            contactBtn.getStyleClass().add("btn-contact-disabled");
         } else {
+            if (f.vacancyRate < 25) {
+                contactBtn.setText("দ্রুত বুকিং করুন");
+            }
             contactBtn.setOnAction(e -> showAlert(f));
         }
 
-        card.getChildren().addAll(header, typeTag, details, new Label("à¦«à¦¸à¦²:"), crops, new Label("à¦¸à§à¦¬à¦¿à¦§à¦¾:"), facilities, contactBtn);
+        Label cropsLabel = new Label("ফসল");
+        cropsLabel.getStyleClass().add("section-header");
+        Label facilitiesLabel = new Label("সুবিধা");
+        facilitiesLabel.getStyleClass().add("section-header");
+
+        card.getChildren().addAll(
+                header,
+                typeTag,
+                details,
+                capacityLabel,
+                capacityBar,
+                cropsLabel,
+                crops,
+                facilitiesLabel,
+                facilities,
+                contactBtn
+        );
         return card;
     }
 
     private HBox createRow(String icon, String text) {
+        return createRow(icon, text, null);
+    }
+
+    private HBox createRow(String icon, String text, String customTextClass) {
+        Label iconLbl = new Label(icon);
+        iconLbl.getStyleClass().add("detail-icon");
+
         Label lbl = new Label(text);
         lbl.getStyleClass().add("detail-text");
-        return new HBox(10, new Label(icon), lbl);
+        if (customTextClass != null) {
+            lbl.getStyleClass().add(customTextClass);
+        }
+
+        HBox row = new HBox(10, iconLbl, lbl);
+        row.setAlignment(Pos.CENTER_LEFT);
+        return row;
     }
 
     private Label createTag(String text, String styleClass) {
@@ -190,10 +226,22 @@ public class WarehouseController implements Initializable {
 
     private void showAlert(StorageFacility f) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Contact Information");
+        alert.setTitle("যোগাযোগ তথ্য");
         alert.setHeaderText(f.title);
-        alert.setContentText("Owner: " + f.owner + "\nLocation: " + f.location + "\nCall: 01712-000000");
+        alert.setContentText("দায়িত্বপ্রাপ্ত: " + f.owner + "\nঅবস্থান: " + f.location + "\nকল: 01712-000000");
         alert.show();
+    }
+
+    private String getStatusText(int vacancyRate) {
+        if (vacancyRate == 0) return "পূর্ণ";
+        if (vacancyRate < 25) return "সীমিত";
+        return "উপলব্ধ";
+    }
+
+    private String getStatusClass(int vacancyRate) {
+        if (vacancyRate == 0) return "badge-full";
+        if (vacancyRate < 25) return "badge-limited";
+        return "badge-available";
     }
 
     // ---------------------------------------------------------
@@ -217,5 +265,6 @@ public class WarehouseController implements Initializable {
         }
     }
 }
+
 
 

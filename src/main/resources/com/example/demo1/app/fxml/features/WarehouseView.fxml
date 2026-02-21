@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.FlowPane?>
@@ -17,371 +18,141 @@
 
 <BorderPane prefHeight="900" prefWidth="1400" styleClass="root" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.app.ui.WarehouseController">
 
-    <!-- Top Navigation Bar -->    <top>
-        <fx:include source="../layout/topbar.fxml"/>
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="15" styleClass="top-nav" stylesheets="@../../css/dashboard.css">
+            <padding>
+                <Insets bottom="12" left="20" right="20" top="12" />
+            </padding>
+
+            <Label styleClass="app-title" text="🌾 কৃষি সাথী" />
+            <Label styleClass="bd-badge" text="BD" />
+
+            <Region HBox.hgrow="ALWAYS" />
+
+            <Button styleClass="sound-btn">
+                <graphic>
+                    <Label text="🔇" />
+                </graphic>
+            </Button>
+
+            <Label styleClass="online-status" text="📶 অনলাইনে" />
+        </HBox>
     </top>
 
-    <!-- Left Sidebar -->    <left>
-        <fx:include source="../sidebar/sidebar.fxml"/>
-    </left>
-
-    <!-- Main Content Area -->
     <center>
         <ScrollPane fitToWidth="true" hbarPolicy="NEVER" pannable="true" styleClass="content-scroll" vbarPolicy="ALWAYS">
-            <VBox spacing="25" styleClass="main-content" stylesheets="@../../css/Warehouse.css">
+            <VBox spacing="22" styleClass="main-content" stylesheets="@../../css/Warehouse.css">
                 <padding>
-                    <Insets bottom="30" left="30" right="30" top="30" />
+                    <Insets bottom="30" left="30" right="30" top="26" />
                 </padding>
 
-                <!-- Page Header -->
-                <VBox spacing="5" styleClass="page-header">
-                    <HBox alignment="CENTER_LEFT" spacing="10">
-                        <Label styleClass="page-title" text="Ã Â¦â€”Ã Â§ÂÃ Â¦Â¦Ã Â¦Â¾Ã Â¦Â® Ã Â¦â€œ Ã Â¦Â¸Ã Â¦â€šÃ Â¦Â°Ã Â¦â€¢Ã Â§ÂÃ Â¦Â·Ã Â¦Â£Ã Â¦Â¾Ã Â¦â€”Ã Â¦Â¾Ã Â¦Â°" />
-                        <Label styleClass="page-icon" text="Ã°Å¸ÂÂª" />
+                <AnchorPane styleClass="hero-panel">
+                    <VBox spacing="7" AnchorPane.leftAnchor="28" AnchorPane.topAnchor="24">
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label styleClass="hero-title" text="গুদাম ও সংরক্ষণাগার" />
+                            <Label styleClass="hero-chip" text="VERIFIED" />
+                        </HBox>
+                        <Label styleClass="hero-sub" text="পেশাদার গুদাম ব্যবস্থাপনা, সংরক্ষণ এবং রিয়েলটাইম সক্ষমতা ট্র্যাকিং" />
+                        <Label styleClass="hero-meta" text="আজকের আপডেট: সক্রিয় কেন্দ্র ২৪ | লাইভ স্ট্যাটাস" />
+                    </VBox>
+
+                    <VBox alignment="CENTER" spacing="6" AnchorPane.rightAnchor="32" AnchorPane.topAnchor="20">
+                        <Label styleClass="hero-mark" text="BD" />
+                        <Label styleClass="hero-service" text="Warehouse Desk" />
+                    </VBox>
+                </AnchorPane>
+
+                <GridPane hgap="14" vgap="14" styleClass="kpi-grid">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="25" />
+                        <ColumnConstraints percentWidth="25" />
+                        <ColumnConstraints percentWidth="25" />
+                        <ColumnConstraints percentWidth="25" />
+                    </columnConstraints>
+
+                    <VBox GridPane.columnIndex="0" styleClass="kpi-card">
+                        <Label styleClass="kpi-label" text="উপলব্ধ ধারণক্ষমতা" />
+                        <Label styleClass="kpi-value" text="৩,৮৪০ টন" />
+                        <Label styleClass="kpi-trend" text="+৬.২% এই সপ্তাহ" />
+                    </VBox>
+
+                    <VBox GridPane.columnIndex="1" styleClass="kpi-card">
+                        <Label styleClass="kpi-label" text="গড় দখল হার" />
+                        <Label styleClass="kpi-value" text="৬৪%" />
+                        <Label styleClass="kpi-trend" text="স্থিতিশীল" />
+                    </VBox>
+
+                    <VBox GridPane.columnIndex="2" styleClass="kpi-card">
+                        <Label styleClass="kpi-label" text="গড় মূল্য (টন/মাস)" />
+                        <Label styleClass="kpi-value" text="৳ ৪৯৫" />
+                        <Label styleClass="kpi-trend" text="-১.১% গতকাল" />
+                    </VBox>
+
+                    <VBox GridPane.columnIndex="3" styleClass="kpi-card">
+                        <Label styleClass="kpi-label" text="ভেরিফায়েড গুদাম" />
+                        <Label styleClass="kpi-value" text="১৮" />
+                        <Label styleClass="kpi-trend" text="সম্পূর্ণ নথিভুক্ত" />
+                    </VBox>
+                </GridPane>
+
+                <VBox spacing="12" styleClass="search-wrap">
+                    <HBox alignment="CENTER_LEFT" spacing="12" styleClass="search-bar">
+                        <Label styleClass="search-icon" text="🔍" />
+                        <TextField fx:id="searchField" promptText="গুদাম, উপজেলা বা ফসলের নাম লিখুন" styleClass="search-input" HBox.hgrow="ALWAYS" />
+                        <Button fx:id="searchBtn" styleClass="search-btn" text="খুঁজুন" />
                     </HBox>
-                    <Label styleClass="page-subtitle" text="Ã Â¦â€ Ã Â¦ÂªÃ Â¦Â¨Ã Â¦Â¾Ã Â¦Â° Ã Â¦Â«Ã Â¦Â¸Ã Â¦Â² Ã Â¦Â¨Ã Â¦Â¿Ã Â¦Â°Ã Â¦Â¾Ã Â¦ÂªÃ Â¦Â¦Ã Â§â€¡ Ã Â¦Â¸Ã Â¦â€šÃ Â¦Â°Ã Â¦â€¢Ã Â§ÂÃ Â¦Â·Ã Â¦Â£ Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨" />
+
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Button styleClass="filter-chip active-chip" text="সব জেলা" />
+                        <Button styleClass="filter-chip" text="হিমাগার" />
+                        <Button styleClass="filter-chip" text="উচ্চ সক্ষমতা" />
+                        <Button styleClass="filter-chip" text="কম খরচ" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Label styleClass="result-meta" text="সাজানো: উপলব্ধতা" />
+                    </HBox>
                 </VBox>
 
-                <!-- Search Bar -->
-                <HBox alignment="CENTER_LEFT" prefHeight="62.0" prefWidth="1068.0" spacing="15" styleClass="search-bar">
-                    <padding>
-                        <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
-                    </padding>
-                    <Label styleClass="search-icon" text="Ã°Å¸â€Â" />
-                    <TextField fx:id="searchField" promptText="Ã Â¦â€”Ã Â§ÂÃ Â¦Â¦Ã Â¦Â¾Ã Â¦Â® Ã Â¦Â¬Ã Â¦Â¾ Ã Â¦ÂÃ Â¦Â²Ã Â¦Â¾Ã Â¦â€¢Ã Â¦Â¾Ã Â¦Â° Ã Â¦Â¨Ã Â¦Â¾Ã Â¦Â® Ã Â¦â€“Ã Â§ÂÃ Â¦ÂÃ Â¦Å“Ã Â§ÂÃ Â¦Â¨" styleClass="search-input" HBox.hgrow="ALWAYS" />
-                    <Button fx:id="searchBtn" styleClass="search-btn" text="Ã Â¦â€“Ã Â§ÂÃ Â¦ÂÃ Â¦Å“Ã Â§ÂÃ Â¦Â¨" />
-                </HBox>
+                <FlowPane fx:id="warehouseContainer" alignment="TOP_LEFT" hgap="18" vgap="18" />
 
-                <!-- Warehouse Cards Grid -->
-                <FlowPane fx:id="warehouseContainer" alignment="CENTER" hgap="20" vgap="20">
-
-                    <!-- CARD 1: Krishi Bhandar -->
-                    <VBox styleClass="warehouse-card">
-                        <HBox alignment="CENTER_LEFT" spacing="10.0">
-                            <Label maxWidth="180.0" styleClass="card-title" text="Ã Â¦â€¢Ã Â§Æ’Ã Â¦Â·Ã Â¦Â¿ Ã Â¦Â­Ã Â¦Â¾Ã Â¦Â¨Ã Â§ÂÃ Â¦Â¡Ã Â¦Â¾Ã Â¦Â° Ã Â¦â€œ Ã Â¦â€”Ã Â§ÂÃ Â¦Â¦Ã Â¦Â¾Ã Â¦Â®" wrapText="true" />
-                            <StackPane alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
-                                <Label prefHeight="26.0" prefWidth="119.0" styleClass="badge-black" text="Ã¢Å“â€ 64% Ã Â¦Â«Ã Â¦Â¾Ã Â¦ÂÃ Â¦â€¢Ã Â¦Â¾" />
-                            </StackPane>
-                        </HBox>
-                        <Label styleClass="tag-grey" text="Ã Â¦â€”Ã Â§ÂÃ Â¦Â¦Ã Â¦Â¾Ã Â¦Â®" />
-
-                        <VBox spacing="10.0" styleClass="details-box">
-                            <HBox alignment="CENTER_LEFT" spacing="10.0">
-                                <Label styleClass="detail-icon" text="Ã°Å¸â€œÂ" />
-                                <Label styleClass="detail-text" text="Ã Â¦Â¨Ã Â¦Â°Ã Â¦Â¸Ã Â¦Â¿Ã Â¦â€šÃ Â¦Â¦Ã Â§â‚¬, Ã Â¦Â¶Ã Â¦Â¿Ã Â¦Â¬Ã Â¦ÂªÃ Â§ÂÃ Â¦Â°" />
-                            </HBox>
-                            <HBox alignment="CENTER_LEFT" spacing="10.0">
-                                <Label styleClass="detail-icon" text="Ã°Å¸â€˜Â¤" />
-                                <Label styleClass="detail-text" text="Ã Â¦Â®Ã Â§â€¹Ã Â¦Æ’ Ã Â¦Â¸Ã Â¦Â¾Ã Â¦Â²Ã Â¦Â¾Ã Â¦Â® Ã Â¦â€°Ã Â¦Â¦Ã Â§ÂÃ Â¦Â¦Ã Â¦Â¿Ã Â¦Â¨" />
-                            </HBox>
-                            <HBox alignment="CENTER_LEFT" spacing="10.0">
-                                <Label styleClass="detail-icon" text="Ã°Å¸â€œÂ¦" />
-                                <Label styleClass="detail-text" text="320/500 Ã Â¦Å¸Ã Â¦Â¨ Ã Â¦â€°Ã Â¦ÂªÃ Â¦Â²Ã Â¦Â¬Ã Â§ÂÃ Â¦Â§" />
-                            </HBox>
-                            <HBox alignment="CENTER_LEFT" spacing="10.0">
-                                <Label styleClass="detail-icon" text="Ã°Å¸â€™Â°" />
-                                <Label styleClass="detail-text" text="Ã Â§Â³ Ã Â§Â®Ã Â§Â«Ã Â§Â¦/Ã Â¦Å¸Ã Â¦Â¨/Ã Â¦Â®Ã Â¦Â¾Ã Â¦Â¸" />
-                            </HBox>
-                        </VBox>
-
-                        <Label styleClass="section-header" text="Ã Â¦â€”Ã Â§ÂÃ Â¦Â°Ã Â¦Â¹Ã Â¦Â£Ã Â¦Â¯Ã Â§â€¹Ã Â¦â€”Ã Â§ÂÃ Â¦Â¯ Ã Â¦Â«Ã Â¦Â¸Ã Â¦Â²:" />
-                        <FlowPane hgap="8.0" vgap="8.0">
-                            <Label styleClass="tag-white" text="Ã Â¦Â§Ã Â¦Â¾Ã Â¦Â¨" />
-                            <Label styleClass="tag-white" text="Ã Â¦â€”Ã Â¦Â®" />
-                            <Label styleClass="tag-white" text="Ã Â¦Â­Ã Â§ÂÃ Â¦Å¸Ã Â§ÂÃ Â¦Å¸Ã Â¦Â¾" />
-                            <Label styleClass="tag-white" text="+1" />
-                        </FlowPane>
-
-                        <Label styleClass="section-header" text="Ã Â¦Â¸Ã Â§ÂÃ Â¦Â¬Ã Â¦Â¿Ã Â¦Â§Ã Â¦Â¾Ã Â¦Â¸Ã Â¦Â®Ã Â§â€šÃ Â¦Â¹:" />
-                        <FlowPane hgap="8.0" vgap="8.0">
-                            <Label styleClass="tag-facility" text="Ã Â¦â€œÃ Â¦Å“Ã Â¦Â¨ Ã Â¦Â®Ã Â¦Â¾Ã Â¦ÂªÃ Â¦Â¾" />
-                            <Label styleClass="tag-facility" text="Ã Â¦Â²Ã Â§â€¹Ã Â¦Â¡Ã Â¦Â¿Ã Â¦â€š-Ã Â¦â€ Ã Â¦Â¨Ã Â¦Â²Ã Â§â€¹Ã Â¦Â¡Ã Â¦Â¿Ã Â¦â€š" />
-                        </FlowPane>
-
-                        <Button maxWidth="Infinity" styleClass="btn-contact" text="Ã°Å¸â€œÅ¾ Ã Â¦Â¯Ã Â§â€¹Ã Â¦â€”Ã Â¦Â¾Ã Â¦Â¯Ã Â§â€¹Ã Â¦â€” Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨" />
-                    </VBox>
-
-                    <!-- CARD 2: Modern Cold Storage -->
-                    <VBox styleClass="warehouse-card">
-                        <HBox alignment="CENTER_LEFT" spacing="10.0">
-                            <Label maxWidth="180.0" styleClass="card-title" text="Ã Â¦â€ Ã Â¦Â§Ã Â§ÂÃ Â¦Â¨Ã Â¦Â¿Ã Â¦â€¢ Ã Â¦Â¶Ã Â§â‚¬Ã Â¦Â¤Ã Â¦Â¾Ã Â¦Â¤Ã Â¦Âª Ã Â¦Â¨Ã Â¦Â¿Ã Â¦Â¯Ã Â¦Â¼Ã Â¦Â¨Ã Â§ÂÃ Â¦Â¤Ã Â§ÂÃ Â¦Â°Ã Â¦Â¿Ã Â¦Â¤ Ã Â¦â€”Ã Â§ÂÃ Â¦Â¦Ã Â¦Â¾Ã Â¦Â®" wrapText="true" />
-                            <StackPane alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
-                                <Label prefHeight="26.0" prefWidth="117.0" styleClass="badge-black" text="Ã¢Å“â€ 65% Ã Â¦Â«Ã Â¦Â¾Ã Â¦ÂÃ Â¦â€¢Ã Â¦Â¾" />
-                            </StackPane>
-                        </HBox>
-                        <Label styleClass="tag-grey" text="Ã Â¦Â¹Ã Â¦Â¿Ã Â¦Â®Ã Â¦Â¾Ã Â¦â€”Ã Â¦Â¾Ã Â¦Â°" />
-
-                        <VBox spacing="10.0" styleClass="details-box">
-                            <HBox alignment="CENTER_LEFT" spacing="10.0">
-                                <Label styleClass="detail-icon" text="Ã°Å¸â€œÂ" />
-                                <Label styleClass="detail-text" text="Ã Â¦Â¬Ã Â¦â€”Ã Â§ÂÃ Â§Å“Ã Â¦Â¾, Ã Â¦Â¶Ã Â§â€¡Ã Â¦Â°Ã Â¦ÂªÃ Â§ÂÃ Â¦Â°" />
-                            </HBox>
-                            <HBox alignment="CENTER_LEFT" spacing="10.0">
-                                <Label styleClass="detail-icon" text="Ã°Å¸â€˜Â¤" />
-                                <Label styleClass="detail-text" text="Ã Â¦â€ Ã Â¦Â¬Ã Â§Â Ã Â¦Â¤Ã Â¦Â¾Ã Â¦Â¹Ã Â§â€¡Ã Â¦Â°" />
-                            </HBox>
-                            <HBox alignment="CENTER_LEFT" spacing="10.0">
-                                <Label styleClass="detail-icon" text="Ã°Å¸â€œÂ¦" />
-                                <Label styleClass="detail-text" text="650/1000 Ã Â¦Å¸Ã Â¦Â¨ Ã Â¦â€°Ã Â¦ÂªÃ Â¦Â²Ã Â¦Â¬Ã Â§ÂÃ Â¦Â§" />
-                            </HBox>
-                            <HBox alignment="CENTER_LEFT" spacing="10.0">
-                                <Label styleClass="detail-icon" text="Ã°Å¸â€™Â°" />
-                                <Label styleClass="detail-text" text="Ã Â§Â³ Ã Â§Â®Ã Â§Â¦Ã Â§Â¦/Ã Â¦Å¸Ã Â¦Â¨/Ã Â¦Â®Ã Â¦Â¾Ã Â¦Â¸" />
-                            </HBox>
-                        </VBox>
-
-                        <Label styleClass="section-header" text="Ã Â¦â€”Ã Â§ÂÃ Â¦Â°Ã Â¦Â¹Ã Â¦Â£Ã Â¦Â¯Ã Â§â€¹Ã Â¦â€”Ã Â§ÂÃ Â¦Â¯ Ã Â¦Â«Ã Â¦Â¸Ã Â¦Â²:" />
-                        <FlowPane hgap="8.0" vgap="8.0">
-                            <Label styleClass="tag-white" text="Ã Â¦â€ Ã Â¦Â²Ã Â§Â" />
-                            <Label styleClass="tag-white" text="Ã Â¦ÂªÃ Â§â€¡Ã Â¦ÂÃ Â¦Â¯Ã Â¦Â¼Ã Â¦Â¾Ã Â¦Å“" />
-                            <Label styleClass="tag-white" text="Ã Â¦Â°Ã Â¦Â¸Ã Â§ÂÃ Â¦Â¨" />
-                            <Label styleClass="tag-white" text="+2" />
-                        </FlowPane>
-
-                        <Label styleClass="section-header" text="Ã Â¦Â¸Ã Â§ÂÃ Â¦Â¬Ã Â¦Â¿Ã Â¦Â§Ã Â¦Â¾Ã Â¦Â¸Ã Â¦Â®Ã Â§â€šÃ Â¦Â¹:" />
-                        <FlowPane hgap="8.0" vgap="8.0">
-                            <Label styleClass="tag-facility" text="Ã Â¦Â¤Ã Â¦Â¾Ã Â¦ÂªÃ Â¦Â®Ã Â¦Â¾Ã Â¦Â¤Ã Â§ÂÃ Â¦Â°Ã Â¦Â¾ Ã Â¦Â¨Ã Â¦Â¿Ã Â¦Â¯Ã Â¦Â¼Ã Â¦Â¨Ã Â§ÂÃ Â¦Â¤Ã Â§ÂÃ Â¦Â°Ã Â¦Â£" />
-                            <Label styleClass="tag-facility" text="Ã Â¦â€ Ã Â¦Â°Ã Â§ÂÃ Â¦Â¦Ã Â§ÂÃ Â¦Â°Ã Â¦Â¤Ã Â¦Â¾ Ã Â¦Â¨Ã Â¦Â¿Ã Â¦Â¯Ã Â¦Â¼Ã Â¦Â¨Ã Â§ÂÃ Â¦Â¤Ã Â§ÂÃ Â¦Â°Ã Â¦Â£" />
-                        </FlowPane>
-
-                        <Button maxWidth="Infinity" styleClass="btn-contact" text="Ã°Å¸â€œÅ¾ Ã Â¦Â¯Ã Â§â€¹Ã Â¦â€”Ã Â¦Â¾Ã Â¦Â¯Ã Â§â€¹Ã Â¦â€” Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨" />
-                    </VBox>
-
-                    <!-- CARD 3: Rahman Warehouse -->
-                    <VBox styleClass="warehouse-card">
-                        <HBox alignment="CENTER_LEFT" spacing="10.0">
-                            <Label maxWidth="180.0" styleClass="card-title" text="Ã Â¦Â°Ã Â¦Â¹Ã Â¦Â®Ã Â¦Â¾Ã Â¦Â¨ Ã Â¦â€¢Ã Â§Æ’Ã Â¦Â·Ã Â¦Â¿ Ã Â¦â€”Ã Â§ÂÃ Â¦Â¦Ã Â¦Â¾Ã Â¦Â®" wrapText="true" />
-                            <StackPane alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
-                                <Label styleClass="badge-black" text="Ã¢Å“â€ 40% Ã Â¦Â«Ã Â¦Â¾Ã Â¦ÂÃ Â¦â€¢Ã Â¦Â¾" />
-                            </StackPane>
-                        </HBox>
-                        <Label styleClass="tag-grey" text="Ã Â¦â€”Ã Â§ÂÃ Â¦Â¦Ã Â¦Â¾Ã Â¦Â®" />
-
-                        <VBox spacing="10.0" styleClass="details-box">
-                            <HBox alignment="CENTER_LEFT" spacing="10.0">
-                                <Label styleClass="detail-icon" text="Ã°Å¸â€œÂ" />
-                                <Label styleClass="detail-text" text="Ã Â¦â€¢Ã Â§ÂÃ Â¦Â®Ã Â¦Â¿Ã Â¦Â²Ã Â§ÂÃ Â¦Â²Ã Â¦Â¾, Ã Â¦Å¡Ã Â§Å’Ã Â¦Â¦Ã Â§ÂÃ Â¦Â¦Ã Â¦â€”Ã Â§ÂÃ Â¦Â°Ã Â¦Â¾Ã Â¦Â®" />
-                            </HBox>
-                            <HBox alignment="CENTER_LEFT" spacing="10.0">
-                                <Label styleClass="detail-icon" text="Ã°Å¸â€˜Â¤" />
-                                <Label styleClass="detail-text" text="Ã Â¦Â®Ã Â§â€¹Ã Â¦Æ’ Ã Â¦â€ Ã Â¦Â¬Ã Â§ÂÃ Â¦Â¦Ã Â§ÂÃ Â¦Â° Ã Â¦Â°Ã Â¦Â¹Ã Â¦Â®Ã Â¦Â¾Ã Â¦Â¨" />
-                            </HBox>
-                            <HBox alignment="CENTER_LEFT" spacing="10.0">
-                                <Label styleClass="detail-icon" text="Ã°Å¸â€œÂ¦" />
-                                <Label styleClass="detail-text" text="200/500 Ã Â¦Å¸Ã Â¦Â¨ Ã Â¦â€°Ã Â¦ÂªÃ Â¦Â²Ã Â¦Â¬Ã Â§ÂÃ Â¦Â§" />
-                            </HBox>
-                            <HBox alignment="CENTER_LEFT" spacing="10.0">
-                                <Label styleClass="detail-icon" text="Ã°Å¸â€™Â°" />
-                                <Label styleClass="detail-text" text="Ã Â§Â³ Ã Â§Â§Ã Â§Â«Ã Â§Â¦/Ã Â¦Å¸Ã Â¦Â¨/Ã Â¦Â®Ã Â¦Â¾Ã Â¦Â¸" />
-                            </HBox>
-                        </VBox>
-
-                        <Label styleClass="section-header" text="Ã Â¦â€”Ã Â§ÂÃ Â¦Â°Ã Â¦Â¹Ã Â¦Â£Ã Â¦Â¯Ã Â§â€¹Ã Â¦â€”Ã Â§ÂÃ Â¦Â¯ Ã Â¦Â«Ã Â¦Â¸Ã Â¦Â²:" />
-                        <FlowPane hgap="8.0" vgap="8.0">
-                            <Label styleClass="tag-white" text="Ã Â¦Â§Ã Â¦Â¾Ã Â¦Â¨" />
-                            <Label styleClass="tag-white" text="Ã Â¦â€”Ã Â¦Â®" />
-                            <Label styleClass="tag-white" text="Ã Â¦Â­Ã Â§ÂÃ Â¦Å¸Ã Â§ÂÃ Â¦Å¸Ã Â¦Â¾" />
-                            <Label styleClass="tag-white" text="+1" />
-                        </FlowPane>
-
-                        <Label styleClass="section-header" text="Ã Â¦Â¸Ã Â§ÂÃ Â¦Â¬Ã Â¦Â¿Ã Â¦Â§Ã Â¦Â¾Ã Â¦Â¸Ã Â¦Â®Ã Â§â€šÃ Â¦Â¹:" />
-                        <FlowPane hgap="8.0" vgap="8.0">
-                            <Label styleClass="tag-facility" text="Ã Â¦â€œÃ Â¦Å“Ã Â¦Â¨ Ã Â¦â€¢Ã Â¦Â°Ã Â¦Â¾Ã Â¦Â° Ã Â¦Â¸Ã Â§ÂÃ Â¦Â¬Ã Â¦Â¿Ã Â¦Â§Ã Â¦Â¾" />
-                            <Label styleClass="tag-facility" text="Ã Â¦Â²Ã Â§â€¹Ã Â¦Â¡Ã Â¦Â¿Ã Â¦â€š-Ã Â¦â€ Ã Â¦Â¨Ã Â¦Â²Ã Â§â€¹Ã Â¦Â¡Ã Â¦Â¿Ã Â¦â€š" />
-                        </FlowPane>
-
-                        <Button maxWidth="Infinity" styleClass="btn-contact" text="Ã°Å¸â€œÅ¾ Ã Â¦Â¯Ã Â§â€¹Ã Â¦â€”Ã Â¦Â¾Ã Â¦Â¯Ã Â§â€¹Ã Â¦â€” Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨" />
-                    </VBox>
-
-                    <!-- NEW CARD 4: Modern Cold Storage (New Image Left) -->
-                    <VBox styleClass="warehouse-card">
-                        <HBox alignment="CENTER_LEFT" spacing="10.0">
-                            <Label maxWidth="180.0" styleClass="card-title" text="Ã Â¦â€ Ã Â¦Â§Ã Â§ÂÃ Â¦Â¨Ã Â¦Â¿Ã Â¦â€¢ Ã Â¦Â¹Ã Â¦Â¿Ã Â¦Â®Ã Â¦Â¾Ã Â¦â€”Ã Â¦Â¾Ã Â¦Â°" wrapText="true" />
-                            <StackPane alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
-                                <Label styleClass="badge-black" text="Ã¢Å“â€ 40% Ã Â¦Â«Ã Â¦Â¾Ã Â¦ÂÃ Â¦â€¢Ã Â¦Â¾" />
-                            </StackPane>
-                        </HBox>
-                        <Label styleClass="tag-grey" text="Ã Â¦Â¹Ã Â¦Â¿Ã Â¦Â®Ã Â¦Â¾Ã Â¦â€”Ã Â¦Â¾Ã Â¦Â°" />
-
-                        <VBox spacing="10.0" styleClass="details-box">
-                            <HBox alignment="CENTER_LEFT" spacing="10.0">
-                                <Label styleClass="detail-icon" text="Ã°Å¸â€œÂ" />
-                                <Label styleClass="detail-text" text="Ã Â¦Â¨Ã Â¦Â°Ã Â¦Â¸Ã Â¦Â¿Ã Â¦â€šÃ Â¦Â¦Ã Â§â‚¬ Ã Â¦Â¸Ã Â¦Â¦Ã Â¦Â°" />
-                            </HBox>
-                            <HBox alignment="CENTER_LEFT" spacing="10.0">
-                                <Label styleClass="detail-icon" text="Ã°Å¸â€˜Â¤" />
-                                <Label styleClass="detail-text" text="Ã Â¦â€¡Ã Â¦Å¾Ã Â§ÂÃ Â¦Å“Ã Â¦Â¿. Ã Â¦Â¸Ã Â¦Â¾Ã Â¦Â²Ã Â¦Â®Ã Â¦Â¾Ã Â¦Â¨ Ã Â¦Å¡Ã Â§Å’Ã Â¦Â§Ã Â§ÂÃ Â¦Â°Ã Â§â‚¬" />
-                            </HBox>
-                            <HBox alignment="CENTER_LEFT" spacing="10.0">
-                                <Label styleClass="detail-icon" text="Ã°Å¸â€œÂ¦" />
-                                <Label styleClass="detail-text" text="80/200 Ã Â¦Å¸Ã Â¦Â¨ Ã Â¦â€°Ã Â¦ÂªÃ Â¦Â²Ã Â¦Â¬Ã Â§ÂÃ Â¦Â§" />
-                            </HBox>
-                            <HBox alignment="CENTER_LEFT" spacing="10.0">
-                                <Label styleClass="detail-icon" text="Ã°Å¸â€™Â°" />
-                                <Label styleClass="detail-text" text="Ã Â§Â³ Ã Â§Â©Ã Â§Â¦Ã Â§Â¦/Ã Â¦Å¸Ã Â¦Â¨/Ã Â¦Â®Ã Â¦Â¾Ã Â¦Â¸" />
-                            </HBox>
-                        </VBox>
-
-                        <Label styleClass="section-header" text="Ã Â¦â€”Ã Â§ÂÃ Â¦Â°Ã Â¦Â¹Ã Â¦Â£Ã Â¦Â¯Ã Â§â€¹Ã Â¦â€”Ã Â§ÂÃ Â¦Â¯ Ã Â¦Â«Ã Â¦Â¸Ã Â¦Â²:" />
-                        <FlowPane hgap="8.0" vgap="8.0">
-                            <Label styleClass="tag-white" text="Ã Â¦â€ Ã Â¦Â²Ã Â§Â" />
-                            <Label styleClass="tag-white" text="Ã Â¦Å¸Ã Â¦Â®Ã Â§â€¡Ã Â¦Å¸Ã Â§â€¹" />
-                            <Label styleClass="tag-white" text="Ã Â¦ÂªÃ Â§â€¡Ã Â¦ÂÃ Â¦Â¯Ã Â¦Â¼Ã Â¦Â¾Ã Â¦Å“" />
-                            <Label styleClass="tag-white" text="+1" />
-                        </FlowPane>
-
-                        <Label styleClass="section-header" text="Ã Â¦Â¸Ã Â§ÂÃ Â¦Â¬Ã Â¦Â¿Ã Â¦Â§Ã Â¦Â¾Ã Â¦Â¸Ã Â¦Â®Ã Â§â€šÃ Â¦Â¹:" />
-                        <FlowPane hgap="8.0" vgap="8.0">
-                            <Label styleClass="tag-facility" text="Ã Â¦Â¤Ã Â¦Â¾Ã Â¦ÂªÃ Â¦Â®Ã Â¦Â¾Ã Â¦Â¤Ã Â§ÂÃ Â¦Â°Ã Â¦Â¾ Ã Â¦Â¨Ã Â¦Â¿Ã Â¦Â¯Ã Â¦Â¼Ã Â¦Â¨Ã Â§ÂÃ Â¦Â¤Ã Â§ÂÃ Â¦Â°Ã Â¦Â£" />
-                            <Label styleClass="tag-facility" text="Ã Â¦â€ Ã Â¦Â°Ã Â§ÂÃ Â¦Â¦Ã Â§ÂÃ Â¦Â°Ã Â¦Â¤Ã Â¦Â¾ Ã Â¦Â¨Ã Â¦Â¿Ã Â¦Â¯Ã Â¦Â¼Ã Â¦Â¨Ã Â§ÂÃ Â¦Â¤Ã Â§ÂÃ Â¦Â°Ã Â¦Â£" />
-                        </FlowPane>
-
-                        <Button maxWidth="Infinity" styleClass="btn-contact" text="Ã°Å¸â€œÅ¾ Ã Â¦Â¯Ã Â§â€¹Ã Â¦â€”Ã Â¦Â¾Ã Â¦Â¯Ã Â§â€¹Ã Â¦â€” Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨" />
-                    </VBox>
-
-                    <!-- NEW CARD 5: Farmers Cooperative (New Image Right) -->
-                    <VBox styleClass="warehouse-card">
-                        <HBox alignment="CENTER_LEFT" spacing="10.0">
-                            <Label maxWidth="180.0" styleClass="card-title" text="Ã Â¦â€¢Ã Â§Æ’Ã Â¦Â·Ã Â¦â€¢ Ã Â¦Â¸Ã Â¦Â®Ã Â¦Â¬Ã Â¦Â¾Ã Â§Å¸ Ã Â¦â€”Ã Â§ÂÃ Â¦Â¦Ã Â¦Â¾Ã Â¦Â®" wrapText="true" />
-                            <StackPane alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
-                                <!-- Inline style for Red Badge -->
-                                <Label style="-fx-background-color: #ef4444;" styleClass="badge-black" text="Ã°Å¸â€¢â€™ Ã Â¦ÂªÃ Â§â€šÃ Â¦Â°Ã Â§ÂÃ Â¦Â£" />
-                            </StackPane>
-                        </HBox>
-                        <Label styleClass="tag-grey" text="Ã Â¦â€”Ã Â§ÂÃ Â¦Â¦Ã Â¦Â¾Ã Â¦Â®" />
-
-                        <VBox spacing="10.0" styleClass="details-box">
-                            <HBox alignment="CENTER_LEFT" spacing="10.0">
-                                <Label styleClass="detail-icon" text="Ã°Å¸â€œÂ" />
-                                <Label styleClass="detail-text" text="Ã Â¦Â®Ã Â§ÂÃ Â¦Â¨Ã Â§ÂÃ Â¦Â¸Ã Â¦Â¿Ã Â¦â€”Ã Â¦Å¾Ã Â§ÂÃ Â¦Å“, Ã Â¦â€”Ã Â¦Å“Ã Â¦Â¾Ã Â¦Â°Ã Â¦Â¿Ã Â¦Â¯Ã Â¦Â¼Ã Â¦Â¾" />
-                            </HBox>
-                            <HBox alignment="CENTER_LEFT" spacing="10.0">
-                                <Label styleClass="detail-icon" text="Ã°Å¸â€˜Â¤" />
-                                <Label styleClass="detail-text" text="Ã Â¦Â®Ã Â§â€¹. Ã Â¦Â¨Ã Â¦Å“Ã Â¦Â°Ã Â§ÂÃ Â¦Â² Ã Â¦â€¡Ã Â¦Â¸Ã Â¦Â²Ã Â¦Â¾Ã Â¦Â®" />
-                            </HBox>
-                            <HBox alignment="CENTER_LEFT" spacing="10.0">
-                                <Label styleClass="detail-icon" text="Ã°Å¸â€œÂ¦" />
-                                <Label styleClass="detail-text" text="0/300 Ã Â¦Å¸Ã Â¦Â¨ Ã Â¦â€°Ã Â¦ÂªÃ Â¦Â²Ã Â¦Â¬Ã Â§ÂÃ Â¦Â§" />
-                            </HBox>
-                            <HBox alignment="CENTER_LEFT" spacing="10.0">
-                                <Label styleClass="detail-icon" text="Ã°Å¸â€™Â°" />
-                                <Label styleClass="detail-text" text="Ã Â§Â³ Ã Â§Â§Ã Â§Â¨Ã Â§Â¦/Ã Â¦Å¸Ã Â¦Â¨/Ã Â¦Â®Ã Â¦Â¾Ã Â¦Â¸" />
-                            </HBox>
-                        </VBox>
-
-                        <Label styleClass="section-header" text="Ã Â¦â€”Ã Â§ÂÃ Â¦Â°Ã Â¦Â¹Ã Â¦Â£Ã Â¦Â¯Ã Â§â€¹Ã Â¦â€”Ã Â§ÂÃ Â¦Â¯ Ã Â¦Â«Ã Â¦Â¸Ã Â¦Â²:" />
-                        <FlowPane hgap="8.0" vgap="8.0">
-                            <Label styleClass="tag-white" text="Ã Â¦Â§Ã Â¦Â¾Ã Â¦Â¨" />
-                            <Label styleClass="tag-white" text="Ã Â¦â€ Ã Â¦Â²Ã Â§Â" />
-                            <Label styleClass="tag-white" text="Ã Â¦â€”Ã Â¦Â®" />
-                        </FlowPane>
-
-                        <Label styleClass="section-header" text="Ã Â¦Â¸Ã Â§ÂÃ Â¦Â¬Ã Â¦Â¿Ã Â¦Â§Ã Â¦Â¾Ã Â¦Â¸Ã Â¦Â®Ã Â§â€šÃ Â¦Â¹:" />
-                        <FlowPane hgap="8.0" vgap="8.0">
-                            <Label styleClass="tag-facility" text="Ã Â¦â€¢Ã Â§â‚¬Ã Â¦Å¸Ã Â¦Â¨Ã Â¦Â¾Ã Â¦Â¶Ã Â¦â€¢ Ã Â¦Â¸Ã Â§ÂÃ Â¦ÂªÃ Â§ÂÃ Â¦Â°Ã Â§â€¡" />
-                            <Label styleClass="tag-facility" text="Ã Â¦ÂªÃ Â¦Â°Ã Â¦Â¿Ã Â¦Â·Ã Â§ÂÃ Â¦â€¢Ã Â¦Â¾Ã Â¦Â° Ã Â¦ÂªÃ Â¦Â°Ã Â¦Â¿Ã Â¦Â¬Ã Â§â€¡Ã Â¦Â¶" />
-                        </FlowPane>
-
-                        <!-- Grey Button (Disabled Look) -->
-                        <Button disable="false" maxWidth="Infinity" style="-fx-background-color: #9ca3af; -fx-cursor: default;" styleClass="btn-contact" text="Ã°Å¸â€œÅ¾ Ã Â¦Â¯Ã Â§â€¹Ã Â¦â€”Ã Â¦Â¾Ã Â¦Â¯Ã Â§â€¹Ã Â¦â€” Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨" />
-                    </VBox>
-
-
-                    <VBox styleClass="warehouse-card">
-                        <HBox alignment="CENTER_LEFT" spacing="10.0">
-                            <Label maxWidth="180.0" styleClass="card-title" text="Ã Â¦â€¢Ã Â§Æ’Ã Â¦Â·Ã Â¦â€¢ Ã Â¦Â¸Ã Â¦Â®Ã Â¦Â¬Ã Â¦Â¾Ã Â§Å¸ Ã Â¦â€”Ã Â§ÂÃ Â¦Â¦Ã Â¦Â¾Ã Â¦Â®" wrapText="true" />
-                            <StackPane alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
-                                <!-- Inline style for Red Badge -->
-                                <Label  styleClass="badge-black" text="Ã¢Å“â€ 90% Ã Â¦Â«Ã Â¦Â¾Ã Â¦ÂÃ Â¦â€¢Ã Â¦Â¾" />
-                            </StackPane>
-                        </HBox>
-                        <Label styleClass="tag-grey" text="Ã Â¦â€”Ã Â§ÂÃ Â¦Â¦Ã Â¦Â¾Ã Â¦Â®" />
-
-                        <VBox spacing="10.0" styleClass="details-box">
-                            <HBox alignment="CENTER_LEFT" spacing="10.0">
-                                <Label styleClass="detail-icon" text="Ã°Å¸â€œÂ" />
-                                <Label styleClass="detail-text" text="Ã Â¦Â®Ã Â§ÂÃ Â¦Â¨Ã Â§ÂÃ Â¦Â¸Ã Â¦Â¿Ã Â¦â€”Ã Â¦Å¾Ã Â§ÂÃ Â¦Å“, Ã Â¦â€”Ã Â¦Å“Ã Â¦Â¾Ã Â¦Â°Ã Â¦Â¿Ã Â¦Â¯Ã Â¦Â¼Ã Â¦Â¾" />
-                            </HBox>
-                            <HBox alignment="CENTER_LEFT" spacing="10.0">
-                                <Label styleClass="detail-icon" text="Ã°Å¸â€˜Â¤" />
-                                <Label styleClass="detail-text" text="Ã Â¦Â®Ã Â§â€¹. Ã Â¦Â¨Ã Â¦Å“Ã Â¦Â°Ã Â§ÂÃ Â¦Â² Ã Â¦â€¡Ã Â¦Â¸Ã Â¦Â²Ã Â¦Â¾Ã Â¦Â®" />
-                            </HBox>
-                            <HBox alignment="CENTER_LEFT" spacing="10.0">
-                                <Label styleClass="detail-icon" text="Ã°Å¸â€œÂ¦" />
-                                <Label styleClass="detail-text" text="0/300 Ã Â¦Å¸Ã Â¦Â¨ Ã Â¦â€°Ã Â¦ÂªÃ Â¦Â²Ã Â¦Â¬Ã Â§ÂÃ Â¦Â§" />
-                            </HBox>
-                            <HBox alignment="CENTER_LEFT" spacing="10.0">
-                                <Label styleClass="detail-icon" text="Ã°Å¸â€™Â°" />
-                                <Label styleClass="detail-text" text="Ã Â§Â³ Ã Â§Â§Ã Â§Â¨Ã Â§Â¦/Ã Â¦Å¸Ã Â¦Â¨/Ã Â¦Â®Ã Â¦Â¾Ã Â¦Â¸" />
-                            </HBox>
-                        </VBox>
-
-                        <Label styleClass="section-header" text="Ã Â¦â€”Ã Â§ÂÃ Â¦Â°Ã Â¦Â¹Ã Â¦Â£Ã Â¦Â¯Ã Â§â€¹Ã Â¦â€”Ã Â§ÂÃ Â¦Â¯ Ã Â¦Â«Ã Â¦Â¸Ã Â¦Â²:" />
-                        <FlowPane hgap="8.0" vgap="8.0">
-                            <Label styleClass="tag-white" text="Ã Â¦Â§Ã Â¦Â¾Ã Â¦Â¨" />
-                            <Label styleClass="tag-white" text="Ã Â¦â€ Ã Â¦Â²Ã Â§Â" />
-                            <Label styleClass="tag-white" text="Ã Â¦â€”Ã Â¦Â®" />
-                        </FlowPane>
-
-                        <Label styleClass="section-header" text="Ã Â¦Â¸Ã Â§ÂÃ Â¦Â¬Ã Â¦Â¿Ã Â¦Â§Ã Â¦Â¾Ã Â¦Â¸Ã Â¦Â®Ã Â§â€šÃ Â¦Â¹:" />
-                        <FlowPane hgap="8.0" vgap="8.0">
-                            <Label styleClass="tag-facility" text="Ã Â¦â€¢Ã Â§â‚¬Ã Â¦Å¸Ã Â¦Â¨Ã Â¦Â¾Ã Â¦Â¶Ã Â¦â€¢ Ã Â¦Â¸Ã Â§ÂÃ Â¦ÂªÃ Â§ÂÃ Â¦Â°Ã Â§â€¡" />
-                            <Label styleClass="tag-facility" text="Ã Â¦ÂªÃ Â¦Â°Ã Â¦Â¿Ã Â¦Â·Ã Â§ÂÃ Â¦â€¢Ã Â¦Â¾Ã Â¦Â° Ã Â¦ÂªÃ Â¦Â°Ã Â¦Â¿Ã Â¦Â¬Ã Â§â€¡Ã Â¦Â¶" />
-                        </FlowPane>
-                        <Button maxWidth="Infinity" styleClass="btn-contact" text="Ã°Å¸â€œÅ¾ Ã Â¦Â¯Ã Â§â€¹Ã Â¦â€”Ã Â¦Â¾Ã Â¦Â¯Ã Â§â€¹Ã Â¦â€” Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨" />
-                        <!-- Grey Button (Disabled Look) -->
-<!--                        <Button disable="false" maxWidth="Infinity" style="-fx-background-color: #9ca3af; -fx-cursor: default;" styleClass="btn-contact" text="Ã°Å¸â€œÅ¾ Ã Â¦Â¯Ã Â§â€¹Ã Â¦â€”Ã Â¦Â¾Ã Â¦Â¯Ã Â§â€¹Ã Â¦â€” Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨" />-->
-                    </VBox>
-
-                </FlowPane>
-
-                <!-- Load More Button -->
                 <HBox alignment="CENTER">
                     <padding>
-                        <Insets top="20" />
+                        <Insets top="8" />
                     </padding>
-                    <Button fx:id="loadMoreBtn" styleClass="load-more-btn" text="Ã Â¦â€ Ã Â¦Â°Ã Â¦â€œ Ã Â¦Â¦Ã Â§â€¡Ã Â¦â€“Ã Â§ÂÃ Â¦Â¨" />
+                    <Button fx:id="loadMoreBtn" styleClass="load-more-btn" text="আরও গুদাম দেখুন" />
                 </HBox>
 
-                <!-- Storage Tips Section -->
-                <VBox spacing="20" styleClass="tips-section">
-                    <padding>
-                        <Insets bottom="25" left="30" right="30" top="25" />
-                    </padding>
+                <HBox spacing="14" styleClass="trust-strip" alignment="CENTER_LEFT">
+                    <Label styleClass="trust-icon" text="🛡" />
+                    <VBox spacing="4">
+                        <Label styleClass="trust-title" text="ভরসাযোগ্য এবং সুরক্ষিত সেবা" />
+                        <Label styleClass="trust-sub" text="লাইসেন্স, বীমা ও তাপমাত্রা মনিটরিং সহ প্রিমিয়াম সংরক্ষণ সুবিধা" />
+                    </VBox>
+                </HBox>
 
-                    <Label styleClass="tips-title" text="Ã°Å¸â€™Â¡ Ã Â¦â€”Ã Â§ÂÃ Â¦Â¦Ã Â¦Â¾Ã Â¦Â®Ã Â¦Å“Ã Â¦Â¾Ã Â¦Â¤Ã Â¦â€¢Ã Â¦Â°Ã Â¦Â£Ã Â§â€¡Ã Â¦Â° Ã Â¦ÂªÃ Â¦Â°Ã Â¦Â¾Ã Â¦Â®Ã Â¦Â°Ã Â§ÂÃ Â¦Â¶" />
-
-                    <GridPane hgap="20" vgap="20">
-                        <VBox spacing="10" styleClass="tip-card" GridPane.columnIndex="0" GridPane.rowIndex="0">
-                            <padding>
-                                <Insets bottom="20" left="20" right="20" top="20" />
-                            </padding>
-                            <Label styleClass="tip-icon" text="Ã°Å¸Å’Â¡Ã¯Â¸Â" />
-                            <Label styleClass="tip-title-text" text="Ã Â¦Â¸Ã Â¦Â Ã Â¦Â¿Ã Â¦â€¢ Ã Â¦Â¤Ã Â¦Â¾Ã Â¦ÂªÃ Â¦Â®Ã Â¦Â¾Ã Â¦Â¤Ã Â§ÂÃ Â¦Â°Ã Â¦Â¾" />
-                            <Label styleClass="tip-description" text="Ã Â¦Â«Ã Â¦Â¸Ã Â¦Â²Ã Â¦Â­Ã Â§â€¡Ã Â¦Â¦Ã Â§â€¡ Ã Â¦Â¹Ã Â¦Â¿Ã Â¦Â®Ã Â¦Â¾Ã Â¦â€”Ã Â¦Â¾Ã Â¦Â°Ã Â§â€¡Ã Â¦Â° Ã Â¦Â¤Ã Â¦Â¾Ã Â¦ÂªÃ Â¦Â®Ã Â¦Â¾Ã Â¦Â¤Ã Â§ÂÃ Â¦Â°Ã Â¦Â¾ Ã Â¦Â¨Ã Â¦Â¿Ã Â§Å¸Ã Â¦Â®Ã Â¦Â¿Ã Â¦Â¤ Ã Â¦ÂªÃ Â¦Â°Ã Â§â‚¬Ã Â¦â€¢Ã Â§ÂÃ Â¦Â·Ã Â¦Â¾ Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨Ã Â¥Â¤" wrapText="true" />
+                <VBox spacing="16" styleClass="tips-section">
+                    <Label styleClass="tips-title" text="সংরক্ষণ পরামর্শ" />
+                    <GridPane hgap="16" vgap="16">
+                        <VBox spacing="8" styleClass="tip-card" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                            <Label styleClass="tip-icon" text="🌡" />
+                            <Label styleClass="tip-title-text" text="তাপমাত্রা নিয়ন্ত্রণ" />
+                            <Label styleClass="tip-description" text="ফসলভেদে তাপমাত্রা ও আর্দ্রতা লগ সংরক্ষণ করুন।" wrapText="true" />
                         </VBox>
 
-                        <VBox spacing="10" styleClass="tip-card" GridPane.columnIndex="1" GridPane.rowIndex="0">
-                            <padding>
-                                <Insets bottom="20" left="20" right="20" top="20" />
-                            </padding>
-                            <Label styleClass="tip-icon" text="Ã°Å¸Â§Â¹" />
-                            <Label styleClass="tip-title-text" text="Ã Â¦ÂªÃ Â¦Â°Ã Â¦Â¿Ã Â¦Å¡Ã Â§ÂÃ Â¦â€ºÃ Â¦Â¨Ã Â§ÂÃ Â¦Â¨Ã Â¦Â¤Ã Â¦Â¾" />
-                            <Label styleClass="tip-description" text="Ã Â¦â€”Ã Â§ÂÃ Â¦Â¦Ã Â¦Â¾Ã Â¦Â®Ã Â¦Å“Ã Â¦Â¾Ã Â¦Â¤ Ã Â¦â€¢Ã Â¦Â°Ã Â¦Â¾Ã Â¦Â° Ã Â¦â€ Ã Â¦â€”Ã Â§â€¡ Ã Â¦â€”Ã Â§ÂÃ Â¦Â¦Ã Â¦Â¾Ã Â¦Â®Ã Â¦ËœÃ Â¦Â° Ã Â¦Â­Ã Â¦Â¾Ã Â¦Â²Ã Â§â€¹Ã Â¦Â­Ã Â¦Â¾Ã Â¦Â¬Ã Â§â€¡ Ã Â¦ÂªÃ Â¦Â°Ã Â¦Â¿Ã Â¦Â·Ã Â§ÂÃ Â¦â€¢Ã Â¦Â¾Ã Â¦Â° Ã Â¦â€œ Ã Â¦Â¶Ã Â§ÂÃ Â¦â€¢Ã Â¦Â¿Ã Â§Å¸Ã Â§â€¡ Ã Â¦Â¨Ã Â¦Â¿Ã Â¦Â¨Ã Â¥Â¤" wrapText="true" />
+                        <VBox spacing="8" styleClass="tip-card" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                            <Label styleClass="tip-icon" text="📦" />
+                            <Label styleClass="tip-title-text" text="ব্যাচ ট্র্যাকিং" />
+                            <Label styleClass="tip-description" text="প্রতিটি ব্যাচ আলাদা কোডে সংরক্ষণ করলে ক্ষতি কমে।" wrapText="true" />
                         </VBox>
 
-                        <VBox spacing="10" styleClass="tip-card" GridPane.columnIndex="2" GridPane.rowIndex="0">
-                            <padding>
-                                <Insets bottom="20" left="20" right="20" top="20" />
-                            </padding>
-                            <Label styleClass="tip-icon" text="Ã°Å¸â€™Â§" />
-                            <Label styleClass="tip-title-text" text="Ã Â¦â€ Ã Â¦Â°Ã Â§ÂÃ Â¦Â¦Ã Â§ÂÃ Â¦Â°Ã Â¦Â¤Ã Â¦Â¾ Ã Â¦Â°Ã Â§â€¹Ã Â¦Â§" />
-                            <Label styleClass="tip-description" text="Ã Â¦Â«Ã Â¦Â¸Ã Â¦Â² Ã Â¦Â¬Ã Â¦Â¸Ã Â§ÂÃ Â¦Â¤Ã Â¦Â¾Ã Â¦Â¬Ã Â¦Â¨Ã Â§ÂÃ Â¦Â¦Ã Â§â‚¬ Ã Â¦â€¢Ã Â¦Â°Ã Â¦Â¾Ã Â¦Â° Ã Â¦Â¸Ã Â¦Â®Ã Â§Å¸ Ã Â¦â€ Ã Â¦Â°Ã Â§ÂÃ Â¦Â¦Ã Â§ÂÃ Â¦Â°Ã Â¦Â¤Ã Â¦Â¾ Ã Â§Â§Ã Â§Â¨% Ã Â¦ÂÃ Â¦Â° Ã Â¦Â¨Ã Â¦Â¿Ã Â¦Å¡Ã Â§â€¡ Ã Â¦Â¥Ã Â¦Â¾Ã Â¦â€¢Ã Â¦Â¾ Ã Â¦â€°Ã Â¦Å¡Ã Â¦Â¿Ã Â¦Â¤Ã Â¥Â¤" wrapText="true" />
+                        <VBox spacing="8" styleClass="tip-card" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                            <Label styleClass="tip-icon" text="💧" />
+                            <Label styleClass="tip-title-text" text="আর্দ্রতা ব্যবস্থাপনা" />
+                            <Label styleClass="tip-description" text="বস্তাবন্দীর আগে আর্দ্রতা নিরাপদ সীমায় আছে কি না নিশ্চিত করুন।" wrapText="true" />
                         </VBox>
                         <columnConstraints>
-                            <ColumnConstraints />
-                            <ColumnConstraints />
-                            <ColumnConstraints />
+                            <ColumnConstraints percentWidth="33.33" />
+                            <ColumnConstraints percentWidth="33.33" />
+                            <ColumnConstraints percentWidth="33.33" />
                         </columnConstraints>
                         <rowConstraints>
                             <RowConstraints />
@@ -394,4 +165,3 @@
     </center>
 
 </BorderPane>
-
