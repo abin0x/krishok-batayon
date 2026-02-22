@@ -42,15 +42,16 @@
                 <padding>
                     <Insets top="24" right="24" bottom="24" left="24"/>
                 </padding>
+
                 <AnchorPane styleClass="lm-hero-panel">
                     <VBox spacing="8" AnchorPane.leftAnchor="24" AnchorPane.topAnchor="20">
-                        <Label styleClass="lm-hero-title" text="&#x09B6;&#x09CD;&#x09B0;&#x09AE;&#x09BF;&#x0995; &#x09AC;&#x09CD;&#x09AF;&#x09AC;&#x09B8;&#x09CD;&#x09A5;&#x09BE;&#x09AA;&#x09A8;&#x09BE;" />
-                        <Label styleClass="lm-hero-subtitle" text="&#x09B8;&#x09B9;&#x099C;&#x09C7; &#x09B6;&#x09CD;&#x09B0;&#x09AE;&#x09BF;&#x0995;&#x09C7;&#x09B0; &#x0995;&#x09BE;&#x099C;, &#x09B8;&#x09AE;&#x09DF; &#x0993; &#x09AA;&#x09C7;&#x09AE;&#x09C7;&#x09A8;&#x09CD;&#x099F; &#x099F;&#x09CD;&#x09B0;&#x09CD;&#x09AF;&#x09BE;&#x0995; &#x0995;&#x09B0;&#x09C1;&#x09A8;" />
-                        <Label styleClass="lm-hero-meta" text="&#x0986;&#x099C;&#x0995;&#x09C7;&#x09B0; &#x0985;&#x09AC;&#x09B8;&#x09CD;&#x09A5;&#x09BE;: Quick Add &#x098F;&#x09AC;&#x0982; &#x09AA;&#x09C7;&#x09AE;&#x09C7;&#x09A8;&#x09CD;&#x099F; &#x099F;&#x09CD;&#x09B0;&#x09CD;&#x09AF;&#x09BE;&#x0995;&#x09BF;&#x0982; &#x09B8;&#x0995;&#x09CD;&#x09B0;&#x09BF;&#x09DF;" />
+                        <Label styleClass="lm-hero-title" text="শ্রমিক ব্যবস্থাপনা" />
+                        <Label styleClass="lm-hero-subtitle" text="সহজে শ্রমিকের কাজ, সময় ও পেমেন্ট ট্র্যাক করুন" />
+                        <Label styleClass="lm-hero-meta" text="আজকের অবস্থা: Quick Add এবং পেমেন্ট ট্র্যাকিং সক্রিয়" />
                     </VBox>
 
                     <VBox alignment="CENTER" spacing="6" AnchorPane.rightAnchor="24" AnchorPane.topAnchor="18">
-                        <Label styleClass="lm-hero-mark" text="&#x1F33F;" />
+                        <Label styleClass="lm-hero-mark" text="🌿" />
                         <Label styleClass="lm-hero-chip" text="GREEN PANEL" />
                     </VBox>
                 </AnchorPane>
@@ -63,6 +64,8 @@
                     </ToggleButton>
                     <ToggleButton fx:id="tabWeek" onAction="#handlePeriodChange" styleClass="period-tab" text="এই সপ্তাহ" toggleGroup="$periodToggleGroup"/>
                     <ToggleButton fx:id="tabMonth" onAction="#handlePeriodChange" styleClass="period-tab" text="এই মাস" toggleGroup="$periodToggleGroup"/>
+                    <ToggleButton fx:id="tabOtherMonth" onAction="#handlePeriodChange" styleClass="period-tab" text="অন্য মাস" toggleGroup="$periodToggleGroup"/>
+                    <ComboBox fx:id="otherMonthComboBox" prefWidth="160" promptText="মাস নির্বাচন"/>
                 </HBox>
 
                 <HBox alignment="CENTER" spacing="12">
@@ -110,7 +113,7 @@
                         <ComboBox fx:id="quickWorkTypeCombo" prefWidth="150" promptText="কাজের ধরন"/>
                         <TextField fx:id="quickHoursField" prefWidth="100" promptText="ঘণ্টা"/>
                         <TextField fx:id="quickRateField" prefWidth="120" promptText="রেট"/>
-                        <Button fx:id="quickAddBtn" styleClass="quick-add-btn" text="Save"/>
+                        <Button fx:id="quickAddBtn" styleClass="quick-add-btn" text="সংরক্ষণ"/>
                     </HBox>
                 </VBox>
 
@@ -143,4 +146,3 @@
         </ScrollPane>
     </center>
 </BorderPane>
-
