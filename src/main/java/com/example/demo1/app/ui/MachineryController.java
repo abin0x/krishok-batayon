@@ -17,89 +17,68 @@ import java.util.ResourceBundle;
 
 public class MachineryController implements Initializable {
 
-    // --- Sidebar Buttons ---
-    @FXML private Button btnHome, btnAdvisory, btnStorage, btnLocalManagement, btnMachinery;
-    @FXML private Button btnCropPlan, btnMarket, btnAgriNews, btnProfitLoss, btnWeather;
-    @FXML private Button btnSoilHealth, btnComments, btnProfile, btnAiHelper, btnVideoEducation, btnFarmWeather, btnAgriAnalysis;
+    private static final String CATEGORY_ALL = "সব ক্যাটাগরি";
 
-    // --- Main Content Controls ---
+    @FXML private Button btnHome;
+    @FXML private Button btnAdvisory;
+    @FXML private Button btnStorage;
+    @FXML private Button btnLocalManagement;
+    @FXML private Button btnMachinery;
+
     @FXML private TextField searchField;
     @FXML private ComboBox<String> categoryCombo;
-    @FXML private FlowPane machineryContainer; // This must match fx:id in FXML
+    @FXML private FlowPane machineryContainer;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        System.out.println("Machinery Rental Page Initialized");
-
-        // 1. Setup Navigation
         NavigationHelper.setupSidebar(btnHome, btnAdvisory, btnStorage, btnLocalManagement, btnMachinery);
 
-        // 2. Setup Real-time Search Logic
         if (searchField != null) {
-            // Listen for any key press change
             searchField.textProperty().addListener((observable, oldValue, newValue) -> filterCards());
         }
 
-        // 3. Setup Category Filter Logic
         if (categoryCombo != null) {
             categoryCombo.setOnAction(e -> filterCards());
         }
     }
 
-    /**
-     * This method loops through all cards in the FlowPane
-     * and Hides/Shows them based on the Search Text and Category.
-     */
     private void filterCards() {
-        if (machineryContainer == null) return;
+        if (machineryContainer == null) {
+            return;
+        }
 
-        // Get current values
-        String searchText = (searchField.getText() != null) ? searchField.getText().toLowerCase().trim() : "";
-        String selectedCategory = (categoryCombo.getValue() != null) ? categoryCombo.getValue() : "à¦¸à¦¬ à¦•à§à¦¯à¦¾à¦Ÿà¦¾à¦—à¦°à¦¿";
+        String searchText = searchField != null && searchField.getText() != null
+                ? searchField.getText().toLowerCase().trim()
+                : "";
+        String selectedCategory = categoryCombo != null && categoryCombo.getValue() != null
+                ? categoryCombo.getValue()
+                : CATEGORY_ALL;
 
-        // Loop through every node (Card) inside the FlowPane
         for (Node node : machineryContainer.getChildren()) {
-            if (node instanceof VBox) {
-                VBox card = (VBox) node;
-
-                // Extract all text from this card (Title, Location, Category, etc.)
-                String cardContent = extractTextFromNode(card).toLowerCase();
-
-                // Check 1: Does it match the category?
-                boolean matchesCategory = selectedCategory.equals("à¦¸à¦¬ à¦•à§à¦¯à¦¾à¦Ÿà¦¾à¦—à¦°à¦¿") || cardContent.contains(selectedCategory.toLowerCase());
-
-                // Check 2: Does it match the search text?
-                boolean matchesSearch = searchText.isEmpty() || cardContent.contains(searchText);
-
-                // Logic: Show if BOTH match, otherwise Hide
-                if (matchesCategory && matchesSearch) {
-                    card.setVisible(true);
-                    card.setManaged(true); // Keeps the space when visible
-                } else {
-                    card.setVisible(false);
-                    card.setManaged(false); // Removes the space (collapses) when hidden
-                }
+            if (!(node instanceof VBox card)) {
+                continue;
             }
+
+            String cardContent = extractTextFromNode(card).toLowerCase();
+            boolean matchesCategory = CATEGORY_ALL.equals(selectedCategory)
+                    || cardContent.contains(selectedCategory.toLowerCase());
+            boolean matchesSearch = searchText.isEmpty() || cardContent.contains(searchText);
+
+            boolean visible = matchesCategory && matchesSearch;
+            card.setVisible(visible);
+            card.setManaged(visible);
         }
     }
 
-    /**
-     * Helper method to get all text inside a Card (VBox) recursively.
-     */
     private String extractTextFromNode(Parent node) {
-        StringBuilder sb = new StringBuilder();
-
-        // Loop through children to find Labels
+        StringBuilder builder = new StringBuilder();
         for (Node child : node.getChildrenUnmodifiable()) {
-            if (child instanceof Label) {
-                sb.append(((Label) child).getText()).append(" ");
-            } else if (child instanceof Parent) {
-                // Recursive call for nested layouts (HBox inside VBox)
-                sb.append(extractTextFromNode((Parent) child));
+            if (child instanceof Label label) {
+                builder.append(label.getText()).append(' ');
+            } else if (child instanceof Parent parent) {
+                builder.append(extractTextFromNode(parent));
             }
         }
-        return sb.toString();
+        return builder.toString();
     }
 }
-
-
