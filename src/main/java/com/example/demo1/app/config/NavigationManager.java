@@ -23,8 +23,6 @@ public final class NavigationManager {
         routes.put("btnDigitalHat", new NavItem("/com/example/demo1/app/fxml/features/digital-hat-content.fxml", "\uD83D\uDED2 \u09A1\u09BF\u099C\u09BF\u099F\u09BE\u09B2 \u09B9\u09BE\u099F"));
         routes.put("btnMarketFinance", new NavItem("/com/example/demo1/app/fxml/features/market-finance-content.fxml", "\uD83D\uDCC8 \u09AC\u09BE\u099C\u09BE\u09B0 \u09A6\u09B0 \u0993 \u09AC\u09BF\u09B6\u09CD\u09B2\u09C7\u09B7\u09A3"));
         routes.put("btnGovtSchemes", new NavItem("/com/example/demo1/app/fxml/features/govt-schemes.fxml", "\uD83C\uDFDB\uFE0F \u09B8\u09B0\u0995\u09BE\u09B0\u09BF \u09B8\u09C1\u09AC\u09BF\u09A7\u09BE \u0993 \u09AD\u09B0\u09CD\u09A4\u09C1\u0995\u09BF"));
-        routes.put("btnExpertChat", new NavItem("/com/example/demo1/app/fxml/features/expert-chat-content.fxml", "\uD83D\uDCAC \u09AC\u09BF\u09B6\u09C7\u09B7\u099C\u09CD\u099E \u099A\u09CD\u09AF\u09BE\u099F"));
-        routes.put("btnLearningHub", new NavItem("/com/example/demo1/app/fxml/features/learning-hub-content.fxml", "\uD83D\uDCDA \u0995\u09C3\u09B7\u09BF \u09AA\u09BE\u09A0\u09B6\u09BE\u09B2\u09BE"));
         routes.put("btnEmergencyHelp", new NavItem("/com/example/demo1/app/fxml/features/emergency-help.fxml", "\uD83D\uDCDE \u09B8\u09B0\u0995\u09BE\u09B0\u09BF \u09B8\u09C7\u09AC\u09BE \u0993 \u09B8\u09BE\u09B9\u09BE\u09AF\u09CD\u09AF"));
         routes.put("btnProfile", new NavItem("/com/example/demo1/app/fxml/features/profile-view.fxml", "\uD83D\uDC64 \u09AA\u09CD\u09B0\u09CB\u09AB\u09BE\u0987\u09B2"));
         SIDEBAR_ROUTES = Collections.unmodifiableMap(routes);

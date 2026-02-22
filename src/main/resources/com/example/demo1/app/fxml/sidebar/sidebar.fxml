@@ -44,8 +44,6 @@
             <Button fx:id="btnDigitalHat" text="Digital Hat" styleClass="sidebar-button" onAction="#handleNavigation"/>
             <Button fx:id="btnMarketFinance" text="Market &amp; Finance" styleClass="sidebar-button" onAction="#handleNavigation"/>
             <Button fx:id="btnGovtSchemes" text="Govt Schemes" styleClass="sidebar-button" onAction="#handleNavigation"/>
-            <Button fx:id="btnExpertChat" text="Expert Chat" styleClass="sidebar-button" onAction="#handleNavigation"/>
-            <Button fx:id="btnLearningHub" text="Learning Hub" styleClass="sidebar-button" onAction="#handleNavigation"/>
             <Button fx:id="btnEmergencyHelp" text="Emergency Help" styleClass="sidebar-button" onAction="#handleNavigation"/>
             <Button fx:id="btnProfile" text="Profile" styleClass="sidebar-button" onAction="#handleNavigation"/>
         </VBox>
