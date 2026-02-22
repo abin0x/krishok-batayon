@@ -97,6 +97,20 @@
     -fx-font-size: 13px;
 }
 
+.btn-add {
+    -fx-background-color: linear-gradient(to bottom, #1c8b48, #156d39);
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-font-weight: 800;
+    -fx-background-radius: 10;
+    -fx-padding: 10 14;
+    -fx-cursor: hand;
+}
+
+.btn-add:hover {
+    -fx-background-color: linear-gradient(to bottom, #17723c, #125930);
+}
+
 .machine-card {
     -fx-background-color: white;
     -fx-background-radius: 14;
@@ -104,10 +118,15 @@
     -fx-border-width: 1;
     -fx-border-radius: 14;
     -fx-padding: 16;
-    -fx-min-width: 320px;
-    -fx-pref-width: 320px;
+    -fx-min-width: 420px;
+    -fx-pref-width: 420px;
     -fx-spacing: 10;
     -fx-effect: dropshadow(gaussian, rgba(25, 43, 31, 0.08), 12, 0.1, 0, 4);
+}
+
+.machine-card-hidden {
+    -fx-opacity: 0.7;
+    -fx-border-color: #f59e0b;
 }
 
 .machine-card:hover {
@@ -218,4 +237,34 @@
 
 .btn-secondary:hover {
     -fx-background-color: #eef6ef;
+}
+
+.btn-danger {
+    -fx-background-color: #fef2f2;
+    -fx-text-fill: #dc2626;
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+    -fx-padding: 9 12;
+    -fx-border-color: #fecaca;
+    -fx-border-width: 1;
+    -fx-border-radius: 9;
+    -fx-background-radius: 9;
+    -fx-cursor: hand;
+}
+
+.btn-danger:hover {
+    -fx-background-color: #fee2e2;
+}
+
+.owner-note {
+    -fx-font-size: 12px;
+    -fx-text-fill: #6b7280;
+    -fx-font-weight: 700;
+}
+
+.btn-contact,
+.btn-secondary,
+.btn-danger {
+    -fx-wrap-text: true;
+    -fx-alignment: center;
 }
