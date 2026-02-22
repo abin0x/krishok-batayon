@@ -1,216 +1,576 @@
-.help-scroll {
+﻿/* Main Scroll Pane */
+.main-scroll-pane {
     -fx-background-color: transparent;
     -fx-background: transparent;
 }
 
-.help-scroll > .viewport {
-    -fx-background-color: #edf2ea;
+.main-scroll-pane > .viewport {
+    -fx-background-color: #f5f7fb;
 }
 
-.help-root {
-    -fx-background-color: #edf2ea;
+.main-container {
+    -fx-background-color: #f5f7fb;
+    -fx-font-family: "Noto Serif Bengali", "Segoe UI", sans-serif;
 }
 
-.help-title {
-    -fx-font-size: 48px;
-    -fx-font-family: "Noto Serif Bengali";
-    -fx-font-weight: 700;
-    -fx-text-fill: #0f2037;
+/* Header Section */
+.header-box {
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 0%, #e2f3e8, #f2faf4);
+    -fx-background-radius: 18;
+    -fx-padding: 14 16;
+    -fx-border-color: #d7e7dc;
+    -fx-border-radius: 18;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.06), 10, 0.12, 0, 3);
 }
 
-.sos-badge {
-    -fx-background-color: linear-gradient(to bottom, #ff4f95, #e8387b);
-    -fx-text-fill: white;
-    -fx-font-size: 24px;
-    -fx-font-weight: 800;
-    -fx-padding: 6 10;
-    -fx-background-radius: 8;
-}
-
-.help-subtitle {
+.header-title {
     -fx-font-size: 28px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #0f1825;
     -fx-font-family: "Noto Serif Bengali";
-    -fx-text-fill: #26384e;
 }
 
-.hotline-card {
-    -fx-background-color: #f6f7f7;
-    -fx-background-radius: 14;
-    -fx-border-color: #d8ded8;
-    -fx-border-width: 1;
-    -fx-border-radius: 14;
-    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.08), 10, 0.12, 0, 3);
-}
-
-.hotline-head {
-    -fx-background-color: #f1e6e8;
-    -fx-background-radius: 14 14 0 0;
-    -fx-padding: 11 14;
-}
-
-.head-icon {
-    -fx-text-fill: #ef4444;
-    -fx-font-size: 18px;
-}
-
-.hotline-head-title {
-    -fx-font-size: 18px;
-    -fx-font-family: "Noto Serif Bengali";
-    -fx-font-weight: 700;
-    -fx-text-fill: #101827;
-}
-
-.hotline-body {
-    -fx-padding: 12 14 14 14;
-}
-
-.hotline-note {
+.header-subtitle {
     -fx-font-size: 14px;
-    -fx-text-fill: #334155;
-}
-
-.number-box {
-    -fx-background-color: #f2f4f5;
-    -fx-background-radius: 12;
-    -fx-border-color: #d3d9df;
-    -fx-border-radius: 12;
-    -fx-padding: 12 10;
-}
-
-.number-label {
-    -fx-font-size: 12px;
-    -fx-text-fill: #64748b;
-}
-
-.number-value {
-    -fx-font-size: 46px;
+    -fx-text-fill: #5a6a7e;
     -fx-font-family: "Noto Serif Bengali";
-    -fx-font-weight: 700;
-    -fx-text-fill: #0f1f37;
 }
 
-.number-tag {
-    -fx-font-size: 12px;
-    -fx-background-color: #f7f7f7;
-    -fx-border-color: #d7dbe0;
-    -fx-border-radius: 8;
-    -fx-background-radius: 8;
-    -fx-padding: 2 8;
+/* Stats Container */
+.stat-container {
+    -fx-padding: 5 0 10 0;
 }
 
-.call-btn {
-    -fx-text-fill: white;
-    -fx-font-size: 14px;
-    -fx-font-family: "Noto Serif Bengali";
-    -fx-font-weight: 700;
-    -fx-background-radius: 8;
-    -fx-padding: 10 0;
-    -fx-cursor: hand;
-}
-
-.call-btn.green { -fx-background-color: #16a34a; }
-.call-btn.blue { -fx-background-color: #2f61df; }
-.call-btn.red { -fx-background-color: #ea2424; }
-.call-btn.purple { -fx-background-color: #8937e7; }
-
-.call-btn:hover {
-    -fx-opacity: 0.92;
-}
-
-.section-title {
-    -fx-font-size: 44px;
-    -fx-font-family: "Noto Serif Bengali";
-    -fx-font-weight: 700;
-    -fx-text-fill: #0f2037;
-}
-
-.guide-card {
-    -fx-background-color: #f7f6f0;
-    -fx-background-radius: 12;
-    -fx-border-color: #d6ddd5;
-    -fx-border-width: 1;
-    -fx-border-radius: 12;
-    -fx-padding: 12;
-}
-
-.guide-icon {
-    -fx-text-fill: #f97316;
-    -fx-font-size: 18px;
-}
-
-.guide-title {
-    -fx-font-size: 16px;
-    -fx-font-family: "Noto Serif Bengali";
-    -fx-font-weight: 700;
-    -fx-text-fill: #101827;
-}
-
-.guide-sub {
-    -fx-font-size: 13px;
-    -fx-text-fill: #475569;
-}
-
-.guide-item {
-    -fx-font-size: 13px;
-    -fx-text-fill: #1f3552;
-}
-
-.support-wrap {
-    -fx-background-color: #e6f4ec;
-    -fx-background-radius: 14;
-    -fx-border-color: #a7e4bd;
-    -fx-border-width: 1.4;
-    -fx-border-radius: 14;
-    -fx-padding: 12;
-}
-
-.support-icon {
-    -fx-font-size: 16px;
-    -fx-text-fill: #16a34a;
-}
-
-.support-title {
-    -fx-font-size: 20px;
-    -fx-font-family: "Noto Serif Bengali";
-    -fx-font-weight: 700;
-    -fx-text-fill: #10281a;
-}
-
-.support-card {
-    -fx-background-color: #f7faf7;
-    -fx-background-radius: 10;
-    -fx-border-color: #d4ddd4;
-    -fx-border-width: 1;
-    -fx-border-radius: 10;
-    -fx-padding: 10;
-}
-
-.support-card-title {
-    -fx-font-size: 18px;
-    -fx-font-family: "Noto Serif Bengali";
-    -fx-font-weight: 700;
-    -fx-text-fill: #10281a;
-}
-
-.support-card-sub {
-    -fx-font-size: 13px;
-    -fx-text-fill: #475569;
-}
-
-.support-btn {
+.modern-stat-card {
     -fx-background-color: #ffffff;
-    -fx-border-color: #d4dbe0;
+    -fx-background-radius: 20;
+    -fx-padding: 18 20;
+    -fx-min-height: 120;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.03), 12, 0, 0, 4);
+    -fx-border-color: #eef2f6;
+    -fx-border-radius: 20;
     -fx-border-width: 1;
-    -fx-border-radius: 8;
-    -fx-background-radius: 8;
-    -fx-font-size: 13px;
-    -fx-font-family: "Noto Serif Bengali";
-    -fx-font-weight: 700;
-    -fx-text-fill: #1f2937;
-    -fx-padding: 8 10;
     -fx-cursor: hand;
+    -fx-transition: all 0.2s ease-in-out;
 }
 
-.support-btn:hover {
-    -fx-background-color: #f5f8f5;
+.stat-label-small {
+    -fx-font-size: 13px;
+    -fx-font-weight: 500;
+    -fx-text-fill: #566b82;
+    -fx-font-family: "Noto Serif Bengali";
+}
+
+.stat-value-large {
+    -fx-font-size: 32px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #0f1825;
+}
+
+.trend-up {
+    -fx-font-size: 12px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #10b981;
+    -fx-background-color: #e6f7f0;
+    -fx-background-radius: 20;
+    -fx-padding: 4 10;
+}
+
+.trend-down {
+    -fx-font-size: 12px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #ef4444;
+    -fx-background-color: #fef2f2;
+    -fx-background-radius: 20;
+    -fx-padding: 4 10;
+}
+
+.trend-neutral {
+    -fx-font-size: 12px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #6b7280;
+    -fx-background-color: #f3f4f6;
+    -fx-background-radius: 20;
+    -fx-padding: 4 10;
+}
+
+/* Modern Navigation Bar */
+.modern-nav-bar {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 50;
+    -fx-padding: 6;
+    -fx-spacing: 4;
+    -fx-border-color: #eef2f6;
+    -fx-border-radius: 50;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.02), 8, 0, 0, 2);
+}
+
+.nav-pill {
+    -fx-background-color: transparent;
+    -fx-text-fill: #4b5563;
+    -fx-font-size: 14px;
+    -fx-font-weight: 500;
+    -fx-padding: 10 20;
+    -fx-background-radius: 30;
+    -fx-border-width: 0;
+    -fx-cursor: hand;
+    -fx-font-family: "Noto Serif Bengali";
+    -fx-transition: all 0.2s ease;
+}
+
+.nav-pill:hover {
+    -fx-background-color: #f3f4f6;
+    -fx-text-fill: #111827;
+}
+
+.nav-pill:selected {
+    -fx-background-color: #0b4f2e;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: 600;
+    -fx-effect: dropshadow(gaussian, rgba(11, 79, 46, 0.3), 8, 0.2, 0, 2);
+}
+
+.nav-pill:selected:hover {
+    -fx-background-color: #0d6b3c;
+}
+
+/* Modern Search Box */
+.modern-search-box {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 40;
+    -fx-padding: 8 16;
+    -fx-border-color: #eef2f6;
+    -fx-border-radius: 40;
+    -fx-border-width: 1;
+    -fx-min-width: 260;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.02), 4, 0, 0, 2);
+}
+
+.modern-search-box:focused-within {
+    -fx-border-color: #0b4f2e;
+    -fx-effect: dropshadow(gaussian, rgba(11, 79, 46, 0.1), 8, 0, 0, 4);
+}
+
+.search-icon-small {
+    -fx-font-size: 16px;
+    -fx-text-fill: #94a3b8;
+}
+
+.minimal-search-field {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+    -fx-font-size: 14px;
+    -fx-text-fill: #1f2937;
+    -fx-prompt-text-fill: #9ca3af;
+    -fx-padding: 4 0;
+}
+
+.minimal-search-field:focused {
+    -fx-background-color: transparent;
+}
+
+/* Premium Program Cards */
+.premium-card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 24;
+    -fx-padding: 22 24;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.04), 16, 0.05, 0, 6);
+    -fx-border-color: #edf2f7;
+    -fx-border-radius: 24;
+    -fx-border-width: 1;
+    -fx-transition: all 0.2s ease-in-out;
+}
+
+/* Icon Boxes */
+.icon-box-insurance {
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #dbeafe, #bfdbfe);
+    -fx-background-radius: 18;
+    -fx-min-width: 60;
+    -fx-min-height: 60;
+    -fx-max-width: 60;
+    -fx-max-height: 60;
+    -fx-alignment: center;
+    -fx-border-color: #93c5fd;
+    -fx-border-radius: 18;
+    -fx-border-width: 1;
+}
+
+.icon-box-loan {
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #dcfce7, #bbf7d0);
+    -fx-background-radius: 18;
+    -fx-min-width: 60;
+    -fx-min-height: 60;
+    -fx-max-width: 60;
+    -fx-max-height: 60;
+    -fx-alignment: center;
+    -fx-border-color: #86efac;
+    -fx-border-radius: 18;
+    -fx-border-width: 1;
+}
+
+.icon-box-subsidy {
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #fef9c3, #fde047);
+    -fx-background-radius: 18;
+    -fx-min-width: 60;
+    -fx-min-height: 60;
+    -fx-max-width: 60;
+    -fx-max-height: 60;
+    -fx-alignment: center;
+    -fx-border-color: #facc15;
+    -fx-border-radius: 18;
+    -fx-border-width: 1;
+}
+
+.icon-box-grant {
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #fae8ff, #e9d5ff);
+    -fx-background-radius: 18;
+    -fx-min-width: 60;
+    -fx-min-height: 60;
+    -fx-max-width: 60;
+    -fx-max-height: 60;
+    -fx-alignment: center;
+    -fx-border-color: #d8b4fe;
+    -fx-border-radius: 18;
+    -fx-border-width: 1;
+}
+
+.card-icon-emoji {
+    -fx-font-size: 30px;
+}
+
+/* Card Typography */
+.card-title-text {
+    -fx-font-size: 20px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #0f1825;
+    -fx-font-family: "Noto Serif Bengali";
+}
+
+.card-subtitle-text {
+    -fx-font-size: 14px;
+    -fx-text-fill: #6b7a90;
+    -fx-font-family: "Noto Serif Bengali";
+}
+
+/* Badges */
+.badge-row {
+    -fx-padding: 6 0 0 0;
+}
+
+.badge-green {
+    -fx-background-color: #e6f7f0;
+    -fx-text-fill: #0b6b4a;
+    -fx-font-size: 12px;
+    -fx-font-weight: 600;
+    -fx-padding: 4 12;
+    -fx-background-radius: 30;
+    -fx-border-color: #b6e6d4;
+    -fx-border-radius: 30;
+    -fx-border-width: 1;
+}
+
+.badge-blue {
+    -fx-background-color: #edf2ff;
+    -fx-text-fill: #1d4ed8;
+    -fx-font-size: 12px;
+    -fx-font-weight: 600;
+    -fx-padding: 4 12;
+    -fx-background-radius: 30;
+    -fx-border-color: #c7d7fe;
+    -fx-border-radius: 30;
+    -fx-border-width: 1;
+}
+
+.badge-orange {
+    -fx-background-color: #fff3e0;
+    -fx-text-fill: #c2410c;
+    -fx-font-size: 12px;
+    -fx-font-weight: 600;
+    -fx-padding: 4 12;
+    -fx-background-radius: 30;
+    -fx-border-color: #ffd8b0;
+    -fx-border-radius: 30;
+    -fx-border-width: 1;
+}
+
+.badge-purple {
+    -fx-background-color: #f3e8ff;
+    -fx-text-fill: #7e22ce;
+    -fx-font-size: 12px;
+    -fx-font-weight: 600;
+    -fx-padding: 4 12;
+    -fx-background-radius: 30;
+    -fx-border-color: #e2ccff;
+    -fx-border-radius: 30;
+    -fx-border-width: 1;
+}
+
+/* Card Price */
+.card-price-value {
+    -fx-font-size: 22px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #0b4f2e;
+    -fx-background-color: #e6f7e6;
+    -fx-padding: 6 14;
+    -fx-background-radius: 30;
+    -fx-border-color: #b8e0b8;
+    -fx-border-radius: 30;
+    -fx-border-width: 1;
+}
+
+/* Action Buttons */
+.btn-action-primary {
+    -fx-background-color: #0b4f2e;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-padding: 10 24;
+    -fx-background-radius: 30;
+    -fx-border-width: 0;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(11, 79, 46, 0.2), 8, 0.2, 0, 2);
+    -fx-font-family: "Noto Serif Bengali";
+    -fx-transition: all 0.2s ease;
+}
+
+.btn-action-primary:hover {
+    -fx-background-color: #0d6b3c;
+    -fx-effect: dropshadow(gaussian, rgba(11, 79, 46, 0.3), 12, 0.25, 0, 4);
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+}
+
+.btn-action-primary:pressed {
+    -fx-background-color: #094c2b;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 4, 0.2, 0, 1);
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
+}
+
+.btn-text-only {
+    -fx-background-color: transparent;
+    -fx-text-fill: #0b4f2e;
+    -fx-font-size: 13px;
+    -fx-font-weight: 600;
+    -fx-padding: 8 16;
+    -fx-background-radius: 30;
+    -fx-border-width: 0;
+    -fx-cursor: hand;
+    -fx-font-family: "Noto Serif Bengali";
+}
+
+.btn-text-only:hover {
+    -fx-background-color: #f0fdf4;
+    -fx-text-fill: #0d6b3c;
+}
+
+/* Premium Separator */
+.premium-separator {
+    -fx-background-color: #edf2f7;
+    -fx-padding: 0;
+    -fx-max-height: 1;
+    -fx-min-height: 1;
+    -fx-pref-height: 1;
+    -fx-margin: 16 0;
+}
+
+.premium-separator .line {
+    -fx-background-color: #edf2f7;
+    -fx-pref-height: 1;
+}
+
+/* Card Footer */
+.card-footer {
+    -fx-padding: 16 0 4 0;
+}
+
+.footer-info-label {
+    -fx-font-size: 12px;
+    -fx-font-weight: 500;
+    -fx-text-fill: #8a9bb0;
+    -fx-font-family: "Noto Serif Bengali";
+}
+
+.footer-info-value {
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #1f2b3a;
+    -fx-font-family: "Noto Serif Bengali";
+}
+
+/* Additional Utility Classes */
+.section-spacing {
+    -fx-padding: 20 0;
+}
+
+.divider-light {
+    -fx-background-color: #edf2f7;
+    -fx-max-height: 1;
+    -fx-min-height: 1;
+    -fx-pref-height: 1;
+}
+
+/* Loading State */
+.loading-indicator {
+    -fx-progress-color: #0b4f2e;
+}
+
+/* Empty State */
+.empty-state-container {
+    -fx-alignment: center;
+    -fx-padding: 60 20;
+}
+
+.empty-state-icon {
+    -fx-font-size: 48px;
+    -fx-text-fill: #cbd5e1;
+}
+
+.empty-state-text {
+    -fx-font-size: 16px;
+    -fx-text-fill: #6b7a90;
+    -fx-font-family: "Noto Serif Bengali";
+}
+
+/* Error State */
+.error-container {
+    -fx-background-color: #fef2f2;
+    -fx-background-radius: 20;
+    -fx-padding: 30;
+    -fx-border-color: #fee2e2;
+    -fx-border-radius: 20;
+    -fx-border-width: 1;
+}
+
+.error-text {
+    -fx-text-fill: #991b1b;
+    -fx-font-size: 14px;
+    -fx-font-family: "Noto Serif Bengali";
+}
+
+/* Animation Classes */
+@keyframes slideIn {
+    0% { -fx-translate-y: 20; -fx-opacity: 0; }
+    100% { -fx-translate-y: 0; -fx-opacity: 1; }
+}
+
+.animate-slide-in {
+    -fx-animation: slideIn 0.3s ease-out;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 800px) {
+    .stat-container {
+        -fx-spacing: 12;
+    }
+    
+    .modern-stat-card {
+        -fx-padding: 14 16;
+    }
+    
+    .stat-value-large {
+        -fx-font-size: 24px;
+    }
+    
+    .card-title-text {
+        -fx-font-size: 18px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .main-scroll-pane > .viewport {
+        -fx-background-color: #ffffff;
+    }
+    
+    .modern-stat-card,
+    .premium-card {
+        -fx-effect: none;
+        -fx-border-color: #cccccc;
+    }
+    
+    .btn-action-primary,
+    .btn-text-only {
+        -fx-printable: false;
+    }
+}
+
+/* Dark Mode Support (Optional) */
+.dark-mode .main-container {
+    -fx-background-color: #1a1f2e;
+}
+
+.dark-mode .modern-stat-card,
+.dark-mode .premium-card,
+.dark-mode .modern-nav-bar,
+.dark-mode .modern-search-box {
+    -fx-background-color: #252b3b;
+    -fx-border-color: #363f54;
+}
+
+.dark-mode .header-title,
+.dark-mode .stat-value-large,
+.dark-mode .card-title-text,
+.dark-mode .footer-info-value {
+    -fx-text-fill: #ffffff;
+}
+
+.dark-mode .header-subtitle,
+.dark-mode .stat-label-small,
+.dark-mode .card-subtitle-text,
+.dark-mode .footer-info-label {
+    -fx-text-fill: #9aa5b8;
+}
+
+/* Scrollbar Styling */
+.scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-pref-width: 12;
+    -fx-padding: 2;
+}
+
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #cbd5e1;
+    -fx-background-radius: 20;
+}
+
+.scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #94a3b8;
+}
+
+.scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+    -fx-background-radius: 20;
+    -fx-border-width: 0;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+}
+
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+}
+
+/* Focus States */
+*:focused {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+/* Tooltip Styling */
+.tooltip {
+    -fx-background-color: #1f2937;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 12px;
+    -fx-padding: 8 12;
+    -fx-background-radius: 8;
+    -fx-font-family: "Noto Serif Bengali";
 }

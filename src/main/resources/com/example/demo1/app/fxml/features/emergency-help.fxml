@@ -20,7 +20,7 @@
                 <Insets top="18" right="18" bottom="20" left="18"/>
             </padding>
 
-            <VBox spacing="2">
+            <VBox spacing="2" styleClass="es-header">
                 <HBox spacing="8" alignment="CENTER_LEFT">
                     <Label text="জরুরি সহায়তা" styleClass="es-title"/>
                     <Label text="SOS" styleClass="es-sos"/>
