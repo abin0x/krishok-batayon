@@ -1,6 +1,8 @@
-package com.example.demo1.app.ui;
+﻿package com.example.demo1.app.ui;
 
+import com.example.demo1.app.model.User;
 import com.example.demo1.app.util.NavigationHelper;
+import com.example.demo1.app.util.SessionManager;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -36,9 +38,12 @@ import java.net.URL;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -47,15 +52,22 @@ public class LocalManagementController implements Initializable {
 
     private static final String STATUS_PENDING = "pending";
     private static final String STATUS_COMPLETED = "completed";
-    private static final String FILTER_ALL = "সব";
-    private static final String FILTER_PENDING = "বাকি";
-    private static final String FILTER_COMPLETED = "পরিশোধিত";
+    private static final String FILTER_ALL = "All";
+    private static final String FILTER_PENDING = "Pending";
+    private static final String FILTER_COMPLETED = "Completed";
+
     private static final String PERIOD_TODAY = "today";
     private static final String PERIOD_WEEK = "week";
     private static final String PERIOD_MONTH = "month";
+    private static final String PERIOD_OTHER_MONTH = "other_month";
+
     private static final String DATA_FILE = "workers_data.json";
+    private static final String LEGACY_OWNER_ID = "__legacy__";
+    private static final String SYSTEM_NO_OWNER_MSG = "Only the record creator can edit or delete this data.";
+
     private static final DateTimeFormatter DATE_FMT = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     private static final DateTimeFormatter PAID_AT_FMT = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+    private static final DateTimeFormatter MONTH_LABEL_FMT = DateTimeFormatter.ofPattern("MMMM yyyy", new Locale("bn", "BD"));
     private static final Type WORKER_RECORD_LIST_TYPE = new TypeToken<ArrayList<WorkerRecord>>() {}.getType();
 
     @FXML private Button btnHome;
@@ -71,6 +83,7 @@ public class LocalManagementController implements Initializable {
     @FXML private ToggleButton tabToday;
     @FXML private ToggleButton tabWeek;
     @FXML private ToggleButton tabMonth;
+    @FXML private ToggleButton tabOtherMonth;
 
     @FXML private Label totalWorkersLabel;
     @FXML private Label todayCostLabel;
@@ -79,6 +92,7 @@ public class LocalManagementController implements Initializable {
 
     @FXML private ComboBox<String> filterComboBox;
     @FXML private ComboBox<String> quickWorkTypeCombo;
+    @FXML private ComboBox<String> otherMonthComboBox;
 
     @FXML private TextField searchField;
     @FXML private TextField quickNameField;
@@ -91,7 +105,10 @@ public class LocalManagementController implements Initializable {
     private List<WorkerRecord> workerRecords = new ArrayList<>();
     private final Gson gson = new GsonBuilder().setPrettyPrinting().create();
     private final DecimalFormat moneyFormat = new DecimalFormat("#,##0.00");
+
     private String selectedPeriod = PERIOD_TODAY;
+    private final List<YearMonth> otherMonthValues = new ArrayList<>();
+    private YearMonth selectedOtherMonth;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -100,6 +117,7 @@ public class LocalManagementController implements Initializable {
         setupFilter();
         setupQuickAdd();
         setupSearch();
+        setupOtherMonthFilter();
 
         if (tabToday != null) {
             tabToday.setSelected(true);
@@ -113,6 +131,7 @@ public class LocalManagementController implements Initializable {
         }
 
         loadData();
+        populateOtherMonthOptions();
         refreshView();
     }
 
@@ -122,10 +141,14 @@ public class LocalManagementController implements Initializable {
             selectedPeriod = PERIOD_WEEK;
         } else if (tabMonth != null && tabMonth.isSelected()) {
             selectedPeriod = PERIOD_MONTH;
+        } else if (tabOtherMonth != null && tabOtherMonth.isSelected()) {
+            selectedPeriod = PERIOD_OTHER_MONTH;
         } else {
             selectedPeriod = PERIOD_TODAY;
         }
+
         applyPeriodTabStyles();
+        updateOtherMonthFilterVisibility();
         refreshView();
     }
 
@@ -133,6 +156,7 @@ public class LocalManagementController implements Initializable {
         updateTabStyle(tabToday, PERIOD_TODAY.equals(selectedPeriod));
         updateTabStyle(tabWeek, PERIOD_WEEK.equals(selectedPeriod));
         updateTabStyle(tabMonth, PERIOD_MONTH.equals(selectedPeriod));
+        updateTabStyle(tabOtherMonth, PERIOD_OTHER_MONTH.equals(selectedPeriod));
     }
 
     private void updateTabStyle(ToggleButton button, boolean active) {
@@ -154,7 +178,7 @@ public class LocalManagementController implements Initializable {
     private void setupQuickAdd() {
         if (quickWorkTypeCombo != null) {
             quickWorkTypeCombo.getItems().addAll(
-                    "জমি চাষ",
+                    "জমি প্রস্তুতি",
                     "বীজ বপন",
                     "সেচ",
                     "সার প্রয়োগ",
@@ -167,20 +191,56 @@ public class LocalManagementController implements Initializable {
         }
     }
 
+    private void setupFilter() {
+        filterComboBox.getItems().addAll(FILTER_ALL, FILTER_PENDING, FILTER_COMPLETED);
+        filterComboBox.setValue(FILTER_ALL);
+        filterComboBox.setOnAction(e -> refreshView());
+    }
+
+    private void setupOtherMonthFilter() {
+        if (otherMonthComboBox == null) {
+            return;
+        }
+
+        otherMonthComboBox.setVisible(false);
+        otherMonthComboBox.setManaged(false);
+        otherMonthComboBox.setOnAction(e -> {
+            int index = otherMonthComboBox.getSelectionModel().getSelectedIndex();
+            selectedOtherMonth = (index >= 0 && index < otherMonthValues.size()) ? otherMonthValues.get(index) : null;
+            refreshView();
+        });
+    }
+
+    private void updateOtherMonthFilterVisibility() {
+        if (otherMonthComboBox == null) {
+            return;
+        }
+        boolean show = PERIOD_OTHER_MONTH.equals(selectedPeriod);
+        otherMonthComboBox.setVisible(show);
+        otherMonthComboBox.setManaged(show);
+    }
+
     private void handleQuickAdd() {
+        String currentUserId = currentUserIdOrNull();
+        if (currentUserId == null) {
+            showAlert(Alert.AlertType.WARNING, "Unauthorized", "Please login to create records.");
+            return;
+        }
+
         String name = safeTrim(quickNameField.getText());
-        String workType = quickWorkTypeCombo.getValue();
+        String workType = mapWorkTypeToBangla(quickWorkTypeCombo.getValue());
         String hourText = safeTrim(quickHoursField.getText());
         String rateText = safeTrim(quickRateField.getText());
 
-        if (name.isEmpty() || workType == null || hourText.isEmpty() || rateText.isEmpty()) {
-            showAlert(Alert.AlertType.WARNING, "তথ্য অসম্পূর্ণ", "Quick Add এর সব ঘর পূরণ করুন।");
+        if (name.isEmpty() || workType.isEmpty() || hourText.isEmpty() || rateText.isEmpty()) {
+            showAlert(Alert.AlertType.WARNING, "Incomplete Data", "Please fill all Quick Add fields.");
             return;
         }
 
         try {
             double hours = Double.parseDouble(hourText);
             double rate = Double.parseDouble(rateText);
+
             WorkerRecord record = new WorkerRecord(
                     UUID.randomUUID().toString(),
                     name,
@@ -191,7 +251,8 @@ public class LocalManagementController implements Initializable {
                     rate,
                     STATUS_PENDING,
                     "",
-                    ""
+                    "",
+                    currentUserId
             );
 
             workerRecords.add(0, record);
@@ -199,7 +260,7 @@ public class LocalManagementController implements Initializable {
             clearQuickAddFields();
             refreshView();
         } catch (NumberFormatException ex) {
-            showAlert(Alert.AlertType.WARNING, "তথ্য ত্রুটি", "ঘণ্টা এবং রেট সংখ্যায় লিখুন।");
+            showAlert(Alert.AlertType.WARNING, "Data Error", "Hours and rate must be numeric.");
         }
     }
 
@@ -208,12 +269,6 @@ public class LocalManagementController implements Initializable {
         quickHoursField.clear();
         quickRateField.clear();
         quickWorkTypeCombo.setValue(null);
-    }
-
-    private void setupFilter() {
-        filterComboBox.getItems().addAll(FILTER_ALL, FILTER_PENDING, FILTER_COMPLETED);
-        filterComboBox.setValue(FILTER_ALL);
-        filterComboBox.setOnAction(e -> refreshView());
     }
 
     private void loadData() {
@@ -226,9 +281,14 @@ public class LocalManagementController implements Initializable {
             List<WorkerRecord> data = gson.fromJson(reader, WORKER_RECORD_LIST_TYPE);
             if (data != null) {
                 workerRecords = data;
+                boolean changed = normalizeOwnership(workerRecords);
+                changed = normalizeWorkTypes(workerRecords) || changed;
+                if (changed) {
+                    saveData();
+                }
             }
         } catch (IOException e) {
-            showAlert(Alert.AlertType.ERROR, "ডাটা লোড ত্রুটি", "ডাটা ফাইল পড়া যায়নি।");
+            showAlert(Alert.AlertType.ERROR, "Load Error", "Could not read data file.");
         }
     }
 
@@ -236,17 +296,22 @@ public class LocalManagementController implements Initializable {
         try (Writer writer = new FileWriter(DATA_FILE)) {
             gson.toJson(workerRecords, writer);
         } catch (IOException e) {
-            showAlert(Alert.AlertType.ERROR, "ডাটা সংরক্ষণ ত্রুটি", "ডাটা সংরক্ষণ করা যায়নি।");
+            showAlert(Alert.AlertType.ERROR, "Save Error", "Could not save data.");
         }
     }
 
     private void refreshView() {
+        populateOtherMonthOptions();
         updateStats();
         renderList();
     }
 
     private void updateStats() {
-        List<WorkerRecord> periodRecords = workerRecords.stream()
+        List<WorkerRecord> ownedRecords = workerRecords.stream()
+                .filter(this::isVisibleToCurrentUser)
+                .collect(Collectors.toList());
+
+        List<WorkerRecord> periodRecords = ownedRecords.stream()
                 .filter(this::matchesPeriod)
                 .collect(Collectors.toList());
 
@@ -255,7 +320,7 @@ public class LocalManagementController implements Initializable {
                 .distinct()
                 .count();
 
-        double todayCost = workerRecords.stream()
+        double todayCost = ownedRecords.stream()
                 .filter(this::isToday)
                 .mapToDouble(WorkerRecord::getTotal)
                 .sum();
@@ -271,15 +336,16 @@ public class LocalManagementController implements Initializable {
                 .sum();
 
         totalWorkersLabel.setText(String.valueOf(uniqueWorkers));
-        todayCostLabel.setText("৳" + moneyFormat.format(todayCost));
-        pendingPaymentLabel.setText("৳" + moneyFormat.format(pending));
-        completedPaymentLabel.setText("৳" + moneyFormat.format(completed));
+        todayCostLabel.setText("Tk " + moneyFormat.format(todayCost));
+        pendingPaymentLabel.setText("Tk " + moneyFormat.format(pending));
+        completedPaymentLabel.setText("Tk " + moneyFormat.format(completed));
     }
 
     private void renderList() {
         workersListContainer.getChildren().clear();
 
         List<WorkerRecord> visibleRecords = workerRecords.stream()
+                .filter(this::isVisibleToCurrentUser)
                 .filter(this::matchesPeriod)
                 .filter(this::matchesStatusFilter)
                 .filter(this::matchesSearch)
@@ -309,12 +375,13 @@ public class LocalManagementController implements Initializable {
     }
 
     private boolean matchesSearch(WorkerRecord record) {
-        String q = safeTrim(searchField.getText()).toLowerCase();
+        String q = safeTrim(searchField.getText()).toLowerCase(Locale.ROOT);
         if (q.isEmpty()) {
             return true;
         }
-        return safeText(record.name).toLowerCase().contains(q)
-                || safeText(record.phone).toLowerCase().contains(q);
+        return safeText(record.name).toLowerCase(Locale.ROOT).contains(q)
+                || safeText(record.phone).toLowerCase(Locale.ROOT).contains(q)
+                || mapWorkTypeToBangla(record.workType).toLowerCase(Locale.ROOT).contains(q);
     }
 
     private boolean matchesPeriod(WorkerRecord record) {
@@ -322,14 +389,17 @@ public class LocalManagementController implements Initializable {
         if (date == null) {
             return false;
         }
-        LocalDate now = LocalDate.now();
 
+        LocalDate now = LocalDate.now();
         if (PERIOD_WEEK.equals(selectedPeriod)) {
             LocalDate weekStart = now.minusDays(6);
             return !date.isBefore(weekStart) && !date.isAfter(now);
         }
         if (PERIOD_MONTH.equals(selectedPeriod)) {
             return date.getYear() == now.getYear() && date.getMonthValue() == now.getMonthValue();
+        }
+        if (PERIOD_OTHER_MONTH.equals(selectedPeriod)) {
+            return selectedOtherMonth != null && YearMonth.from(date).equals(selectedOtherMonth);
         }
         return date.equals(now);
     }
@@ -353,10 +423,12 @@ public class LocalManagementController implements Initializable {
         card.setPadding(new Insets(16));
 
         boolean isPending = STATUS_PENDING.equals(record.status);
+        boolean canModify = canModifyRecord(record);
+
         Label statusLabel = new Label(isPending ? "বাকি" : "পরিশোধিত");
         statusLabel.getStyleClass().add(isPending ? "status-badge-pending" : "status-badge-completed");
 
-        Label workerName = new Label("👤 " + safeText(record.name));
+        Label workerName = new Label("নাম: " + safeText(record.name));
         workerName.getStyleClass().add("worker-name");
 
         Region spacer = new Region();
@@ -365,48 +437,54 @@ public class LocalManagementController implements Initializable {
         header.setAlignment(Pos.CENTER_LEFT);
 
         HBox row1 = createInfoRow(
-                "📞 " + safeText(record.phone),
-                "🛠️ " + safeText(record.workType),
-                "📅 " + safeText(record.date)
+                "ফোন: " + safeText(record.phone),
+                "কাজ: " + mapWorkTypeToBangla(record.workType),
+                "তারিখ: " + safeText(record.date)
         );
 
         HBox row2 = createInfoRow(
-                "⏰ " + record.hours + " ঘণ্টা",
-                "💰 ৳" + record.rate + "/ঘণ্টা",
-                "🧾 মোট: ৳" + moneyFormat.format(record.getTotal())
+                "ঘণ্টা: " + record.hours,
+                "রেট: ৳" + record.rate + "/ঘণ্টা",
+                "মোট: ৳" + moneyFormat.format(record.getTotal())
         );
 
         HBox actions = new HBox(8);
         actions.setAlignment(Pos.CENTER_RIGHT);
 
-        if (isPending) {
+        if (isPending && canModify) {
             Button payBtn = new Button("পরিশোধ");
             payBtn.getStyleClass().add("pay-btn");
             payBtn.setOnAction(e -> markAsPaid(record));
             actions.getChildren().add(payBtn);
         }
 
-        Button editBtn = new Button("এডিট");
-        editBtn.getStyleClass().add("edit-btn");
-        editBtn.setOnAction(e -> showEditDialog(record));
+        if (canModify) {
+            Button editBtn = new Button("এডিট");
+            editBtn.getStyleClass().add("edit-btn");
+            editBtn.setOnAction(e -> showEditDialog(record));
 
-        Button deleteBtn = new Button("মুছুন");
-        deleteBtn.getStyleClass().add("delete-btn");
-        deleteBtn.setOnAction(e -> confirmDelete(record));
+            Button deleteBtn = new Button("মুছুন");
+            deleteBtn.getStyleClass().add("delete-btn");
+            deleteBtn.setOnAction(e -> confirmDelete(record));
 
-        actions.getChildren().addAll(editBtn, deleteBtn);
+            actions.getChildren().addAll(editBtn, deleteBtn);
+        } else {
+            Label ownerOnly = new Label("Owner only");
+            ownerOnly.getStyleClass().add("detail-value");
+            actions.getChildren().add(ownerOnly);
+        }
 
         card.getChildren().addAll(header, row1, row2);
 
         if (!safeText(record.notes).equals("-")) {
-            Label notes = new Label("📝 " + record.notes);
+            Label notes = new Label("নোট: " + record.notes);
             notes.setWrapText(true);
             notes.getStyleClass().add("notes-text");
             card.getChildren().add(notes);
         }
 
         if (STATUS_COMPLETED.equals(record.status) && !safeTrim(record.paidAt).isEmpty()) {
-            Label paidAt = new Label("✅ পরিশোধের সময়: " + record.paidAt);
+            Label paidAt = new Label("পরিশোধের সময়: " + record.paidAt);
             paidAt.getStyleClass().add("detail-value");
             card.getChildren().add(paidAt);
         }
@@ -426,6 +504,10 @@ public class LocalManagementController implements Initializable {
     }
 
     private void markAsPaid(WorkerRecord record) {
+        if (!canModifyRecord(record)) {
+            showAlert(Alert.AlertType.WARNING, "Unauthorized", SYSTEM_NO_OWNER_MSG);
+            return;
+        }
         record.status = STATUS_COMPLETED;
         record.paidAt = LocalDateTime.now().format(PAID_AT_FMT);
         saveData();
@@ -433,8 +515,15 @@ public class LocalManagementController implements Initializable {
     }
 
     private void showAddDialog() {
+        String currentUserId = currentUserIdOrNull();
+        if (currentUserId == null) {
+            showAlert(Alert.AlertType.WARNING, "Unauthorized", "Please login to create records.");
+            return;
+        }
+
         WorkerRecord record = showRecordDialog(null);
         if (record != null) {
+            record.createdByUserId = currentUserId;
             workerRecords.add(0, record);
             saveData();
             refreshView();
@@ -442,6 +531,11 @@ public class LocalManagementController implements Initializable {
     }
 
     private void showEditDialog(WorkerRecord original) {
+        if (!canModifyRecord(original)) {
+            showAlert(Alert.AlertType.WARNING, "Unauthorized", SYSTEM_NO_OWNER_MSG);
+            return;
+        }
+
         WorkerRecord edited = showRecordDialog(original);
         if (edited == null) {
             return;
@@ -449,11 +543,12 @@ public class LocalManagementController implements Initializable {
 
         original.name = edited.name;
         original.phone = edited.phone;
-        original.workType = edited.workType;
+        original.workType = mapWorkTypeToBangla(edited.workType);
         original.date = edited.date;
         original.hours = edited.hours;
         original.rate = edited.rate;
         original.notes = edited.notes;
+        original.createdByUserId = safeTrim(original.createdByUserId);
 
         saveData();
         refreshView();
@@ -472,9 +567,9 @@ public class LocalManagementController implements Initializable {
         TextField name = new TextField(existing == null ? "" : safeText(existing.name));
         TextField phone = new TextField(existing == null ? "" : safeText(existing.phone));
         ComboBox<String> type = new ComboBox<>();
-        type.getItems().addAll("জমি চাষ", "বীজ বপন", "সেচ", "সার প্রয়োগ", "ফসল কাটা", "অন্যান্য");
+        type.getItems().addAll("জমি প্রস্তুতি", "বীজ বপন", "সেচ", "সার প্রয়োগ", "ফসল কাটা", "অন্যান্য");
         if (existing != null) {
-            type.setValue(existing.workType);
+            type.setValue(mapWorkTypeToBangla(existing.workType));
         }
 
         DatePicker date = new DatePicker(existing == null ? LocalDate.now() : parseDate(existing.date));
@@ -499,13 +594,14 @@ public class LocalManagementController implements Initializable {
                             existing == null ? UUID.randomUUID().toString() : existing.id,
                             safeTrim(name.getText()),
                             safeTrim(phone.getText()),
-                            type.getValue(),
+                            mapWorkTypeToBangla(type.getValue()),
                             date.getValue().format(DATE_FMT),
                             Double.parseDouble(safeTrim(hours.getText())),
                             Double.parseDouble(safeTrim(rate.getText())),
                             existing == null ? STATUS_PENDING : existing.status,
                             safeTrim(notes.getText()),
-                            existing == null ? "" : safeText(existing.paidAt)
+                            existing == null ? "" : safeText(existing.paidAt),
+                            existing == null ? currentUserIdOrBlank() : safeTrim(existing.createdByUserId)
                     );
                 } catch (Exception e) {
                     showAlert(Alert.AlertType.WARNING, "ইনপুট ত্রুটি", "সব তথ্য সঠিকভাবে দিন।");
@@ -519,6 +615,11 @@ public class LocalManagementController implements Initializable {
     }
 
     private void confirmDelete(WorkerRecord record) {
+        if (!canModifyRecord(record)) {
+            showAlert(Alert.AlertType.WARNING, "Unauthorized", SYSTEM_NO_OWNER_MSG);
+            return;
+        }
+
         Alert alert = new Alert(
                 Alert.AlertType.CONFIRMATION,
                 safeText(record.name) + " এর রেকর্ড মুছতে চান?",
@@ -553,6 +654,157 @@ public class LocalManagementController implements Initializable {
         return value == null ? "" : value.trim();
     }
 
+    private boolean normalizeOwnership(List<WorkerRecord> records) {
+        boolean changed = false;
+        for (WorkerRecord record : records) {
+            String owner = safeTrim(record.createdByUserId);
+            if (owner.isEmpty()) {
+                record.createdByUserId = LEGACY_OWNER_ID;
+                changed = true;
+            }
+        }
+        return changed;
+    }
+
+    private boolean normalizeWorkTypes(List<WorkerRecord> records) {
+        boolean changed = false;
+        for (WorkerRecord record : records) {
+            String normalized = mapWorkTypeToBangla(record.workType);
+            if (!safeTrim(normalized).equals(safeTrim(record.workType))) {
+                record.workType = normalized;
+                changed = true;
+            }
+        }
+        return changed;
+    }
+
+    private String mapWorkTypeToBangla(String value) {
+        String raw = safeTrim(value);
+        if (raw.isEmpty()) {
+            return "অন্যান্য";
+        }
+
+        String lower = raw.toLowerCase(Locale.ROOT);
+        if (lower.contains("land preparation")) return "জমি প্রস্তুতি";
+        if (lower.contains("seed sowing")) return "বীজ বপন";
+        if (lower.contains("irrigation")) return "সেচ";
+        if (lower.contains("fertilizer")) return "সার প্রয়োগ";
+        if (lower.contains("harvesting")) return "ফসল কাটা";
+        if (lower.contains("other")) return "অন্যান্য";
+
+        if (raw.contains("জমি")) return "জমি প্রস্তুতি";
+        if (raw.contains("বীজ")) return "বীজ বপন";
+        if (raw.contains("সেচ") || raw.contains("à¦¸à§‡à¦š")) return "সেচ";
+        if (raw.contains("সার") || raw.contains("à¦¸à¦¾à¦°")) return "সার প্রয়োগ";
+        if (raw.contains("ফসল") || raw.contains("à¦«à¦¸à¦²")) return "ফসল কাটা";
+        if (raw.contains("à¦œà¦®à¦¿")) return "জমি প্রস্তুতি";
+        if (raw.contains("à¦¬à§€à¦œ")) return "বীজ বপন";
+
+        return raw;
+    }
+
+    private void populateOtherMonthOptions() {
+        if (otherMonthComboBox == null) {
+            return;
+        }
+
+        YearMonth current = YearMonth.from(LocalDate.now());
+        List<YearMonth> months = workerRecords.stream()
+                .filter(this::isVisibleToCurrentUser)
+                .map(r -> parseDate(r.date))
+                .filter(d -> d != null)
+                .map(YearMonth::from)
+                .filter(ym -> !ym.equals(current))
+                .distinct()
+                .sorted(Comparator.reverseOrder())
+                .collect(Collectors.toList());
+
+        if (months.isEmpty()) {
+            months.add(current.minusMonths(1));
+        }
+
+        if (months.equals(otherMonthValues)) {
+            return;
+        }
+
+        otherMonthValues.clear();
+        otherMonthValues.addAll(months);
+
+        List<String> labels = months.stream()
+                .map(this::toBanglaMonthLabel)
+                .collect(Collectors.toList());
+        otherMonthComboBox.getItems().setAll(labels);
+
+        if (selectedOtherMonth == null || !months.contains(selectedOtherMonth)) {
+            selectedOtherMonth = months.get(0);
+        }
+
+        int index = months.indexOf(selectedOtherMonth);
+        if (index >= 0) {
+            otherMonthComboBox.getSelectionModel().select(index);
+        }
+    }
+
+    private String toBanglaMonthLabel(YearMonth ym) {
+        return toBanglaDigits(ym.atDay(1).format(MONTH_LABEL_FMT));
+    }
+
+    private String toBanglaDigits(String input) {
+        StringBuilder out = new StringBuilder(input.length());
+        for (char c : input.toCharArray()) {
+            if (c >= '0' && c <= '9') {
+                out.append((char) ('০' + (c - '0')));
+            } else {
+                out.append(c);
+            }
+        }
+        return out.toString();
+    }
+
+    private boolean canModifyRecord(WorkerRecord record) {
+        if (record == null) {
+            return false;
+        }
+        String current = currentUserIdOrNull();
+        String owner = safeTrim(record.createdByUserId);
+        return current != null && !owner.isEmpty() && !LEGACY_OWNER_ID.equals(owner) && current.equals(owner);
+    }
+
+    private boolean isVisibleToCurrentUser(WorkerRecord record) {
+        if (record == null) {
+            return false;
+        }
+        String current = currentUserIdOrNull();
+        String owner = safeTrim(record.createdByUserId);
+        return current != null && !owner.isEmpty() && current.equals(owner);
+    }
+
+    private String currentUserIdOrNull() {
+        User user = SessionManager.getLoggedInUser();
+        if (user == null) {
+            return null;
+        }
+        String username = safeTrim(user.getUsername());
+        if (!username.isEmpty()) {
+            return username;
+        }
+        String mobile = safeTrim(user.getMobile());
+        if (!mobile.isEmpty()) {
+            return mobile;
+        }
+        String email = safeTrim(user.getEmail());
+        if (!email.isEmpty()) {
+            return email;
+        }
+        String name = safeTrim(user.getName());
+        return name.isEmpty() ? null : name;
+    }
+
+    private String currentUserIdOrBlank() {
+        String current = currentUserIdOrNull();
+        return current == null ? "" : current;
+    }
+
     private static class WorkerRecord {
         String id;
         String name;
@@ -562,11 +814,12 @@ public class LocalManagementController implements Initializable {
         String status;
         String notes;
         String paidAt;
+        String createdByUserId;
         double hours;
         double rate;
 
         WorkerRecord(String id, String name, String phone, String workType, String date,
-                     double hours, double rate, String status, String notes, String paidAt) {
+                     double hours, double rate, String status, String notes, String paidAt, String createdByUserId) {
             this.id = id;
             this.name = name;
             this.phone = phone;
@@ -577,6 +830,7 @@ public class LocalManagementController implements Initializable {
             this.status = status;
             this.notes = notes;
             this.paidAt = paidAt;
+            this.createdByUserId = createdByUserId;
         }
 
         double getTotal() {

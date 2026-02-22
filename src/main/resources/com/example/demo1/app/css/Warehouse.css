@@ -150,6 +150,18 @@
     -fx-text-fill: #5f7465;
 }
 
+.search-wrap .combo-box {
+    -fx-background-color: #f9fcf8;
+    -fx-border-color: #d7e7d9;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-font-size: 12px;
+}
+
+.search-wrap .combo-box .list-cell {
+    -fx-text-fill: #244632;
+}
+
 .warehouse-card {
     -fx-background-color: #ffffff;
     -fx-background-radius: 16;
@@ -157,8 +169,7 @@
     -fx-border-width: 1;
     -fx-border-radius: 16;
     -fx-padding: 18;
-    -fx-min-width: 345px;
-    -fx-pref-width: 345px;
+    -fx-min-width: 0;
     -fx-spacing: 12;
     -fx-effect: dropshadow(gaussian, rgba(25, 43, 31, 0.08), 14, 0.12, 0, 4);
 }

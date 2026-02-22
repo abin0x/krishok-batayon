@@ -50,7 +50,7 @@
             </columnConstraints>
 
             <VBox spacing="12" styleClass="crop-card-modern" prefWidth="430" maxWidth="430" GridPane.columnIndex="0" GridPane.rowIndex="0">
-                <ImageView fitHeight="140" fitWidth="430" preserveRatio="false" styleClass="crop-photo"><image><Image url="@../../images/crops/modern/rice.jpg"/></image></ImageView>
+                <ImageView fitHeight="140" fitWidth="430" preserveRatio="false" styleClass="crop-photo"><image><Image url="@../../images/crops/modern/rice.jpeg"/></image></ImageView>
                 <HBox alignment="CENTER_LEFT" spacing="8"><Label styleClass="crop-name-modern" text="ধান (Rice)" /><Region HBox.hgrow="ALWAYS"/><Label styleClass="season-tag" text="খরিফ/রবি" /></HBox>
                 <VBox spacing="6" styleClass="crop-info-box">
                     <Label styleClass="crop-info-item" text="রোপণ: এপ্রিল-জুন, নভেম্বর-ডিসেম্বর" />
@@ -61,7 +61,7 @@
             </VBox>
 
             <VBox spacing="12" styleClass="crop-card-modern" prefWidth="430" maxWidth="430" GridPane.columnIndex="1" GridPane.rowIndex="0">
-                <ImageView fitHeight="140" fitWidth="430" preserveRatio="false" styleClass="crop-photo"><image><Image url="@../../images/crops/modern/wheat.jpg"/></image></ImageView>
+                <ImageView fitHeight="140" fitWidth="430" preserveRatio="false" styleClass="crop-photo"><image><Image url="@../../images/crops/modern/wheat.jpeg"/></image></ImageView>
                 <HBox alignment="CENTER_LEFT" spacing="8"><Label styleClass="crop-name-modern" text="গম (Wheat)" /><Region HBox.hgrow="ALWAYS"/><Label styleClass="season-tag" text="রবি" /></HBox>
                 <VBox spacing="6" styleClass="crop-info-box">
                     <Label styleClass="crop-info-item" text="রোপণ: নভেম্বর-ডিসেম্বর" />
@@ -72,7 +72,7 @@
             </VBox>
 
             <VBox spacing="12" styleClass="crop-card-modern" prefWidth="430" maxWidth="430" GridPane.columnIndex="0" GridPane.rowIndex="1">
-                <ImageView fitHeight="140" fitWidth="430" preserveRatio="false" styleClass="crop-photo"><image><Image url="@../../images/crops/modern/potato.jpg"/></image></ImageView>
+                <ImageView fitHeight="140" fitWidth="430" preserveRatio="false" styleClass="crop-photo"><image><Image url="@../../images/crops/modern/potato.jpeg"/></image></ImageView>
                 <HBox alignment="CENTER_LEFT" spacing="8"><Label styleClass="crop-name-modern" text="আলু (Potato)" /><Region HBox.hgrow="ALWAYS"/><Label styleClass="season-tag" text="শীতকাল" /></HBox>
                 <VBox spacing="6" styleClass="crop-info-box">
                     <Label styleClass="crop-info-item" text="রোপণ: অক্টোবর-নভেম্বর" />
@@ -83,7 +83,7 @@
             </VBox>
 
             <VBox spacing="12" styleClass="crop-card-modern" prefWidth="430" maxWidth="430" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                <ImageView fitHeight="140" fitWidth="430" preserveRatio="false" styleClass="crop-photo"><image><Image url="@../../images/crops/modern/jute.jpg"/></image></ImageView>
+                <ImageView fitHeight="140" fitWidth="430" preserveRatio="false" styleClass="crop-photo"><image><Image url="@../../images/crops/modern/jute.jpeg"/></image></ImageView>
                 <HBox alignment="CENTER_LEFT" spacing="8"><Label styleClass="crop-name-modern" text="পাট (Jute)" /><Region HBox.hgrow="ALWAYS"/><Label styleClass="season-tag" text="গ্রীষ্ম" /></HBox>
                 <VBox spacing="6" styleClass="crop-info-box">
                     <Label styleClass="crop-info-item" text="রোপণ: মার্চ-এপ্রিল" />
@@ -94,7 +94,7 @@
             </VBox>
 
             <VBox spacing="12" styleClass="crop-card-modern" prefWidth="430" maxWidth="430" GridPane.columnIndex="0" GridPane.rowIndex="2">
-                <ImageView fitHeight="140" fitWidth="430" preserveRatio="false" styleClass="crop-photo"><image><Image url="@../../images/crops/modern/maize.jpg"/></image></ImageView>
+                <ImageView fitHeight="140" fitWidth="430" preserveRatio="false" styleClass="crop-photo"><image><Image url="@../../images/crops/modern/maize.jpeg"/></image></ImageView>
                 <HBox alignment="CENTER_LEFT" spacing="8"><Label styleClass="crop-name-modern" text="ভুট্টা (Maize)" /><Region HBox.hgrow="ALWAYS"/><Label styleClass="season-tag" text="খরিফ" /></HBox>
                 <VBox spacing="6" styleClass="crop-info-box">
                     <Label styleClass="crop-info-item" text="রোপণ: ফেব্রুয়ারি-মার্চ" />
@@ -105,7 +105,7 @@
             </VBox>
 
             <VBox spacing="12" styleClass="crop-card-modern" prefWidth="430" maxWidth="430" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                <ImageView fitHeight="140" fitWidth="430" preserveRatio="false" styleClass="crop-photo"><image><Image url="@../../images/crops/modern/mustard.jpg"/></image></ImageView>
+                <ImageView fitHeight="140" fitWidth="430" preserveRatio="false" styleClass="crop-photo"><image><Image url="@../../images/crops/modern/mustard.jpeg"/></image></ImageView>
                 <HBox alignment="CENTER_LEFT" spacing="8"><Label styleClass="crop-name-modern" text="সরিষা (Mustard)" /><Region HBox.hgrow="ALWAYS"/><Label styleClass="season-tag" text="রবি" /></HBox>
                 <VBox spacing="6" styleClass="crop-info-box">
                     <Label styleClass="crop-info-item" text="রোপণ: অক্টোবর-নভেম্বর" />
@@ -116,7 +116,7 @@
             </VBox>
 
             <VBox spacing="12" styleClass="crop-card-modern" prefWidth="430" maxWidth="430" GridPane.columnIndex="0" GridPane.rowIndex="3">
-                <ImageView fitHeight="140" fitWidth="430" preserveRatio="false" styleClass="crop-photo"><image><Image url="@../../images/crops/modern/lentil.jpg"/></image></ImageView>
+                <ImageView fitHeight="140" fitWidth="430" preserveRatio="false" styleClass="crop-photo"><image><Image url="@../../images/crops/modern/lentil.jpeg"/></image></ImageView>
                 <HBox alignment="CENTER_LEFT" spacing="8"><Label styleClass="crop-name-modern" text="মসুর (Lentil)" /><Region HBox.hgrow="ALWAYS"/><Label styleClass="season-tag" text="রবি" /></HBox>
                 <VBox spacing="6" styleClass="crop-info-box">
                     <Label styleClass="crop-info-item" text="রোপণ: নভেম্বর" />
@@ -127,7 +127,7 @@
             </VBox>
 
             <VBox spacing="12" styleClass="crop-card-modern" prefWidth="430" maxWidth="430" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                <ImageView fitHeight="140" fitWidth="430" preserveRatio="false" styleClass="crop-photo"><image><Image url="@../../images/crops/modern/chili.jpg"/></image></ImageView>
+                <ImageView fitHeight="140" fitWidth="430" preserveRatio="false" styleClass="crop-photo"><image><Image url="@../../images/crops/modern/chili.jpeg"/></image></ImageView>
                 <HBox alignment="CENTER_LEFT" spacing="8"><Label styleClass="crop-name-modern" text="মরিচ (Chili)" /><Region HBox.hgrow="ALWAYS"/><Label styleClass="season-tag" text="বারোমাসি" /></HBox>
                 <VBox spacing="6" styleClass="crop-info-box">
                     <Label styleClass="crop-info-item" text="রোপণ: বছরজুড়ে (উপযুক্ত তাপমাত্রায়)" />
@@ -146,7 +146,7 @@
                 </columnConstraints>
 
                 <VBox spacing="12" styleClass="crop-card-modern" prefWidth="430" maxWidth="430" GridPane.columnIndex="0" GridPane.rowIndex="0">
-                    <ImageView fitHeight="140" fitWidth="430" preserveRatio="false" styleClass="crop-photo"><image><Image url="@../../images/crops/modern/onion.jpg"/></image></ImageView>
+                    <ImageView fitHeight="140" fitWidth="430" preserveRatio="false" styleClass="crop-photo"><image><Image url="@../../images/crops/modern/onion.jpeg"/></image></ImageView>
                     <HBox alignment="CENTER_LEFT" spacing="8"><Label styleClass="crop-name-modern" text="পেঁয়াজ (Onion)" /><Region HBox.hgrow="ALWAYS"/><Label styleClass="season-tag" text="রবি" /></HBox>
                     <VBox spacing="6" styleClass="crop-info-box">
                         <Label styleClass="crop-info-item" text="রোপণ: নভেম্বর-ডিসেম্বর" />
@@ -157,7 +157,7 @@
                 </VBox>
 
                 <VBox spacing="12" styleClass="crop-card-modern" prefWidth="430" maxWidth="430" GridPane.columnIndex="1" GridPane.rowIndex="0">
-                    <ImageView fitHeight="140" fitWidth="430" preserveRatio="false" styleClass="crop-photo"><image><Image url="@../../images/crops/modern/tomato.jpg"/></image></ImageView>
+                    <ImageView fitHeight="140" fitWidth="430" preserveRatio="false" styleClass="crop-photo"><image><Image url="@../../images/crops/modern/tomato.jpeg"/></image></ImageView>
                     <HBox alignment="CENTER_LEFT" spacing="8"><Label styleClass="crop-name-modern" text="টমেটো (Tomato)" /><Region HBox.hgrow="ALWAYS"/><Label styleClass="season-tag" text="শীতকাল" /></HBox>
                     <VBox spacing="6" styleClass="crop-info-box">
                         <Label styleClass="crop-info-item" text="রোপণ: অক্টোবর-ডিসেম্বর" />
