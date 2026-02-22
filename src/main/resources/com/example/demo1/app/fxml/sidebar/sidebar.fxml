@@ -22,17 +22,7 @@
             <padding>
                 <Insets top="16" right="12" bottom="20" left="12"/>
             </padding>
-
-            <VBox styleClass="sidebar-brand-card" spacing="5">
-                <Label text="কৃষক বাতায়ন" styleClass="sidebar-brand-title"/>
-                <HBox spacing="8" alignment="CENTER_LEFT">
-                    <Label text="Smart Agriculture" styleClass="sidebar-brand-subtitle"/>
-                    <Region HBox.hgrow="ALWAYS"/>
-                    <Label text="BD" styleClass="sidebar-live-chip"/>
-                </HBox>
-            </VBox>
-
-            <Label text="Navigation" styleClass="sidebar-section-label"/>
+<Label text="Navigation" styleClass="sidebar-section-label"/>
 
             <Button fx:id="btnHome" text="Home" styleClass="sidebar-button" onAction="#handleNavigation"/>
             <Button fx:id="btnAdvisory" text="Advisory" styleClass="sidebar-button" onAction="#handleNavigation"/>
@@ -48,3 +38,4 @@
         </VBox>
     </content>
 </ScrollPane>
+

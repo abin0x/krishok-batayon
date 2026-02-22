@@ -5,24 +5,28 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
 
 <HBox alignment="CENTER_LEFT"
       spacing="15"
       styleClass="top-nav"
       stylesheets="@../../css/dashboard.css"
-      xmlns="http://javafx.com/javafx"
-      xmlns:fx="http://javafx.com/fxml"
+      xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.example.demo1.app.ui.TopbarController">
     <padding>
         <Insets top="12" right="20" bottom="12" left="20"/>
     </padding>
 
-    <Label styleClass="app-title" text="কৃষক বাতায়ন"/>
+    <Label styleClass="app-title" text="কৃষক বাতায়ন"/>
     <Label styleClass="bd-badge" text="BD"/>
     <Region HBox.hgrow="ALWAYS"/>
 
-    <Button text="🔔" styleClass="top-icon-btn"/>
-    <Button text="📅" styleClass="top-icon-btn"/>
-    <Label fx:id="lblProfileName" styleClass="profile-chip" text="👤 ব্যবহারকারী"/>
-    <Button text="লগআউট" styleClass="logout-top-btn" onAction="#handleLogout"/>
+    <Button text="Alerts" styleClass="top-icon-btn"/>
+    <Button text="Calendar" styleClass="top-icon-btn" onAction="#handleCalendarClick"/>
+    <VBox spacing="2" alignment="CENTER_RIGHT">
+        <Label fx:id="lblProfileName" styleClass="profile-chip" text="User"/>
+        <Label fx:id="lblProfileMeta" styleClass="profile-meta" text="Not signed in"/>
+    </VBox>
+    <Button text="Logout" styleClass="logout-top-btn" onAction="#handleLogout"/>
 </HBox>
