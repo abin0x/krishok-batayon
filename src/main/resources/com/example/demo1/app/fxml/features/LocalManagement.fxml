@@ -5,129 +5,142 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="900" prefWidth="1400" styleClass="root" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.app.ui.LocalManagementController">
+<BorderPane prefHeight="900"
+            prefWidth="1400"
+            styleClass="root"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.demo1.app.ui.LocalManagementController">
 
-    <!-- Top Navigation Bar -->    <top>
+    <top>
         <fx:include source="../layout/topbar.fxml"/>
     </top>
 
-    <!-- Left Sidebar -->    <left>
+    <left>
         <fx:include source="../sidebar/sidebar.fxml"/>
     </left>
 
-    <!-- Main Content Area -->
     <center>
-        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" pannable="true" styleClass="content-scroll" vbarPolicy="ALWAYS">
-            <VBox spacing="25" styleClass="main-content" stylesheets="@../../css/LocalManagement.css">
+        <ScrollPane fitToWidth="true"
+                    hbarPolicy="NEVER"
+                    pannable="true"
+                    styleClass="content-scroll"
+                    vbarPolicy="AS_NEEDED">
+            <VBox spacing="20"
+                  styleClass="main-content"
+                  stylesheets="@../../css/LocalManagement.css">
                 <padding>
-                    <Insets bottom="30" left="30" right="30" top="30" />
+                    <Insets top="24" right="24" bottom="24" left="24"/>
                 </padding>
-
-                <!-- Page Header -->
-                <HBox alignment="CENTER_LEFT" spacing="20">
-                    <VBox spacing="10" HBox.hgrow="ALWAYS">
-                        <HBox alignment="CENTER_LEFT" spacing="15">
-                            <Label styleClass="page-title-large" text="Ã°Å¸â€˜Â¥ Ã Â¦Â¶Ã Â§ÂÃ Â¦Â°Ã Â¦Â®Ã Â¦Â¿Ã Â¦â€¢ Ã Â¦Â¬Ã Â§ÂÃ Â¦Â¯Ã Â¦Â¬Ã Â¦Â¸Ã Â§ÂÃ Â¦Â¥Ã Â¦Â¾Ã Â¦ÂªÃ Â¦Â¨Ã Â¦Â¾" />
-                        </HBox>
-                        <Label styleClass="page-subtitle" text="Ã Â¦â€¢Ã Â§Æ’Ã Â¦Â·Ã Â¦Â¿ Ã Â¦Â¶Ã Â§ÂÃ Â¦Â°Ã Â¦Â®Ã Â¦Â¿Ã Â¦â€¢Ã Â¦Â¦Ã Â§â€¡Ã Â¦Â° Ã Â¦â€¢Ã Â¦Â¾Ã Â¦Å“ Ã Â¦â€œ Ã Â¦ÂªÃ Â§â€¡Ã Â¦Â®Ã Â§â€¡Ã Â¦Â¨Ã Â§ÂÃ Â¦Å¸ Ã Â¦Å¸Ã Â§ÂÃ Â¦Â°Ã Â§ÂÃ Â¦Â¯Ã Â¦Â¾Ã Â¦â€¢ Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨" />
+                <AnchorPane styleClass="lm-hero-panel">
+                    <VBox spacing="8" AnchorPane.leftAnchor="24" AnchorPane.topAnchor="20">
+                        <Label styleClass="lm-hero-title" text="&#x09B6;&#x09CD;&#x09B0;&#x09AE;&#x09BF;&#x0995; &#x09AC;&#x09CD;&#x09AF;&#x09AC;&#x09B8;&#x09CD;&#x09A5;&#x09BE;&#x09AA;&#x09A8;&#x09BE;" />
+                        <Label styleClass="lm-hero-subtitle" text="&#x09B8;&#x09B9;&#x099C;&#x09C7; &#x09B6;&#x09CD;&#x09B0;&#x09AE;&#x09BF;&#x0995;&#x09C7;&#x09B0; &#x0995;&#x09BE;&#x099C;, &#x09B8;&#x09AE;&#x09DF; &#x0993; &#x09AA;&#x09C7;&#x09AE;&#x09C7;&#x09A8;&#x09CD;&#x099F; &#x099F;&#x09CD;&#x09B0;&#x09CD;&#x09AF;&#x09BE;&#x0995; &#x0995;&#x09B0;&#x09C1;&#x09A8;" />
+                        <Label styleClass="lm-hero-meta" text="&#x0986;&#x099C;&#x0995;&#x09C7;&#x09B0; &#x0985;&#x09AC;&#x09B8;&#x09CD;&#x09A5;&#x09BE;: Quick Add &#x098F;&#x09AC;&#x0982; &#x09AA;&#x09C7;&#x09AE;&#x09C7;&#x09A8;&#x09CD;&#x099F; &#x099F;&#x09CD;&#x09B0;&#x09CD;&#x09AF;&#x09BE;&#x0995;&#x09BF;&#x0982; &#x09B8;&#x0995;&#x09CD;&#x09B0;&#x09BF;&#x09DF;" />
                     </VBox>
 
-                    <Button fx:id="addRecordBtn" styleClass="add-record-btn" text="+ Ã Â¦Â¨Ã Â¦Â¤Ã Â§ÂÃ Â¦Â¨ Ã Â¦Â°Ã Â§â€¡Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¡" />
+                    <VBox alignment="CENTER" spacing="6" AnchorPane.rightAnchor="24" AnchorPane.topAnchor="18">
+                        <Label styleClass="lm-hero-mark" text="&#x1F33F;" />
+                        <Label styleClass="lm-hero-chip" text="GREEN PANEL" />
+                    </VBox>
+                </AnchorPane>
+
+                <HBox alignment="CENTER_LEFT" spacing="8" styleClass="period-tabs">
+                    <ToggleButton fx:id="tabToday" onAction="#handlePeriodChange" styleClass="period-tab" text="আজ">
+                        <toggleGroup>
+                            <ToggleGroup fx:id="periodToggleGroup"/>
+                        </toggleGroup>
+                    </ToggleButton>
+                    <ToggleButton fx:id="tabWeek" onAction="#handlePeriodChange" styleClass="period-tab" text="এই সপ্তাহ" toggleGroup="$periodToggleGroup"/>
+                    <ToggleButton fx:id="tabMonth" onAction="#handlePeriodChange" styleClass="period-tab" text="এই মাস" toggleGroup="$periodToggleGroup"/>
                 </HBox>
 
-                <!-- Statistics Cards -->
-                <HBox alignment="CENTER" spacing="20">
-
-                    <!-- Total Workers Card -->
-                    <VBox spacing="10" styleClass="stat-card-blue" HBox.hgrow="ALWAYS">
+                <HBox alignment="CENTER" spacing="12">
+                    <VBox spacing="8" styleClass="stat-card-blue" HBox.hgrow="ALWAYS">
                         <padding>
-                            <Insets bottom="25" left="25" right="25" top="25" />
+                            <Insets top="18" right="18" bottom="18" left="18"/>
                         </padding>
-                        <Label styleClass="stat-card-label" text="Ã Â¦Â®Ã Â§â€¹Ã Â¦Å¸ Ã Â¦Â¶Ã Â§ÂÃ Â¦Â°Ã Â¦Â®Ã Â¦Â¿Ã Â¦â€¢" />
-                        <HBox alignment="CENTER_LEFT" spacing="15">
-                            <Label fx:id="totalWorkersLabel" styleClass="stat-card-value-large" text="0" />
-                            <Region HBox.hgrow="ALWAYS" />
-                            <Label styleClass="stat-card-icon" text="Ã°Å¸â€˜Â¥" />
-                        </HBox>
+                        <Label styleClass="stat-card-label" text="মোট শ্রমিক"/>
+                        <Label fx:id="totalWorkersLabel" styleClass="stat-card-value-main" text="0"/>
                     </VBox>
 
-                    <!-- Pending Payment Card -->
-                    <VBox spacing="10" styleClass="stat-card-orange" HBox.hgrow="ALWAYS">
+                    <VBox spacing="8" styleClass="stat-card-purple" HBox.hgrow="ALWAYS">
                         <padding>
-                            <Insets bottom="25" left="25" right="25" top="25" />
+                            <Insets top="18" right="18" bottom="18" left="18"/>
                         </padding>
-                        <Label styleClass="stat-card-label" text="Ã Â¦Â¬Ã Â¦Â¾Ã Â¦â€¢Ã Â¦Â¿ Ã Â¦ÂªÃ Â§â€¡Ã Â¦Â®Ã Â§â€¡Ã Â¦Â¨Ã Â§ÂÃ Â¦Å¸" />
-                        <HBox alignment="CENTER_LEFT" spacing="15">
-                            <Label fx:id="pendingPaymentLabel" styleClass="stat-card-value-large" text="Ã Â§Â³0" />
-                            <Region HBox.hgrow="ALWAYS" />
-                            <Label styleClass="stat-card-icon" text="Ã°Å¸â€¢Â" />
-                        </HBox>
+                        <Label styleClass="stat-card-label" text="আজকের খরচ"/>
+                        <Label fx:id="todayCostLabel" styleClass="stat-card-value-main" text="৳0"/>
                     </VBox>
 
-                    <!-- Completed Payment Card -->
-                    <VBox spacing="10" styleClass="stat-card-green" HBox.hgrow="ALWAYS">
+                    <VBox spacing="8" styleClass="stat-card-orange" HBox.hgrow="ALWAYS">
                         <padding>
-                            <Insets bottom="25" left="25" right="25" top="25" />
+                            <Insets top="18" right="18" bottom="18" left="18"/>
                         </padding>
-                        <Label styleClass="stat-card-label" text="Ã Â¦Â¸Ã Â¦Â®Ã Â§ÂÃ Â¦ÂªÃ Â¦Â¨Ã Â§ÂÃ Â¦Â¨ Ã Â¦ÂªÃ Â§â€¡Ã Â¦Â®Ã Â§â€¡Ã Â¦Â¨Ã Â§ÂÃ Â¦Å¸" />
-                        <HBox alignment="CENTER_LEFT" spacing="15">
-                            <Label fx:id="completedPaymentLabel" styleClass="stat-card-value-large" text="Ã Â§Â³0" />
-                            <Region HBox.hgrow="ALWAYS" />
-                            <Label styleClass="stat-card-icon" text="Ã¢Å“â€œ" />
-                        </HBox>
+                        <Label styleClass="stat-card-label" text="বাকি"/>
+                        <Label fx:id="pendingPaymentLabel" styleClass="stat-card-value-main" text="৳0"/>
                     </VBox>
 
+                    <VBox spacing="8" styleClass="stat-card-green" HBox.hgrow="ALWAYS">
+                        <padding>
+                            <Insets top="18" right="18" bottom="18" left="18"/>
+                        </padding>
+                        <Label styleClass="stat-card-label" text="পরিশোধিত"/>
+                        <Label fx:id="completedPaymentLabel" styleClass="stat-card-value-main" text="৳0"/>
+                    </VBox>
                 </HBox>
 
-                <!-- Workers Records Section -->
-                <VBox spacing="20" styleClass="records-section">
+                <VBox spacing="14" styleClass="records-section">
                     <padding>
-                        <Insets bottom="25" left="25" right="25" top="25" />
+                        <Insets top="18" right="18" bottom="18" left="18"/>
                     </padding>
 
-                    <HBox alignment="CENTER_LEFT" spacing="15">
-                        <Label styleClass="section-heading-large" text="Ã Â¦Â¶Ã Â§ÂÃ Â¦Â°Ã Â¦Â®Ã Â¦Â¿Ã Â¦â€¢ Ã Â¦Â°Ã Â§â€¡Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¡" />
-                        <Region HBox.hgrow="ALWAYS" />
-                        <ComboBox fx:id="filterComboBox" prefWidth="150" promptText="Ã Â¦Â«Ã Â¦Â¿Ã Â¦Â²Ã Â§ÂÃ Â¦Å¸Ã Â¦Â¾Ã Â¦Â° Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨" styleClass="filter-combo" />
+                    <Label styleClass="section-heading-large" text="Quick Add"/>
+                    <HBox alignment="CENTER_LEFT" spacing="10" styleClass="quick-add-row">
+                        <TextField fx:id="quickNameField" promptText="শ্রমিকের নাম" HBox.hgrow="ALWAYS"/>
+                        <ComboBox fx:id="quickWorkTypeCombo" prefWidth="150" promptText="কাজের ধরন"/>
+                        <TextField fx:id="quickHoursField" prefWidth="100" promptText="ঘণ্টা"/>
+                        <TextField fx:id="quickRateField" prefWidth="120" promptText="রেট"/>
+                        <Button fx:id="quickAddBtn" styleClass="quick-add-btn" text="Save"/>
+                    </HBox>
+                </VBox>
+
+                <VBox spacing="14" styleClass="records-section">
+                    <padding>
+                        <Insets top="18" right="18" bottom="18" left="18"/>
+                    </padding>
+
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Label styleClass="section-heading-large" text="শ্রমিক রেকর্ড"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <TextField fx:id="searchField" prefWidth="220" promptText="নাম/ফোন দিয়ে খুঁজুন"/>
+                        <ComboBox fx:id="filterComboBox" prefWidth="140" promptText="ফিল্টার"/>
                     </HBox>
 
-                    <!-- Workers List -->
-                    <VBox fx:id="workersListContainer" spacing="15">
-                        <!-- Empty state will be shown initially -->
-                        <VBox fx:id="emptyState" alignment="CENTER" minHeight="300" spacing="20" styleClass="empty-state">
-                            <Label styleClass="empty-icon" text="Ã°Å¸â€˜Â·" />
-                            <Label styleClass="empty-text" text="Ã Â¦ÂÃ Â¦â€“Ã Â¦Â¨Ã Â¦â€œ Ã Â¦â€¢Ã Â§â€¹Ã Â¦Â¨ Ã Â¦Â¶Ã Â§ÂÃ Â¦Â°Ã Â¦Â®Ã Â¦Â¿Ã Â¦â€¢ Ã Â¦Â°Ã Â§â€¡Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¡ Ã Â¦Â¨Ã Â§â€¡Ã Â¦â€¡" />
-                            <Label styleClass="empty-subtext" text="Ã Â¦â€°Ã Â¦ÂªÃ Â¦Â°Ã Â§â€¡Ã Â¦Â° '+ Ã Â¦Â¨Ã Â¦Â¤Ã Â§ÂÃ Â¦Â¨ Ã Â¦Â°Ã Â§â€¡Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¡' Ã Â¦Â¬Ã Â¦Â¾Ã Â¦Å¸Ã Â¦Â¨Ã Â§â€¡ Ã Â¦â€¢Ã Â§ÂÃ Â¦Â²Ã Â¦Â¿Ã Â¦â€¢ Ã Â¦â€¢Ã Â¦Â°Ã Â§â€¡ Ã Â¦Â¶Ã Â§ÂÃ Â¦Â°Ã Â§Â Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨" />
+                    <VBox fx:id="workersListContainer" spacing="10">
+                        <VBox fx:id="emptyState"
+                              alignment="CENTER"
+                              minHeight="260"
+                              spacing="12"
+                              styleClass="empty-state">
+                            <Label styleClass="empty-icon" text="👷"/>
+                            <Label styleClass="empty-text" text="এখনও কোনো শ্রমিক রেকর্ড নেই"/>
+                            <Label styleClass="empty-subtext" text="নিচের বাটনে ক্লিক করে প্রথম রেকর্ড যোগ করুন"/>
+                            <Button fx:id="emptyAddBtn" styleClass="add-record-btn" text="+ নতুন রেকর্ড যোগ করুন"/>
                         </VBox>
-
-                        <!-- Worker records will be dynamically added here -->
                     </VBox>
                 </VBox>
-
-                <!-- Quick Tips Section -->
-                <VBox spacing="15" styleClass="tips-card-info">
-                    <padding>
-                        <Insets bottom="20" left="25" right="25" top="20" />
-                    </padding>
-
-                    <Label styleClass="tips-heading" text="Ã°Å¸â€™Â¡ Ã Â¦Â¶Ã Â§ÂÃ Â¦Â°Ã Â¦Â®Ã Â¦Â¿Ã Â¦â€¢ Ã Â¦Â¬Ã Â§ÂÃ Â¦Â¯Ã Â¦Â¬Ã Â¦Â¸Ã Â§ÂÃ Â¦Â¥Ã Â¦Â¾Ã Â¦ÂªÃ Â¦Â¨Ã Â¦Â¾Ã Â¦Â° Ã Â¦Å¸Ã Â¦Â¿Ã Â¦ÂªÃ Â¦Â¸" />
-
-                    <VBox spacing="10">
-                        <Label styleClass="tip-item-info" text="Ã¢â‚¬Â¢ Ã Â¦ÂªÃ Â§ÂÃ Â¦Â°Ã Â¦Â¤Ã Â¦Â¿Ã Â¦Â¦Ã Â¦Â¿Ã Â¦Â¨Ã Â§â€¡Ã Â¦Â° Ã Â¦â€¢Ã Â¦Â¾Ã Â¦Å“ Ã Â¦Â¶Ã Â§â€¡Ã Â¦Â·Ã Â§â€¡ Ã Â¦Â°Ã Â§â€¡Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¡ Ã Â¦â€ Ã Â¦ÂªÃ Â¦Â¡Ã Â§â€¡Ã Â¦Å¸ Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨" />
-                        <Label styleClass="tip-item-info" text="Ã¢â‚¬Â¢ Ã Â¦Â¨Ã Â¦Â¿Ã Â¦Â¯Ã Â¦Â¼Ã Â¦Â®Ã Â¦Â¿Ã Â¦Â¤ Ã Â¦ÂªÃ Â§â€¡Ã Â¦Â®Ã Â§â€¡Ã Â¦Â¨Ã Â§ÂÃ Â¦Å¸ Ã Â¦â€¢Ã Â¦Â°Ã Â¦Â²Ã Â§â€¡ Ã Â¦Â¶Ã Â§ÂÃ Â¦Â°Ã Â¦Â®Ã Â¦Â¿Ã Â¦â€¢Ã Â¦Â°Ã Â¦Â¾ Ã Â¦â€“Ã Â§ÂÃ Â¦Â¶Ã Â¦Â¿ Ã Â¦Â¥Ã Â¦Â¾Ã Â¦â€¢Ã Â§â€¡" />
-                        <Label styleClass="tip-item-info" text="Ã¢â‚¬Â¢ Ã Â¦Â¶Ã Â§ÂÃ Â¦Â°Ã Â¦Â®Ã Â¦Â¿Ã Â¦â€¢Ã Â¦Â¦Ã Â§â€¡Ã Â¦Â° Ã Â¦Â¨Ã Â¦Â¾Ã Â¦Â®, Ã Â¦Â®Ã Â§â€¹Ã Â¦Â¬Ã Â¦Â¾Ã Â¦â€¡Ã Â¦Â² Ã Â¦Â¨Ã Â¦Â®Ã Â§ÂÃ Â¦Â¬Ã Â¦Â° Ã Â¦Â¸Ã Â¦â€šÃ Â¦Â°Ã Â¦â€¢Ã Â§ÂÃ Â¦Â·Ã Â¦Â£ Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨" />
-                        <Label styleClass="tip-item-info" text="Ã¢â‚¬Â¢ Ã Â¦Â®Ã Â§Å’Ã Â¦Â¸Ã Â§ÂÃ Â¦Â®Ã Â¦Â¿ Ã Â¦â€¢Ã Â¦Â¾Ã Â¦Å“Ã Â§â€¡Ã Â¦Â° Ã Â¦Å“Ã Â¦Â¨Ã Â§ÂÃ Â¦Â¯ Ã Â¦â€ Ã Â¦â€”Ã Â§â€¡ Ã Â¦Â¥Ã Â§â€¡Ã Â¦â€¢Ã Â§â€¡ Ã Â¦ÂªÃ Â¦Â°Ã Â¦Â¿Ã Â¦â€¢Ã Â¦Â²Ã Â§ÂÃ Â¦ÂªÃ Â¦Â¨Ã Â¦Â¾ Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨" />
-                    </VBox>
-                </VBox>
-
             </VBox>
         </ScrollPane>
     </center>
-
 </BorderPane>
 

@@ -1,146 +1,92 @@
 package com.example.demo1.app.ui.dashboard;
 
-import com.example.demo1.app.util.NavigationHelper;
 import com.example.demo1.app.util.SessionManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.fxml.FXMLLoader; // Ã°Å¸â€ºâ€˜ Ã Â¦Â¨Ã Â¦Â¤Ã Â§ÂÃ Â¦Â¨ Ã Â¦â€ Ã Â¦Â®Ã Â¦Â¦Ã Â¦Â¾Ã Â¦Â¨Ã Â¦Â¿ Ã°Å¸â€ºâ€˜
+import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane; // Ã°Å¸â€ºâ€˜ Ã Â¦Â¨Ã Â¦Â¤Ã Â§ÂÃ Â¦Â¨ Ã Â¦â€ Ã Â¦Â®Ã Â¦Â¦Ã Â¦Â¾Ã Â¦Â¨Ã Â¦Â¿ Ã°Å¸â€ºâ€˜
-import javafx.scene.Parent; // Ã°Å¸â€ºâ€˜ Ã Â¦Â¨Ã Â¦Â¤Ã Â§ÂÃ Â¦Â¨ Ã Â¦â€ Ã Â¦Â®Ã Â¦Â¦Ã Â¦Â¾Ã Â¦Â¨Ã Â¦Â¿ Ã°Å¸â€ºâ€˜
+import javafx.scene.layout.StackPane;
 
 import java.net.URL;
-import java.util.Objects;
 import java.util.ResourceBundle;
-import java.io.IOException;
 
 public class DashboardController implements Initializable {
 
-    public Button btnGovtSchemes;
-    // --- Core Navigation Buttons ---
-    @FXML private Button btnHome, btnAdvisory, btnStorage, btnLocalManagement, btnMachinery, btnProfile;
+    // ডিফল্ট ড্যাশবোর্ড ও ফিচার পেইজগুলোর FXML পাথ
+    private static final String DASHBOARD_VIEW = "/com/example/demo1/app/fxml/dashboard/dashboard.fxml";
+    private static final String PROFILE_VIEW = "/com/example/demo1/app/fxml/features/profile-view.fxml";
+    private static final String EMERGENCY_VIEW = "/com/example/demo1/app/fxml/features/emergency-help.fxml";
+    private static final String FEATURES_PREFIX = "/com/example/demo1/app/fxml/features/";
 
-    // --- All Other Feature Buttons ---
-    @FXML private Button btnAiHelper, btnVideoEducation, btnFarmWeather, btnAgriAnalysis;
-    @FXML private Button btnAgriNews, btnCropPlanning, btnProfitLoss, btnWeather, btnMarket, btnFarmerMarket, btnSoilHealth, btnPestDetection, btnComments, btnWamService, btnNewsTraffic, btnEmergencyHelp, btnCommunity, btnStudy;
-
-    // Ã°Å¸â€ºâ€˜ Ã Â¦Â«Ã Â¦Â¿Ã Â¦â€¢Ã Â§ÂÃ Â¦Â¸: FXML Ã Â¦Â¥Ã Â§â€¡Ã Â¦â€¢Ã Â§â€¡ Ã Â¦Â²Ã Â§â€¹Ã Â¦Â¡ Ã Â¦Â¹Ã Â¦â€œÃ Â¦Â¯Ã Â¦Â¼Ã Â¦Â¾ Ã Â¦â€¢Ã Â¦Â¨Ã Â§ÂÃ Â¦Å¸Ã Â§â€¡Ã Â¦Â¨Ã Â§ÂÃ Â¦Å¸ Ã Â¦ÂÃ Â¦Â°Ã Â¦Â¿Ã Â¦Â¯Ã Â¦Â¼Ã Â¦Â¾ Ã°Å¸â€ºâ€˜
     @FXML private StackPane contentArea;
-
+    @FXML private Button btnProfile;
+    @FXML private Button btnEmergencyHelp;
+    @FXML private Button btnGovtSchemes;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        System.out.println("Ã¢Å“â€¦ Dashboard Initialized");
+        // প্রথমে ড্যাশবোর্ড কনটেন্ট লোড করি
+        loadContent(DASHBOARD_VIEW);
 
-        // 1. Setup Main Sidebar Navigation
-        // Ã Â¦â€ Ã Â¦ÂªÃ Â¦Â¨Ã Â¦Â¿ Ã Â¦Å¡Ã Â¦Â¾Ã Â¦â€¡Ã Â¦Â²Ã Â§â€¡ Ã Â¦ÂÃ Â¦â€¡ Ã Â¦Â¸Ã Â§â€¡Ã Â¦Å¸Ã Â¦â€ Ã Â¦ÂªÃ Â§â€¡Ã Â¦Â° Ã Â¦Â­Ã Â§â€¡Ã Â¦Â¤Ã Â¦Â°Ã Â§â€¡Ã Â¦â€¡ loadContent Ã Â¦â€¢Ã Â¦Â² Ã Â¦â€¢Ã Â¦Â°Ã Â¦Â¤Ã Â§â€¡ Ã Â¦ÂªÃ Â¦Â¾Ã Â¦Â°Ã Â§â€¡Ã Â¦Â¨Ã Â¥Â¤
-        NavigationHelper.setupSidebar(btnHome, btnAdvisory, btnStorage, btnLocalManagement, btnMachinery);
-
-        // Ã°Å¸â€ºâ€˜ Ã Â¦Â«Ã Â¦Â¿Ã Â¦â€¢Ã Â§ÂÃ Â¦Â¸ Ã Â§Â§: initialize-Ã Â¦Â Ã Â¦ÂªÃ Â§ÂÃ Â¦Â°Ã Â¦Â¥Ã Â¦Â® Ã Â¦â€¢Ã Â¦Â¨Ã Â§ÂÃ Â¦Å¸Ã Â§â€¡Ã Â¦Â¨Ã Â§ÂÃ Â¦Å¸ (Ã Â¦Â¹Ã Â§â€¹Ã Â¦Â®) Ã Â¦Â²Ã Â§â€¹Ã Â¦Â¡ Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨ Ã°Å¸â€ºâ€˜
-        // Ã Â¦ÂÃ Â¦â€¡ Ã Â¦Â¹Ã Â§â€¹Ã Â¦Â® FXML Ã Â¦Å¸Ã Â¦Â¿Ã Â¦â€¡ Ã Â¦â€ Ã Â¦ÂªÃ Â¦Â¨Ã Â¦Â¾Ã Â¦Â° Ã Â¦ÂªÃ Â§ÂÃ Â¦Â°Ã Â¦Â¨Ã Â§â€¹ Ã Â¦Â¡Ã Â§ÂÃ Â¦Â¯Ã Â¦Â¾Ã Â¦Â¶Ã Â¦Â¬Ã Â§â€¹Ã Â¦Â°Ã Â§ÂÃ Â¦Â¡ Ã Â¦â€¢Ã Â¦Â¨Ã Â§ÂÃ Â¦Å¸Ã Â§â€¡Ã Â¦Â¨Ã Â§ÂÃ Â¦Å¸ Ã Â¦Â§Ã Â¦Â¾Ã Â¦Â°Ã Â¦Â£ Ã Â¦â€¢Ã Â¦Â°Ã Â¦Â¬Ã Â§â€¡Ã Â¥Â¤
-        loadContent("/com/example/demo1/app/fxml/dashboard/dashboard.fxml");
-
-        // 2. Setup Profile Navigation
-        // Ã Â¦Â¯Ã Â§â€¡Ã Â¦Â¹Ã Â§â€¡Ã Â¦Â¤Ã Â§Â Ã Â¦â€ Ã Â¦ÂªÃ Â¦Â¨Ã Â¦Â¿ FXML-Ã Â¦Â onAction="#handleProfileClick" Ã Â¦Â¸Ã Â§â€¡Ã Â¦Å¸ Ã Â¦â€¢Ã Â¦Â°Ã Â§â€¡Ã Â¦â€ºÃ Â§â€¡Ã Â¦Â¨, Ã Â¦Â¤Ã Â¦Â¾Ã Â¦â€¡ Ã Â¦ÂÃ Â¦â€¡ Ã Â¦Â²Ã Â¦Å“Ã Â¦Â¿Ã Â¦â€¢Ã Â¦Å¸Ã Â¦Â¿ (setOnAction) Ã Â¦â€¦Ã Â¦ÂªÃ Â§ÂÃ Â¦Â°Ã Â¦Â¯Ã Â¦Â¼Ã Â§â€¹Ã Â¦Å“Ã Â¦Â¨Ã Â§â‚¬Ã Â¦Â¯Ã Â¦Â¼, Ã Â¦Â¤Ã Â¦Â¬Ã Â§â€¡ Ã Â¦ÂÃ Â¦Å¸Ã Â¦Â¿ Ã Â¦Â¥Ã Â¦Â¾Ã Â¦â€¢Ã Â¦Â²Ã Â§â€¡Ã Â¦â€œ Ã Â¦Â¸Ã Â¦Â¾Ã Â¦Â§Ã Â¦Â¾Ã Â¦Â°Ã Â¦Â£Ã Â¦Â¤ Ã Â¦Â¸Ã Â¦Â®Ã Â¦Â¸Ã Â§ÂÃ Â¦Â¯Ã Â¦Â¾ Ã Â¦Â¹Ã Â¦Â¯Ã Â¦Â¼ Ã Â¦Â¨Ã Â¦Â¾Ã Â¥Â¤
+        // প্রয়োজনীয় বাটনগুলোর ক্লিক ইভেন্ট এখানে সেট করা হচ্ছে
         if (btnProfile != null) {
             btnProfile.setOnAction(this::handleProfileClick);
         }
         if (btnEmergencyHelp != null) {
-            btnEmergencyHelp.setOnAction(event -> {
-                System.out.println("DEBUG: Loading Emergency Help view...");
-                loadContent("/com/example/demo1/app/fxml/features/emergency-help.fxml");
-            });
+            btnEmergencyHelp.setOnAction(event -> loadContent(EMERGENCY_VIEW));
         }
-
-        // 3. Setup Placeholder Features (Ã Â¦Â¬Ã Â¦Â¾Ã Â¦â€¢Ã Â¦Â¿ Ã Â¦Â¬Ã Â¦Â¾Ã Â¦Å¸Ã Â¦Â¨Ã Â¦â€”Ã Â§ÂÃ Â¦Â²Ã Â§â€¹Ã Â¦â€œ loadContent Ã Â¦Â¬Ã Â§ÂÃ Â¦Â¯Ã Â¦Â¬Ã Â¦Â¹Ã Â¦Â¾Ã Â¦Â° Ã Â¦â€¢Ã Â¦Â°Ã Â¦Â¤Ã Â§â€¡ Ã Â¦ÂªÃ Â¦Â¾Ã Â¦Â°Ã Â§â€¡)
-        setupPlaceholder(btnAiHelper, "AI Ã Â¦Â¸Ã Â¦Â¹Ã Â¦Â¾Ã Â¦Â¯Ã Â¦Â¼Ã Â¦â€¢");
-        setupPlaceholder(btnVideoEducation, "Ã Â¦Â­Ã Â¦Â¿Ã Â¦Â¡Ã Â¦Â¿Ã Â¦â€œ Ã Â¦Â¶Ã Â¦Â¿Ã Â¦â€¢Ã Â§ÂÃ Â¦Â·Ã Â¦Â¾");
-        // ... Ã Â¦â€¦Ã Â¦Â¨Ã Â§ÂÃ Â¦Â¯Ã Â¦Â¾Ã Â¦Â¨Ã Â§ÂÃ Â¦Â¯ Ã Â¦Â¬Ã Â¦Â¾Ã Â¦Å¸Ã Â¦Â¨ ...
-        btnGovtSchemes.setOnAction(event -> {
-            setPage("govt-schemes.fxml"); // Ã Â¦â€ Ã Â¦ÂªÃ Â¦Â¨Ã Â¦Â¾Ã Â¦Â° FXML Ã Â¦Â«Ã Â¦Â¾Ã Â¦â€¡Ã Â¦Â²Ã Â§â€¡Ã Â¦Â° Ã Â¦Â¨Ã Â¦Â¾Ã Â¦Â®
-        });
-
-
-    }
-
-    // Ã°Å¸â€ºâ€˜ Ã Â¦Â¨Ã Â¦Â¤Ã Â§ÂÃ Â¦Â¨ Ã Â¦Â®Ã Â§â€¡Ã Â¦Â¥Ã Â¦Â¡: StackPane Ã Â¦Â FXML Ã Â¦Â²Ã Â§â€¹Ã Â¦Â¡ Ã Â¦â€¢Ã Â¦Â°Ã Â¦Â¾Ã Â¦Â° Ã Â¦Å“Ã Â¦Â¨Ã Â§ÂÃ Â¦Â¯ Ã°Å¸â€ºâ€˜
-    private void loadContent(String fxmlPath) {
-        if (contentArea == null) {
-            System.err.println("Ã¢ÂÅ’ ERROR: contentArea StackPane is NULL. FXML might not be correctly linked.");
-            return;
-        }
-        try {
-            // FXML Ã Â¦Â²Ã Â§â€¹Ã Â¦Â¡ Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨
-            Parent content = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(fxmlPath)));
-
-            // contentArea Ã Â¦ÂÃ Â¦Â° Ã Â¦Â­Ã Â§â€¡Ã Â¦Â¤Ã Â¦Â°Ã Â§â€¡Ã Â¦Â° Ã Â¦ÂªÃ Â§ÂÃ Â¦Â°Ã Â¦Â¾Ã Â¦Â¤Ã Â¦Â¨ Ã Â¦â€¢Ã Â¦Â¨Ã Â§ÂÃ Â¦Å¸Ã Â§â€¡Ã Â¦Â¨Ã Â§ÂÃ Â¦Å¸ Ã Â¦Â¸Ã Â¦Â°Ã Â¦Â¿Ã Â¦Â¯Ã Â¦Â¼Ã Â§â€¡ Ã Â¦Â¨Ã Â¦Â¤Ã Â§ÂÃ Â¦Â¨ FXML Ã Â¦Â¯Ã Â§ÂÃ Â¦â€¢Ã Â§ÂÃ Â¦Â¤ Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨
-            contentArea.getChildren().setAll(content);
-
-            System.out.println("Page loaded successfully into contentArea: " + fxmlPath);
-
-        } catch (IOException e) {
-            System.err.println("Failed to load FXML content: " + fxmlPath + e.getMessage());
-            showErrorAlert("Ã Â¦ÂªÃ Â§â€¡Ã Â¦Å“ Ã Â¦Â²Ã Â§â€¹Ã Â¦Â¡ Ã Â¦â€¢Ã Â¦Â°Ã Â¦Â¾ Ã Â¦Â¯Ã Â¦Â¾Ã Â¦Â¯Ã Â¦Â¼Ã Â¦Â¨Ã Â¦Â¿: " + fxmlPath);
-        } catch (Exception e) {
-            System.err.println("General error loading content: " + e.getMessage());
-        }
-    }
-    private void setPage(String fxmlFile) {
-        try {
-            // Ã Â¦â€ Ã Â¦ÂªÃ Â¦Â¨Ã Â¦Â¾Ã Â¦Â° FXML Ã Â¦Â«Ã Â¦Â¾Ã Â¦â€¡Ã Â¦Â²Ã Â§â€¡Ã Â¦Â° Ã Â¦ÂªÃ Â¦Â¾Ã Â¦Â¥ Ã Â¦â€¦Ã Â¦Â¨Ã Â§ÂÃ Â¦Â¯Ã Â¦Â¾Ã Â§Å¸Ã Â§â‚¬ Ã Â¦Â¨Ã Â¦Â¿Ã Â¦Å¡Ã Â§â€¡Ã Â¦Â° Ã Â¦Â²Ã Â¦Â¾Ã Â¦â€¡Ã Â¦Â¨Ã Â¦Å¸Ã Â¦Â¿ Ã Â¦ÂªÃ Â¦Â°Ã Â¦Â¿Ã Â¦Â¬Ã Â¦Â°Ã Â§ÂÃ Â¦Â¤Ã Â¦Â¨ Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨
-            Parent fxml = FXMLLoader.load(getClass().getResource("/com/example/demo1/app/fxml/features/" + fxmlFile));
-            contentArea.getChildren().clear(); // Ã Â¦â€ Ã Â¦â€”Ã Â§â€¡Ã Â¦Â° Ã Â¦â€¢Ã Â¦Â¨Ã Â§ÂÃ Â¦Å¸Ã Â§â€¡Ã Â¦Â¨Ã Â§ÂÃ Â¦Å¸ Ã Â¦Â®Ã Â§ÂÃ Â¦â€ºÃ Â§â€¡ Ã Â¦Â«Ã Â§â€¡Ã Â¦Â²Ã Â¦Â¾
-            contentArea.getChildren().add(fxml); // Ã Â¦Â¨Ã Â¦Â¤Ã Â§ÂÃ Â¦Â¨ Ã Â¦â€¢Ã Â¦Â¨Ã Â§ÂÃ Â¦Å¸Ã Â§â€¡Ã Â¦Â¨Ã Â§ÂÃ Â¦Å¸ Ã Â¦Â¯Ã Â§â€¹Ã Â¦â€” Ã Â¦â€¢Ã Â¦Â°Ã Â¦Â¾
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Error loading page: " + fxmlFile);
+        if (btnGovtSchemes != null) {
+            btnGovtSchemes.setOnAction(event -> setFeaturePage("govt-schemes.fxml"));
         }
     }
 
-    // Ã°Å¸â€ºâ€˜ Ã Â¦Â«Ã Â¦Â¿Ã Â¦â€¢Ã Â§ÂÃ Â¦Â¸ Ã Â§Â¨: Profile Ã Â¦â€¢Ã Â§ÂÃ Â¦Â²Ã Â¦Â¿Ã Â¦â€¢ Ã Â¦Â¹Ã Â§ÂÃ Â¦Â¯Ã Â¦Â¾Ã Â¦Â¨Ã Â§ÂÃ Â¦Â¡Ã Â¦Â²Ã Â¦Â¾Ã Â¦Â° Ã Â¦ÂªÃ Â¦Â°Ã Â¦Â¿Ã Â¦Â¬Ã Â¦Â°Ã Â§ÂÃ Â¦Â¤Ã Â¦Â¨ Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨ Ã°Å¸â€ºâ€˜
     @FXML
     private void handleProfileClick(ActionEvent event) {
-        System.out.println("DEBUG: Attempting to load Profile into contentArea. Session status: " + (SessionManager.getLoggedInUser() != null ? "Active" : "NULL"));
-
-        // Ã¢ÂÅ’ NavigationHelper.navigateTo Ã Â¦â€¢Ã Â¦Â² Ã Â¦â€¢Ã Â¦Â°Ã Â¦Â¬Ã Â§â€¡Ã Â¦Â¨ Ã Â¦Â¨Ã Â¦Â¾, Ã Â¦â€¢Ã Â¦Â¾Ã Â¦Â°Ã Â¦Â£ Ã Â¦ÂÃ Â¦Å¸Ã Â¦Â¿ Ã Â¦ÂªÃ Â§ÂÃ Â¦Â°Ã Â§â€¹ Scene Ã Â¦ÂªÃ Â¦Â°Ã Â¦Â¿Ã Â¦Â¬Ã Â¦Â°Ã Â§ÂÃ Â¦Â¤Ã Â¦Â¨ Ã Â¦â€¢Ã Â¦Â°Ã Â§â€¡!
-        // Ã¢ÂÅ’ Ã Â¦ÂÃ Â¦Â° Ã Â¦ÂªÃ Â¦Â°Ã Â¦Â¿Ã Â¦Â¬Ã Â¦Â°Ã Â§ÂÃ Â¦Â¤Ã Â§â€¡ loadContent Ã Â¦Â®Ã Â§â€¡Ã Â¦Â¥Ã Â¦Â¡ Ã Â¦â€¢Ã Â¦Â² Ã Â¦â€¢Ã Â¦Â°Ã Â§ÂÃ Â¦Â¨Ã Â¥Â¤
-
-        loadContent("/com/example/demo1/app/fxml/features/profile-view.fxml");
-
-        // Ã Â¦Â¹Ã Â§â€¹Ã Â¦Â® Ã Â¦Â¬Ã Â¦Â¾Ã Â¦Å¸Ã Â¦Â¨Ã Â§â€¡ Ã Â¦â€¢Ã Â§ÂÃ Â¦Â²Ã Â¦Â¿Ã Â¦â€¢ Ã Â¦Â¹Ã Â¦Â²Ã Â§â€¡, Ã Â¦â€ Ã Â¦ÂªÃ Â¦Â¨Ã Â¦Â¿ Ã Â¦Å¡Ã Â¦Â¾Ã Â¦â€¡Ã Â¦Â²Ã Â§â€¡ Ã Â¦ÂÃ Â¦Å¸Ã Â¦Â¿Ã Â¦â€œ Ã Â¦Â¯Ã Â§â€¹Ã Â¦â€” Ã Â¦â€¢Ã Â¦Â°Ã Â¦Â¤Ã Â§â€¡ Ã Â¦ÂªÃ Â¦Â¾Ã Â¦Â°Ã Â§â€¡Ã Â¦Â¨:
-        // if (event.getSource() == btnHome) {
-        //    loadContent("/com/example/demo1/app/fxml/dashboard/dashboard.fxml");
-        // }
+        // প্রোফাইল পেইজে যাওয়ার আগে সেশন স্ট্যাটাস লগ করি
+        String sessionStatus = SessionManager.getLoggedInUser() == null ? "NULL" : "ACTIVE";
+        System.out.println("Profile navigation requested. Session: " + sessionStatus);
+        loadContent(PROFILE_VIEW);
     }
 
+    private void setFeaturePage(String fxmlFileName) {
+        // features ফোল্ডারের নির্দিষ্ট পেইজ লোড করার শর্টকাট মেথড
+        loadContent(FEATURES_PREFIX + fxmlFileName);
+    }
 
-    // --- Helper for Coming Soon Buttons ---
-    private void setupPlaceholder(Button btn, String featureName) {
-        if (btn != null) {
-            btn.setOnAction(e -> showComingSoon(featureName));
+    private void loadContent(String fxmlPath) {
+        // contentArea না থাকলে FXML বাইন্ডিং সমস্যা হয়েছে
+        if (contentArea == null) {
+            System.err.println("Dashboard content area is not connected in FXML.");
+            return;
         }
-    }
 
-    private void showComingSoon(String title) {
-        System.out.println(title + " clicked.");
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Coming Soon");
-        alert.setHeaderText(null);
-        alert.setContentText(title + " feature is currently under development.");
-        alert.show();
+        // রিসোর্স না পেলে ব্যবহারকারীকে বাংলা বার্তা দেখাই
+        URL resource = getClass().getResource(fxmlPath);
+        if (resource == null) {
+            showErrorAlert("\u09AA\u09C7\u099C \u0996\u09C1\u0981\u099C\u09C7 \u09AA\u09BE\u0993\u09DF\u09BE \u09AF\u09BE\u09AF\u09BC\u09A8\u09BF: " + fxmlPath);
+            return;
+        }
+
+        try {
+            // নতুন FXML লোড করে contentArea-তে replace করি
+            Parent content = FXMLLoader.load(resource);
+            contentArea.getChildren().setAll(content);
+        } catch (Exception e) {
+            System.err.println("Failed to load view: " + fxmlPath);
+            e.printStackTrace();
+            showErrorAlert("\u09AA\u09C7\u099C \u09B2\u09CB\u09A1 \u0995\u09B0\u09BE \u09AF\u09BE\u09AF\u09BC\u09A8\u09BF\u0964");
+        }
     }
 
     private void showErrorAlert(String message) {
+        // সাধারণ বাংলা এরর এলার্ট দেখানোর কমন মেথড
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Ã Â¦Â²Ã Â§â€¹Ã Â¦Â¡Ã Â¦Â¿Ã Â¦â€š Ã Â¦Â¤Ã Â§ÂÃ Â¦Â°Ã Â§ÂÃ Â¦Å¸Ã Â¦Â¿");
+        alert.setTitle("\u09B2\u09CB\u09A1\u09BF\u0982 \u09A4\u09CD\u09B0\u09C1\u099F\u09BF");
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
     }
 }
-
-
-
-

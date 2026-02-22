@@ -17,7 +17,7 @@
         <Insets top="12" right="20" bottom="12" left="20"/>
     </padding>
 
-    <Label styleClass="app-title" text="Krishi Sakhi"/>
+    <Label styleClass="app-title" text="কৃষক বাতায়ন"/>
     <Label styleClass="bd-badge" text="BD"/>
     <Region HBox.hgrow="ALWAYS"/>
 

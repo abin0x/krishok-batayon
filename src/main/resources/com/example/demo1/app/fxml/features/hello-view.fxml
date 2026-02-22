@@ -30,7 +30,7 @@
             <Region VBox.vgrow="ALWAYS"/>
 
             <Label text="AGRI ASSIST PLATFORM" styleClass="brand-kicker"/>
-            <Label text="Krishi Sakhi" styleClass="brand-title"/>
+            <Label text="কৃষক বাতায়ন" styleClass="brand-title"/>
             <Label text="Smart Agriculture Companion" styleClass="brand-subtitle"/>
             <Label wrapText="true"
                    text="আধুনিক কৃষি পরিকল্পনা, বাজার বিশ্লেষণ, স্মার্ট ডায়াগনস্টিক এবং কাজের ট্র্যাকিং এক প্ল্যাটফর্মে।"

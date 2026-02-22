@@ -40,7 +40,7 @@
             </StackPane>
 
             <Label text="AGRI ASSIST PLATFORM" styleClass="brand-kicker"/>
-            <Label text="Krishi Sakhi" styleClass="brand-title"/>
+            <Label text="কৃষক বাতায়ন" styleClass="brand-title"/>
             <Label text="Create Farmer Account" styleClass="brand-subtitle"/>
             <Label wrapText="true"
                    text="রেজিস্ট্রেশনের পরে আপনি আপনার খামারের কাজ, খরচ, বাজারদর এবং উৎপাদন পরিকল্পনা একসাথে পরিচালনা করতে পারবেন।"

@@ -1,4 +1,4 @@
-# Smart Krishi Management System
+# কৃষক বাতায়ন
 
 A JavaFX desktop application for agricultural planning, advisory workflows, and farm operation support.
 

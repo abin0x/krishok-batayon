@@ -3,9 +3,55 @@
 
 /* Page Title */
 .page-title-large {
-    -fx-font-size: 32px;
+    -fx-font-size: 28px;
     -fx-font-weight: bold;
     -fx-text-fill: #1f2937;
+}
+
+.page-subtitle {
+    -fx-font-size: 14px;
+    -fx-text-fill: #64748b;
+}
+
+.lm-hero-panel {
+    -fx-background-color: linear-gradient(to right, #0f5132, #1f7a44, #2f9e57);
+    -fx-background-radius: 16;
+    -fx-border-color: rgba(255, 255, 255, 0.2);
+    -fx-border-width: 1;
+    -fx-border-radius: 16;
+    -fx-padding: 20 22;
+    -fx-effect: dropshadow(gaussian, rgba(8, 40, 28, 0.25), 16, 0.15, 0, 5);
+}
+
+.lm-hero-title {
+    -fx-font-size: 34px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #ffffff;
+}
+
+.lm-hero-subtitle {
+    -fx-font-size: 15px;
+    -fx-text-fill: #e7f8ec;
+}
+
+.lm-hero-meta {
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #d2f0dc;
+}
+
+.lm-hero-mark {
+    -fx-font-size: 40px;
+    -fx-text-fill: #ecfccb;
+}
+
+.lm-hero-chip {
+    -fx-background-color: #d9f99d;
+    -fx-text-fill: #1f4c2e;
+    -fx-font-size: 11px;
+    -fx-font-weight: 800;
+    -fx-padding: 5 11;
+    -fx-background-radius: 999;
 }
 
 /* Add Record Button */
@@ -21,8 +67,45 @@
 
 .add-record-btn:hover {
     -fx-background-color: #1d4ed8;
-    -fx-scale-x: 1.05;
-    -fx-scale-y: 1.05;
+}
+
+.quick-add-btn {
+    -fx-background-color: #0f766e;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+    -fx-padding: 10 16;
+    -fx-background-radius: 8;
+}
+
+.quick-add-btn:hover {
+    -fx-background-color: #0b5c56;
+}
+
+.quick-add-row .text-field,
+.quick-add-row .combo-box {
+    -fx-pref-height: 38;
+}
+
+.period-tabs {
+    -fx-padding: 4;
+    -fx-background-color: #f1f5f9;
+    -fx-background-radius: 12;
+}
+
+.period-tab {
+    -fx-background-color: transparent;
+    -fx-text-fill: #475569;
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-padding: 8 14;
+    -fx-background-radius: 10;
+}
+
+.period-tab-active {
+    -fx-background-color: white;
+    -fx-text-fill: #0f172a;
+    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.12), 8, 0, 0, 2);
 }
 
 /* Stat Cards */
@@ -53,26 +136,39 @@
     -fx-border-radius: 12;
 }
 
+.stat-card-purple {
+    -fx-background-color: #f5f3ff;
+    -fx-background-radius: 12;
+    -fx-padding: 18;
+    -fx-border-color: #ddd6fe;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 12;
+}
+
 .stat-card-label {
     -fx-font-size: 14px;
     -fx-font-weight: 600;
     -fx-text-fill: #6b7280;
 }
 
-.stat-card-value-large {
-    -fx-font-size: 42px;
+.stat-card-value-main {
+    -fx-font-size: 30px;
     -fx-font-weight: bold;
 }
 
-.stat-card-blue .stat-card-value-large {
+.stat-card-blue .stat-card-value-main {
     -fx-text-fill: #2563eb;
 }
 
-.stat-card-orange .stat-card-value-large {
+.stat-card-purple .stat-card-value-main {
+    -fx-text-fill: #6d28d9;
+}
+
+.stat-card-orange .stat-card-value-main {
     -fx-text-fill: #ea580c;
 }
 
-.stat-card-green .stat-card-value-large {
+.stat-card-green .stat-card-value-main {
     -fx-text-fill: #16a34a;
 }
 
@@ -142,7 +238,7 @@
 }
 
 .worker-name {
-    -fx-font-size: 18px;
+    -fx-font-size: 17px;
     -fx-font-weight: bold;
     -fx-text-fill: #1f2937;
 }
@@ -219,6 +315,23 @@
 
 .delete-btn:hover {
     -fx-background-color: #fee2e2;
+}
+
+.edit-btn {
+    -fx-background-color: #eff6ff;
+    -fx-text-fill: #1d4ed8;
+    -fx-font-size: 13px;
+    -fx-font-weight: 600;
+    -fx-padding: 8 14;
+    -fx-background-radius: 6;
+    -fx-border-color: #bfdbfe;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-cursor: hand;
+}
+
+.edit-btn:hover {
+    -fx-background-color: #dbeafe;
 }
 
 /* Tips Card */

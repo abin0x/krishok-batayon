@@ -48,7 +48,7 @@ public class LoginController {
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("/com/example/demo1/app/css/dashboard.css").toExternalForm());
 
-            stage.setTitle("Krishi Sakhi Dashboard");
+            stage.setTitle("\u0995\u09C3\u09B7\u0995 \u09AC\u09BE\u09A4\u09BE\u09AF\u09BC\u09A8");
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {

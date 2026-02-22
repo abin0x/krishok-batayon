@@ -19,7 +19,6 @@ public class SidebarController implements Initializable {
     @FXML private Button btnStorage;
     @FXML private Button btnLocalManagement;
     @FXML private Button btnMachinery;
-    @FXML private Button btnFarmManagement;
     @FXML private Button btnSmartDiagnostic;
     @FXML private Button btnDigitalHat;
     @FXML private Button btnMarketFinance;
@@ -82,7 +81,6 @@ public class SidebarController implements Initializable {
         buttonById.put("btnStorage", btnStorage);
         buttonById.put("btnLocalManagement", btnLocalManagement);
         buttonById.put("btnMachinery", btnMachinery);
-        buttonById.put("btnFarmManagement", btnFarmManagement);
         buttonById.put("btnSmartDiagnostic", btnSmartDiagnostic);
         buttonById.put("btnDigitalHat", btnDigitalHat);
         buttonById.put("btnMarketFinance", btnMarketFinance);

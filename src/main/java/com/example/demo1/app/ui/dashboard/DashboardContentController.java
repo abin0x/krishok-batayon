@@ -15,7 +15,7 @@ public class DashboardContentController {
         User user = SessionManager.getLoggedInUser();
         String name = (user != null && user.getName() != null && !user.getName().isBlank())
                 ? user.getName()
-                : "কৃষক";
-        lblWelcomeUser.setText("স্বাগতম, " + name);
+                : "\u0995\u09C3\u09B7\u0995";
+        lblWelcomeUser.setText("\u09B8\u09CD\u09AC\u09BE\u0997\u09A4\u09AE, " + name);
     }
 }
