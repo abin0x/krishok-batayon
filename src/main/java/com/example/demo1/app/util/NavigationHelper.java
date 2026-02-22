@@ -1,29 +1,28 @@
 package com.example.demo1.app.util;
 
 import com.example.demo1.app.controller.MainLayoutController;
+import com.example.demo1.app.util.SceneLoader;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
 
 public final class NavigationHelper {
     private NavigationHelper() {
     }
 
-    private static final String HOME_FXML = "/com/example/demo1/app/fxml/layout/main-layout.fxml";
-    private static final String ADVISORY_FXML = "/com/example/demo1/app/fxml/features/planning-content.fxml";
-    private static final String MACHINERY_FXML = "/com/example/demo1/app/fxml/features/MachineryView.fxml";
-    private static final String FERTILIZER_FXML = "/com/example/demo1/app/fxml/features/FertilizerCalculator.fxml";
-    private static final String IRRIGATION_FXML = "/com/example/demo1/app/fxml/features/IrrigationCalculator.fxml";
-    private static final String ROTATION_FXML = "/com/example/demo1/app/fxml/features/CropRotation.fxml";
-    private static final String STORAGE_FXML = "/com/example/demo1/app/fxml/features/WarehouseView.fxml";
-    private static final String LOCAL_FXML = "/com/example/demo1/app/fxml/features/LocalManagement.fxml";
+    private static final String HOME_FXML = "/fxml/layout/main-layout.fxml";
+    private static final String ADVISORY_FXML = "/fxml/features/planning-content.fxml";
+    private static final String MACHINERY_FXML = "/fxml/features/MachineryView.fxml";
+    private static final String FERTILIZER_FXML = "/fxml/features/FertilizerCalculator.fxml";
+    private static final String IRRIGATION_FXML = "/fxml/features/IrrigationCalculator.fxml";
+    private static final String ROTATION_FXML = "/fxml/features/CropRotation.fxml";
+    private static final String STORAGE_FXML = "/fxml/features/WarehouseView.fxml";
+    private static final String LOCAL_FXML = "/fxml/features/LocalManagement.fxml";
+    private static final String GLOBAL_CSS = "/css/dashboard.css";
 
     public static void setupSidebar(Button btnHome, Button btnAdvisory, Button btnStorage, Button btnLocal, Button btnMachinery) {
         assignAction(btnHome, HOME_FXML);
@@ -62,19 +61,17 @@ public final class NavigationHelper {
     }
 
     public static void switchScene(ActionEvent event, String fxmlPath) {
+        switchScene(event, fxmlPath, null, GLOBAL_CSS);
+    }
+
+    public static void switchScene(ActionEvent event, String fxmlPath, String title, String... cssPaths) {
         try {
             Node source = (Node) event.getSource();
             Stage stage = (Stage) source.getScene().getWindow();
-
-            FXMLLoader loader = new FXMLLoader(NavigationHelper.class.getResource(fxmlPath));
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-
-            URL globalCssUrl = NavigationHelper.class.getResource("/com/example/demo1/app/css/dashboard.css");
-            if (globalCssUrl != null) {
-                scene.getStylesheets().add(globalCssUrl.toExternalForm());
+            Scene scene = SceneLoader.loadScene(fxmlPath, cssPaths);
+            if (title != null && !title.isBlank()) {
+                stage.setTitle(title);
             }
-
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
@@ -84,15 +81,7 @@ public final class NavigationHelper {
 
     public static void navigateTo(Scene currentScene, String fxmlPath) throws IOException {
         Stage stage = (Stage) currentScene.getWindow();
-        FXMLLoader loader = new FXMLLoader(NavigationHelper.class.getResource(fxmlPath));
-        Parent root = loader.load();
-        Scene newScene = new Scene(root);
-
-        URL globalCssUrl = NavigationHelper.class.getResource("/com/example/demo1/app/css/dashboard.css");
-        if (globalCssUrl != null) {
-            newScene.getStylesheets().add(globalCssUrl.toExternalForm());
-        }
-
+        Scene newScene = SceneLoader.loadScene(fxmlPath, GLOBAL_CSS);
         stage.setScene(newScene);
         stage.show();
     }

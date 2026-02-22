@@ -12,8 +12,8 @@ public class MainApp extends Application {
     public void start(Stage stage) throws Exception {
         FXMLLoader loader = new FXMLLoader(MainApp.class.getResource(Constants.MAIN_LAYOUT_FXML));
         Scene scene = new Scene(loader.load());
-        scene.getStylesheets().add(MainApp.class.getResource("/com/example/demo1/app/css/global.css").toExternalForm());
-        scene.getStylesheets().add(MainApp.class.getResource("/com/example/demo1/app/css/dashboard.css").toExternalForm());
+        scene.getStylesheets().add(MainApp.class.getResource("/css/dashboard.css").toExternalForm());
+        scene.getStylesheets().add(MainApp.class.getResource("/css/dashboard.css").toExternalForm());
 
         stage.setTitle(AppConfig.APP_TITLE);
         stage.setScene(scene);

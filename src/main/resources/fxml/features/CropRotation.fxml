@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="900" prefWidth="1400" styleClass="root" stylesheets="@../../css/CropRotation.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.app.controller.CropRotationController">
+    <top>
+        <fx:include source="../layout/topbar.fxml"/>
+    </top>
+
+    <left>
+        <fx:include source="../sidebar/sidebar.fxml"/>
+    </left>
+
+    <center>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" pannable="true" styleClass="content-scroll" vbarPolicy="ALWAYS">
+            <VBox spacing="20" styleClass="rotation-root">
+                <padding>
+                    <Insets bottom="24" left="24" right="24" top="24" />
+                </padding>
+
+                <VBox spacing="8" styleClass="rotation-hero">
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Label styleClass="rotation-hero-title" text="ফসল চক্র পরিকল্পনা" />
+                        <Label styleClass="rotation-badge" text="SMART" />
+                    </HBox>
+                    <Label styleClass="rotation-hero-subtitle" text="মাটির উর্বরতা ধরে রেখে বেশি ফলনের জন্য সঠিক ফসল চক্র বেছে নিন" />
+                </VBox>
+
+                <HBox alignment="CENTER_LEFT" spacing="12" styleClass="pill-nav">
+                    <Button fx:id="btnGuide" styleClass="nav-pill" text="📅 শস্য ক্যালেন্ডার" />
+                    <Button fx:id="btnFertilizer" styleClass="nav-pill" text="🌾 সার" />
+                    <Button fx:id="btnIrrigation" styleClass="nav-pill" text="🔬 সেচ" />
+                    <Button fx:id="btnCropRotation" text="♻ ফসল চক্র">
+                        <styleClass>
+                            <String fx:value="nav-pill" />
+                            <String fx:value="nav-pill-active" />
+                        </styleClass>
+                    </Button>
+                </HBox>
+
+                <HBox spacing="16" alignment="TOP_LEFT">
+                    <VBox prefWidth="500" spacing="16" styleClass="surface-card" HBox.hgrow="ALWAYS">
+                        <padding>
+                            <Insets top="18" right="18" bottom="18" left="18" />
+                        </padding>
+
+                        <Label styleClass="surface-title" text="ইনপুট তথ্য" />
+
+                        <HBox spacing="12">
+                            <VBox spacing="8" HBox.hgrow="ALWAYS">
+                                <Label styleClass="field-label" text="এলাকা/জেলা" />
+                                <ComboBox fx:id="districtComboBox" maxWidth="Infinity" promptText="জেলা নির্বাচন করুন" styleClass="input-field" />
+                            </VBox>
+                            <VBox spacing="8" HBox.hgrow="ALWAYS">
+                                <Label styleClass="field-label" text="জমির ধরণ *" />
+                                <ComboBox fx:id="landTypeComboBox" maxWidth="Infinity" promptText="জমির ধরণ নির্বাচন করুন" styleClass="input-field" />
+                            </VBox>
+                        </HBox>
+
+                        <HBox spacing="12">
+                            <VBox spacing="8" HBox.hgrow="ALWAYS">
+                                <Label styleClass="field-label" text="মাটির ধরণ *" />
+                                <ComboBox fx:id="soilTypeComboBox" maxWidth="Infinity" promptText="মাটির ধরণ নির্বাচন করুন" styleClass="input-field" />
+                            </VBox>
+                            <VBox spacing="8" HBox.hgrow="ALWAYS">
+                                <Label styleClass="field-label" text="বর্তমান মৌসুম *" />
+                                <ComboBox fx:id="currentSeasonComboBox" maxWidth="Infinity" promptText="মৌসুম নির্বাচন করুন" styleClass="input-field" />
+                            </VBox>
+                        </HBox>
+
+                        <HBox spacing="12">
+                            <VBox spacing="8" HBox.hgrow="ALWAYS">
+                                <Label styleClass="field-label" text="আগের ফসল *" />
+                                <ComboBox fx:id="prevCropComboBox" maxWidth="Infinity" promptText="আগের ফসল নির্বাচন করুন" styleClass="input-field" />
+                            </VBox>
+                            <VBox spacing="8" HBox.hgrow="ALWAYS">
+                                <Label styleClass="field-label" text="সেচ ব্যবস্থাপনা" />
+                                <HBox spacing="14">
+                                    <RadioButton fx:id="irrigationYes" selected="true" styleClass="radio-custom" text="পর্যাপ্ত সেচ আছে">
+                                        <toggleGroup>
+                                            <ToggleGroup fx:id="irrigationGroup" />
+                                        </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton fx:id="irrigationRain" styleClass="radio-custom" text="বৃষ্টিনির্ভর" toggleGroup="$irrigationGroup" />
+                                </HBox>
+                            </VBox>
+                        </HBox>
+
+                        <Separator />
+
+                        <HBox spacing="10">
+                            <Button fx:id="generateBtn" maxWidth="Infinity" styleClass="generate-btn" text="ফসল চক্র তৈরি করুন" HBox.hgrow="ALWAYS" />
+                            <Button fx:id="resetBtn" styleClass="reset-btn" text="রিসেট" />
+                        </HBox>
+                    </VBox>
+
+                    <VBox prefWidth="620" spacing="14" styleClass="surface-card" HBox.hgrow="ALWAYS">
+                        <padding>
+                            <Insets top="18" right="18" bottom="18" left="18" />
+                        </padding>
+
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label styleClass="surface-title" text="প্রস্তাবিত ফসল চক্র" />
+                            <Region HBox.hgrow="ALWAYS" />
+                            <Label styleClass="status-chip" text="লাইভ" />
+                        </HBox>
+
+                        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" prefHeight="680" styleClass="result-scroll" vbarPolicy="AS_NEEDED">
+                            <VBox fx:id="resultsContainer" spacing="14">
+                                <VBox fx:id="emptyState" alignment="CENTER" minHeight="500" spacing="14" styleClass="empty-state">
+                                    <Label styleClass="empty-icon" text="♻" />
+                                    <Label styleClass="empty-title" text="এখনো কোন পরিকল্পনা তৈরি হয়নি" />
+                                    <Label styleClass="empty-text" text="বাম পাশের তথ্য পূরণ করে ‘ফসল চক্র তৈরি করুন’ বাটনে ক্লিক করুন" />
+                                </VBox>
+                            </VBox>
+                        </ScrollPane>
+                    </VBox>
+                </HBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

@@ -1,8 +1,9 @@
 package com.example.demo1.app.controller;
 
-import com.example.demo1.app.ui.sidebar.SidebarController;
-import com.example.demo1.app.ui.TopbarController;
+import com.example.demo1.app.controller.SidebarController;
+import com.example.demo1.app.controller.TopbarController;
 import com.example.demo1.app.util.NavigationHelper;
+import com.example.demo1.app.util.SceneLoader;
 import com.example.demo1.app.util.SessionManager;
 import com.example.demo1.app.util.UiAlerts;
 import javafx.application.Platform;
@@ -20,7 +21,7 @@ import java.util.ResourceBundle;
 
 public class MainLayoutController implements Initializable {
 
-    private static final String DEFAULT_VIEW = "/com/example/demo1/app/fxml/dashboard/dashboard.fxml";
+    private static final String DEFAULT_VIEW = "/fxml/dashboard/dashboard.fxml";
 
     @FXML
     private VBox sidebarContainer;
@@ -53,7 +54,7 @@ public class MainLayoutController implements Initializable {
     public void handleLogout() {
         SessionManager.clearSession();
         try {
-            NavigationHelper.navigateTo(contentArea.getScene(), "/com/example/demo1/app/fxml/features/hello-view.fxml");
+            NavigationHelper.navigateTo(contentArea.getScene(), "/fxml/features/hello-view.fxml");
         } catch (Exception e) {
             UiAlerts.errorWithCause("Logout Error", "Could not return to login page.", e);
         }
@@ -73,15 +74,9 @@ public class MainLayoutController implements Initializable {
             return false;
         }
 
-        URL viewUrl = getClass().getResource(fxmlPath);
-        if (viewUrl == null) {
-            showError("View not found: " + fxmlPath);
-            return false;
-        }
-
         loadingView = true;
         try {
-            Parent view = FXMLLoader.load(viewUrl);
+            Parent view = SceneLoader.load(fxmlPath);
             Node contentNode = extractContentNode(view);
             contentArea.getChildren().setAll(contentNode);
             activeViewPath = fxmlPath;
@@ -119,7 +114,7 @@ public class MainLayoutController implements Initializable {
     }
 
     private void loadSidebarComponent() {
-        String sidebarPath = "/com/example/demo1/app/fxml/sidebar/sidebar.fxml";
+        String sidebarPath = "/fxml/sidebar/sidebar.fxml";
         try {
             URL sidebarUrl = getClass().getResource(sidebarPath);
             if (sidebarUrl == null) {

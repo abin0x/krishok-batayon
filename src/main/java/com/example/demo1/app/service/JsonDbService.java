@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JsonDbService {
-    private static final String FILE_PATH = "src/main/resources/com/example/demo1/app/user_data.json";
+    private static final String FILE_PATH = "src/main/resources/data/user_data.json";
 
     private final ObjectMapper mapper = new ObjectMapper();
     private final File databaseFile;

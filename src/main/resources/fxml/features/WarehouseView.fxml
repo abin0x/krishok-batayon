@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="900" prefWidth="1400" styleClass="root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.app.controller.WarehouseController">
+    <center>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" pannable="true" styleClass="content-scroll" vbarPolicy="AS_NEEDED">
+            <VBox spacing="22" styleClass="main-content" stylesheets="@../../css/Warehouse.css">
+                <padding>
+                    <Insets bottom="30" left="30" right="30" top="26" />
+                </padding>
+
+                <AnchorPane styleClass="hero-panel">
+                    <VBox spacing="7" AnchorPane.leftAnchor="28" AnchorPane.topAnchor="24">
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label styleClass="hero-title" text="গুদাম ও সংরক্ষণাগার" />
+                            <Label styleClass="hero-chip" text="যাচাইকৃত" />
+                        </HBox>
+                        <Label styleClass="hero-sub" text="পেশাদার গুদাম ব্যবস্থাপনা, সংরক্ষণ এবং রিয়েল-টাইম সক্ষমতা ট্র্যাকিং" />
+                        <Label styleClass="hero-meta" text="আজকের আপডেট: সক্রিয় কেন্দ্র ২৪ | লাইভ স্ট্যাটাস" />
+                    </VBox>
+
+                    <VBox alignment="CENTER" spacing="6" AnchorPane.rightAnchor="32" AnchorPane.topAnchor="20">
+                        <Label styleClass="hero-mark" text="BD" />
+                        <Label styleClass="hero-service" text="Warehouse Desk" />
+                    </VBox>
+                </AnchorPane>
+
+                <GridPane hgap="14" vgap="14" styleClass="kpi-grid">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="25" />
+                        <ColumnConstraints percentWidth="25" />
+                        <ColumnConstraints percentWidth="25" />
+                        <ColumnConstraints percentWidth="25" />
+                    </columnConstraints>
+
+                    <VBox GridPane.columnIndex="0" styleClass="kpi-card">
+                        <Label styleClass="kpi-label" text="উপলব্ধ ধারণক্ষমতা" />
+                        <Label fx:id="lblKpiAvailableValue" styleClass="kpi-value" text="০ টন" />
+                        <Label fx:id="lblKpiAvailableTrend" styleClass="kpi-trend" text="আপডেট হচ্ছে..." />
+                    </VBox>
+
+                    <VBox GridPane.columnIndex="1" styleClass="kpi-card">
+                        <Label styleClass="kpi-label" text="গড় দখল হার" />
+                        <Label fx:id="lblKpiOccupancyValue" styleClass="kpi-value" text="০%" />
+                        <Label fx:id="lblKpiOccupancyTrend" styleClass="kpi-trend" text="আপডেট হচ্ছে..." />
+                    </VBox>
+
+                    <VBox GridPane.columnIndex="2" styleClass="kpi-card">
+                        <Label styleClass="kpi-label" text="গড় মূল্য (টন/মাস)" />
+                        <Label fx:id="lblKpiPriceValue" styleClass="kpi-value" text="৳ ০" />
+                        <Label fx:id="lblKpiPriceTrend" styleClass="kpi-trend" text="আপডেট হচ্ছে..." />
+                    </VBox>
+
+                    <VBox GridPane.columnIndex="3" styleClass="kpi-card">
+                        <Label styleClass="kpi-label" text="ভেরিফায়েড গুদাম" />
+                        <Label fx:id="lblKpiVerifiedValue" styleClass="kpi-value" text="০" />
+                        <Label fx:id="lblKpiVerifiedTrend" styleClass="kpi-trend" text="আপডেট হচ্ছে..." />
+                    </VBox>
+                </GridPane>
+
+                <VBox spacing="12" styleClass="search-wrap">
+                    <HBox alignment="CENTER_LEFT" spacing="12" styleClass="search-bar">
+                        <Label styleClass="search-icon" text="🔍" />
+                        <TextField fx:id="searchField" promptText="গুদাম, জেলা, উপজেলা বা মালিকের নাম লিখুন" styleClass="search-input" HBox.hgrow="ALWAYS" />
+                        <Button fx:id="searchBtn" styleClass="search-btn" text="খুঁজুন" />
+                    </HBox>
+
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Label styleClass="result-meta" text="জেলা ফিল্টার:" />
+                        <ComboBox fx:id="districtComboBox" prefWidth="180" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Label styleClass="result-meta" text="সাজানো: উপলব্ধতা" />
+                    </HBox>
+                </VBox>
+
+                <GridPane fx:id="warehouseContainer" hgap="18" vgap="18" />
+
+                <HBox alignment="CENTER">
+                    <padding>
+                        <Insets top="8" />
+                    </padding>
+                    <Button fx:id="loadMoreBtn" styleClass="load-more-btn" text="আরও গুদাম দেখুন" />
+                </HBox>
+
+                <HBox alignment="CENTER_LEFT" spacing="14" styleClass="trust-strip">
+                    <Label styleClass="trust-icon" text="🛡" />
+                    <VBox spacing="4">
+                        <Label styleClass="trust-title" text="ভরসাযোগ্য এবং নিরাপদ সেবা" />
+                        <Label styleClass="trust-sub" text="লাইসেন্স, বীমা এবং তাপমাত্রা মনিটরিংসহ প্রিমিয়াম সংরক্ষণ সুবিধা" />
+                    </VBox>
+                </HBox>
+
+                <VBox spacing="16" styleClass="tips-section">
+                    <Label styleClass="tips-title" text="সংরক্ষণ পরামর্শ" />
+                    <GridPane hgap="16" vgap="16">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="33.33" />
+                            <ColumnConstraints percentWidth="33.33" />
+                            <ColumnConstraints percentWidth="33.33" />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints />
+                        </rowConstraints>
+
+                        <VBox GridPane.columnIndex="0" GridPane.rowIndex="0" spacing="8" styleClass="tip-card">
+                            <Label styleClass="tip-icon" text="🌡" />
+                            <Label styleClass="tip-title-text" text="তাপমাত্রা নিয়ন্ত্রণ" />
+                            <Label styleClass="tip-description" text="ফসলভেদে তাপমাত্রা ও আর্দ্রতা লগ সংরক্ষণ করুন।" wrapText="true" />
+                        </VBox>
+
+                        <VBox GridPane.columnIndex="1" GridPane.rowIndex="0" spacing="8" styleClass="tip-card">
+                            <Label styleClass="tip-icon" text="📦" />
+                            <Label styleClass="tip-title-text" text="ব্যাচ ট্র্যাকিং" />
+                            <Label styleClass="tip-description" text="প্রতিটি ব্যাচ আলাদা কোডে সংরক্ষণ করলে ক্ষতি কমে।" wrapText="true" />
+                        </VBox>
+
+                        <VBox GridPane.columnIndex="2" GridPane.rowIndex="0" spacing="8" styleClass="tip-card">
+                            <Label styleClass="tip-icon" text="💧" />
+                            <Label styleClass="tip-title-text" text="আর্দ্রতা ব্যবস্থাপনা" />
+                            <Label styleClass="tip-description" text="সংরক্ষণের আগে আর্দ্রতা নিরাপদ সীমায় আছে কি না নিশ্চিত করুন।" wrapText="true" />
+                        </VBox>
+                    </GridPane>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>
