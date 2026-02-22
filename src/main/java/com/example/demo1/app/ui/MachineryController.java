@@ -154,7 +154,7 @@ public class MachineryController implements Initializable {
                 400,
                 3500,
                 "নতুন মডেল পাওয়ার টিলার। জমি চাষের জন্য উপযুক্ত।",
-                "+8801711000001",
+                "+8801819684174",
                 "seed_owner_1",
                 false
         ));
@@ -168,7 +168,7 @@ public class MachineryController implements Initializable {
                 1500,
                 10000,
                 "স্বয়ংক্রিয় ধান কাটার যন্ত্র।",
-                "+8801711000002",
+                "+8801819684174",
                 "seed_owner_2",
                 false
         ));
@@ -182,7 +182,7 @@ public class MachineryController implements Initializable {
                 500,
                 3000,
                 "কীটনাশক ও সার স্প্রের জন্য।",
-                "+8801711000003",
+                "+8801819684174",
                 "seed_owner_3",
                 false
         ));

@@ -1,0 +1,213 @@
+.gov-scroll {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}
+
+.gov-scroll > .viewport {
+    -fx-background-color: #eef2ea;
+}
+
+.gov-root {
+    -fx-background-color: #eef2ea;
+}
+
+.search-shell {
+    -fx-background-color: #e9ebe8;
+    -fx-background-radius: 14;
+    -fx-border-color: #d1d5cf;
+    -fx-border-radius: 14;
+    -fx-border-width: 1;
+    -fx-padding: 12;
+    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.08), 10, 0.1, 0, 2);
+}
+
+.search-row {
+    -fx-background-color: #f1f3f1;
+    -fx-background-radius: 8;
+    -fx-border-color: #d4d8d2;
+    -fx-border-radius: 8;
+    -fx-padding: 8 12;
+}
+
+.search-icon {
+    -fx-font-size: 16px;
+    -fx-text-fill: #7b8794;
+}
+
+.search-field {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+    -fx-font-size: 15px;
+    -fx-text-fill: #334155;
+    -fx-prompt-text-fill: #7b8794;
+}
+
+.cat-row {
+    -fx-background-color: #e4e6e3;
+    -fx-background-radius: 8;
+    -fx-padding: 4;
+}
+
+.cat-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #3c4858;
+    -fx-font-size: 14px;
+    -fx-font-family: "Noto Serif Bengali";
+    -fx-background-radius: 6;
+    -fx-padding: 8 10;
+    -fx-cursor: hand;
+}
+
+.cat-btn-active {
+    -fx-background-color: #f3f4f3;
+    -fx-text-fill: #111827;
+    -fx-font-weight: 700;
+}
+
+.program-card {
+    -fx-background-color: #f3f4f4;
+    -fx-background-radius: 14;
+    -fx-border-color: #d4d9d4;
+    -fx-border-radius: 14;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.08), 10, 0.1, 0, 3);
+}
+
+.program-head {
+    -fx-background-color: #d7e6de;
+    -fx-background-radius: 14 14 0 0;
+    -fx-padding: 14 16;
+}
+
+.chip-icon {
+    -fx-text-fill: #15803d;
+    -fx-font-size: 14px;
+}
+
+.chip-tag {
+    -fx-background-color: #d6f5df;
+    -fx-text-fill: #166534;
+    -fx-font-size: 14px;
+    -fx-padding: 2 8;
+    -fx-background-radius: 7;
+    -fx-border-color: #8ed0a2;
+    -fx-border-radius: 7;
+}
+
+.program-title {
+    -fx-font-size: 30px;
+    -fx-font-family: "Noto Serif Bengali";
+    -fx-font-weight: 700;
+    -fx-text-fill: #0f172a;
+}
+
+.program-sub {
+    -fx-font-size: 14px;
+    -fx-text-fill: #334155;
+}
+
+.premium-box {
+    -fx-background-color: #f2f4f2;
+    -fx-background-radius: 10;
+    -fx-padding: 10 14;
+    -fx-border-color: #d7ddd7;
+    -fx-border-radius: 10;
+}
+
+.premium-value {
+    -fx-font-size: 19px;
+    -fx-font-family: "Noto Serif Bengali";
+    -fx-font-weight: 700;
+    -fx-text-fill: #137a3b;
+}
+
+.premium-unit {
+    -fx-font-size: 14px;
+    -fx-text-fill: #475569;
+}
+
+.program-body {
+    -fx-padding: 14 16;
+}
+
+.section-label {
+    -fx-font-size: 20px;
+    -fx-font-family: "Noto Serif Bengali";
+    -fx-font-weight: 700;
+    -fx-text-fill: #0f172a;
+}
+
+.program-desc {
+    -fx-font-size: 16px;
+    -fx-font-family: "Noto Serif Bengali";
+    -fx-text-fill: #334155;
+}
+
+.eligibility-box {
+    -fx-background-color: #dfe6ef;
+    -fx-background-radius: 8;
+    -fx-padding: 10 12;
+    -fx-max-width: 640;
+}
+
+.eligibility-title {
+    -fx-font-size: 16px;
+    -fx-font-family: "Noto Serif Bengali";
+    -fx-font-weight: 700;
+    -fx-text-fill: #1e3a8a;
+}
+
+.eligibility-value {
+    -fx-font-size: 14px;
+    -fx-font-family: "Noto Serif Bengali";
+    -fx-text-fill: #1f2937;
+}
+
+.program-foot {
+    -fx-border-color: #d4d9d4 transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+    -fx-padding: 10 16 12 16;
+}
+
+.phone-icon {
+    -fx-font-size: 16px;
+}
+
+.phone-text {
+    -fx-font-size: 14px;
+    -fx-font-family: "Noto Serif Bengali";
+    -fx-font-weight: 700;
+    -fx-text-fill: #111827;
+}
+
+.btn-main {
+    -fx-background-color: #166534;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 13px;
+    -fx-font-family: "Noto Serif Bengali";
+    -fx-font-weight: 700;
+    -fx-padding: 8 14;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+}
+
+.btn-main:hover {
+    -fx-background-color: #14532d;
+}
+
+.btn-plain {
+    -fx-background-color: #eef2ee;
+    -fx-text-fill: #14532d;
+    -fx-font-size: 13px;
+    -fx-font-family: "Noto Serif Bengali";
+    -fx-font-weight: 700;
+    -fx-padding: 8 14;
+    -fx-background-radius: 8;
+    -fx-border-color: #cfd8cf;
+    -fx-border-radius: 8;
+    -fx-cursor: hand;
+}
+
+.btn-plain:hover {
+    -fx-background-color: #e3e9e3;
+}

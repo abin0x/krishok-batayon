@@ -23,7 +23,7 @@
     "hourlyRate": 400.0,
     "dailyRate": 3500.0,
     "description": "নতুন মডেল পাওয়ার টিলার। জমি চাষের জন্য উপযুক্ত।",
-    "phone": "+8801711000001",
+    "phone": "+8801819684174",
     "createdByUserId": "seed_owner_1",
     "hidden": false
   },
@@ -37,7 +37,7 @@
     "hourlyRate": 1500.0,
     "dailyRate": 10000.0,
     "description": "স্বয়ংক্রিয় ধান কাটার যন্ত্র।",
-    "phone": "+8801711000002",
+    "phone": "+8801819684174",
     "createdByUserId": "seed_owner_2",
     "hidden": false
   },
@@ -51,7 +51,7 @@
     "hourlyRate": 500.0,
     "dailyRate": 3000.0,
     "description": "কীটনাশক ও সার স্প্রের জন্য।",
-    "phone": "+8801711000003",
+    "phone": "+8801819684174",
     "createdByUserId": "seed_owner_3",
     "hidden": false
   }
