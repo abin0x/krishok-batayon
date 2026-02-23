@@ -96,7 +96,7 @@ public class SidebarController implements Initializable {
             if (button == null) {
                 continue;
             }
-            button.setText(route.getValue().label());
+            button.setText(route.getValue().displayName());
             viewByButton.put(button, route.getValue().viewPath());
         }
     }

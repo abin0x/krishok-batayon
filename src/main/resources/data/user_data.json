@@ -46,4 +46,16 @@
   "landAmount" : "4",
   "soilType" : "দোআঁশ",
   "profileImagePath" : "C:\\Users\\mahmu\\Downloads\\Gemini_Generated_Image_zg2j4tzg2j4tzg2j.png"
+}, {
+  "name" : "abin",
+  "email" : "4819abinn@gmail.com",
+  "mobile" : "01712345677",
+  "username" : "01712345677",
+  "passwordHash" : "7110eda4d09e062aa5e4a390b0a572ac0d2c0220",
+  "division" : null,
+  "district" : null,
+  "upazila" : null,
+  "landAmount" : null,
+  "soilType" : null,
+  "profileImagePath" : null
 } ]
