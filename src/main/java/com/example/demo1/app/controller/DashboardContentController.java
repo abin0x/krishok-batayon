@@ -50,7 +50,6 @@ public class DashboardContentController {
 
     @FXML private Label lblWelcomeUser;
     @FXML private Label lblNow;
-    @FXML private Label lblLastRefresh;
 
     @FXML private Label lblTotalUsers;
     @FXML private Label lblUsersProfiled;
@@ -86,16 +85,10 @@ public class DashboardContentController {
         refreshDashboard();
 
         refreshTimer = new Timeline(
-                new KeyFrame(Duration.seconds(1), e -> updateCurrentTime()),
                 new KeyFrame(Duration.seconds(20), e -> refreshDashboard())
         );
         refreshTimer.setCycleCount(Timeline.INDEFINITE);
         refreshTimer.play();
-    }
-
-    @FXML
-    private void handleRefresh() {
-        refreshDashboard();
     }
 
     private void refreshDashboard() {
@@ -134,12 +127,11 @@ public class DashboardContentController {
         lblLatestEntry.setText(workerMetrics.latestEntrySummary);
         lblDataFreshness.setText(resolveDataFreshness());
 
-        lblLastRefresh.setText("সর্বশেষ আপডেট: " + LocalDateTime.now().format(UPDATED_AT_FORMAT));
         updateCurrentTime();
     }
 
     private void updateCurrentTime() {
-        lblNow.setText(LocalDateTime.now().format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM).withLocale(LOCALE_BN)));
+        lblNow.setText(LocalDate.now().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL).withLocale(LOCALE_BN)));
     }
 
     private String resolveDataFreshness() {

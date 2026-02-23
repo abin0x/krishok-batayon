@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.ScrollPane?>
@@ -23,10 +22,6 @@
                 <Label text="কৃষক বাতায়ন" styleClass="hero-title" />
                 <Label fx:id="lblWelcomeUser" styleClass="hero-subtitle" text="স্বাগতম" />
                 <Label fx:id="lblNow" styleClass="hero-time" text="-" />
-            </VBox>
-            <VBox alignment="CENTER_RIGHT" spacing="8">
-                <Label fx:id="lblLastRefresh" styleClass="hero-refresh" text="সর্বশেষ আপডেট: -" />
-                <Button text="রিফ্রেশ করুন" onAction="#handleRefresh" styleClass="refresh-button" />
             </VBox>
         </HBox>
 
