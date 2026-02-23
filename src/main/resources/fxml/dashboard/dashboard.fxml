@@ -88,9 +88,9 @@
                                     </image>
                                 </javafx.scene.image.ImageView>
                                 <VBox spacing="4" HBox.hgrow="ALWAYS">
-                                    <Label text="à¦¸à¦°à¦¿à¦·à¦¾ à¦•à§à¦·à§‡à¦¤à§‡ à¦ªà§‹à¦•à¦¾ à¦¦à¦®à¦¨à§‡à¦° à¦œà¦°à§à¦°à¦¿ à¦ªà¦°à¦¾à¦®à¦°à§à¦¶" styleClass="news-head" wrapText="true" />
-                                    <Label text="à¦‰à¦ªà¦œà§‡à¦²à¦¾ à¦•à§ƒà¦·à¦¿ à¦¸à¦¹à¦¾à§Ÿà¦¤à¦¾ à¦¸à§‡à¦²" styleClass="news-meta" />
-                                    <Label text="à§§à§­-à§¦à§¨-à§¨à§¦à§¨à§¬" styleClass="news-date" />
+                                    <Label text="সরিষা ক্ষেতে পোকা দমনের জরুরি পরামর্শ" styleClass="news-head" wrapText="true" />
+                                    <Label text="উপজেলা কৃষি সহায়তা সেল" styleClass="news-meta" />
+                                    <Label text="১৭-০২-২০২৬" styleClass="news-date" />
                                 </VBox>
                             </HBox>
 
@@ -101,9 +101,9 @@
                                     </image>
                                 </javafx.scene.image.ImageView>
                                 <VBox spacing="4" HBox.hgrow="ALWAYS">
-                                    <Label text="à¦­à§à¦Ÿà§à¦Ÿà¦¾ à¦šà¦¾à¦·à§‡ à¦ªà¦¾à¦¨à¦¿ à¦¬à§à¦¯à¦¬à¦¸à§à¦¥à¦¾à¦ªà¦¨à¦¾ à¦—à¦¾à¦‡à¦¡" styleClass="news-head" wrapText="true" />
-                                    <Label text="à¦®à¦¾à¦  à¦ªà¦°à§à¦¯à¦¾à§Ÿà§‡à¦° à¦•à§ƒà¦·à¦¿ à¦¸à§‡à¦¬à¦¾ à¦‡à¦‰à¦¨à¦¿à¦Ÿ" styleClass="news-meta" />
-                                    <Label text="à§¦à§®-à§¦à§¨-à§¨à§¦à§¨à§¬" styleClass="news-date" />
+                                    <Label text="ভুট্টা চাষে পানি ব্যবস্থাপনা গাইড" styleClass="news-head" wrapText="true" />
+                                    <Label text="মাঠ পর্যায়ের কৃষি সেবা ইউনিট" styleClass="news-meta" />
+                                    <Label text="০৮-০২-২০২৬" styleClass="news-date" />
                                 </VBox>
                             </HBox>
 
