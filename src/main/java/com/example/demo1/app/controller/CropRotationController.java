@@ -1,4 +1,4 @@
-﻿package com.example.demo1.app.controller;
+package com.example.demo1.app.controller;
 import com.example.demo1.app.util.NavigationHelper;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
