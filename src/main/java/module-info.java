@@ -24,6 +24,5 @@ module com.example.demo1.app {
     exports com.example.demo1.app.controller;
     exports com.example.demo1.app.service;
     exports com.example.demo1.app.model;
-    exports com.example.demo1.app.repository;
     exports com.example.demo1.app.util;
 }
