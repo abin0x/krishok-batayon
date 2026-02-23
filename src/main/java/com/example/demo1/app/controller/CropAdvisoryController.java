@@ -1,43 +1,24 @@
 package com.example.demo1.app.controller;
-
-import com.example.demo1.app.util.NavigationHelper; // Import the Helper
+import com.example.demo1.app.util.NavigationHelper;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import java.net.URL;
-import java.util.ResourceBundle;
 
-public class CropAdvisoryController implements Initializable {
+// Controller for the Crop Advisory page
+public class CropAdvisoryController {
 
-    // --- Sidebar Buttons (Only the ones used for navigation) ---
-    @FXML private Button btnHome, btnAdvisory, btnStorage, btnLocalManagement,btnMachinery;
-    @FXML private Button btnAiHelper; // Kept as it had specific logic
+    @FXML private Button btnHome, btnAdvisory, btnStorage, btnLocalManagement, btnMachinery,btnAiHelper,btnGuide, btnFertilizer, btnIrrigation, btnCropRotation;
 
-    // --- Top Navigation / Filter Buttons ---
-    @FXML private Button btnGuide, btnFertilizer, btnIrrigation, btnCropRotation;
+    // Page ta load howar sathe sathe automatically ei method ta run hobe
+    @FXML
+    public void initialize() {
+        
+        // Set up navigation for sidebar buttons
+        NavigationHelper.setupSidebar(btnHome, btnAdvisory, btnStorage, btnLocalManagement, btnMachinery);
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        System.out.println("Crop Advisory Page Initialized!");
-        setupNavigation();
-    }
-
-    // ---------------------------------------------------------
-    // NAVIGATION LOGIC
-    // ---------------------------------------------------------
-    private void setupNavigation() {
-        // 1. Setup Sidebar (Home, Advisory, Storage, Local)
-        NavigationHelper.setupSidebar(btnHome, btnAdvisory, btnStorage, btnLocalManagement,btnMachinery);
-
-        // 2. Setup Top Menu (Guide, Fertilizer, Irrigation, Rotation)
+        // Set up navigation for advisory buttons
         NavigationHelper.setupAdvisoryNav(btnGuide, btnFertilizer, btnIrrigation, btnCropRotation);
-
-        // 3. Extra Buttons (Specific to this controller)
         if (btnAiHelper != null) {
             btnAiHelper.setOnAction(e -> System.out.println("AI Helper Feature Coming Soon..."));
         }
     }
 }
-//hello everyone
-
-

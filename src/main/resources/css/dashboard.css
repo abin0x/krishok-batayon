@@ -180,6 +180,10 @@
     -fx-alignment: CENTER_LEFT;
 }
 
+.single-summary-grid {
+    -fx-fill-height: true;
+}
+
 .summary-item {
     -fx-background-color: #f8fcf8;
     -fx-background-radius: 12;
@@ -187,6 +191,28 @@
     -fx-border-radius: 12;
     -fx-padding: 10 12;
     -fx-min-height: 124;
+}
+
+.single-summary-item {
+    -fx-min-height: 110;
+}
+
+.land-card-wrap {
+    -fx-alignment: CENTER;
+}
+
+.land-card {
+    -fx-min-width: 320;
+    -fx-max-width: 420;
+    -fx-background-color: linear-gradient(to bottom right, #f7fff6 0%, #ebf8ea 100%);
+    -fx-border-color: #cfe4cf;
+    -fx-border-width: 1;
+    -fx-border-radius: 14;
+    -fx-background-radius: 14;
+}
+
+.land-card-value {
+    -fx-font-size: 30px;
 }
 
 .summary-title {

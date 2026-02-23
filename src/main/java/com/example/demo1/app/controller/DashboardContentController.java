@@ -1,10 +1,6 @@
 package com.example.demo1.app.controller;
-
-import com.example.demo1.app.config.NavigationManager;
 import com.example.demo1.app.model.User;
 import com.example.demo1.app.util.SessionManager;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -25,7 +21,6 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
@@ -34,14 +29,20 @@ import java.util.Map;
 
 public class DashboardContentController {
 
-    private static final Path USERS_FILE = Path.of("src/main/resources/data/user_data.json");
     private static final Path WORKERS_FILE = Path.of("workers_data.json");
     private static final DateTimeFormatter WORK_DATE_FORMAT = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     private static final DateTimeFormatter WORK_PAID_AT_FORMAT = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
     private static final Locale LOCALE_BN = new Locale("bn", "BD");
     private static final DateTimeFormatter UPDATED_AT_FORMAT = DateTimeFormatter.ofPattern("dd MMM yyyy, hh:mm:ss a", LOCALE_BN);
+    private static final String DEFAULT_FARMER = "Farmer";
+    private static final String NO_WORK_TYPE = "No activities found";
+    private static final String NO_WORKER_RECORD = "No worker records found";
+    private static final String NO_RECENT_ACTIVITY = "No recent activities logged";
+    private static final String ANALYSIS_UNAVAILABLE = "Unavailable";
+    private static final String ANALYSIS_LOAD_FAIL = "Could not load worker analytics";
+    private static final String NO_LOCAL_DATASET = "No local dataset found";
+    private static final String DATASET_UPDATED_PREFIX = "Latest dataset update: ";
 
-    private final ObjectMapper objectMapper = new ObjectMapper();
     private final Gson gson = new Gson();
     private final DecimalFormat numberFormat = new DecimalFormat("#,##0");
     private final DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
@@ -51,14 +52,7 @@ public class DashboardContentController {
     @FXML private Label lblWelcomeUser;
     @FXML private Label lblNow;
 
-    @FXML private Label lblTotalUsers;
-    @FXML private Label lblUsersProfiled;
-    @FXML private Label lblTotalLand;
-    @FXML private Label lblTotalModules;
-    @FXML private Label lblTotalUsersSummary;
-    @FXML private Label lblUsersProfiledSummary;
     @FXML private Label lblTotalLandSummary;
-    @FXML private Label lblTotalModulesSummary;
 
     @FXML private Label lblWorkerRecords;
     @FXML private Label lblPendingPayments;
@@ -77,49 +71,31 @@ public class DashboardContentController {
     @FXML
     public void initialize() {
         User sessionUser = SessionManager.getLoggedInUser();
-        String name = (sessionUser != null && sessionUser.getName() != null && !sessionUser.getName().isBlank())
-                ? sessionUser.getName()
-                : "কৃষক";
-        lblWelcomeUser.setText("স্বাগতম, " + name);
+        String name = (sessionUser != null && hasText(sessionUser.getName())) ? sessionUser.getName() : DEFAULT_FARMER;
+        lblWelcomeUser.setText("Welcome, " + name);
 
         refreshDashboard();
 
-        refreshTimer = new Timeline(
-                new KeyFrame(Duration.seconds(20), e -> refreshDashboard())
-        );
+        refreshTimer = new Timeline(new KeyFrame(Duration.seconds(20), e -> refreshDashboard()));
         refreshTimer.setCycleCount(Timeline.INDEFINITE);
         refreshTimer.play();
     }
 
     private void refreshDashboard() {
-        List<User> users = loadUsers();
         WorkerMetrics workerMetrics = loadWorkerMetrics();
-
-        long totalUsers = users.size();
-        long profiledUsers = users.stream().filter(this::hasProfileData).count();
-        double totalLandAmount = users.stream().mapToDouble(u -> parseDouble(u.getLandAmount())).sum();
-
-        setIfPresent(lblTotalUsers, numberFormat.format(totalUsers));
-        setIfPresent(lblUsersProfiled, numberFormat.format(profiledUsers));
-        setIfPresent(lblTotalLand, decimalFormat.format(totalLandAmount) + " একর");
-        setIfPresent(lblTotalModules, String.valueOf(NavigationManager.sidebarRoutes().size()));
-        setIfPresent(lblTotalUsersSummary, numberFormat.format(totalUsers) + " অ্যাকাউন্ট");
-        setIfPresent(lblUsersProfiledSummary, numberFormat.format(profiledUsers) + " প্রোফাইল");
-        setIfPresent(lblTotalLandSummary, decimalFormat.format(totalLandAmount) + " একর");
-        setIfPresent(lblTotalModulesSummary, NavigationManager.sidebarRoutes().size() + " ফিচার");
+        User sessionUser = SessionManager.getLoggedInUser();
+        double userLandAmount = sessionUser == null ? 0 : parseDouble(sessionUser.getLandAmount());
+        setIfPresent(lblTotalLandSummary, decimalFormat.format(userLandAmount) + " acres");
 
         lblWorkerRecords.setText(numberFormat.format(workerMetrics.totalRecords));
-        lblPendingPayments.setText(numberFormat.format(workerMetrics.pendingCount) + " (৳ " + decimalFormat.format(workerMetrics.pendingAmount) + ")");
+        lblPendingPayments.setText(numberFormat.format(workerMetrics.pendingCount) + " (Tk " + decimalFormat.format(workerMetrics.pendingAmount) + ")");
         lblCompletedPayments.setText(numberFormat.format(workerMetrics.completedCount));
-        lblMonthlyLaborCost.setText("৳ " + decimalFormat.format(workerMetrics.currentMonthTotal));
+        lblMonthlyLaborCost.setText("Tk " + decimalFormat.format(workerMetrics.currentMonthTotal));
 
         lblTodayActivities.setText(numberFormat.format(workerMetrics.todayTotal));
         lblTodayCompleted.setText(numberFormat.format(workerMetrics.todayCompleted));
 
-        double completionRate = workerMetrics.todayTotal == 0
-                ? 0.0
-                : (workerMetrics.todayCompleted * 100.0) / workerMetrics.todayTotal;
-
+        double completionRate = workerMetrics.todayTotal == 0 ? 0.0 : (workerMetrics.todayCompleted * 100.0) / workerMetrics.todayTotal;
         lblCompletionRate.setText(decimalFormat.format(completionRate) + "%");
         pbCompletion.setProgress(Math.min(1.0, Math.max(0.0, completionRate / 100.0)));
 
@@ -135,10 +111,9 @@ public class DashboardContentController {
     }
 
     private String resolveDataFreshness() {
-        List<Path> files = List.of(USERS_FILE, WORKERS_FILE);
         LocalDateTime newest = null;
 
-        for (Path file : files) {
+        for (Path file : List.of(WORKERS_FILE)) {
             if (!Files.exists(file)) {
                 continue;
             }
@@ -154,45 +129,20 @@ public class DashboardContentController {
                 // keep dashboard responsive even if file metadata is unavailable
             }
         }
-
-        if (newest == null) {
-            return "কোনো লোকাল ডেটাসেট পাওয়া যায়নি";
-        }
-        return "সর্বশেষ ডেটাসেট আপডেট: " + newest.format(UPDATED_AT_FORMAT);
-    }
-
-    private boolean hasProfileData(User user) {
-        return hasText(user.getDivision())
-                || hasText(user.getDistrict())
-                || hasText(user.getUpazila())
-                || parseDouble(user.getLandAmount()) > 0;
-    }
-
-    private List<User> loadUsers() {
-        if (!Files.exists(USERS_FILE)) {
-            return new ArrayList<>();
-        }
-
-        try {
-            return objectMapper.readValue(USERS_FILE.toFile(), new TypeReference<List<User>>() {});
-        } catch (IOException e) {
-            return new ArrayList<>();
-        }
+        return newest == null ? NO_LOCAL_DATASET : DATASET_UPDATED_PREFIX + newest.format(UPDATED_AT_FORMAT);
     }
 
     private WorkerMetrics loadWorkerMetrics() {
         WorkerMetrics metrics = new WorkerMetrics();
         if (!Files.exists(WORKERS_FILE)) {
-            metrics.topWorkType = "কোনো কার্যক্রম নেই";
-            metrics.latestEntrySummary = "কোনো শ্রমিক রেকর্ড পাওয়া যায়নি";
+            applyNoWorkerData(metrics);
             return metrics;
         }
 
         try (Reader reader = Files.newBufferedReader(WORKERS_FILE)) {
             JsonArray rows = gson.fromJson(reader, JsonArray.class);
             if (rows == null) {
-                metrics.topWorkType = "কোনো কার্যক্রম নেই";
-                metrics.latestEntrySummary = "কোনো শ্রমিক রেকর্ড পাওয়া যায়নি";
+                applyNoWorkerData(metrics);
                 return metrics;
             }
 
@@ -254,33 +204,31 @@ public class DashboardContentController {
             metrics.topWorkType = workTypeCounts.entrySet().stream()
                     .max(Comparator.comparingInt(Map.Entry::getValue))
                     .map(e -> e.getKey() + " (" + e.getValue() + ")")
-                    .orElse("কোনো কার্যক্রম নেই");
-
-            if (latestEvent == null) {
-                metrics.latestEntrySummary = "সাম্প্রতিক কোনো কার্যক্রম লগ হয়নি";
-            } else {
-                metrics.latestEntrySummary = latestWorkerName + " | সময়: " + latestEvent.format(UPDATED_AT_FORMAT);
-            }
+                    .orElse(NO_WORK_TYPE);
+            metrics.latestEntrySummary = latestEvent == null
+                    ? NO_RECENT_ACTIVITY
+                    : latestWorkerName + " | Time: " + latestEvent.format(UPDATED_AT_FORMAT);
         } catch (Exception e) {
-            metrics.topWorkType = "উপলব্ধ নয়";
-            metrics.latestEntrySummary = "শ্রমিক বিশ্লেষণ লোড করা যায়নি";
+            metrics.topWorkType = ANALYSIS_UNAVAILABLE;
+            metrics.latestEntrySummary = ANALYSIS_LOAD_FAIL;
         }
 
         return metrics;
     }
 
+    private void applyNoWorkerData(WorkerMetrics metrics) {
+        metrics.topWorkType = NO_WORK_TYPE;
+        metrics.latestEntrySummary = NO_WORKER_RECORD;
+    }
+
     private String getString(JsonObject object, String key) {
-        if (object == null || !object.has(key) || object.get(key).isJsonNull()) {
-            return "-";
-        }
+        if (object == null || !object.has(key) || object.get(key).isJsonNull()) return "-";
         String value = object.get(key).getAsString();
         return value == null || value.isBlank() ? "-" : value.trim();
     }
 
     private double getDouble(JsonObject object, String key) {
-        if (object == null || !object.has(key) || object.get(key).isJsonNull()) {
-            return 0;
-        }
+        if (object == null || !object.has(key) || object.get(key).isJsonNull()) return 0;
         try {
             return object.get(key).getAsDouble();
         } catch (Exception ignored) {
@@ -289,9 +237,7 @@ public class DashboardContentController {
     }
 
     private LocalDate parseWorkDate(String value) {
-        if (!hasText(value) || "-".equals(value)) {
-            return null;
-        }
+        if (!hasText(value) || "-".equals(value)) return null;
         try {
             return LocalDate.parse(value, WORK_DATE_FORMAT);
         } catch (Exception e) {
@@ -300,9 +246,7 @@ public class DashboardContentController {
     }
 
     private LocalDateTime parsePaidAt(String value) {
-        if (!hasText(value) || "-".equals(value)) {
-            return null;
-        }
+        if (!hasText(value) || "-".equals(value)) return null;
         try {
             return LocalDateTime.parse(value, WORK_PAID_AT_FORMAT);
         } catch (Exception e) {
@@ -311,9 +255,7 @@ public class DashboardContentController {
     }
 
     private double parseDouble(String value) {
-        if (!hasText(value)) {
-            return 0;
-        }
+        if (!hasText(value)) return 0;
         try {
             return Double.parseDouble(value.trim());
         } catch (Exception e) {
@@ -321,15 +263,9 @@ public class DashboardContentController {
         }
     }
 
-    private boolean hasText(String value) {
-        return value != null && !value.isBlank();
-    }
+    private boolean hasText(String value) { return value != null && !value.isBlank(); }
 
-    private void setIfPresent(Label label, String value) {
-        if (label != null) {
-            label.setText(value);
-        }
-    }
+    private void setIfPresent(Label label, String value) { if (label != null) label.setText(value); }
 
     private static class WorkerMetrics {
         int totalRecords;
@@ -343,3 +279,6 @@ public class DashboardContentController {
         String latestEntrySummary;
     }
 }
+
+
+

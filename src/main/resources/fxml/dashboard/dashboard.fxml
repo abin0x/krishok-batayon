@@ -26,34 +26,13 @@
         </HBox>
 
         <VBox styleClass="panel-card summary-card" spacing="10">
-            <Label text="সিস্টেম মেট্রিক্স সারাংশ" styleClass="panel-title" />
-            <HBox styleClass="summary-grid" spacing="12">
-                <VBox styleClass="summary-item" HBox.hgrow="ALWAYS" spacing="3">
-                    <Label text="মোট ব্যবহারকারী" styleClass="summary-title" />
-                    <Label fx:id="lblTotalUsersSummary" text="০ অ্যাকাউন্ট" styleClass="summary-value" />
-                    <Label text="মোট নিবন্ধিত কৃষক অ্যাকাউন্ট" styleClass="summary-note" wrapText="true" />
-                    <Label text="লাইভ" styleClass="summary-tag" />
-                </VBox>
-
-                <VBox styleClass="summary-item" HBox.hgrow="ALWAYS" spacing="3">
-                    <Label text="প্রোফাইল সম্পন্ন ব্যবহারকারী" styleClass="summary-title" />
-                    <Label fx:id="lblUsersProfiledSummary" text="০ প্রোফাইল" styleClass="summary-value" />
-                    <Label text="জমি ও অবস্থান তথ্যসহ প্রোফাইল" styleClass="summary-note" wrapText="true" />
-                    <Label text="মান" styleClass="summary-tag" />
-                </VBox>
-
-                <VBox styleClass="summary-item" HBox.hgrow="ALWAYS" spacing="3">
-                    <Label text="মোট জমির পরিমাণ" styleClass="summary-title" />
-                    <Label fx:id="lblTotalLandSummary" text="০ একর" styleClass="summary-value" />
-                    <Label text="ঘোষিত মোট চাষযোগ্য জমি" styleClass="summary-note" wrapText="true" />
-                    <Label text="এলাকা" styleClass="summary-tag" />
-                </VBox>
-
-                <VBox styleClass="summary-item" HBox.hgrow="ALWAYS" spacing="3">
-                    <Label text="সক্রিয় মডিউল" styleClass="summary-title" />
-                    <Label fx:id="lblTotalModulesSummary" text="০ ফিচার" styleClass="summary-value" />
-                    <Label text="উপলব্ধ কার্যকরী ফিচারসমূহ" styleClass="summary-note" wrapText="true" />
-                    <Label text="সিস্টেম" styleClass="summary-tag" />
+            <Label text="সারাংশ" styleClass="panel-title" />
+            <HBox styleClass="summary-grid single-summary-grid land-card-wrap" spacing="12">
+                <VBox styleClass="metric-card land-card" spacing="4">
+                    <Label text="মোট জমির পরিমাণ" styleClass="metric-title" />
+                    <Label fx:id="lblTotalLandSummary" text="0 acres" styleClass="metric-value land-card-value" />
+                    <Label text="শুধু লগইন করা ইউজারের জমি" styleClass="metric-note" wrapText="true" />
+                    <Label text="এলাকা" styleClass="metric-chip" />
                 </VBox>
             </HBox>
         </VBox>
