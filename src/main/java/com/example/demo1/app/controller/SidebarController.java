@@ -62,6 +62,8 @@ public class SidebarController {
         }
     }
 
+
+    //button gula ke register kore rakhe, jate poroborti te button id diye button access kora jai
     private void registerButtons() {
         addButton("btnHome", btnHome);
         addButton("btnAdvisory", btnAdvisory);
@@ -82,6 +84,8 @@ public class SidebarController {
         }
     }
 
+
+    //sidebar er button gulo ke label set kore rakhe ebong tar corresponding view path map kore rakhe, jate poroborti te button click korle tar corresponding view load kora jai
     private void applyLabelsAndRoutes() {
         Map<String, NavigationManager.NavItem> routes = NavigationManager.sidebarRoutes();
         for (Map.Entry<String, NavigationManager.NavItem> route : routes.entrySet()) {
@@ -94,6 +98,8 @@ public class SidebarController {
         }
     }
 
+
+    //eti sidebar er sob gula btn theke active namer css style remove kore,and then just clk kora btn active style jukto kore
     private void setActiveButton(Button button) {
         if (button == null) {
             return;

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -18,15 +18,14 @@
         <Insets top="12" right="20" bottom="12" left="20"/>
     </padding>
 
-    <Label styleClass="app-title" text="কৃষক বাতায়ন"/>
+    <Label styleClass="app-title" text="à¦•à§ƒà¦·à¦• à¦¬à¦¾à¦¤à¦¾à§Ÿà¦¨"/>
     <Label styleClass="bd-badge" text="BD"/>
     <Region HBox.hgrow="ALWAYS"/>
 
-    <Button text="সতর্কতা" styleClass="top-icon-btn"/>
-    <Button text="ক্যালেন্ডার" styleClass="top-icon-btn" onAction="#handleCalendarClick"/>
+    <Button text="à¦•à§à¦¯à¦¾à¦²à§‡à¦¨à§à¦¡à¦¾à¦°" styleClass="top-icon-btn" onAction="#handleCalendarClick"/>
     <VBox spacing="2" alignment="CENTER_RIGHT">
         <Label fx:id="lblProfileName" styleClass="profile-chip" text="User"/>
         <Label fx:id="lblProfileMeta" styleClass="profile-meta" text="Not signed in"/>
     </VBox>
-    <Button text="লগআউট" styleClass="logout-top-btn" onAction="#handleLogout"/>
+    <Button text="à¦²à¦—à¦†à¦‰à¦Ÿ" styleClass="logout-top-btn" onAction="#handleLogout"/>
 </HBox>
