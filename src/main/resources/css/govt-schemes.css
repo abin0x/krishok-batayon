@@ -68,24 +68,6 @@
     -fx-text-fill: #0f1825;
 }
 
-.trend-up {
-    -fx-font-size: 12px;
-    -fx-font-weight: 600;
-    -fx-text-fill: #10b981;
-    -fx-background-color: #e6f7f0;
-    -fx-background-radius: 20;
-    -fx-padding: 4 10;
-}
-
-.trend-down {
-    -fx-font-size: 12px;
-    -fx-font-weight: 600;
-    -fx-text-fill: #ef4444;
-    -fx-background-color: #fef2f2;
-    -fx-background-radius: 20;
-    -fx-padding: 4 10;
-}
-
 .trend-neutral {
     -fx-font-size: 12px;
     -fx-font-weight: 600;
@@ -400,66 +382,6 @@
     -fx-font-family: "Noto Serif Bengali";
 }
 
-/* Additional Utility Classes */
-.section-spacing {
-    -fx-padding: 20 0;
-}
-
-.divider-light {
-    -fx-background-color: #edf2f7;
-    -fx-max-height: 1;
-    -fx-min-height: 1;
-    -fx-pref-height: 1;
-}
-
-/* Loading State */
-.loading-indicator {
-    -fx-progress-color: #0b4f2e;
-}
-
-/* Empty State */
-.empty-state-container {
-    -fx-alignment: center;
-    -fx-padding: 60 20;
-}
-
-.empty-state-icon {
-    -fx-font-size: 48px;
-    -fx-text-fill: #cbd5e1;
-}
-
-.empty-state-text {
-    -fx-font-size: 16px;
-    -fx-text-fill: #6b7a90;
-    -fx-font-family: "Noto Serif Bengali";
-}
-
-/* Error State */
-.error-container {
-    -fx-background-color: #fef2f2;
-    -fx-background-radius: 20;
-    -fx-padding: 30;
-    -fx-border-color: #fee2e2;
-    -fx-border-radius: 20;
-    -fx-border-width: 1;
-}
-
-.error-text {
-    -fx-text-fill: #991b1b;
-    -fx-font-size: 14px;
-    -fx-font-family: "Noto Serif Bengali";
-}
-
-/* Animation Classes */
-@keyframes slideIn {
-    0% { -fx-translate-y: 20; -fx-opacity: 0; }
-    100% { -fx-translate-y: 0; -fx-opacity: 1; }
-}
-
-.animate-slide-in {
-    -fx-animation: slideIn 0.3s ease-out;
-}
-
 /* Responsive Adjustments */
 @media (max-width: 800px) {
     .stat-container {
@@ -495,33 +417,6 @@
     .btn-text-only {
         -fx-printable: false;
     }
-}
-
-/* Dark Mode Support (Optional) */
-.dark-mode .main-container {
-    -fx-background-color: #1a1f2e;
-}
-
-.dark-mode .modern-stat-card,
-.dark-mode .premium-card,
-.dark-mode .modern-nav-bar,
-.dark-mode .modern-search-box {
-    -fx-background-color: #252b3b;
-    -fx-border-color: #363f54;
-}
-
-.dark-mode .header-title,
-.dark-mode .stat-value-large,
-.dark-mode .card-title-text,
-.dark-mode .footer-info-value {
-    -fx-text-fill: #ffffff;
-}
-
-.dark-mode .header-subtitle,
-.dark-mode .stat-label-small,
-.dark-mode .card-subtitle-text,
-.dark-mode .footer-info-label {
-    -fx-text-fill: #9aa5b8;
 }
 
 /* Scrollbar Styling */
