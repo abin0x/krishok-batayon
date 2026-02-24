@@ -47,19 +47,15 @@
             <Button fx:id="btnCropRotation" styleClass="ir-pill" text="♻ ফসল চক্র"/>
         </HBox>
 
-        <HBox spacing="18" alignment="TOP_LEFT">
-            <VBox spacing="14" styleClass="ir-card" HBox.hgrow="ALWAYS">
+        <HBox spacing="18" alignment="TOP_LEFT" fillHeight="true">
+            <VBox spacing="14" styleClass="ir-card ir-input-card" HBox.hgrow="ALWAYS">
                 <padding><Insets top="18" right="18" bottom="18" left="18"/></padding>
                 <Label styleClass="ir-section-title" text="ইনপুট"/>
 
                 <HBox spacing="14">
                     <VBox spacing="10" HBox.hgrow="ALWAYS">
                         <Label styleClass="ir-label" text="ফসল তথ্য"/>
-                        <ComboBox fx:id="cropComboBox" promptText="ফসল নির্বাচন করুন" maxWidth="Infinity"/>
-                        <ComboBox fx:id="varietyComboBox" promptText="জাত নির্বাচন করুন" maxWidth="Infinity"/>
-                        <ComboBox fx:id="growthStageComboBox" promptText="বৃদ্ধির পর্যায়" maxWidth="Infinity"/>
-                        <TextField fx:id="cropAgeField" promptText="ফসলের বয়স (দিন)"/>
-                    </VBox>
+                        <ComboBox fx:id="cropComboBox" promptText="ফসল নির্বাচন করুন" maxWidth="Infinity"/>                    </VBox>
 
                     <VBox spacing="10" HBox.hgrow="ALWAYS">
                         <Label styleClass="ir-label" text="জমি ও মাটি"/>
@@ -67,20 +63,14 @@
                             <TextField fx:id="landAreaField" promptText="জমির পরিমাণ" HBox.hgrow="ALWAYS"/>
                             <ComboBox fx:id="unitComboBox" prefWidth="110"/>
                         </HBox>
-                        <ComboBox fx:id="soilTypeComboBox" promptText="মাটির ধরন" maxWidth="Infinity"/>
-                        <ComboBox fx:id="landTypeComboBox" promptText="জমির ধরন" maxWidth="Infinity"/>
-                        <ComboBox fx:id="seasonComboBox" promptText="মৌসুম" maxWidth="Infinity"/>
-                    </VBox>
+                        <ComboBox fx:id="soilTypeComboBox" promptText="মাটির ধরন" maxWidth="Infinity"/>                    </VBox>
                 </HBox>
 
                 <Separator/>
 
                 <HBox spacing="14">
                     <VBox spacing="10" HBox.hgrow="ALWAYS">
-                        <Label styleClass="ir-label" text="সেচ সরঞ্জাম"/>
-                        <ComboBox fx:id="farmingMethodComboBox" promptText="চাষ পদ্ধতি" maxWidth="Infinity"/>
-                        <ComboBox fx:id="waterSourceComboBox" promptText="পানির উৎস" maxWidth="Infinity"/>
-                        <ComboBox fx:id="pumpPowerComboBox" promptText="পাম্প ক্ষমতা" maxWidth="Infinity"/>
+                        <Label styleClass="ir-label" text="সেচ সরঞ্জাম"/>                        <ComboBox fx:id="pumpPowerComboBox" promptText="পাম্প ক্ষমতা" maxWidth="Infinity"/>
                         <ComboBox fx:id="pipeTypeComboBox" promptText="পাইপের ধরন" maxWidth="Infinity"/>
                         <HBox spacing="10">
                             <TextField fx:id="pipeLengthField" promptText="পাইপ দৈর্ঘ্য" HBox.hgrow="ALWAYS"/>
@@ -111,9 +101,7 @@
                         </HBox>
 
                         <HBox spacing="10" alignment="CENTER_LEFT">
-                            <RadioButton fx:id="rainForecastYes" text="আগামী বৃষ্টির পূর্বাভাস" selected="false"/>
-                            <TextField fx:id="lastIrrigationField" promptText="শেষ সেচের দিন (যেমন: 10)" prefWidth="170"/>
-                        </HBox>
+                            <RadioButton fx:id="rainForecastYes" text="আগামী বৃষ্টির পূর্বাভাস" selected="false"/>                        </HBox>
 
                         <Label styleClass="ir-label" text="সেচ পদ্ধতি"/>
                         <HBox spacing="10">
@@ -133,7 +121,7 @@
                 </HBox>
             </VBox>
 
-            <VBox spacing="14" styleClass="ir-card" HBox.hgrow="ALWAYS">
+            <VBox spacing="14" styleClass="ir-card ir-result-card" HBox.hgrow="ALWAYS">
                 <padding><Insets top="18" right="18" bottom="18" left="18"/></padding>
                 <Label styleClass="ir-section-title" text="ফলাফল"/>
 
@@ -166,13 +154,7 @@
                     <Separator/>
                     <Label text="খরচ"/>
                     <HBox spacing="8"><Label text="জ্বালানি:"/><Region HBox.hgrow="ALWAYS"/><Label fx:id="fuelCostLabel" text="৳ 0.00"/></HBox>
-                    <HBox spacing="8"><Label text="শ্রমিক:"/><Region HBox.hgrow="ALWAYS"/><Label fx:id="laborCostLabel" text="৳ 0.00"/></HBox>
-                    <HBox spacing="8"><Label text="রক্ষণাবেক্ষণ:"/><Region HBox.hgrow="ALWAYS"/><Label fx:id="maintenanceCostLabel" text="৳ 0.00"/></HBox>
                     <HBox spacing="8"><Label text="মোট:"/><Region HBox.hgrow="ALWAYS"/><Label fx:id="totalCostLabel" styleClass="ir-total" text="৳ 0.00"/></HBox>
-
-                    <Separator/>
-                    <Label text="সেচ সময়সূচি"/>
-                    <VBox fx:id="scheduleContainer" spacing="8"/>
                 </VBox>
             </VBox>
         </HBox>
@@ -184,3 +166,7 @@
         <Button fx:id="btnMachinery" visible="false" managed="false"/>
     </VBox>
 </ScrollPane>
+
+
+
+
