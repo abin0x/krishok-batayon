@@ -1,9 +1,13 @@
+/* Irrigation calculator: controls, weather options, and result styles */
+
 @import "dashboard.css";
 
+/* Ir Root */
 .ir-root {
     -fx-background-color: linear-gradient(to bottom, #eef6f1 0%, #f8fbf9 100%);
 }
 
+/* Ir Hero */
 .ir-hero {
     -fx-background-color: linear-gradient(to right, #1f6b49 0%, #2f8c61 55%, #4da179 100%);
     -fx-background-radius: 16;
@@ -11,18 +15,21 @@
     -fx-effect: dropshadow(gaussian, rgba(25, 80, 55, 0.26), 20, 0.2, 0, 5);
 }
 
+/* Ir Hero Title */
 .ir-hero-title {
     -fx-font-size: 28px;
     -fx-font-weight: 900;
     -fx-text-fill: white;
 }
 
+/* Ir Hero Sub */
 .ir-hero-sub {
     -fx-font-size: 13px;
     -fx-font-weight: 600;
     -fx-text-fill: rgba(255, 255, 255, 0.9);
 }
 
+/* Ir Badge */
 .ir-badge {
     -fx-background-color: rgba(255, 255, 255, 0.2);
     -fx-text-fill: white;
@@ -32,6 +39,7 @@
     -fx-background-radius: 100;
 }
 
+/* Ir Nav */
 .ir-nav {
     -fx-background-color: #ffffff;
     -fx-padding: 10;
@@ -40,6 +48,7 @@
     -fx-border-radius: 14;
 }
 
+/* Ir Pill */
 .ir-pill {
     -fx-background-color: #f2f7fa;
     -fx-text-fill: #425862;
@@ -54,11 +63,13 @@
     -fx-background-color: #e2f1f8;
 }
 
+/* Ir Pill Active */
 .ir-pill-active {
     -fx-background-color: #2f8c61;
     -fx-text-fill: white;
 }
 
+/* Ir Card */
 .ir-card {
     -fx-background-color: white;
     -fx-background-radius: 16;
@@ -68,12 +79,14 @@
     -fx-effect: dropshadow(gaussian, rgba(20, 39, 49, 0.12), 18, 0.18, 0, 4);
 }
 
+/* Ir Section Title */
 .ir-section-title {
     -fx-font-size: 18px;
     -fx-font-weight: 800;
     -fx-text-fill: #1f3340;
 }
 
+/* Ir Label */
 .ir-label {
     -fx-font-size: 13px;
     -fx-font-weight: 800;
@@ -81,6 +94,8 @@
 }
 
 .combo-box,
+
+/* Text Field */
 .text-field {
     -fx-background-color: #f8fbfd;
     -fx-border-color: #d3e2ea;
@@ -98,12 +113,15 @@
 }
 
 .radio-button,
+
+/* Check Box */
 .check-box {
     -fx-font-size: 12px;
     -fx-font-weight: 700;
     -fx-text-fill: #425965;
 }
 
+/* Ir Calc Btn */
 .ir-calc-btn {
     -fx-background-color: #0f7aa7;
     -fx-text-fill: white;
@@ -118,6 +136,7 @@
     -fx-background-color: #0a5f88;
 }
 
+/* Ir Reset Btn */
 .ir-reset-btn {
     -fx-background-color: #edf3f7;
     -fx-text-fill: #4d606b;
@@ -134,12 +153,14 @@
     -fx-background-color: #e0eaf0;
 }
 
+/* Ir Result Main */
 .ir-result-main {
     -fx-font-size: 20px;
     -fx-font-weight: 900;
     -fx-text-fill: #0f7aa7;
 }
 
+/* Ir Chip */
 .ir-chip {
     -fx-background-color: #e1f2f9;
     -fx-text-fill: #0f7aa7;
@@ -149,6 +170,7 @@
     -fx-background-radius: 999;
 }
 
+/* Ir Total */
 .ir-total {
     -fx-font-size: 18px;
     -fx-font-weight: 900;

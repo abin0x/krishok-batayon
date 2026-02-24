@@ -8,13 +8,15 @@
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.example.demo1.app.controller.SettingsController"
       spacing="12"
-      style="-fx-background-color: #f5f7fa; -fx-padding: 30;">
+      style="-fx-background-color: #f5f7fa;">
 
     <padding>
         <Insets top="30" right="30" bottom="30" left="30"/>
     </padding>
 
+    <!-- Page title dekhabe -->
     <Label text="Settings" style="-fx-font-size: 26px; -fx-font-weight: 700; -fx-text-fill: #111827;"/>
+    <!-- Short help text dekhabe -->
     <Label text="Configure application-level preferences and system defaults here."
            wrapText="true"
            style="-fx-font-size: 14px; -fx-text-fill: #4b5563;"/>

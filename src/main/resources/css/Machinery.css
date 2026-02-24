@@ -1,9 +1,13 @@
+/* Machinery page: listing cards, CRUD form, and status visuals */
+
 @import "dashboard.css";
 
+/* Main Content */
 .main-content {
     -fx-background-color: linear-gradient(to bottom, #f3faf4, #edf6ef);
 }
 
+/* Content Scroll */
 .content-scroll {
     -fx-background: transparent;
     -fx-background-color: transparent;
@@ -13,6 +17,7 @@
     -fx-background-color: #eef6ef;
 }
 
+/* Hero Panel */
 .hero-panel {
     -fx-background-color: linear-gradient(to right, #0f5132, #1f7a44, #2f9e57);
     -fx-background-radius: 16;
@@ -23,23 +28,27 @@
     -fx-effect: dropshadow(gaussian, rgba(8, 40, 28, 0.24), 16, 0.16, 0, 6);
 }
 
+/* Hero Title */
 .hero-title {
     -fx-font-size: 30px;
     -fx-font-weight: 800;
     -fx-text-fill: white;
 }
 
+/* Hero Subtitle */
 .hero-subtitle {
     -fx-font-size: 15px;
     -fx-text-fill: #e7f8ec;
 }
 
+/* Hero Meta */
 .hero-meta {
     -fx-font-size: 13px;
     -fx-font-weight: 700;
     -fx-text-fill: #d2f0dc;
 }
 
+/* Hero Kpi */
 .hero-kpi {
     -fx-background-color: rgba(255, 255, 255, 0.14);
     -fx-background-radius: 10;
@@ -48,17 +57,20 @@
     -fx-alignment: center;
 }
 
+/* Hero Kpi Value */
 .hero-kpi-value {
     -fx-font-size: 18px;
     -fx-font-weight: 800;
     -fx-text-fill: #f0fdf4;
 }
 
+/* Hero Kpi Label */
 .hero-kpi-label {
     -fx-font-size: 12px;
     -fx-text-fill: #d1fae5;
 }
 
+/* Action Bar */
 .action-bar {
     -fx-background-color: white;
     -fx-background-radius: 12;
@@ -68,6 +80,7 @@
     -fx-padding: 12;
 }
 
+/* Btn Add */
 .btn-add {
     -fx-background-color: linear-gradient(to bottom, #1c8b48, #156d39);
     -fx-text-fill: white;
@@ -82,6 +95,7 @@
     -fx-background-color: linear-gradient(to bottom, #17723c, #125930);
 }
 
+/* Machine Card */
 .machine-card {
     -fx-background-color: white;
     -fx-background-radius: 14;
@@ -95,22 +109,20 @@
     -fx-effect: dropshadow(gaussian, rgba(25, 43, 31, 0.08), 12, 0.1, 0, 4);
 }
 
-.machine-card-hidden {
-    -fx-opacity: 0.7;
-    -fx-border-color: #f59e0b;
-}
 
 .machine-card:hover {
     -fx-border-color: #a9cdb5;
     -fx-effect: dropshadow(gaussian, rgba(15, 45, 28, 0.14), 18, 0.14, 0, 6);
 }
 
+/* Card Title */
 .card-title {
     -fx-font-size: 17px;
     -fx-font-weight: 800;
     -fx-text-fill: #173a29;
 }
 
+/* Badge Available */
 .badge-available {
     -fx-background-color: #1f8f4f;
     -fx-text-fill: white;
@@ -120,37 +132,28 @@
     -fx-background-radius: 999;
 }
 
-.badge-unavailable {
-    -fx-background-color: #ef4444;
-    -fx-text-fill: white;
-    -fx-font-size: 11px;
-    -fx-font-weight: 800;
-    -fx-padding: 5 10;
-    -fx-background-radius: 999;
-}
 
+/* Details Box */
 .details-box {
     -fx-background-color: #f7fbf8;
     -fx-background-radius: 10;
     -fx-padding: 10;
 }
 
+/* Detail Text */
 .detail-text {
     -fx-font-size: 13px;
     -fx-text-fill: #425b4b;
 }
 
-.price-text {
-    -fx-font-size: 13px;
-    -fx-font-weight: 800;
-    -fx-text-fill: #1c6d39;
-}
 
+/* Desc Text */
 .desc-text {
     -fx-font-size: 12px;
     -fx-text-fill: #5c6f61;
 }
 
+/* Btn Contact */
 .btn-contact {
     -fx-background-color: linear-gradient(to bottom, #1c8b48, #156d39);
     -fx-text-fill: white;
@@ -165,6 +168,7 @@
     -fx-background-color: linear-gradient(to bottom, #17723c, #125930);
 }
 
+/* Btn Contact Disabled */
 .btn-contact-disabled {
     -fx-background-color: #9ca3af;
     -fx-text-fill: white;
@@ -175,6 +179,7 @@
     -fx-opacity: 0.95;
 }
 
+/* Btn Secondary */
 .btn-secondary {
     -fx-background-color: #f8faf9;
     -fx-text-fill: #29543b;
@@ -192,6 +197,7 @@
     -fx-background-color: #eef6ef;
 }
 
+/* Btn Danger */
 .btn-danger {
     -fx-background-color: #fef2f2;
     -fx-text-fill: #dc2626;
@@ -209,6 +215,7 @@
     -fx-background-color: #fee2e2;
 }
 
+/* Owner Note */
 .owner-note {
     -fx-font-size: 12px;
     -fx-text-fill: #6b7280;
@@ -217,6 +224,8 @@
 
 .btn-contact,
 .btn-secondary,
+
+/* Btn Danger */
 .btn-danger {
     -fx-wrap-text: true;
     -fx-alignment: center;

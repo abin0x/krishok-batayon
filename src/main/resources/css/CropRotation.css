@@ -1,9 +1,13 @@
+/* Crop rotation page: form, result table, and summary styles */
+
 @import "dashboard.css";
 
+/* Rotation Root */
 .rotation-root {
     -fx-background-color: linear-gradient(to bottom, #eef6f1 0%, #f8fbf9 100%);
 }
 
+/* Rotation Hero */
 .rotation-hero {
     -fx-background-color: linear-gradient(to right, #1f6b49 0%, #2f8c61 55%, #4da179 100%);
     -fx-background-radius: 16;
@@ -11,18 +15,21 @@
     -fx-effect: dropshadow(gaussian, rgba(25, 80, 55, 0.26), 20, 0.2, 0, 5);
 }
 
+/* Rotation Hero Title */
 .rotation-hero-title {
     -fx-font-size: 28px;
     -fx-font-weight: 900;
     -fx-text-fill: white;
 }
 
+/* Rotation Hero Subtitle */
 .rotation-hero-subtitle {
     -fx-font-size: 13px;
     -fx-font-weight: 600;
     -fx-text-fill: rgba(255, 255, 255, 0.92);
 }
 
+/* Rotation Badge */
 .rotation-badge {
     -fx-background-color: rgba(255, 255, 255, 0.2);
     -fx-text-fill: white;
@@ -32,6 +39,7 @@
     -fx-background-radius: 100;
 }
 
+/* Pill Nav */
 .pill-nav {
     -fx-background-color: #ffffff;
     -fx-padding: 10;
@@ -40,6 +48,7 @@
     -fx-border-radius: 14;
 }
 
+/* Nav Pill */
 .nav-pill {
     -fx-background-color: #f4f8f5;
     -fx-text-fill: #405047;
@@ -54,11 +63,13 @@
     -fx-background-color: #e6f3eb;
 }
 
+/* Nav Pill Active */
 .nav-pill-active {
     -fx-background-color: #2f8c61;
     -fx-text-fill: white;
 }
 
+/* Surface Card */
 .surface-card {
     -fx-background-color: #ffffff;
     -fx-background-radius: 16;
@@ -68,18 +79,21 @@
     -fx-effect: dropshadow(gaussian, rgba(22, 39, 29, 0.12), 18, 0.18, 0, 4);
 }
 
+/* Surface Title */
 .surface-title {
     -fx-font-size: 18px;
     -fx-font-weight: 800;
     -fx-text-fill: #1e2d25;
 }
 
+/* Field Label */
 .field-label {
     -fx-font-size: 13px;
     -fx-font-weight: 700;
     -fx-text-fill: #2d5f45;
 }
 
+/* Input Field */
 .input-field {
     -fx-font-size: 13px;
     -fx-background-color: #f8fbf9;
@@ -95,11 +109,13 @@
     -fx-background-color: #ffffff;
 }
 
+/* Radio Custom */
 .radio-custom {
     -fx-font-size: 13px;
     -fx-text-fill: #37454a;
 }
 
+/* Generate Btn */
 .generate-btn {
     -fx-background-color: #2f8c61;
     -fx-text-fill: white;
@@ -114,6 +130,7 @@
     -fx-background-color: #256f4d;
 }
 
+/* Reset Btn */
 .reset-btn {
     -fx-background-color: #f3f5f4;
     -fx-text-fill: #405047;
@@ -127,6 +144,7 @@
     -fx-cursor: hand;
 }
 
+/* Status Chip */
 .status-chip {
     -fx-background-color: #e4f5ec;
     -fx-text-fill: #1f6b49;
@@ -136,6 +154,7 @@
     -fx-background-radius: 100;
 }
 
+/* Result Scroll */
 .result-scroll {
     -fx-background-color: transparent;
     -fx-background: transparent;
@@ -145,6 +164,7 @@
     -fx-background-color: transparent;
 }
 
+/* Rotation Card */
 .rotation-card {
     -fx-background-color: #ffffff;
     -fx-border-color: #dce8e1;
@@ -158,12 +178,14 @@
     -fx-border-color: #9ecfb7;
 }
 
+/* Option Title */
 .option-title {
     -fx-font-size: 15px;
     -fx-font-weight: 800;
     -fx-text-fill: #1f2937;
 }
 
+/* Option Badge */
 .option-badge {
     -fx-background-color: #e2f3e9;
     -fx-text-fill: #1f6b49;
@@ -173,6 +195,7 @@
     -fx-background-radius: 100;
 }
 
+/* Cycle Container */
 .cycle-container {
     -fx-background-color: #f6faf7;
     -fx-background-radius: 10;
@@ -182,6 +205,7 @@
     -fx-border-radius: 10;
 }
 
+/* Cycle Step */
 .cycle-step {
     -fx-alignment: center;
     -fx-background-color: white;
@@ -192,23 +216,27 @@
     -fx-border-radius: 8;
 }
 
+/* Step Crop */
 .step-crop {
     -fx-font-size: 12px;
     -fx-font-weight: 800;
     -fx-text-fill: #33404a;
 }
 
+/* Step Season */
 .step-season {
     -fx-font-size: 11px;
     -fx-text-fill: #65757f;
 }
 
+/* Arrow Icon */
 .arrow-icon {
     -fx-text-fill: #90a4ae;
     -fx-font-size: 16px;
     -fx-font-weight: 700;
 }
 
+/* Benefit Box */
 .benefit-box {
     -fx-background-color: #f1f8e9;
     -fx-padding: 10;
@@ -222,6 +250,7 @@
     -fx-text-fill: #33691e;
 }
 
+/* Empty State */
 .empty-state {
     -fx-background-color: #f8fbf9;
     -fx-background-radius: 12;
@@ -230,16 +259,19 @@
     -fx-border-radius: 12;
 }
 
+/* Empty Icon */
 .empty-icon {
     -fx-font-size: 48px;
 }
 
+/* Empty Title */
 .empty-title {
     -fx-font-size: 16px;
     -fx-font-weight: 800;
     -fx-text-fill: #2f3f48;
 }
 
+/* Empty Text */
 .empty-text {
     -fx-font-size: 13px;
     -fx-text-fill: #667680;

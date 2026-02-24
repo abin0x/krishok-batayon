@@ -1,4 +1,8 @@
-﻿/* Main Scroll Pane */
+/* Government schemes page: cards, category pills, and search area */
+
+/* Main Scroll Pane */
+
+/* Main Scroll Pane */
 .main-scroll-pane {
     -fx-background-color: transparent;
     -fx-background: transparent;
@@ -8,12 +12,15 @@
     -fx-background-color: #f5f7fb;
 }
 
+/* Main Container */
 .main-container {
     -fx-background-color: #f5f7fb;
     -fx-font-family: "Noto Serif Bengali", "Segoe UI", sans-serif;
 }
 
 /* Header Section */
+
+/* Header Box */
 .header-box {
     -fx-background-color: linear-gradient(from 0% 0% to 100% 0%, #e2f3e8, #f2faf4);
     -fx-background-radius: 18;
@@ -24,6 +31,7 @@
     -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.06), 10, 0.12, 0, 3);
 }
 
+/* Header Title */
 .header-title {
     -fx-font-size: 28px;
     -fx-font-weight: 800;
@@ -31,6 +39,7 @@
     -fx-font-family: "Noto Serif Bengali";
 }
 
+/* Header Subtitle */
 .header-subtitle {
     -fx-font-size: 14px;
     -fx-text-fill: #5a6a7e;
@@ -38,10 +47,13 @@
 }
 
 /* Stats Container */
+
+/* Stat Container */
 .stat-container {
     -fx-padding: 5 0 10 0;
 }
 
+/* Modern Stat Card */
 .modern-stat-card {
     -fx-background-color: #ffffff;
     -fx-background-radius: 20;
@@ -55,6 +67,7 @@
     -fx-transition: all 0.2s ease-in-out;
 }
 
+/* Stat Label Small */
 .stat-label-small {
     -fx-font-size: 13px;
     -fx-font-weight: 500;
@@ -62,12 +75,14 @@
     -fx-font-family: "Noto Serif Bengali";
 }
 
+/* Stat Value Large */
 .stat-value-large {
     -fx-font-size: 32px;
     -fx-font-weight: 800;
     -fx-text-fill: #0f1825;
 }
 
+/* Trend Neutral */
 .trend-neutral {
     -fx-font-size: 12px;
     -fx-font-weight: 600;
@@ -78,6 +93,8 @@
 }
 
 /* Modern Navigation Bar */
+
+/* Modern Nav Bar */
 .modern-nav-bar {
     -fx-background-color: #ffffff;
     -fx-background-radius: 50;
@@ -89,6 +106,7 @@
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.02), 8, 0, 0, 2);
 }
 
+/* Nav Pill */
 .nav-pill {
     -fx-background-color: transparent;
     -fx-text-fill: #4b5563;
@@ -119,6 +137,8 @@
 }
 
 /* Modern Search Box */
+
+/* Modern Search Box */
 .modern-search-box {
     -fx-background-color: #ffffff;
     -fx-background-radius: 40;
@@ -135,11 +155,13 @@
     -fx-effect: dropshadow(gaussian, rgba(11, 79, 46, 0.1), 8, 0, 0, 4);
 }
 
+/* Search Icon Small */
 .search-icon-small {
     -fx-font-size: 16px;
     -fx-text-fill: #94a3b8;
 }
 
+/* Minimal Search Field */
 .minimal-search-field {
     -fx-background-color: transparent;
     -fx-border-width: 0;
@@ -154,6 +176,8 @@
 }
 
 /* Premium Program Cards */
+
+/* Premium Card */
 .premium-card {
     -fx-background-color: #ffffff;
     -fx-background-radius: 24;
@@ -166,6 +190,8 @@
 }
 
 /* Icon Boxes */
+
+/* Icon Box Insurance */
 .icon-box-insurance {
     -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #dbeafe, #bfdbfe);
     -fx-background-radius: 18;
@@ -179,6 +205,7 @@
     -fx-border-width: 1;
 }
 
+/* Icon Box Loan */
 .icon-box-loan {
     -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #dcfce7, #bbf7d0);
     -fx-background-radius: 18;
@@ -192,6 +219,7 @@
     -fx-border-width: 1;
 }
 
+/* Icon Box Subsidy */
 .icon-box-subsidy {
     -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #fef9c3, #fde047);
     -fx-background-radius: 18;
@@ -205,6 +233,7 @@
     -fx-border-width: 1;
 }
 
+/* Icon Box Grant */
 .icon-box-grant {
     -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #fae8ff, #e9d5ff);
     -fx-background-radius: 18;
@@ -218,11 +247,14 @@
     -fx-border-width: 1;
 }
 
+/* Card Icon Emoji */
 .card-icon-emoji {
     -fx-font-size: 30px;
 }
 
 /* Card Typography */
+
+/* Card Title Text */
 .card-title-text {
     -fx-font-size: 20px;
     -fx-font-weight: 700;
@@ -230,6 +262,7 @@
     -fx-font-family: "Noto Serif Bengali";
 }
 
+/* Card Subtitle Text */
 .card-subtitle-text {
     -fx-font-size: 14px;
     -fx-text-fill: #6b7a90;
@@ -237,10 +270,13 @@
 }
 
 /* Badges */
+
+/* Badge Row */
 .badge-row {
     -fx-padding: 6 0 0 0;
 }
 
+/* Badge Green */
 .badge-green {
     -fx-background-color: #e6f7f0;
     -fx-text-fill: #0b6b4a;
@@ -253,6 +289,7 @@
     -fx-border-width: 1;
 }
 
+/* Badge Blue */
 .badge-blue {
     -fx-background-color: #edf2ff;
     -fx-text-fill: #1d4ed8;
@@ -265,6 +302,7 @@
     -fx-border-width: 1;
 }
 
+/* Badge Orange */
 .badge-orange {
     -fx-background-color: #fff3e0;
     -fx-text-fill: #c2410c;
@@ -277,6 +315,7 @@
     -fx-border-width: 1;
 }
 
+/* Badge Purple */
 .badge-purple {
     -fx-background-color: #f3e8ff;
     -fx-text-fill: #7e22ce;
@@ -290,6 +329,8 @@
 }
 
 /* Card Price */
+
+/* Card Price Value */
 .card-price-value {
     -fx-font-size: 22px;
     -fx-font-weight: 800;
@@ -303,6 +344,8 @@
 }
 
 /* Action Buttons */
+
+/* Btn Action Primary */
 .btn-action-primary {
     -fx-background-color: #0b4f2e;
     -fx-text-fill: #ffffff;
@@ -331,6 +374,7 @@
     -fx-scale-y: 0.98;
 }
 
+/* Btn Text Only */
 .btn-text-only {
     -fx-background-color: transparent;
     -fx-text-fill: #0b4f2e;
@@ -349,6 +393,8 @@
 }
 
 /* Premium Separator */
+
+/* Premium Separator */
 .premium-separator {
     -fx-background-color: #edf2f7;
     -fx-padding: 0;
@@ -364,10 +410,13 @@
 }
 
 /* Card Footer */
+
+/* Card Footer */
 .card-footer {
     -fx-padding: 16 0 4 0;
 }
 
+/* Footer Info Label */
 .footer-info-label {
     -fx-font-size: 12px;
     -fx-font-weight: 500;
@@ -375,6 +424,7 @@
     -fx-font-family: "Noto Serif Bengali";
 }
 
+/* Footer Info Value */
 .footer-info-value {
     -fx-font-size: 14px;
     -fx-font-weight: 600;
@@ -384,18 +434,23 @@
 
 /* Responsive Adjustments */
 @media (max-width: 800px) {
+
+/* Stat Container */
     .stat-container {
         -fx-spacing: 12;
     }
     
+/* Modern Stat Card */
     .modern-stat-card {
         -fx-padding: 14 16;
     }
     
+/* Stat Value Large */
     .stat-value-large {
         -fx-font-size: 24px;
     }
     
+/* Card Title Text */
     .card-title-text {
         -fx-font-size: 18px;
     }
@@ -408,12 +463,16 @@
     }
     
     .modern-stat-card,
+
+/* Premium Card */
     .premium-card {
         -fx-effect: none;
         -fx-border-color: #cccccc;
     }
     
     .btn-action-primary,
+
+/* Btn Text Only */
     .btn-text-only {
         -fx-printable: false;
     }
@@ -461,6 +520,8 @@
 }
 
 /* Tooltip Styling */
+
+/* Tooltip */
 .tooltip {
     -fx-background-color: #1f2937;
     -fx-text-fill: #ffffff;

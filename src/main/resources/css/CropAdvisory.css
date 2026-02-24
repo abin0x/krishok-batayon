@@ -1,5 +1,9 @@
+/* Crop advisory page: guidance cards, filters, and info blocks */
+
 /* Import Dashboard CSS base styles */
 @import "dashboard.css";
+
+/* Page Header */
 
 /* Page Header */
 .page-header {
@@ -12,18 +16,22 @@
 }
 
 
+/* Page Title */
 .page-title {
     -fx-font-size: 32px;
     -fx-font-weight: bold;
     -fx-text-fill: #1f2937;
 }
 
+/* Page Subtitle */
 .page-subtitle {
     -fx-font-size: 15px;
     -fx-text-fill: #6b7280;
 }
 
 /* Filter Buttons */
+
+/* Filter Btn */
 .filter-btn {
     -fx-background-color: white;
     -fx-text-fill: #6b7280;
@@ -42,18 +50,11 @@
     -fx-border-color: #d1d5db;
 }
 
-.filter-btn-active {
-    -fx-background-color: #16a34a;
-    -fx-text-fill: white;
-    -fx-border-color: #16a34a;
-}
 
-.filter-btn-active:hover {
-    -fx-background-color: #15803d;
-    -fx-border-color: #15803d;
-}
 
 /* Crop Cards */
+
+/* Crop Card */
 .crop-card {
     -fx-background-color: white;
     -fx-background-radius: 12;
@@ -71,22 +72,26 @@
     -fx-cursor: hand;
 }
 
+/* Crop Icon */
 .crop-icon {
     -fx-font-size: 32px;
 }
 
+/* Crop Name */
 .crop-name {
     -fx-font-size: 20px;
     -fx-font-weight: bold;
     -fx-text-fill: #1f2937;
 }
 
+/* Crop Info Label */
 .crop-info-label {
     -fx-font-size: 14px;
     -fx-font-weight: bold;
     -fx-text-fill: #374151;
 }
 
+/* Crop Info Value */
 .crop-info-value {
     -fx-font-size: 13px;
     -fx-text-fill: #6b7280;
@@ -94,6 +99,8 @@
 }
 
 /* View Guide Button */
+
+/* View Guide Btn */
 .view-guide-btn {
     -fx-background-color: #16a34a;
     -fx-text-fill: white;
@@ -110,12 +117,16 @@
 }
 
 /* Grid Layout */
+
+/* Grid Pane */
 .grid-pane {
     -fx-hgap: 20;
     -fx-vgap: 20;
 }
 
 /* Responsive adjustments */
+
+/* Main Content */
 .main-content {
     -fx-background-color: #f5f7fa;
     -fx-padding: 30;

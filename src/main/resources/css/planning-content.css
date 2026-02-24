@@ -1,9 +1,13 @@
+/* Planning module: crop planning cards and advisory content styles */
+
 @import "dashboard.css";
 
+/* Planning Root */
 .planning-root {
     -fx-background-color: #f4f7f5;
 }
 
+/* Page Header Modern */
 .page-header-modern {
     -fx-background-color: linear-gradient(to right, #1f6b49 0%, #3e936d 100%);
     -fx-background-radius: 14;
@@ -11,18 +15,21 @@
     -fx-effect: dropshadow(gaussian, rgba(24, 62, 43, 0.22), 16, 0.2, 0, 4);
 }
 
+/* Page Title Modern */
 .page-title-modern {
     -fx-font-size: 30px;
     -fx-font-weight: 800;
     -fx-text-fill: white;
 }
 
+/* Page Subtitle Modern */
 .page-subtitle-modern {
     -fx-font-size: 14px;
     -fx-font-weight: 600;
     -fx-text-fill: rgba(255,255,255,0.9);
 }
 
+/* Header Badge */
 .header-badge {
     -fx-background-color: rgba(255,255,255,0.22);
     -fx-text-fill: white;
@@ -32,6 +39,7 @@
     -fx-background-radius: 100;
 }
 
+/* Pill Nav */
 .pill-nav {
     -fx-background-color: #ffffff;
     -fx-padding: 10;
@@ -40,6 +48,7 @@
     -fx-border-radius: 14;
 }
 
+/* Nav Pill */
 .nav-pill {
     -fx-background-color: #f4f8f5;
     -fx-text-fill: #405047;
@@ -54,11 +63,13 @@
     -fx-background-color: #e6f3eb;
 }
 
+/* Nav Pill Active */
 .nav-pill-active {
     -fx-background-color: #2f8c61;
     -fx-text-fill: white;
 }
 
+/* Filter Btn */
 .filter-btn {
     -fx-background-color: white;
     -fx-text-fill: #3f4a45;
@@ -75,12 +86,8 @@
     -fx-background-color: #f5faf7;
 }
 
-.filter-btn-active {
-    -fx-background-color: #2f8c61;
-    -fx-text-fill: white;
-    -fx-border-color: #2f8c61;
-}
 
+/* Crop Card Modern */
 .crop-card-modern {
     -fx-background-color: white;
     -fx-background-radius: 14;
@@ -95,16 +102,19 @@
     -fx-effect: dropshadow(gaussian, rgba(31, 101, 69, 0.26), 20, 0.24, 0, 7);
 }
 
+/* Crop Photo */
 .crop-photo {
     -fx-background-radius: 10;
 }
 
+/* Crop Name Modern */
 .crop-name-modern {
     -fx-font-size: 18px;
     -fx-font-weight: 800;
     -fx-text-fill: #1f2937;
 }
 
+/* Season Tag */
 .season-tag {
     -fx-background-color: #e2f3e9;
     -fx-text-fill: #1f6b49;
@@ -114,6 +124,7 @@
     -fx-background-radius: 100;
 }
 
+/* Crop Info Box */
 .crop-info-box {
     -fx-background-color: #f6faf7;
     -fx-background-radius: 10;
@@ -123,12 +134,14 @@
     -fx-border-radius: 10;
 }
 
+/* Crop Info Item */
 .crop-info-item {
     -fx-font-size: 12px;
     -fx-font-weight: 600;
     -fx-text-fill: #3f4a45;
 }
 
+/* View Guide Btn Modern */
 .view-guide-btn-modern {
     -fx-background-color: #2f8c61;
     -fx-text-fill: white;
@@ -143,6 +156,7 @@
     -fx-background-color: #256f4d;
 }
 
+/* Show More Btn */
 .show-more-btn {
     -fx-background-color: #ffffff;
     -fx-text-fill: #1f6b49;

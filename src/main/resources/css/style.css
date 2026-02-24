@@ -1,26 +1,33 @@
+/* Auth screens: login and register page visual styles */
+
+/* Auth Root */
 .auth-root {
     -fx-background-color: linear-gradient(to bottom right, #ecfdf3, #e6f4ea, #f6fff8);
     -fx-font-family: "Noto Sans Bengali", "Nirmala UI", "Segoe UI", Arial, sans-serif;
 }
 
+/* Auth Glow */
 .auth-glow {
     -fx-pref-width: 340;
     -fx-pref-height: 340;
     -fx-background-radius: 170;
 }
 
+/* Auth Glow Left */
 .auth-glow-left {
     -fx-background-color: rgba(22, 163, 74, 0.12);
     -fx-translate-x: -420;
     -fx-translate-y: -220;
 }
 
+/* Auth Glow Right */
 .auth-glow-right {
     -fx-background-color: rgba(14, 116, 144, 0.1);
     -fx-translate-x: 430;
     -fx-translate-y: 210;
 }
 
+/* Auth Shell */
 .auth-shell {
     -fx-background-color: white;
     -fx-background-radius: 16;
@@ -29,6 +36,7 @@
     -fx-effect: dropshadow(gaussian, rgba(15, 81, 50, 0.14), 20, 0.2, 0, 8);
 }
 
+/* Auth Brand Pane */
 .auth-brand-pane {
     -fx-background-color: linear-gradient(to bottom right, #0f5132, #1f7a4d, #4ca66a);
     -fx-background-radius: 16 0 0 16;
@@ -36,6 +44,7 @@
     -fx-max-width: Infinity;
 }
 
+/* Brand Logo Wrap */
 .brand-logo-wrap {
     -fx-background-color: rgba(255, 255, 255, 0.2);
     -fx-background-radius: 52;
@@ -46,20 +55,20 @@
     -fx-border-radius: 52;
 }
 
-.brand-logo-image {
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 8, 0, 0, 2);
-}
 
+/* Register Image Wrap */
 .register-image-wrap {
     -fx-max-width: 130;
     -fx-max-height: 130;
     -fx-padding: 8;
 }
 
+/* Register Agri Image */
 .register-agri-image {
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.24), 10, 0, 0, 2);
 }
 
+/* Brand Kicker */
 .brand-kicker {
     -fx-text-fill: #dcfce7;
     -fx-font-size: 11px;
@@ -67,6 +76,7 @@
     -fx-letter-spacing: 1.2px;
 }
 
+/* Brand Title */
 .brand-title {
     -fx-text-fill: #fff7d6;
     -fx-font-size: 30px;
@@ -74,22 +84,26 @@
     -fx-letter-spacing: 0.8px;
 }
 
+/* Brand Subtitle */
 .brand-subtitle {
     -fx-text-fill: #eafff1;
     -fx-font-size: 14px;
     -fx-font-weight: 700;
 }
 
+/* Brand Copy */
 .brand-copy {
     -fx-text-fill: rgba(255, 255, 255, 0.96);
     -fx-font-size: 12px;
     -fx-line-spacing: 1.5px;
 }
 
+/* Brand Chip Group */
 .brand-chip-group {
     -fx-padding: 8 0 0 0;
 }
 
+/* Brand Chip */
 .brand-chip {
     -fx-background-color: rgba(255, 255, 255, 0.18);
     -fx-text-fill: #f3fff7;
@@ -99,12 +113,14 @@
     -fx-font-weight: 600;
 }
 
+/* Brand Foot */
 .brand-foot {
     -fx-text-fill: rgba(220, 252, 231, 0.98);
     -fx-font-size: 12px;
     -fx-font-weight: 800;
 }
 
+/* Auth Form Pane */
 .auth-form-pane {
     -fx-background-color: #ffffff;
     -fx-background-radius: 0 16 16 0;
@@ -112,6 +128,7 @@
     -fx-max-width: Infinity;
 }
 
+/* Auth Form Scroll */
 .auth-form-scroll {
     -fx-background-color: transparent;
     -fx-background: transparent;
@@ -121,24 +138,28 @@
     -fx-background-color: transparent;
 }
 
+/* Auth Heading */
 .auth-heading {
     -fx-font-size: 21px;
     -fx-font-weight: 800;
     -fx-text-fill: #14532d;
 }
 
+/* Auth Subheading */
 .auth-subheading {
     -fx-font-size: 13px;
     -fx-text-fill: #475569;
     -fx-padding: 0 0 6 0;
 }
 
+/* Field Label */
 .field-label {
     -fx-font-size: 13px;
     -fx-font-weight: 700;
     -fx-text-fill: #1e293b;
 }
 
+/* Field Wrap */
 .field-wrap {
     -fx-background-color: #f8fafc;
     -fx-border-color: #dbe6de;
@@ -153,6 +174,7 @@
     -fx-effect: dropshadow(gaussian, rgba(22, 163, 74, 0.12), 10, 0.1, 0, 0);
 }
 
+/* Field Input */
 .field-input {
     -fx-background-color: transparent;
     -fx-border-width: 0;
@@ -161,6 +183,7 @@
     -fx-prompt-text-fill: #94a3b8;
 }
 
+/* Primary Btn */
 .primary-btn {
     -fx-background-color: linear-gradient(to right, #15803d, #16a34a);
     -fx-text-fill: white;
@@ -175,10 +198,12 @@
     -fx-background-color: linear-gradient(to right, #166534, #15803d);
 }
 
+/* Helper Text */
 .helper-text {
     -fx-fill: #64748b;
 }
 
+/* Clean Link */
 .clean-link {
     -fx-text-fill: #15803d;
     -fx-font-size: 13px;
@@ -191,6 +216,7 @@
     -fx-underline: true;
 }
 
+/* Clean Link Btn */
 .clean-link-btn {
     -fx-background-color: transparent;
     -fx-text-fill: #15803d;

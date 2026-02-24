@@ -1,3 +1,6 @@
+/* Warehouse page: inventory dashboard, storage cards, and KPI styles */
+
+/* Content Scroll */
 .content-scroll {
     -fx-background-color: transparent;
     -fx-background: transparent;
@@ -7,10 +10,12 @@
     -fx-background-color: #f3f7f2;
 }
 
+/* Main Content */
 .main-content {
     -fx-background-color: linear-gradient(to bottom, #f5faf4, #eef5ed);
 }
 
+/* Hero Panel */
 .hero-panel {
     -fx-background-color: linear-gradient(to right, #0b3d2d, #14643f, #2e7d32);
     -fx-background-radius: 18;
@@ -18,12 +23,14 @@
     -fx-effect: dropshadow(gaussian, rgba(8, 40, 28, 0.35), 22, 0.2, 0, 8);
 }
 
+/* Hero Title */
 .hero-title {
     -fx-font-size: 32px;
     -fx-font-weight: 800;
     -fx-text-fill: #ffffff;
 }
 
+/* Hero Chip */
 .hero-chip {
     -fx-background-color: #f5cc68;
     -fx-text-fill: #234429;
@@ -33,29 +40,34 @@
     -fx-background-radius: 999;
 }
 
+/* Hero Sub */
 .hero-sub {
     -fx-font-size: 15px;
     -fx-text-fill: #d7f2df;
 }
 
+/* Hero Meta */
 .hero-meta {
     -fx-font-size: 13px;
     -fx-font-weight: 700;
     -fx-text-fill: #ffffff;
 }
 
+/* Hero Mark */
 .hero-mark {
     -fx-font-size: 42px;
     -fx-font-weight: 900;
     -fx-text-fill: #f7e3a9;
 }
 
+/* Hero Service */
 .hero-service {
     -fx-font-size: 14px;
     -fx-font-weight: 700;
     -fx-text-fill: #d5f0dc;
 }
 
+/* Kpi Card */
 .kpi-card {
     -fx-background-color: #ffffff;
     -fx-background-radius: 14;
@@ -67,23 +79,27 @@
     -fx-effect: dropshadow(gaussian, rgba(24, 39, 30, 0.08), 12, 0.1, 0, 3);
 }
 
+/* Kpi Label */
 .kpi-label {
     -fx-font-size: 13px;
     -fx-text-fill: #4d6253;
 }
 
+/* Kpi Value */
 .kpi-value {
     -fx-font-size: 32px;
     -fx-font-weight: 800;
     -fx-text-fill: #193f2b;
 }
 
+/* Kpi Trend */
 .kpi-trend {
     -fx-font-size: 12px;
     -fx-font-weight: 700;
     -fx-text-fill: #2f7a49;
 }
 
+/* Search Wrap */
 .search-wrap {
     -fx-background-color: #ffffff;
     -fx-background-radius: 14;
@@ -92,6 +108,7 @@
     -fx-padding: 14;
 }
 
+/* Search Bar */
 .search-bar {
     -fx-background-color: #f9fcf8;
     -fx-border-color: #d7e7d9;
@@ -100,10 +117,12 @@
     -fx-padding: 10 12;
 }
 
+/* Search Icon */
 .search-icon {
     -fx-font-size: 15px;
 }
 
+/* Search Input */
 .search-input {
     -fx-background-color: transparent;
     -fx-font-size: 14px;
@@ -111,6 +130,7 @@
     -fx-prompt-text-fill: #7a9180;
 }
 
+/* Search Btn */
 .search-btn {
     -fx-background-color: linear-gradient(to bottom, #2c9b50, #1f7c40);
     -fx-text-fill: #ffffff;
@@ -125,25 +145,10 @@
     -fx-background-color: linear-gradient(to bottom, #218745, #166635);
 }
 
-.filter-chip {
-    -fx-background-color: #edf5ef;
-    -fx-text-fill: #2d5840;
-    -fx-font-size: 12px;
-    -fx-font-weight: 700;
-    -fx-padding: 7 12;
-    -fx-background-radius: 20;
-    -fx-cursor: hand;
-}
 
-.filter-chip:hover {
-    -fx-background-color: #d8ebdd;
-}
 
-.active-chip {
-    -fx-background-color: #2a8c48;
-    -fx-text-fill: #ffffff;
-}
 
+/* Result Meta */
 .result-meta {
     -fx-font-size: 12px;
     -fx-font-weight: 700;
@@ -162,6 +167,7 @@
     -fx-text-fill: #244632;
 }
 
+/* Warehouse Card */
 .warehouse-card {
     -fx-background-color: #ffffff;
     -fx-background-radius: 16;
@@ -179,12 +185,14 @@
     -fx-effect: dropshadow(gaussian, rgba(15, 45, 28, 0.16), 22, 0.18, 0, 8);
 }
 
+/* Card Title */
 .card-title {
     -fx-font-size: 17px;
     -fx-font-weight: 800;
     -fx-text-fill: #173a29;
 }
 
+/* Badge Black */
 .badge-black {
     -fx-background-color: #1d8a4a;
     -fx-text-fill: #ffffff;
@@ -194,18 +202,14 @@
     -fx-background-radius: 999;
 }
 
+/* Badge Available */
 .badge-available {
     -fx-background-color: #1d8a4a;
 }
 
-.badge-limited {
-    -fx-background-color: #d97706;
-}
 
-.badge-full {
-    -fx-background-color: #dc2626;
-}
 
+/* Tag Grey */
 .tag-grey {
     -fx-background-color: #eaf4ec;
     -fx-text-fill: #2f6146;
@@ -215,33 +219,34 @@
     -fx-background-radius: 12;
 }
 
+/* Details Box */
 .details-box {
     -fx-background-color: #f7fbf8;
     -fx-background-radius: 10;
     -fx-padding: 10;
 }
 
+/* Detail Icon */
 .detail-icon {
     -fx-font-size: 13px;
     -fx-min-width: 20;
 }
 
+/* Detail Text */
 .detail-text {
     -fx-font-size: 13px;
     -fx-text-fill: #425b4b;
 }
 
-.detail-price {
-    -fx-font-weight: 800;
-    -fx-text-fill: #1c6d39;
-}
 
+/* Section Header */
 .section-header {
     -fx-font-size: 12px;
     -fx-font-weight: 700;
     -fx-text-fill: #2b553e;
 }
 
+/* Capacity Bar */
 .capacity-bar {
     -fx-accent: #2f9b50;
 }
@@ -257,26 +262,9 @@
     -fx-background-insets: 0;
 }
 
-.tag-white {
-    -fx-background-color: #ffffff;
-    -fx-border-color: #d8e5db;
-    -fx-border-radius: 999;
-    -fx-background-radius: 999;
-    -fx-padding: 4 10;
-    -fx-font-size: 11px;
-    -fx-font-weight: 700;
-    -fx-text-fill: #2f5640;
-}
 
-.tag-facility {
-    -fx-background-color: #e0f2e6;
-    -fx-text-fill: #215136;
-    -fx-background-radius: 999;
-    -fx-padding: 4 10;
-    -fx-font-size: 11px;
-    -fx-font-weight: 700;
-}
 
+/* Btn Contact */
 .btn-contact {
     -fx-background-color: linear-gradient(to bottom, #1c8b48, #156d39);
     -fx-text-fill: #ffffff;
@@ -291,12 +279,14 @@
     -fx-background-color: linear-gradient(to bottom, #17723c, #125930);
 }
 
+/* Btn Contact Disabled */
 .btn-contact-disabled {
     -fx-background-color: #9ca3af;
     -fx-cursor: default;
     -fx-opacity: 1;
 }
 
+/* Load More Btn */
 .load-more-btn {
     -fx-background-color: #ffffff;
     -fx-text-fill: #1f6f3b;
@@ -316,6 +306,7 @@
     -fx-border-color: #1f7a42;
 }
 
+/* Trust Strip */
 .trust-strip {
     -fx-background-color: linear-gradient(to right, #e6f5ea, #d7efde);
     -fx-border-color: #bfdcc6;
@@ -324,21 +315,25 @@
     -fx-padding: 14 16;
 }
 
+/* Trust Icon */
 .trust-icon {
     -fx-font-size: 24px;
 }
 
+/* Trust Title */
 .trust-title {
     -fx-font-size: 16px;
     -fx-font-weight: 800;
     -fx-text-fill: #204931;
 }
 
+/* Trust Sub */
 .trust-sub {
     -fx-font-size: 13px;
     -fx-text-fill: #42644f;
 }
 
+/* Tips Section */
 .tips-section {
     -fx-background-color: #ffffff;
     -fx-background-radius: 14;
@@ -347,12 +342,14 @@
     -fx-padding: 16;
 }
 
+/* Tips Title */
 .tips-title {
     -fx-font-size: 19px;
     -fx-font-weight: 800;
     -fx-text-fill: #1f422f;
 }
 
+/* Tip Card */
 .tip-card {
     -fx-background-color: #f6fbf7;
     -fx-border-color: #d8e7db;
@@ -365,16 +362,19 @@
     -fx-border-color: #a8cfb5;
 }
 
+/* Tip Icon */
 .tip-icon {
     -fx-font-size: 22px;
 }
 
+/* Tip Title Text */
 .tip-title-text {
     -fx-font-size: 14px;
     -fx-font-weight: 800;
     -fx-text-fill: #27533a;
 }
 
+/* Tip Description */
 .tip-description {
     -fx-font-size: 12px;
     -fx-text-fill: #4b6a57;

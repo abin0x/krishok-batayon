@@ -1,3 +1,6 @@
+/* Emergency help page: hotline cards and quick contact actions */
+
+/* Es Scroll */
 .es-scroll {
     -fx-background-color: transparent;
     -fx-background: transparent;
@@ -7,10 +10,12 @@
     -fx-background-color: #edf2ea;
 }
 
+/* Es Root */
 .es-root {
     -fx-background-color: #edf2ea;
 }
 
+/* Es Header */
 .es-header {
     -fx-background-color: linear-gradient(from 0% 0% to 100% 0%, #e6f5ea, #f3faf5);
     -fx-background-radius: 16;
@@ -21,6 +26,7 @@
     -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.06), 10, 0.12, 0, 3);
 }
 
+/* Es Title */
 .es-title {
     -fx-font-size: 42px;
     -fx-font-family: "Noto Serif Bengali";
@@ -28,6 +34,7 @@
     -fx-text-fill: #0f2037;
 }
 
+/* Es Sos */
 .es-sos {
     -fx-background-color: linear-gradient(to bottom, #ff4f95, #e8387b);
     -fx-text-fill: white;
@@ -37,12 +44,14 @@
     -fx-background-radius: 8;
 }
 
+/* Es Subtitle */
 .es-subtitle {
     -fx-font-size: 24px;
     -fx-font-family: "Noto Serif Bengali";
     -fx-text-fill: #26384e;
 }
 
+/* Hot Card */
 .hot-card {
     -fx-background-color: #f6f7f7;
     -fx-background-radius: 14;
@@ -52,17 +61,20 @@
     -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.08), 10, 0.12, 0, 3);
 }
 
+/* Hot Head */
 .hot-head {
     -fx-background-color: #f1e6e8;
     -fx-background-radius: 14 14 0 0;
     -fx-padding: 10 14;
 }
 
+/* Hot Icon */
 .hot-icon {
     -fx-text-fill: #ef4444;
     -fx-font-size: 17px;
 }
 
+/* Hot Head Title */
 .hot-head-title {
     -fx-font-size: 16px;
     -fx-font-family: "Noto Serif Bengali";
@@ -70,15 +82,18 @@
     -fx-text-fill: #101827;
 }
 
+/* Hot Body */
 .hot-body {
     -fx-padding: 12 14 14 14;
 }
 
+/* Hot Note */
 .hot-note {
     -fx-font-size: 13px;
     -fx-text-fill: #334155;
 }
 
+/* Num Box */
 .num-box {
     -fx-background-color: #f2f4f5;
     -fx-background-radius: 12;
@@ -87,11 +102,13 @@
     -fx-padding: 10;
 }
 
+/* Num Label */
 .num-label {
     -fx-font-size: 12px;
     -fx-text-fill: #64748b;
 }
 
+/* Num Value */
 .num-value {
     -fx-font-size: 42px;
     -fx-font-family: "Noto Serif Bengali";
@@ -99,6 +116,7 @@
     -fx-text-fill: #0f1f37;
 }
 
+/* Num Tag */
 .num-tag {
     -fx-font-size: 12px;
     -fx-background-color: #f7f7f7;
@@ -108,6 +126,7 @@
     -fx-padding: 2 8;
 }
 
+/* Call Btn */
 .call-btn {
     -fx-text-fill: white;
     -fx-font-size: 13px;
@@ -127,6 +146,7 @@
     -fx-opacity: 0.92;
 }
 
+/* Section Title */
 .section-title {
     -fx-font-size: 34px;
     -fx-font-family: "Noto Serif Bengali";
@@ -134,6 +154,7 @@
     -fx-text-fill: #0f2037;
 }
 
+/* Guide Card */
 .guide-card {
     -fx-background-color: #f7f6f0;
     -fx-background-radius: 12;
@@ -143,6 +164,7 @@
     -fx-padding: 12;
 }
 
+/* Guide Title */
 .guide-title {
     -fx-font-size: 16px;
     -fx-font-family: "Noto Serif Bengali";
@@ -150,16 +172,19 @@
     -fx-text-fill: #101827;
 }
 
+/* Guide Sub */
 .guide-sub {
     -fx-font-size: 13px;
     -fx-text-fill: #475569;
 }
 
+/* Guide Item */
 .guide-item {
     -fx-font-size: 13px;
     -fx-text-fill: #1f3552;
 }
 
+/* Support Wrap */
 .support-wrap {
     -fx-background-color: #e6f4ec;
     -fx-background-radius: 14;
@@ -169,6 +194,7 @@
     -fx-padding: 12;
 }
 
+/* Support Title */
 .support-title {
     -fx-font-size: 18px;
     -fx-font-family: "Noto Serif Bengali";
@@ -176,6 +202,7 @@
     -fx-text-fill: #10281a;
 }
 
+/* Support Card */
 .support-card {
     -fx-background-color: #f7faf7;
     -fx-background-radius: 10;
@@ -185,6 +212,7 @@
     -fx-padding: 10;
 }
 
+/* Support Card Title */
 .support-card-title {
     -fx-font-size: 16px;
     -fx-font-family: "Noto Serif Bengali";
@@ -192,11 +220,13 @@
     -fx-text-fill: #10281a;
 }
 
+/* Support Card Sub */
 .support-card-sub {
     -fx-font-size: 13px;
     -fx-text-fill: #475569;
 }
 
+/* Support Btn */
 .support-btn {
     -fx-background-color: #ffffff;
     -fx-border-color: #d4dbe0;

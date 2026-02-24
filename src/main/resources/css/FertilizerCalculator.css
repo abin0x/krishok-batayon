@@ -1,9 +1,13 @@
+/* Fertilizer calculator: input form, tips, and result panel styles */
+
 @import "dashboard.css";
 
+/* Calc Root */
 .calc-root {
     -fx-background-color: linear-gradient(to bottom, #eef6f1 0%, #f8fbf9 100%);
 }
 
+/* Hero Card */
 .hero-card {
     -fx-background-color: linear-gradient(to right, #1f6b49 0%, #2f8c61 55%, #4da179 100%);
     -fx-background-radius: 16;
@@ -11,18 +15,21 @@
     -fx-effect: dropshadow(gaussian, rgba(25, 80, 55, 0.26), 20, 0.2, 0, 5);
 }
 
+/* Hero Title */
 .hero-title {
     -fx-font-size: 28px;
     -fx-font-weight: 900;
     -fx-text-fill: white;
 }
 
+/* Hero Subtitle */
 .hero-subtitle {
     -fx-font-size: 13px;
     -fx-font-weight: 600;
     -fx-text-fill: rgba(255, 255, 255, 0.92);
 }
 
+/* Hero Badge */
 .hero-badge {
     -fx-background-color: rgba(255, 255, 255, 0.2);
     -fx-text-fill: white;
@@ -32,6 +39,7 @@
     -fx-background-radius: 100;
 }
 
+/* Pill Nav */
 .pill-nav {
     -fx-background-color: #ffffff;
     -fx-padding: 10;
@@ -40,6 +48,7 @@
     -fx-border-radius: 14;
 }
 
+/* Nav Pill */
 .nav-pill {
     -fx-background-color: #f4f8f5;
     -fx-text-fill: #405047;
@@ -54,11 +63,13 @@
     -fx-background-color: #e6f3eb;
 }
 
+/* Nav Pill Active */
 .nav-pill-active {
     -fx-background-color: #2f8c61;
     -fx-text-fill: white;
 }
 
+/* Surface Card */
 .surface-card {
     -fx-background-color: #ffffff;
     -fx-background-radius: 16;
@@ -68,27 +79,33 @@
     -fx-effect: dropshadow(gaussian, rgba(22, 39, 29, 0.12), 18, 0.18, 0, 4);
 }
 
+/* Result Surface */
 .result-surface {
     -fx-background-color: linear-gradient(to bottom, #ffffff 0%, #fbfdfc 100%);
 }
 
+/* Surface Title */
 .surface-title {
     -fx-font-size: 18px;
     -fx-font-weight: 800;
     -fx-text-fill: #1e2d25;
 }
 
+/* Section Label */
 .section-label {
     -fx-font-size: 14px;
     -fx-font-weight: 800;
     -fx-text-fill: #2d5f45;
 }
 
+/* Separator */
 .separator {
     -fx-padding: 2 0 2 0;
 }
 
 .text-field,
+
+/* Combo Box */
 .combo-box {
     -fx-background-color: #f8fbf9;
     -fx-border-color: #d7e5dc;
@@ -109,6 +126,7 @@
     -fx-font-size: 13px;
 }
 
+/* Nutrient Row */
 .nutrient-row {
     -fx-background-color: #f6faf7;
     -fx-background-radius: 10;
@@ -117,6 +135,7 @@
     -fx-border-radius: 10;
 }
 
+/* Nutrient Tag */
 .nutrient-tag {
     -fx-background-color: #d8eee1;
     -fx-text-fill: #1f6b49;
@@ -126,18 +145,21 @@
     -fx-background-radius: 8;
 }
 
+/* Radio Button */
 .radio-button {
     -fx-font-size: 12px;
     -fx-font-weight: 700;
     -fx-text-fill: #495a51;
 }
 
+/* Check Box */
 .check-box {
     -fx-font-size: 12px;
     -fx-font-weight: 700;
     -fx-text-fill: #3f5048;
 }
 
+/* Calculate Btn */
 .calculate-btn {
     -fx-background-color: #208251;
     -fx-text-fill: #ffffff;
@@ -152,6 +174,7 @@
     -fx-background-color: #17653f;
 }
 
+/* Reset Btn */
 .reset-btn {
     -fx-background-color: #eef3f0;
     -fx-text-fill: #4f5f56;
@@ -168,6 +191,7 @@
     -fx-background-color: #e2ebe6;
 }
 
+/* Status Chip */
 .status-chip {
     -fx-background-color: #dff2e7;
     -fx-text-fill: #1f6b49;
@@ -177,6 +201,7 @@
     -fx-background-radius: 100;
 }
 
+/* Summary Grid */
 .summary-grid {
     -fx-background-color: #f6faf7;
     -fx-background-radius: 12;
@@ -185,18 +210,21 @@
     -fx-padding: 12;
 }
 
+/* Summary Key */
 .summary-key {
     -fx-font-size: 12px;
     -fx-font-weight: 700;
     -fx-text-fill: #5c6c63;
 }
 
+/* Summary Value */
 .summary-value {
     -fx-font-size: 13px;
     -fx-font-weight: 800;
     -fx-text-fill: #1e3027;
 }
 
+/* Empty Result State */
 .empty-result-state {
     -fx-background-color: #f7faf8;
     -fx-background-radius: 12;
@@ -205,24 +233,28 @@
     -fx-padding: 20;
 }
 
+/* Empty Title */
 .empty-title {
     -fx-font-size: 15px;
     -fx-font-weight: 800;
     -fx-text-fill: #2b3d34;
 }
 
+/* Empty Text */
 .empty-text {
     -fx-font-size: 12px;
     -fx-font-weight: 600;
     -fx-text-fill: #708179;
 }
 
+/* Result Section Title */
 .result-section-title {
     -fx-font-size: 14px;
     -fx-font-weight: 800;
     -fx-text-fill: #2b3e34;
 }
 
+/* Result Card */
 .result-card {
     -fx-background-color: #f6fbf8;
     -fx-border-color: #dce9e1;
@@ -231,18 +263,21 @@
     -fx-padding: 10 12 10 12;
 }
 
+/* Total Row */
 .total-row {
     -fx-background-color: #ecf6f0;
     -fx-background-radius: 10;
     -fx-padding: 10 12 10 12;
 }
 
+/* Total Label */
 .total-label {
     -fx-font-size: 13px;
     -fx-font-weight: 800;
     -fx-text-fill: #375245;
 }
 
+/* Total Value */
 .total-value {
     -fx-font-size: 18px;
     -fx-font-weight: 900;

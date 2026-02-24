@@ -1,3 +1,6 @@
+/* Dashboard page: topbar, hero section, and shared dashboard widgets */
+
+/* Dashboard Scroll */
 .dashboard-scroll {
     -fx-background-color: #d6dde3;
     -fx-background-insets: 0;
@@ -8,21 +11,25 @@
     -fx-background-color: #d6dde3;
 }
 
+/* Dashboard Root */
 .dashboard-root {
     -fx-font-family: "Noto Serif Bengali", "SolaimanLipi", "Segoe UI", sans-serif;
 }
 
+/* Top Nav */
 .top-nav {
     -fx-background-color: #257a37;
     -fx-padding: 12 20;
 }
 
+/* App Title */
 .app-title {
     -fx-text-fill: #ffffff;
     -fx-font-size: 18px;
     -fx-font-weight: 900;
 }
 
+/* Bd Badge */
 .bd-badge {
     -fx-background-color: rgba(255, 255, 255, 0.18);
     -fx-text-fill: #ffffff;
@@ -32,6 +39,7 @@
     -fx-font-weight: 800;
 }
 
+/* Top Icon Btn */
 .top-icon-btn {
     -fx-background-color: rgba(255, 255, 255, 0.18);
     -fx-text-fill: white;
@@ -45,18 +53,21 @@
     -fx-background-color: rgba(255, 255, 255, 0.26);
 }
 
+/* Profile Chip */
 .profile-chip {
     -fx-text-fill: #ffffff;
     -fx-font-size: 13px;
     -fx-font-weight: 900;
 }
 
+/* Profile Meta */
 .profile-meta {
     -fx-text-fill: rgba(238, 255, 240, 0.92);
     -fx-font-size: 11px;
     -fx-font-weight: 700;
 }
 
+/* Logout Top Btn */
 .logout-top-btn {
     -fx-background-color: #ffffff;
     -fx-text-fill: #1f3d22;
@@ -66,15 +77,18 @@
     -fx-cursor: hand;
 }
 
+/* Hero Row */
 .hero-row {
     -fx-alignment: TOP_LEFT;
 }
 
+/* Hero Image Pane */
 .hero-image-pane {
     -fx-background-radius: 0;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.16), 16, 0.12, 0, 4);
 }
 
+/* Hero Bg Layer */
 .hero-bg-layer {
     -fx-background-image: url("../images/crops/modern/rice.jpeg");
     -fx-background-size: cover;
@@ -82,6 +96,7 @@
     -fx-background-repeat: no-repeat;
 }
 
+/* Hero Caption Box */
 .hero-caption-box {
     -fx-spacing: 10;
     -fx-padding: 30 16 18 22;
@@ -89,6 +104,7 @@
     -fx-max-width: 360;
 }
 
+/* Hero Title */
 .hero-title {
     -fx-text-fill: #ffffff;
     -fx-font-size: 26px;
@@ -96,6 +112,7 @@
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.45), 6, 0.2, 0, 1);
 }
 
+/* Hero Subtitle */
 .hero-subtitle {
     -fx-text-fill: #f4fff7;
     -fx-font-size: 15px;
@@ -103,6 +120,7 @@
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.45), 6, 0.2, 0, 1);
 }
 
+/* Hero Chip Btn */
 .hero-chip-btn {
     -fx-background-color: rgba(255, 255, 255, 0.96);
     -fx-text-fill: #1f6a32;
@@ -115,6 +133,7 @@
     -fx-border-radius: 999;
 }
 
+/* Right Spotlight */
 .right-spotlight {
     -fx-background-color: #f2f3f4;
     -fx-border-color: #cad1d7;
@@ -124,6 +143,7 @@
     -fx-max-height: 430;
 }
 
+/* Weather Strip */
 .weather-strip {
     -fx-background-color: #4f6070;
     -fx-padding: 10 12;
@@ -131,18 +151,21 @@
     -fx-border-width: 0 0 3 0;
 }
 
+/* Weather Title */
 .weather-title {
     -fx-text-fill: #eef3f7;
     -fx-font-size: 14px;
     -fx-font-weight: 800;
 }
 
+/* Weather Value */
 .weather-value {
     -fx-text-fill: #f4f8fb;
     -fx-font-size: 12px;
     -fx-font-weight: 700;
 }
 
+/* Feature Scroll */
 .feature-scroll {
     -fx-background-color: transparent;
     -fx-background-insets: 0;
@@ -152,16 +175,19 @@
     -fx-background-color: #f2f3f4;
 }
 
+/* Spotlight Body */
 .spotlight-body {
     -fx-padding: 12;
 }
 
+/* Spotlight Title */
 .spotlight-title {
     -fx-text-fill: #66a731;
     -fx-font-size: 18px;
     -fx-font-weight: 900;
 }
 
+/* News Item */
 .news-item {
     -fx-background-color: #f5f6f7;
     -fx-background-radius: 10;
@@ -170,28 +196,33 @@
     -fx-border-radius: 10;
 }
 
+/* News Head */
 .news-head {
     -fx-text-fill: #243d59;
     -fx-font-size: 14px;
     -fx-font-weight: 800;
 }
 
+/* News Meta */
 .news-meta {
     -fx-text-fill: #2d7f32;
     -fx-font-size: 12px;
 }
 
+/* News Date */
 .news-date {
     -fx-text-fill: #d47f2f;
     -fx-font-size: 12px;
 }
 
+/* More Link */
 .more-link {
     -fx-text-fill: #203f63;
     -fx-font-size: 16px;
     -fx-font-weight: 900;
 }
 
+/* Qa Card */
 .qa-card {
     -fx-background-color: #f6f7f8;
     -fx-background-radius: 12;
@@ -201,29 +232,34 @@
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.08), 10, 0.1, 0, 2);
 }
 
+/* Qa Title */
 .qa-title {
     -fx-text-fill: #223a58;
     -fx-font-size: 24px;
     -fx-font-weight: 900;
 }
 
+/* Qa User */
 .qa-user {
     -fx-text-fill: #1f3552;
     -fx-font-size: 16px;
     -fx-font-weight: 800;
 }
 
+/* Qa Question */
 .qa-question {
     -fx-text-fill: #33485f;
     -fx-font-size: 13px;
     -fx-font-weight: 600;
 }
 
+/* Qa Meta */
 .qa-meta {
     -fx-text-fill: #5f7082;
     -fx-font-size: 12px;
 }
 
+/* Helpline Card */
 .helpline-card {
     -fx-background-color: #f4f5f7;
     -fx-background-radius: 12;
@@ -233,24 +269,28 @@
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.10), 10, 0.10, 0, 2);
 }
 
+/* Helpline Title */
 .helpline-title {
     -fx-text-fill: #8345ad;
     -fx-font-size: 22px;
     -fx-font-weight: 800;
 }
 
+/* Helpline Subtitle */
 .helpline-subtitle {
     -fx-text-fill: #e38a23;
     -fx-font-size: 16px;
     -fx-font-weight: 700;
 }
 
+/* Helpline Number */
 .helpline-number {
     -fx-text-fill: #7cbc3a;
     -fx-font-size: 54px;
     -fx-font-weight: 900;
 }
 
+/* Social Card */
 .social-card {
     -fx-background-color: #f1f1f1;
     -fx-background-radius: 10;
@@ -259,14 +299,17 @@
     -fx-border-radius: 10;
 }
 
+/* Social Item */
 .social-item {
     -fx-cursor: hand;
 }
 
+/* Social Icon */
 .social-icon {
     -fx-min-width: 28;
 }
 
+/* Social Text */
 .social-text {
     -fx-font-family: "Segoe UI", "Tahoma";
     -fx-font-size: 20px;
@@ -274,10 +317,13 @@
 }
 
 .facebook-icon,
+
+/* Facebook Text */
 .facebook-text {
     -fx-text-fill: #3b5998;
 }
 
+/* Facebook Icon */
 .facebook-icon {
     -fx-font-family: "Arial Black", "Impact";
     -fx-font-size: 32px;
@@ -285,10 +331,13 @@
 }
 
 .twitter-icon,
+
+/* Twitter Text */
 .twitter-text {
     -fx-text-fill: #1DA1F2;
 }
 
+/* Twitter Icon */
 .twitter-icon {
     -fx-font-size: 28px;
 }
