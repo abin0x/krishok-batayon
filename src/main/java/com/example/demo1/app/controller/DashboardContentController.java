@@ -27,13 +27,14 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+// class shuru hoiche dashboard content controller
 public class DashboardContentController {
 
-    private static final Path WORKERS_FILE = Path.of("workers_data.json");
-    private static final DateTimeFormatter WORK_DATE_FORMAT = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-    private static final DateTimeFormatter WORK_PAID_AT_FORMAT = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
-    private static final Locale LOCALE_BN = new Locale("bn", "BD");
-    private static final DateTimeFormatter UPDATED_AT_FORMAT = DateTimeFormatter.ofPattern("dd MMM yyyy, hh:mm:ss a", LOCALE_BN);
+    private static final Path WORKERS_FILE = Path.of("workers_data.json");//ata path of workers data
+    private static final DateTimeFormatter WORK_DATE_FORMAT = DateTimeFormatter.ofPattern("dd/MM/yyyy");//ata date format of work date
+    private static final DateTimeFormatter WORK_PAID_AT_FORMAT = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");//ata date time format of payment time
+    private static final Locale LOCALE_BN = new Locale("bn", "BD");//ata locale for Bangla (Bangladesh)
+    private static final DateTimeFormatter UPDATED_AT_FORMAT = DateTimeFormatter.ofPattern("dd MMM yyyy, hh:mm:ss a", LOCALE_BN);//ata date time format for last update time
     private static final String DEFAULT_FARMER = "Farmer";
     private static final String NO_WORK_TYPE = "No activities found";
     private static final String NO_WORKER_RECORD = "No worker records found";
@@ -43,30 +44,13 @@ public class DashboardContentController {
     private static final String NO_LOCAL_DATASET = "No local dataset found";
     private static final String DATASET_UPDATED_PREFIX = "Latest dataset update: ";
 
-    private final Gson gson = new Gson();
-    private final DecimalFormat numberFormat = new DecimalFormat("#,##0");
-    private final DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
+    private final Gson gson = new Gson();//ata Gson instance for JSON parsing
+    private final DecimalFormat numberFormat = new DecimalFormat("#,##0");//ata DecimalFormat for integer formatting(1000 -> 1,000)
+    private final DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");//ata DecimalFormat for decimal formatting(1234.567 -> 1,234.57)
 
     private Timeline refreshTimer;
 
-    @FXML private Label lblWelcomeUser;
-    @FXML private Label lblNow;
-
-    @FXML private Label lblTotalLandSummary;
-
-    @FXML private Label lblWorkerRecords;
-    @FXML private Label lblPendingPayments;
-    @FXML private Label lblCompletedPayments;
-    @FXML private Label lblMonthlyLaborCost;
-
-    @FXML private Label lblTodayActivities;
-    @FXML private Label lblTodayCompleted;
-    @FXML private Label lblCompletionRate;
-    @FXML private ProgressBar pbCompletion;
-
-    @FXML private Label lblTopWorkType;
-    @FXML private Label lblLatestEntry;
-    @FXML private Label lblDataFreshness;
+    @FXML private Label lblWelcomeUser,lblNow, lblWorkerRecords, lblPendingPayments, lblCompletedPayments, lblMonthlyLaborCost,lblTotalLandSummary,lblTodayActivities, lblTodayCompleted, lblCompletionRate, lblTopWorkType, lblLatestEntry, lblDataFreshness,pbCompletion;
 
     @FXML
     public void initialize() {
