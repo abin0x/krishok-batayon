@@ -22,11 +22,11 @@
     <Label styleClass="bd-badge" text="BD"/>
     <Region HBox.hgrow="ALWAYS"/>
 
-    <Button text="Alerts" styleClass="top-icon-btn"/>
-    <Button text="Calendar" styleClass="top-icon-btn" onAction="#handleCalendarClick"/>
+    <Button text="সতর্কতা" styleClass="top-icon-btn"/>
+    <Button text="ক্যালেন্ডার" styleClass="top-icon-btn" onAction="#handleCalendarClick"/>
     <VBox spacing="2" alignment="CENTER_RIGHT">
         <Label fx:id="lblProfileName" styleClass="profile-chip" text="User"/>
         <Label fx:id="lblProfileMeta" styleClass="profile-meta" text="Not signed in"/>
     </VBox>
-    <Button text="Logout" styleClass="logout-top-btn" onAction="#handleLogout"/>
+    <Button text="লগআউট" styleClass="logout-top-btn" onAction="#handleLogout"/>
 </HBox>

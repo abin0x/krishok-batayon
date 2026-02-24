@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.reflect.TypeToken;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
@@ -14,6 +15,7 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.text.DecimalFormat;
@@ -30,12 +32,15 @@ import java.util.Map;
 // class shuru hoiche dashboard content controller
 public class DashboardContentController {
 
-    private static final Path WORKERS_FILE = Path.of("workers_data.json");//ata path of workers data
-    private static final DateTimeFormatter WORK_DATE_FORMAT = DateTimeFormatter.ofPattern("dd/MM/yyyy");//ata date format of work date
-    private static final DateTimeFormatter WORK_PAID_AT_FORMAT = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");//ata date time format of payment time
-    private static final Locale LOCALE_BN = new Locale("bn", "BD");//ata locale for Bangla (Bangladesh)
-    private static final DateTimeFormatter UPDATED_AT_FORMAT = DateTimeFormatter.ofPattern("dd MMM yyyy, hh:mm:ss a", LOCALE_BN);//ata date time format for last update time
+    private static final Path WORKERS_FILE = Path.of("workers_data.json");
+    private static final DateTimeFormatter WORK_DATE_FORMAT = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    private static final DateTimeFormatter WORK_PAID_AT_FORMAT = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+    private static final Locale LOCALE_BN = new Locale("bn", "BD");
+    private static final DateTimeFormatter UPDATED_AT_FORMAT = DateTimeFormatter.ofPattern("dd MMM yyyy, hh:mm:ss a", LOCALE_BN);
     private static final String DEFAULT_FARMER = "Farmer";
+    private static final String UNKNOWN_PHONE = "Not set";
+    private static final String UNKNOWN_SOIL = "Not set";
+    private static final String UNKNOWN_LOCATION = "Location unavailable";
     private static final String NO_WORK_TYPE = "No activities found";
     private static final String NO_WORKER_RECORD = "No worker records found";
     private static final String NO_RECENT_ACTIVITY = "No recent activities logged";
@@ -50,12 +55,29 @@ public class DashboardContentController {
 
     private Timeline refreshTimer;
 
-    @FXML private Label lblWelcomeUser,lblNow, lblWorkerRecords, lblPendingPayments, lblCompletedPayments, lblMonthlyLaborCost,lblTotalLandSummary,lblTodayActivities, lblTodayCompleted, lblCompletionRate, lblTopWorkType, lblLatestEntry, lblDataFreshness,pbCompletion;
+    @FXML private Label lblWelcomeUser;
+    @FXML private Label lblNow;
+
+    @FXML private Label lblTotalLandSummary;
+
+    @FXML private Label lblWorkerRecords;
+    @FXML private Label lblPendingPayments;
+    @FXML private Label lblCompletedPayments;
+    @FXML private Label lblMonthlyLaborCost;
+
+    @FXML private Label lblTodayActivities;
+    @FXML private Label lblTodayCompleted;
+    @FXML private Label lblCompletionRate;
+    @FXML private ProgressBar pbCompletion;
+
+    @FXML private Label lblTopWorkType;
+    @FXML private Label lblLatestEntry;
+    @FXML private Label lblDataFreshness;
 
     @FXML
     public void initialize() {
-        User sessionUser = SessionManager.getLoggedInUser();
-        String name = (sessionUser != null && hasText(sessionUser.getName())) ? sessionUser.getName() : DEFAULT_FARMER;
+        User activeUser = resolveActiveUser();
+        String name = (activeUser != null && hasText(activeUser.getName())) ? activeUser.getName() : DEFAULT_FARMER;
         lblWelcomeUser.setText("Welcome, " + name);
 
         refreshDashboard();
@@ -66,10 +88,12 @@ public class DashboardContentController {
     }
 
     private void refreshDashboard() {
+        User activeUser = resolveActiveUser();
         WorkerMetrics workerMetrics = loadWorkerMetrics();
-        User sessionUser = SessionManager.getLoggedInUser();
-        double userLandAmount = sessionUser == null ? 0 : parseDouble(sessionUser.getLandAmount());
+
+        double userLandAmount = activeUser == null ? 0 : parseDouble(activeUser.getLandAmount());
         setIfPresent(lblTotalLandSummary, decimalFormat.format(userLandAmount) + " acres");
+        updateProfileCards(activeUser);
 
         lblWorkerRecords.setText(numberFormat.format(workerMetrics.totalRecords));
         lblPendingPayments.setText(numberFormat.format(workerMetrics.pendingCount) + " (Tk " + decimalFormat.format(workerMetrics.pendingAmount) + ")");
@@ -92,6 +116,118 @@ public class DashboardContentController {
 
     private void updateCurrentTime() {
         lblNow.setText(LocalDate.now().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL).withLocale(LOCALE_BN)));
+    }
+
+    private void updateProfileCards(User user) {
+        String name = user != null && hasText(user.getName()) ? user.getName() : DEFAULT_FARMER;
+        String mobile = user != null && hasText(user.getMobile()) ? user.getMobile().trim() : UNKNOWN_PHONE;
+        String soil = user != null && hasText(user.getSoilType()) ? user.getSoilType().trim() : UNKNOWN_SOIL;
+        String location = buildLocation(user);
+
+        setIfPresent(lblProfileName, name);
+        setIfPresent(lblProfilePhone, "Phone: " + mobile);
+        setIfPresent(lblProfileSoil, "Soil: " + soil);
+        setIfPresent(lblProfileLocation, location);
+        setIfPresent(lblProfileLocationDetail, location);
+        setIfPresent(lblProfileSoilDetail, soil);
+        setIfPresent(lblProfileMobileDetail, mobile);
+    }
+
+    private String buildLocation(User user) {
+        if (user == null) {
+            return UNKNOWN_LOCATION;
+        }
+        String division = hasText(user.getDivision()) ? user.getDivision().trim() : "";
+        String district = hasText(user.getDistrict()) ? user.getDistrict().trim() : "";
+        String upazila = hasText(user.getUpazila()) ? user.getUpazila().trim() : "";
+
+        StringBuilder location = new StringBuilder();
+        if (!upazila.isEmpty()) location.append(upazila);
+        if (!district.isEmpty()) {
+            if (location.length() > 0) location.append(", ");
+            location.append(district);
+        }
+        if (!division.isEmpty()) {
+            if (location.length() > 0) location.append(", ");
+            location.append(division);
+        }
+        return location.length() == 0 ? UNKNOWN_LOCATION : location.toString();
+    }
+
+    private User resolveActiveUser() {
+        User sessionUser = SessionManager.getLoggedInUser();
+        User storedUser = findStoredUser(sessionUser);
+
+        if (sessionUser == null) {
+            return storedUser;
+        }
+        if (storedUser == null) {
+            return sessionUser;
+        }
+        return mergeUsers(sessionUser, storedUser);
+    }
+
+    private User findStoredUser(User sessionUser) {
+        List<User> users = loadStoredUsers();
+        if (users.isEmpty()) {
+            return null;
+        }
+
+        if (sessionUser == null) {
+            return users.get(0);
+        }
+
+        return users.stream()
+                .filter(u -> matchesUser(sessionUser, u))
+                .findFirst()
+                .orElse(null);
+    }
+
+    private boolean matchesUser(User a, User b) {
+        return sameText(a.getUsername(), b.getUsername())
+                || sameText(a.getMobile(), b.getMobile())
+                || sameText(a.getEmail(), b.getEmail())
+                || sameText(a.getName(), b.getName());
+    }
+
+    private boolean sameText(String first, String second) {
+        if (!hasText(first) || !hasText(second)) {
+            return false;
+        }
+        return first.trim().equalsIgnoreCase(second.trim());
+    }
+
+    private User mergeUsers(User primary, User fallback) {
+        User merged = new User();
+        merged.setName(pick(primary.getName(), fallback.getName()));
+        merged.setEmail(pick(primary.getEmail(), fallback.getEmail()));
+        merged.setMobile(pick(primary.getMobile(), fallback.getMobile()));
+        merged.setUsername(pick(primary.getUsername(), fallback.getUsername()));
+        merged.setPasswordHash(pick(primary.getPasswordHash(), fallback.getPasswordHash()));
+        merged.setDivision(pick(primary.getDivision(), fallback.getDivision()));
+        merged.setDistrict(pick(primary.getDistrict(), fallback.getDistrict()));
+        merged.setUpazila(pick(primary.getUpazila(), fallback.getUpazila()));
+        merged.setLandAmount(pick(primary.getLandAmount(), fallback.getLandAmount()));
+        merged.setSoilType(pick(primary.getSoilType(), fallback.getSoilType()));
+        merged.setProfileImagePath(pick(primary.getProfileImagePath(), fallback.getProfileImagePath()));
+        return merged;
+    }
+
+    private String pick(String first, String second) {
+        return hasText(first) ? first : second;
+    }
+
+    private List<User> loadStoredUsers() {
+        if (!Files.exists(USER_DATA_FILE)) {
+            return List.of();
+        }
+        try (Reader reader = Files.newBufferedReader(USER_DATA_FILE)) {
+            Type listType = new TypeToken<List<User>>() {}.getType();
+            List<User> users = gson.fromJson(reader, listType);
+            return users == null ? List.of() : users;
+        } catch (Exception ignored) {
+            return List.of();
+        }
     }
 
     private String resolveDataFreshness() {

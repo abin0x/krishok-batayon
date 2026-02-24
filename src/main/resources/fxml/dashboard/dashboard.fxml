@@ -1,112 +1,186 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Priority?>
 <?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" styleClass="dashboard-scroll" stylesheets="@../../css/dashboard.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.app.controller.DashboardContentController">
-    <VBox spacing="20" styleClass="dashboard-root">
+<ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="NEVER" pannable="false" styleClass="dashboard-scroll" stylesheets="@../../css/dashboard.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <VBox spacing="16" styleClass="dashboard-root">
         <padding>
-            <Insets top="24" right="24" bottom="24" left="24" />
+            <Insets top="10" right="16" bottom="10" left="16" />
         </padding>
 
-        <HBox alignment="CENTER_LEFT" styleClass="hero-panel" spacing="14">
-            <VBox spacing="6" HBox.hgrow="ALWAYS">
-                <Label text="কৃষক বাতায়ন" styleClass="hero-title" />
-                <Label fx:id="lblWelcomeUser" styleClass="hero-subtitle" text="স্বাগতম" />
-                <Label fx:id="lblNow" styleClass="hero-time" text="-" />
-            </VBox>
-        </HBox>
-
-        <VBox styleClass="panel-card summary-card" spacing="10">
-            <Label text="সারাংশ" styleClass="panel-title" />
-            <HBox styleClass="summary-grid single-summary-grid land-card-wrap" spacing="12">
-                <VBox styleClass="metric-card land-card" spacing="4">
-                    <Label text="মোট জমির পরিমাণ" styleClass="metric-title" />
-                    <Label fx:id="lblTotalLandSummary" text="0 acres" styleClass="metric-value land-card-value" />
-                    <Label text="শুধু লগইন করা ইউজারের জমি" styleClass="metric-note" wrapText="true" />
-                    <Label text="এলাকা" styleClass="metric-chip" />
+        <HBox spacing="14" styleClass="hero-row">
+            <StackPane HBox.hgrow="ALWAYS" prefHeight="430" minHeight="430" maxHeight="430" minWidth="760" styleClass="hero-image-pane">
+                <Region styleClass="hero-bg-layer" />
+                <VBox spacing="10" prefWidth="360" prefHeight="430" styleClass="hero-caption-box" StackPane.alignment="TOP_LEFT">
+                    <Label text="কৃষক বাতায়ন" styleClass="hero-title" />
+                    <Label text="ডিজিটাল কৃষি সহায়তা প্ল্যাটফর্ম" styleClass="hero-subtitle" />
+                    <Button text="স্মার্ট পরামর্শ • বাজার • পরিকল্পনা • সহায়তা" styleClass="hero-chip-btn" />
                 </VBox>
-            </HBox>
-        </VBox>
+            </StackPane>
 
-        <HBox spacing="14">
-            <VBox styleClass="panel-card" HBox.hgrow="ALWAYS">
-                <Label text="কার্যক্রম ও ব্যয় সারাংশ" styleClass="panel-title" />
-                <GridPane hgap="12" vgap="10">
-                    <columnConstraints>
-                        <ColumnConstraints percentWidth="50" />
-                        <ColumnConstraints percentWidth="50" />
-                    </columnConstraints>
-
-                    <VBox styleClass="mini-stat" GridPane.columnIndex="0" GridPane.rowIndex="0">
-                        <Label text="শ্রমিক রেকর্ড" styleClass="mini-title" />
-                        <Label fx:id="lblWorkerRecords" text="0" styleClass="mini-value" />
-                    </VBox>
-
-                    <VBox styleClass="mini-stat" GridPane.columnIndex="1" GridPane.rowIndex="0">
-                        <Label text="বকেয়া পরিশোধ" styleClass="mini-title" />
-                        <Label fx:id="lblPendingPayments" text="0" styleClass="mini-value" />
-                    </VBox>
-
-                    <VBox styleClass="mini-stat" GridPane.columnIndex="0" GridPane.rowIndex="1">
-                        <Label text="পরিশোধ সম্পন্ন" styleClass="mini-title" />
-                        <Label fx:id="lblCompletedPayments" text="0" styleClass="mini-value" />
-                    </VBox>
-
-                    <VBox styleClass="mini-stat" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                        <Label text="চলতি মাসের শ্রম ব্যয়" styleClass="mini-title" />
-                        <Label fx:id="lblMonthlyLaborCost" text="0" styleClass="mini-value" />
-                    </VBox>
-                </GridPane>
-            </VBox>
-
-            <VBox styleClass="panel-card" HBox.hgrow="ALWAYS">
-                <Label text="আজকের মাঠ পরিস্থিতি" styleClass="panel-title" />
-                <HBox spacing="12">
-                    <VBox styleClass="mini-stat" HBox.hgrow="ALWAYS">
-                        <Label text="আজকের কাজ" styleClass="mini-title" />
-                        <Label fx:id="lblTodayActivities" text="0" styleClass="mini-value" />
-                    </VBox>
-                    <VBox styleClass="mini-stat" HBox.hgrow="ALWAYS">
-                        <Label text="আজ সম্পন্ন" styleClass="mini-title" />
-                        <Label fx:id="lblTodayCompleted" text="0" styleClass="mini-value" />
-                    </VBox>
+            <VBox prefWidth="560" minWidth="540" maxWidth="560" prefHeight="430" minHeight="430" maxHeight="430" styleClass="right-spotlight" spacing="0">
+                <HBox alignment="CENTER_LEFT" spacing="14" styleClass="weather-strip">
+                    <Label text="চলতি আবহাওয়া" styleClass="weather-title" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Label text="27°C সোম" styleClass="weather-value" />
+                    <Label text="27°C সোম" styleClass="weather-value" />
+                    <Label text="27°C সোম" styleClass="weather-value" />
                 </HBox>
-                <VBox spacing="6" styleClass="progress-wrap">
-                    <HBox>
-                        <Label text="সম্পন্নের হার" styleClass="mini-title" />
-                        <Region HBox.hgrow="ALWAYS" />
-                        <Label fx:id="lblCompletionRate" text="0%" styleClass="mini-title" />
-                    </HBox>
-                    <ProgressBar fx:id="pbCompletion" progress="0" maxWidth="Infinity" styleClass="completion-progress" />
-                </VBox>
+
+                <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" styleClass="feature-scroll">
+                    <content>
+                        <VBox spacing="12" styleClass="spotlight-body">
+                            <Label text="আমাদের ফিচার কনটেন্ট" styleClass="spotlight-title" />
+
+                            <HBox spacing="12" styleClass="news-item">
+                                <javafx.scene.image.ImageView fitHeight="84" fitWidth="118" preserveRatio="false" styleClass="news-image">
+                                    <image>
+                                        <javafx.scene.image.Image url="@../../images/crops/modern/tomato.jpeg" />
+                                    </image>
+                                </javafx.scene.image.ImageView>
+                                <VBox spacing="4" HBox.hgrow="ALWAYS">
+                                    <Label text="টেকসই কৃষির নতুন সেচ পরিকল্পনা" styleClass="news-head" wrapText="true" />
+                                    <Label text="জেলা কৃষি সম্প্রসারণ অফিস" styleClass="news-meta" />
+                                    <Label text="২৬-০৫-২০২৬" styleClass="news-date" />
+                                </VBox>
+                            </HBox>
+
+                            <HBox spacing="12" styleClass="news-item">
+                                <javafx.scene.image.ImageView fitHeight="84" fitWidth="118" preserveRatio="false" styleClass="news-image">
+                                    <image>
+                                        <javafx.scene.image.Image url="@../../images/crops/modern/potato.jpeg" />
+                                    </image>
+                                </javafx.scene.image.ImageView>
+                                <VBox spacing="4" HBox.hgrow="ALWAYS">
+                                    <Label text="আলু চাষে ছত্রাক দমন আপডেট" styleClass="news-head" wrapText="true" />
+                                    <Label text="কৃষি তথ্য ও সেবা কেন্দ্র" styleClass="news-meta" />
+                                    <Label text="০৬-০২-২০২৬" styleClass="news-date" />
+                                </VBox>
+                            </HBox>
+
+                            <HBox spacing="12" styleClass="news-item">
+                                <javafx.scene.image.ImageView fitHeight="84" fitWidth="118" preserveRatio="false" styleClass="news-image">
+                                    <image>
+                                        <javafx.scene.image.Image url="@../../images/crops/modern/wheat.jpeg" />
+                                    </image>
+                                </javafx.scene.image.ImageView>
+                                <VBox spacing="4" HBox.hgrow="ALWAYS">
+                                    <Label text="গমে সার ব্যবস্থাপনার নতুন নির্দেশনা" styleClass="news-head" wrapText="true" />
+                                    <Label text="মাঠ পর্যায়ের কৃষি সহায়তা দল" styleClass="news-meta" />
+                                    <Label text="২৯-০১-২০২৬" styleClass="news-date" />
+                                </VBox>
+                            </HBox>
+
+                            <HBox spacing="12" styleClass="news-item">
+                                <javafx.scene.image.ImageView fitHeight="84" fitWidth="118" preserveRatio="false" styleClass="news-image">
+                                    <image>
+                                        <javafx.scene.image.Image url="@../../images/crops/modern/mustard.jpeg" />
+                                    </image>
+                                </javafx.scene.image.ImageView>
+                                <VBox spacing="4" HBox.hgrow="ALWAYS">
+                                    <Label text="সরিষা ক্ষেতে পোকা দমনের জরুরি পরামর্শ" styleClass="news-head" wrapText="true" />
+                                    <Label text="উপজেলা কৃষি সহায়তা সেল" styleClass="news-meta" />
+                                    <Label text="১৭-০২-২০২৬" styleClass="news-date" />
+                                </VBox>
+                            </HBox>
+
+                            <HBox spacing="12" styleClass="news-item">
+                                <javafx.scene.image.ImageView fitHeight="84" fitWidth="118" preserveRatio="false" styleClass="news-image">
+                                    <image>
+                                        <javafx.scene.image.Image url="@../../images/crops/modern/maize.jpeg" />
+                                    </image>
+                                </javafx.scene.image.ImageView>
+                                <VBox spacing="4" HBox.hgrow="ALWAYS">
+                                    <Label text="ভুট্টা চাষে পানি ব্যবস্থাপনা গাইড" styleClass="news-head" wrapText="true" />
+                                    <Label text="মাঠ পর্যায়ের কৃষি সেবা ইউনিট" styleClass="news-meta" />
+                                    <Label text="০৮-০২-২০২৬" styleClass="news-date" />
+                                </VBox>
+                            </HBox>
+
+                            <HBox alignment="CENTER_RIGHT">
+                                <Label text="আরও দেখুন →" styleClass="more-link" />
+                            </HBox>
+                        </VBox>
+                    </content>
+                </ScrollPane>
             </VBox>
         </HBox>
 
-        <HBox spacing="14">
-            <VBox styleClass="panel-card" HBox.hgrow="ALWAYS" spacing="12">
-                <Label text="গুরুত্বপূর্ণ ইনসাইট" styleClass="panel-title" />
-                <VBox styleClass="insight-item" spacing="4">
-                    <Label text="সবচেয়ে বেশি কাজের ধরন" styleClass="insight-title" />
-                    <Label fx:id="lblTopWorkType" text="-" styleClass="insight-value" />
+        <GridPane hgap="16" vgap="16">
+            <columnConstraints>
+                <ColumnConstraints percentWidth="50" hgrow="ALWAYS" />
+                <ColumnConstraints percentWidth="50" hgrow="ALWAYS" />
+            </columnConstraints>
+
+            <VBox GridPane.columnIndex="0" styleClass="qa-card" spacing="12">
+                <Label text="প্রশ্ন ও উত্তর" styleClass="qa-title" />
+                <VBox spacing="8">
+                    <Label text="Md. Abdullah Al Mamun" styleClass="qa-user" />
+                    <Label text="মাজরা পোকা নিয়ন্ত্রণ করা যায় কীভাবে?" styleClass="qa-question" wrapText="true" />
+                    <Label text="২৩-০৩-২০২৬ • ৩ টি উত্তর" styleClass="qa-meta" />
                 </VBox>
-                <VBox styleClass="insight-item" spacing="4">
-                    <Label text="সর্বশেষ কার্যক্রম" styleClass="insight-title" />
-                    <Label fx:id="lblLatestEntry" text="-" wrapText="true" styleClass="insight-value" />
+                <VBox spacing="8">
+                    <Label text="Sultana Rahman" styleClass="qa-user" />
+                    <Label text="টমেটো গাছে পাতার দাগ হলে করণীয় কী?" styleClass="qa-question" wrapText="true" />
+                    <Label text="১৯-০৩-২০২৬ • ৭ টি উত্তর" styleClass="qa-meta" />
                 </VBox>
-                <VBox styleClass="insight-item" spacing="4">
-                    <Label text="ডেটা আপডেট অবস্থা" styleClass="insight-title" />
-                    <Label fx:id="lblDataFreshness" text="-" wrapText="true" styleClass="insight-value" />
+                <VBox spacing="8">
+                    <Label text="Raihan Kabir" styleClass="qa-user" />
+                    <Label text="বোরো ধানে পাতাপোড়া রোগের দ্রুত সমাধান কী?" styleClass="qa-question" wrapText="true" />
+                    <Label text="১১-০২-২০২৬ • ৫ টি উত্তর" styleClass="qa-meta" />
                 </VBox>
             </VBox>
-        </HBox>
+
+            <VBox GridPane.columnIndex="1" spacing="14" alignment="TOP_CENTER">
+                <VBox styleClass="helpline-card" alignment="CENTER" spacing="6" prefWidth="420" maxWidth="420">
+                    <Label text="নিকটস্থ কৃষি অফিস" styleClass="helpline-title" />
+                    <Label text="সহজে নম্বর" styleClass="helpline-subtitle" />
+                    <Label text="☎ 3331" styleClass="helpline-number" />
+                </VBox>
+
+                <VBox spacing="20" prefWidth="420" maxWidth="420" styleClass="social-card" style="-fx-background-color: white; -fx-padding: 30;">
+                    <HBox alignment="CENTER_LEFT" spacing="15" styleClass="social-item">
+                        <Label text="f" styleClass="social-icon facebook-icon" />
+                        <Label text="Follow Us on Facebook" styleClass="social-text facebook-text" />
+                    </HBox>
+                    <HBox alignment="CENTER_LEFT" spacing="15" styleClass="social-item">
+                        <Label text="🐦" styleClass="social-icon twitter-icon" />
+                        <Label text="Follow Us on Twitter" styleClass="social-text twitter-text" />
+                    </HBox>
+                </VBox>
+            </VBox>
+        </GridPane>
+
+        <GridPane hgap="16" vgap="16">
+            <columnConstraints>
+                <ColumnConstraints percentWidth="50" hgrow="ALWAYS" />
+                <ColumnConstraints percentWidth="50" hgrow="ALWAYS" />
+            </columnConstraints>
+
+            <VBox GridPane.columnIndex="0" styleClass="qa-card" spacing="10">
+                <Label text="সাম্প্রতিক আপডেট" styleClass="qa-title" />
+                <Label text="• বাজারদর বিশ্লেষণ মডিউল নতুনভাবে আপডেট হয়েছে।" styleClass="qa-question" wrapText="true" />
+                <Label text="• জরুরি সহায়তা প্যানেল এখন দ্রুত লোড হয়।" styleClass="qa-question" wrapText="true" />
+                <Label text="• স্থানীয় ব্যবস্থাপনা ট্যাবের পারফরম্যান্স উন্নত করা হয়েছে।" styleClass="qa-question" wrapText="true" />
+            </VBox>
+
+            <VBox GridPane.columnIndex="1" styleClass="qa-card" spacing="10">
+                <Label text="পরবর্তী করণীয়" styleClass="qa-title" />
+                <Label text="• প্রোফাইল ডেটা আপডেট করুন" styleClass="qa-question" />
+                <Label text="• ফসল পরিকল্পনা তৈরি করুন" styleClass="qa-question" />
+                <Label text="• দৈনিক কাজ লগ করুন" styleClass="qa-question" />
+                <Label text="• বাজার তথ্য দেখে সিদ্ধান্ত নিন" styleClass="qa-question" />
+            </VBox>
+        </GridPane>
     </VBox>
 </ScrollPane>
