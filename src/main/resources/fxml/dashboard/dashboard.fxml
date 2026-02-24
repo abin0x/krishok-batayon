@@ -12,29 +12,27 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="NEVER" pannable="false" styleClass="dashboard-scroll" stylesheets="@../../css/dashboard.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" pannable="false" styleClass="dashboard-scroll" stylesheets="@../../css/dashboard.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.app.controller.DashboardHeaderController">
     <VBox spacing="16" styleClass="dashboard-root">
         <padding>
             <Insets top="10" right="16" bottom="10" left="16" />
         </padding>
 
         <HBox spacing="14" styleClass="hero-row">
-            <StackPane HBox.hgrow="ALWAYS" prefHeight="430" minHeight="430" maxHeight="430" minWidth="760" styleClass="hero-image-pane">
+            <StackPane HBox.hgrow="ALWAYS" prefHeight="430" minHeight="430" maxHeight="430" minWidth="0" maxWidth="1.7976931348623157E308" styleClass="hero-image-pane">
                 <Region styleClass="hero-bg-layer" />
                 <VBox spacing="10" prefWidth="360" prefHeight="430" styleClass="hero-caption-box" StackPane.alignment="TOP_LEFT">
                     <Label text="কৃষক বাতায়ন" styleClass="hero-title" />
                     <Label text="ডিজিটাল কৃষি সহায়তা প্ল্যাটফর্ম" styleClass="hero-subtitle" />
-                    <Button text="স্মার্ট পরামর্শ • বাজার • পরিকল্পনা • সহায়তা" styleClass="hero-chip-btn" />
+                    <Button text="স্মার্ট পরামর্শ • বাজার • পরিকল্পনা • সহায়তা" styleClass="hero-chip-btn" wrapText="true" maxWidth="340" />
                 </VBox>
             </StackPane>
 
-            <VBox prefWidth="560" minWidth="540" maxWidth="560" prefHeight="430" minHeight="430" maxHeight="430" styleClass="right-spotlight" spacing="0">
+            <VBox HBox.hgrow="ALWAYS" prefWidth="520" minWidth="300" maxWidth="560" prefHeight="430" minHeight="430" maxHeight="430" styleClass="right-spotlight" spacing="0">
                 <HBox alignment="CENTER_LEFT" spacing="14" styleClass="weather-strip">
                     <Label text="চলতি আবহাওয়া" styleClass="weather-title" />
                     <Region HBox.hgrow="ALWAYS" />
-                    <Label text="27°C সোম" styleClass="weather-value" />
-                    <Label text="27°C সোম" styleClass="weather-value" />
-                    <Label text="27°C সোম" styleClass="weather-value" />
+                    <Label fx:id="lblTodayWeekday" text="আজ" styleClass="weather-value" />
                 </HBox>
 
                 <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" styleClass="feature-scroll">
@@ -141,14 +139,14 @@
                 </VBox>
             </VBox>
 
-            <VBox GridPane.columnIndex="1" spacing="14" alignment="TOP_CENTER">
-                <VBox styleClass="helpline-card" alignment="CENTER" spacing="6" prefWidth="420" maxWidth="420">
+            <VBox GridPane.columnIndex="1" spacing="14" alignment="TOP_LEFT">
+                <VBox styleClass="helpline-card" alignment="CENTER" spacing="6" maxWidth="1.7976931348623157E308">
                     <Label text="নিকটস্থ কৃষি অফিস" styleClass="helpline-title" />
                     <Label text="সহজে নম্বর" styleClass="helpline-subtitle" />
                     <Label text="☎ 3331" styleClass="helpline-number" />
                 </VBox>
 
-                <VBox spacing="20" prefWidth="420" maxWidth="420" styleClass="social-card" style="-fx-background-color: white; -fx-padding: 30;">
+                <VBox spacing="20" maxWidth="1.7976931348623157E308" styleClass="social-card" style="-fx-background-color: white; -fx-padding: 30;">
                     <HBox alignment="CENTER_LEFT" spacing="15" styleClass="social-item">
                         <Label text="f" styleClass="social-icon facebook-icon" />
                         <Label text="Follow Us on Facebook" styleClass="social-text facebook-text" />
