@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" pannable="false" styleClass="dashboard-scroll" stylesheets="@../../css/dashboard.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.app.controller.DashboardHeaderController">
+<ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" pannable="false" styleClass="dashboard-scroll" stylesheets="@../../css/dashboard.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.app.controller.DashboardController">
     <VBox spacing="16" styleClass="dashboard-root">
         <padding>
             <Insets top="10" right="16" bottom="10" left="16" />
@@ -30,9 +30,9 @@
 
             <VBox HBox.hgrow="ALWAYS" prefWidth="520" minWidth="300" maxWidth="560" prefHeight="430" minHeight="430" maxHeight="430" styleClass="right-spotlight" spacing="0">
                 <HBox alignment="CENTER_LEFT" spacing="14" styleClass="weather-strip">
-                    <Label text="চলতি আবহাওয়া" styleClass="weather-title" />
+                    <Label fx:id="lblTodayDate" text="24-02-2026" styleClass="weather-title" />
                     <Region HBox.hgrow="ALWAYS" />
-                    <Label fx:id="lblTodayWeekday" text="আজ" styleClass="weather-value" />
+                    <Label fx:id="lblTodayWeekday" text="আজ মঙ্গলবার" styleClass="weather-value" />
                 </HBox>
 
                 <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" styleClass="feature-scroll">
@@ -182,3 +182,5 @@
         </GridPane>
     </VBox>
 </ScrollPane>
+
+
