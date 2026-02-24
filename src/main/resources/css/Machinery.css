@@ -59,42 +59,13 @@
     -fx-text-fill: #d1fae5;
 }
 
-.filter-bar {
+.action-bar {
     -fx-background-color: white;
     -fx-background-radius: 12;
     -fx-border-color: #d7e4d9;
     -fx-border-width: 1;
     -fx-border-radius: 12;
     -fx-padding: 12;
-}
-
-.search-box {
-    -fx-background-color: #f7faf8;
-    -fx-border-color: #d9e5db;
-    -fx-border-width: 1;
-    -fx-border-radius: 10;
-    -fx-background-radius: 10;
-    -fx-padding: 8 10;
-}
-
-.search-icon {
-    -fx-font-size: 15px;
-}
-
-.search-input {
-    -fx-background-color: transparent;
-    -fx-font-size: 14px;
-    -fx-text-fill: #223b2d;
-    -fx-prompt-text-fill: #7a9180;
-}
-
-.combo-box {
-    -fx-background-color: #f8faf9;
-    -fx-border-color: #d9e5db;
-    -fx-border-width: 1;
-    -fx-border-radius: 10;
-    -fx-background-radius: 10;
-    -fx-font-size: 13px;
 }
 
 .btn-add {
@@ -155,24 +126,6 @@
     -fx-font-size: 11px;
     -fx-font-weight: 800;
     -fx-padding: 5 10;
-    -fx-background-radius: 999;
-}
-
-.tag-grey {
-    -fx-background-color: #edf4ef;
-    -fx-text-fill: #2f6146;
-    -fx-font-size: 11px;
-    -fx-font-weight: 700;
-    -fx-padding: 4 10;
-    -fx-background-radius: 999;
-}
-
-.tag-verified {
-    -fx-background-color: #ecfccb;
-    -fx-text-fill: #365314;
-    -fx-font-size: 11px;
-    -fx-font-weight: 700;
-    -fx-padding: 4 10;
     -fx-background-radius: 999;
 }
 

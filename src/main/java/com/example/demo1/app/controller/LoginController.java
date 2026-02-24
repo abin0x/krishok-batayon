@@ -18,7 +18,7 @@ public class LoginController {
 
     @FXML private TextField usernameField;//user theke input nibe username/mobile number
     @FXML private PasswordField passwordField;//user theke input nibe password
-    private final JsonDbService dbService = new JsonDbService();//ata JsonDbService class er object create koreche, jar maddhome user login korte parbe,ata JSOn file a giye user er data check korbe
+    private JsonDbService dbService;//lazy init so checked exception can be handled safely
 
     @FXML//login button click event handler
     protected void onLoginButtonClick(ActionEvent event) {
@@ -34,7 +34,12 @@ public class LoginController {
 
         //jodi username and password thik thake tahole user ke dashboard a niye jabe,na hole error message dekhabe and infromation ene loggedInUser object a rakhbe
         try {
-            User loggedInUser = dbService.loginUser(username, password);
+            JsonDbService service = getDbService();
+            if (service == null) {
+                UiAlerts.error("Error", "Login service is not available.");
+                return;
+            }
+            User loggedInUser = service.loginUser(username, password);
             if (loggedInUser == null) {
                 UiAlerts.error("Login Failed", "Invalid credentials.");
                 return;
@@ -54,5 +59,17 @@ public class LoginController {
     @FXML
     public void onOpenRegisterClick(ActionEvent event) {
         NavigationHelper.switchScene(event, REGISTER_FXML, "Register", APP_CSS);
+    }
+
+    private JsonDbService getDbService() {
+        if (dbService != null) {
+            return dbService;
+        }
+        try {
+            dbService = new JsonDbService();
+            return dbService;
+        } catch (Exception e) {
+            return null;
+        }
     }
 }

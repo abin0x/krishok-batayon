@@ -1,56 +1,43 @@
 package com.example.demo1.app.controller;
-
 import com.example.demo1.app.config.NavigationManager;
-import com.example.demo1.app.controller.MainLayoutController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 
-import java.net.URL;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.ResourceBundle;
 
-public class SidebarController implements Initializable {
+public class SidebarController {
 
-    @FXML private Button btnHome;
-    @FXML private Button btnAdvisory;
-    @FXML private Button btnStorage;
-    @FXML private Button btnLocalManagement;
-    @FXML private Button btnMachinery;
-    @FXML private Button btnSmartDiagnostic;
-    @FXML private Button btnDigitalHat;
-    @FXML private Button btnMarketFinance;
-    @FXML private Button btnGovtSchemes;
-    @FXML private Button btnEmergencyHelp;
-    @FXML private Button btnProfile;
+    @FXML private Button btnHome,btnAdvisory,btnStorage,btnLocalManagement,btnMachinery,btnSmartDiagnostic,btnDigitalHat,btnMarketFinance,btnGovtSchemes,btnEmergencyHelp,btnProfile;
 
-    private final Map<String, Button> buttonById = new LinkedHashMap<>();
-    private final Map<Button, String> viewByButton = new LinkedHashMap<>();
-    private MainLayoutController mainLayoutController;
-    private Button activeButton;
+    private final Map<String, Button> buttonById = new LinkedHashMap<>();//eta ekta dictionary ja button er id er sathe button object map kore rakhe, jate poroborti te id diye button access kora jai
+    private final Map<Button, String> viewByButton = new LinkedHashMap<>();//eta ekta dictionary ja button object er sathe view path map kore rakhe, jate poroborti te button click korle tar corresponding view load kora jai
+    private MainLayoutController mainLayoutController;//eta main layout controller er reference rakhe, jate sidebar theke main layout er view change kora jai
+    private Button activeButton;//eta currently active button er reference rakhe, jate active button ke highlight kora jai
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        registerButtons();
-        applyLabelsAndRoutes();
-        setActiveButton(btnHome);
+    @FXML
+    private void initialize() {
+        registerButtons();//sidebar er button gulo ke register kore rakhe, jate poroborti te button id diye button access kora jai
+        applyLabelsAndRoutes();//sidebar er button gulo ke label set kore rakhe ebong tar corresponding view path map kore rakhe
+        setActiveButton(btnHome);//default active button set kore rakhe, jate application start hole home view dekhay ebong home button active thake
     }
 
     @FXML
     private void handleNavigation(ActionEvent event) {
-        if (mainLayoutController == null) {
+        if (mainLayoutController == null) {//first a check kore je main layout controller set ache kina, jodi na thake tahole navigation handle kora jabe na
             return;
         }
 
-        Button clicked = (Button) event.getSource();
-        if (clicked == activeButton) {
+        if (!(event.getSource() instanceof Button clicked)) {//user jei tai click korche seta ki button kina check kore, jodi na hoy tahole navigation handle kora jabe na
+            return;
+        }
+        if (clicked == activeButton) {//jodi already dashboard page a thake and abr dashboard page a click kore thaole abr page load hobe na
             return;
         }
 
         String viewPath = viewByButton.get(clicked);
-        if (viewPath != null && mainLayoutController.loadView(viewPath)) {
+        if (viewPath != null && mainLayoutController.loadView(viewPath)) {//jodi clicked button er corresponding view path thake ebong successfully view load hoy tahole active button update kora hobe
             setActiveButton(clicked);
         }
     }
@@ -62,7 +49,7 @@ public class SidebarController implements Initializable {
         }
     }
 
-    public void syncActiveView(String activeViewPath) {
+    public void syncActiveView(String activeViewPath) {//atar maddhome ami jodi croopadviosry page a thaki and abr jodi irrgation page a jai tahole sidebar ar active button ta automatically update hoye jabe
         if (activeViewPath == null) {
             return;
         }
@@ -76,17 +63,23 @@ public class SidebarController implements Initializable {
     }
 
     private void registerButtons() {
-        buttonById.put("btnHome", btnHome);
-        buttonById.put("btnAdvisory", btnAdvisory);
-        buttonById.put("btnStorage", btnStorage);
-        buttonById.put("btnLocalManagement", btnLocalManagement);
-        buttonById.put("btnMachinery", btnMachinery);
-        buttonById.put("btnSmartDiagnostic", btnSmartDiagnostic);
-        buttonById.put("btnDigitalHat", btnDigitalHat);
-        buttonById.put("btnMarketFinance", btnMarketFinance);
-        buttonById.put("btnGovtSchemes", btnGovtSchemes);
-        buttonById.put("btnEmergencyHelp", btnEmergencyHelp);
-        buttonById.put("btnProfile", btnProfile);
+        addButton("btnHome", btnHome);
+        addButton("btnAdvisory", btnAdvisory);
+        addButton("btnStorage", btnStorage);
+        addButton("btnLocalManagement", btnLocalManagement);
+        addButton("btnMachinery", btnMachinery);
+        addButton("btnSmartDiagnostic", btnSmartDiagnostic);
+        addButton("btnDigitalHat", btnDigitalHat);
+        addButton("btnMarketFinance", btnMarketFinance);
+        addButton("btnGovtSchemes", btnGovtSchemes);
+        addButton("btnEmergencyHelp", btnEmergencyHelp);
+        addButton("btnProfile", btnProfile);
+    }
+
+    private void addButton(String id, Button button) {
+        if (button != null) {
+            buttonById.put(id, button);
+        }
     }
 
     private void applyLabelsAndRoutes() {

@@ -1,19 +1,5 @@
 [
   {
-    "id": "6f4b4170-eeb8-44dd-ab05-7c09abbb310c",
-    "title": "hello",
-    "category": "ট্রাক্টর",
-    "ownerName": "Mahmudul Hasan Abin",
-    "district": "বগুড়া",
-    "upazila": "দুপচাপিয়া",
-    "hourlyRate": 100.0,
-    "dailyRate": 10000.0,
-    "description": "You are working on an existing JavaFX project that uses FXML.",
-    "phone": "01712345678",
-    "createdByUserId": "+8801780946249",
-    "hidden": false
-  },
-  {
     "id": "e170018c-b382-4fef-82a7-b0f7e7279f04",
     "title": "পাওয়ার টিলার ট্রাক্টর",
     "category": "ট্রাক্টর",
@@ -23,9 +9,7 @@
     "hourlyRate": 400.0,
     "dailyRate": 3500.0,
     "description": "নতুন মডেল পাওয়ার টিলার। জমি চাষের জন্য উপযুক্ত।",
-    "phone": "+8801819684174",
-    "createdByUserId": "seed_owner_1",
-    "hidden": false
+    "phone": "+8801819684174"
   },
   {
     "id": "4923419b-0a4e-4925-a44c-d04c5f3921e7",
@@ -37,9 +21,7 @@
     "hourlyRate": 1500.0,
     "dailyRate": 10000.0,
     "description": "স্বয়ংক্রিয় ধান কাটার যন্ত্র।",
-    "phone": "+8801819684174",
-    "createdByUserId": "seed_owner_2",
-    "hidden": false
+    "phone": "+8801819684174"
   },
   {
     "id": "5d1c3b68-f82e-4d36-8fb4-69d0a689f26b",
@@ -51,8 +33,6 @@
     "hourlyRate": 500.0,
     "dailyRate": 3000.0,
     "description": "কীটনাশক ও সার স্প্রের জন্য।",
-    "phone": "+8801819684174",
-    "createdByUserId": "seed_owner_3",
-    "hidden": false
+    "phone": "+8801819684174"
   }
 ]

@@ -1,152 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
 <?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns="http://javafx.com/javafx/21"
-      xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.example.demo1.app.controller.ProfileController"
-      spacing="16"
-      styleClass="content-page"
-      style="-fx-background-color: linear-gradient(to bottom, #f7fbf7, #edf7ef);">
+<ScrollPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.demo1.app.controller.ProfileController"
+            fitToWidth="true"
+            hbarPolicy="NEVER"
+            vbarPolicy="AS_NEEDED"
+            style="-fx-background: transparent; -fx-background-color: transparent;">
 
-    <padding><Insets top="20" right="22" bottom="22" left="22"/></padding>
+    <VBox spacing="18"
+          styleClass="content-page"
+          style="-fx-background-color: linear-gradient(to bottom, #f3fbf4, #e6f2eb);">
+        <padding><Insets top="22" right="24" bottom="24" left="24"/></padding>
 
-    <VBox spacing="8"
-          style="-fx-background-color: linear-gradient(to right, #14532d, #166534); -fx-background-radius: 16; -fx-padding: 18; -fx-effect: dropshadow(three-pass-box, rgba(20,83,45,0.25), 18, 0, 0, 5);">
-        <HBox alignment="CENTER_LEFT" spacing="10">
-            <Label text="প্রোফাইল ড্যাশবোর্ড" style="-fx-text-fill: white; -fx-font-size: 24; -fx-font-weight: 800;"/>
-        </HBox>
-        <Label text="ব্যক্তিগত তথ্য, লোকেশন ও কৃষি প্রোফাইল আপডেট করুন"
-               style="-fx-text-fill: #dcfce7; -fx-font-size: 13; -fx-font-weight: 600;"/>
-    </VBox>
+        <StackPane style="-fx-background-color: linear-gradient(to right, #0d5f3a, #1d7e4f, #3aa468); -fx-background-radius: 20; -fx-padding: 20 22; -fx-effect: dropshadow(three-pass-box, rgba(9,47,30,0.28), 24, 0, 0, 6);">
+            <HBox spacing="18" alignment="CENTER_LEFT">
+                <VBox spacing="6" HBox.hgrow="ALWAYS">
+                    <Label text="Personal Profile"
+                           style="-fx-text-fill: white; -fx-font-size: 27; -fx-font-weight: 800;"/>
+                    <Label text="Keep your account details current for smoother support and communication"
+                           style="-fx-text-fill: #d6f5e3; -fx-font-size: 13; -fx-font-weight: 600; -fx-wrap-text: true;"/>
+                </VBox>
 
-    <HBox spacing="16" alignment="TOP_LEFT">
-        <VBox prefWidth="290" minWidth="270" spacing="12"
-              style="-fx-background-color: white; -fx-background-radius: 14; -fx-padding: 16; -fx-border-color: #d8e5db; -fx-border-width: 1; -fx-border-radius: 14; -fx-effect: dropshadow(three-pass-box, rgba(15,23,42,0.06), 10, 0, 0, 2);">
-            <VBox alignment="CENTER" spacing="8">
-                <ImageView fx:id="profileImageView" fitWidth="110" fitHeight="110" preserveRatio="true"
-                           style="-fx-border-color: #9bc9a8; -fx-border-width: 2; -fx-border-radius: 999; -fx-background-radius: 999; -fx-background-color: #ecfdf3;"/>
-                <Button text="ছবি আপলোড" onAction="#handleUploadPicture"
-                        style="-fx-background-color: #166534; -fx-text-fill: white; -fx-font-weight: 700; -fx-background-radius: 9; -fx-cursor: hand;"/>
-            </VBox>
-
-            <VBox spacing="4" alignment="CENTER_LEFT">
-                <Label fx:id="lblUsernameInitial" text="User Name" style="-fx-font-size: 21; -fx-font-weight: 800; -fx-text-fill: #14532d;"/>
-                <Label text="কৃষক প্রোফাইল" style="-fx-text-fill: #64748b; -fx-font-size: 12.5;"/>
-            </VBox>
-
-            <Separator/>
-
-            <VBox spacing="6">
-                <HBox alignment="CENTER_LEFT" spacing="8">
-                    <Label text="প্রোফাইল সম্পন্ন" style="-fx-font-size: 13; -fx-font-weight: 700; -fx-text-fill: #14532d;"/>
-                    <Region HBox.hgrow="ALWAYS"/>
-                    <Label fx:id="lblCompletionPct" text="0%" style="-fx-font-size: 13; -fx-font-weight: 800; -fx-text-fill: #166534;"/>
+                <HBox spacing="10">
+                    <VBox style="-fx-background-color: rgba(255,255,255,0.16); -fx-background-radius: 12; -fx-padding: 8 12;">
+                        <Label text="PROFILE" style="-fx-text-fill: #e7fff2; -fx-font-size: 11; -fx-font-weight: 800;"/>
+                        <Label text="LIVE" style="-fx-text-fill: white; -fx-font-size: 16; -fx-font-weight: 900;"/>
+                    </VBox>
+                    <VBox style="-fx-background-color: rgba(255,255,255,0.16); -fx-background-radius: 12; -fx-padding: 8 12;">
+                        <Label text="STATUS" style="-fx-text-fill: #e7fff2; -fx-font-size: 11; -fx-font-weight: 800;"/>
+                        <Label text="ACTIVE" style="-fx-text-fill: white; -fx-font-size: 16; -fx-font-weight: 900;"/>
+                    </VBox>
                 </HBox>
-                <ProgressBar fx:id="profileCompletionBar" progress="0" maxWidth="Infinity" style="-fx-accent: #16a34a;"/>
-                <Label fx:id="lblLastSaved" text="শেষ আপডেট: --" style="-fx-text-fill: #64748b; -fx-font-size: 11.5;"/>
+            </HBox>
+        </StackPane>
+
+        <HBox spacing="16" alignment="TOP_LEFT" VBox.vgrow="ALWAYS">
+            <VBox prefWidth="300" minWidth="280" spacing="12"
+                  style="-fx-background-color: white; -fx-background-radius: 18; -fx-padding: 18; -fx-border-color: #d3e3d8; -fx-border-width: 1; -fx-border-radius: 18; -fx-effect: dropshadow(three-pass-box, rgba(15,23,42,0.08), 12, 0, 0, 3);">
+
+                <VBox alignment="CENTER" spacing="10">
+                    <StackPane style="-fx-background-color: linear-gradient(to bottom, #f0fff4, #e4f8eb); -fx-background-radius: 999; -fx-padding: 6; -fx-border-color: #98cfae; -fx-border-width: 2; -fx-border-radius: 999;">
+                        <ImageView fx:id="profileImageView" fitWidth="108" fitHeight="108" preserveRatio="true"/>
+                    </StackPane>
+
+                    <Button text="Upload New Image" onAction="#handleUploadPicture"
+                            style="-fx-background-color: linear-gradient(to right, #176239, #228a4f); -fx-text-fill: white; -fx-font-weight: 800; -fx-background-radius: 10; -fx-padding: 8 14; -fx-cursor: hand;"/>
+                </VBox>
+
+                <Separator/>
+
+                <VBox spacing="4">
+                    <Label fx:id="lblUsernameInitial" text="User"
+                           style="-fx-font-size: 22; -fx-font-weight: 800; -fx-text-fill: #14532d;"/>
+                    <Label fx:id="lblLastSaved" text="Last updated: --"
+                           style="-fx-text-fill: #64748b; -fx-font-size: 11.5;"/>
+                </VBox>
+
+                <VBox spacing="6"
+                      style="-fx-background-color: #f4fbf6; -fx-background-radius: 12; -fx-padding: 10 12; -fx-border-color: #d8e7db; -fx-border-radius: 12;">
+                    <Label text="Quick Note" style="-fx-font-size: 12; -fx-font-weight: 800; -fx-text-fill: #166534;"/>
+                    <Label text="Use correct phone and district so support team can reach you quickly."
+                           style="-fx-text-fill: #486055; -fx-font-size: 11.5; -fx-wrap-text: true;"/>
+                </VBox>
             </VBox>
 
-            <Separator/>
+            <VBox spacing="14" HBox.hgrow="ALWAYS"
+                  style="-fx-background-color: white; -fx-background-radius: 18; -fx-padding: 18; -fx-border-color: #d3e3d8; -fx-border-width: 1; -fx-border-radius: 18; -fx-effect: dropshadow(three-pass-box, rgba(15,23,42,0.08), 12, 0, 0, 3);">
 
-            <VBox spacing="6">
-                <Label text="Quick Actions" style="-fx-font-size: 14; -fx-font-weight: 800; -fx-text-fill: #14532d;"/>
-                <Button text="তথ্য সংরক্ষণ" onAction="#handleSaveProfile" maxWidth="Infinity"
-                        style="-fx-background-color: linear-gradient(to right, #166534, #22c55e); -fx-text-fill: white; -fx-font-weight: 800; -fx-background-radius: 10; -fx-cursor: hand;"/>
-                <Button text="লগআউট" onAction="#handleLogout" maxWidth="Infinity"
-                        style="-fx-background-color: #fef2f2; -fx-text-fill: #b91c1c; -fx-font-weight: 700; -fx-background-radius: 10; -fx-cursor: hand;"/>
-            </VBox>
-        </VBox>
+                <Label text="Account Information"
+                       style="-fx-font-size: 18; -fx-font-weight: 800; -fx-text-fill: #14532d;"/>
 
-        <VBox spacing="12" HBox.hgrow="ALWAYS">
-            <VBox spacing="12"
-                  style="-fx-background-color: white; -fx-background-radius: 14; -fx-padding: 16; -fx-border-color: #d8e5db; -fx-border-width: 1; -fx-border-radius: 14; -fx-effect: dropshadow(three-pass-box, rgba(15,23,42,0.06), 10, 0, 0, 2);">
-                <Label text="ব্যক্তিগত তথ্য" style="-fx-font-size: 16; -fx-font-weight: 800; -fx-text-fill: #14532d;"/>
-                <GridPane hgap="18" vgap="12">
-                    <columnConstraints>
-                        <ColumnConstraints percentWidth="50"/>
-                        <ColumnConstraints percentWidth="50"/>
-                    </columnConstraints>
-
-                    <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="0">
-                        <Label text="কৃষকের নাম" style="-fx-font-weight: 700;"/>
-                        <TextField fx:id="txtName" promptText="আপনার নাম লিখুন" style="-fx-background-radius: 10; -fx-border-radius: 10;"/>
+                <VBox spacing="10">
+                    <VBox spacing="5">
+                        <Label text="Name" style="-fx-font-weight: 700; -fx-text-fill: #1f2937;"/>
+                        <TextField fx:id="txtName" promptText="Enter your full name"
+                                   style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-padding: 9 10; -fx-border-color: #d6e4da;"/>
                     </VBox>
 
-                    <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="0">
-                        <Label text="ফোন নম্বর" style="-fx-font-weight: 700;"/>
-                        <TextField fx:id="txtPhone" promptText="+880..." style="-fx-background-radius: 10; -fx-border-radius: 10;"/>
-                    </VBox>
-                </GridPane>
-            </VBox>
-
-            <VBox spacing="12"
-                  style="-fx-background-color: white; -fx-background-radius: 14; -fx-padding: 16; -fx-border-color: #d8e5db; -fx-border-width: 1; -fx-border-radius: 14; -fx-effect: dropshadow(three-pass-box, rgba(15,23,42,0.06), 10, 0, 0, 2);">
-                <Label text="লোকেশন তথ্য" style="-fx-font-size: 16; -fx-font-weight: 800; -fx-text-fill: #14532d;"/>
-
-                <GridPane hgap="18" vgap="12">
-                    <columnConstraints>
-                        <ColumnConstraints percentWidth="50"/>
-                        <ColumnConstraints percentWidth="50"/>
-                    </columnConstraints>
-
-                    <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="0">
-                        <Label text="বিভাগ" style="-fx-font-weight: 700;"/>
-                        <ComboBox fx:id="cmbDivision" promptText="বিভাগ নির্বাচন করুন" maxWidth="Infinity" style="-fx-background-radius: 10;"/>
+                    <VBox spacing="5">
+                        <Label text="Phone" style="-fx-font-weight: 700; -fx-text-fill: #1f2937;"/>
+                        <TextField fx:id="txtPhone" promptText="+880..."
+                                   style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-padding: 9 10; -fx-border-color: #d6e4da;"/>
                     </VBox>
 
-                    <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="0">
-                        <Label text="জেলা" style="-fx-font-weight: 700;"/>
-                        <ComboBox fx:id="cmbDistrict" promptText="জেলা নির্বাচন করুন" maxWidth="Infinity" style="-fx-background-radius: 10;"/>
+                    <VBox spacing="5">
+                        <Label text="District" style="-fx-font-weight: 700; -fx-text-fill: #1f2937;"/>
+                        <TextField fx:id="txtDistrict" promptText="Enter your district"
+                                   style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-padding: 9 10; -fx-border-color: #d6e4da;"/>
                     </VBox>
+                </VBox>
 
-                    <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="1">
-                        <Label text="উপজেলা" style="-fx-font-weight: 700;"/>
-                        <ComboBox fx:id="cmbUpazila" promptText="উপজেলা নির্বাচন করুন" maxWidth="Infinity" style="-fx-background-radius: 10;"/>
-                    </VBox>
-                </GridPane>
-            </VBox>
+                <Separator/>
 
-            <VBox spacing="12"
-                  style="-fx-background-color: white; -fx-background-radius: 14; -fx-padding: 16; -fx-border-color: #d8e5db; -fx-border-width: 1; -fx-border-radius: 14; -fx-effect: dropshadow(three-pass-box, rgba(15,23,42,0.06), 10, 0, 0, 2);">
-                <Label text="খামার তথ্য" style="-fx-font-size: 16; -fx-font-weight: 800; -fx-text-fill: #14532d;"/>
-
-                <GridPane hgap="18" vgap="12">
-                    <columnConstraints>
-                        <ColumnConstraints percentWidth="50"/>
-                        <ColumnConstraints percentWidth="50"/>
-                    </columnConstraints>
-
-                    <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="0">
-                        <Label text="জমির পরিমাণ (একর)" style="-fx-font-weight: 700;"/>
-                        <TextField fx:id="txtLandAmount" promptText="যেমন: ২.৫" style="-fx-background-radius: 10; -fx-border-radius: 10;"/>
-                    </VBox>
-
-                    <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="0">
-                        <Label text="মাটির ধরন" style="-fx-font-weight: 700;"/>
-                        <ComboBox fx:id="cmbSoilType" promptText="দোআঁশ" maxWidth="Infinity" style="-fx-background-radius: 10;"/>
-                    </VBox>
-                </GridPane>
-
-                <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 4 0 0 0;">
-                    <Button text="তথ্য সংরক্ষণ করুন" onAction="#handleSaveProfile"
-                            style="-fx-background-color: linear-gradient(to right, #166534, #22c55e); -fx-text-fill: white; -fx-font-weight: 800; -fx-background-radius: 10; -fx-padding: 10 16; -fx-cursor: hand;"/>
-                    <Button text="লগআউট" onAction="#handleLogout"
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Button text="Save Changes" onAction="#handleSaveProfile"
+                            style="-fx-background-color: linear-gradient(to right, #166534, #22c55e); -fx-text-fill: white; -fx-font-weight: 800; -fx-background-radius: 10; -fx-padding: 10 18; -fx-cursor: hand;"/>
+                    <Button text="Logout" onAction="#handleLogout"
                             style="-fx-background-color: #fef2f2; -fx-text-fill: #b91c1c; -fx-font-weight: 700; -fx-background-radius: 10; -fx-padding: 10 14; -fx-cursor: hand;"/>
                     <Region HBox.hgrow="ALWAYS"/>
                 </HBox>
             </VBox>
-        </VBox>
-    </HBox>
-</VBox>
+        </HBox>
+    </VBox>
+</ScrollPane>

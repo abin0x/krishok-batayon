@@ -1,7 +1,4 @@
 package com.example.demo1.app.controller;
-
-import com.example.demo1.app.controller.SidebarController;
-import com.example.demo1.app.controller.TopbarController;
 import com.example.demo1.app.util.NavigationHelper;
 import com.example.demo1.app.util.SceneLoader;
 import com.example.demo1.app.util.SessionManager;
@@ -9,48 +6,44 @@ import com.example.demo1.app.util.UiAlerts;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-
 import java.net.URL;
-import java.util.ResourceBundle;
 
-public class MainLayoutController implements Initializable {
+public class MainLayoutController {
 
     private static final String DEFAULT_VIEW = "/fxml/dashboard/dashboard.fxml";
-
     @FXML
     private VBox sidebarContainer;
-
     @FXML
     private StackPane contentArea;
-
     @FXML
     private TopbarController topbarIncludeController;
-
     private SidebarController sidebarController;
-    private String activeViewPath;
-    private boolean loadingView;
-    private static MainLayoutController instance;
+    private String activeViewPath;//now majkhane kun page load hoche seta track korbe
+    private boolean loadingView;// ek sathe jeno 2 bar kuno page load na hoy seta ensure korbe
+    private static MainLayoutController instance;//pura class a akta matro copy dhore rakhbe,jate onno jayga theke access kora jai
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        instance = this;
+    @FXML
+    private void initialize() {
+        instance = this;//nije re save kore rakhe
         if (topbarIncludeController != null) {
-            topbarIncludeController.setMainLayoutController(this);
+            topbarIncludeController.setMainLayoutController(this);//topbar controller ke main layout controller er reference diye deya hocche, jate topbar theke main layout er method gulo call kora jai
         }
         loadSidebarComponent();
         loadView(DEFAULT_VIEW);
     }
 
+
+    //MainLayoutController er ekta global access point create kora hocche, jate onno controller theke main layout controller er method gulo call kora jai
     public static MainLayoutController getInstance() {
         return instance;
     }
 
+    //Logout method, jeta session clear kore login page e navigate kore
     public void handleLogout() {
         SessionManager.clearSession();
         try {
@@ -60,6 +53,8 @@ public class MainLayoutController implements Initializable {
         }
     }
 
+
+    //View loading method, jeta given FXML path theke view load kore content area te set kore, active view path update kore, and sidebar ke sync kore. Thread safety ensure korar jonno
     public boolean loadView(String fxmlPath) {
         if (fxmlPath == null || fxmlPath.isBlank()) {
             return false;
@@ -70,9 +65,10 @@ public class MainLayoutController implements Initializable {
             return true;
         }
 
-        if (loadingView || fxmlPath.equals(activeViewPath)) {
+        if (loadingView || fxmlPath.equals(activeViewPath)) {// jodi ekta view already load hocche thake, ba requested view already active thake, tahole abar load korar proyojon nei
             return false;
         }
+
 
         loadingView = true;
         try {
@@ -113,6 +109,8 @@ public class MainLayoutController implements Initializable {
         return loadedRoot;
     }
 
+
+    //Sidebar component load method, jeta sidebar.fxml theke sidebar component load kore, controller reference set kore, and sidebar container e add kore. Error handling o ache jate resource na pele ba controller null pele user ke alert deya jai
     private void loadSidebarComponent() {
         String sidebarPath = "/fxml/sidebar/sidebar.fxml";
         try {
@@ -129,13 +127,15 @@ public class MainLayoutController implements Initializable {
                 showError("Sidebar controller is null for: " + sidebarPath);
                 return;
             }
-            sidebarController.setMainLayoutController(this);
+            sidebarController.setMainLayoutController(this);//sidebar controller ke main layout controller er reference diye deya hocche, jate sidebar theke main layout er method gulo call kora jai
             sidebarContainer.getChildren().setAll(sidebar);
         } catch (Exception e) {
             showError("Could not load sidebar component: " + sidebarPath, e);
         }
     }
 
+
+    //Error handling methods, jeta user ke alert deya jai jodi navigation error hoy, ba view load korte problem hoy. Throwable version ta root cause identify kore alert deya o stack trace print kore
     private void showError(String message) {
         UiAlerts.error("Navigation Error", message);
     }
